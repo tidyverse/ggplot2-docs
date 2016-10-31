@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contours from a 2d density estimate. — geom_density_2d • ggplot2</title>
+<title>Contours of a 2d density estimate — geom_density_2d • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/hadley/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -77,13 +77,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Contours from a 2d density estimate.</h1>
+    <h1>Contours of a 2d density estimate</h1>
     </div>
 
     
     <p>Perform a 2D kernel density estimation using <code><a href='http://www.rdocumentation.org/packages/MASS/topics/kde2d'>kde2d</a></code> and
 display the results with contours. This can be useful for dealing with
-overplotting.</p>
+overplotting. This is a 2d version of <code><a href='geom_density.html'>geom_density</a></code>.</p>
     
 
     <pre><span class='fu'>geom_density_2d</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"density2d"</span>,
@@ -130,8 +130,8 @@ to the paired geom/stat.</dd>
       <dt>linemitre</dt>
       <dd>Line mitre limit (number greater than 1)</dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code> (the default), removes missing values with
-a warning.  If <code>TRUE</code> silently removes missing values.</dd>
+      <dd>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
       <dt>show.legend</dt>
       <dd>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
@@ -168,7 +168,7 @@ using <code><a href='http://www.rdocumentation.org/packages/MASS/topics/bandwidt
 
     <p><code><a href='geom_contour.html'>geom_contour</a></code> for information about how contours
  are drawn; <code><a href='geom_bin2d.html'>geom_bin2d</a></code> for another way of dealing with
- overplotting</p>
+ overplotting.</p>
     
 
     <h2 class="hasAnchor" id="examples">
@@ -205,9 +205,19 @@ using <code><a href='http://www.rdocumentation.org/packages/MASS/topics/bandwidt
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

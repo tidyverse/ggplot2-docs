@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Tukey box and whiskers plot. — geom_boxplot • ggplot2</title>
+<title>A box and whiskers plot (in the style of Tukey) — geom_boxplot • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/hadley/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -77,13 +77,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Tukey box and whiskers plot.</h1>
+    <h1>A box and whiskers plot (in the style of Tukey)</h1>
     </div>
 
     
-    <p>The boxplot gives a compact display of the distribution of a continuous
-variable. It displays a five number summary (defined by the median,
-two hinges, and two whiskers), and then individually all &quot;outlying&quot; points.</p>
+    <p>The boxplot compactly displays the distribution of a continuous variable.
+It visualises five summary statistics (the median, two hinges
+and two whiskers), and all &quot;outlying&quot; points individually.</p>
     
 
     <pre><span class='fu'>geom_boxplot</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"boxplot"</span>,
@@ -146,8 +146,8 @@ the body (default 0.5)</dd>
 square-roots of the number of observations in the groups (possibly
 weighted, using the <code>weight</code> aesthetic).</dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code> (the default), removes missing values with
-a warning.  If <code>TRUE</code> silently removes missing values.</dd>
+      <dd>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
       <dt>show.legend</dt>
       <dd>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
@@ -164,18 +164,20 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
       <dd>length of the whiskers as multiple of IQR.  Defaults to 1.5</dd>
     </dl>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="summary-statistics"><a class="anchor" href="#summary-statistics"></a>Summary statistics</h2>
 
+    <p></p>
     <p>The lower and upper hinges correspond to the first and third quartiles
 (the 25th and 75th percentiles). This differs slightly from the method used
 by the <code>boxplot</code> function, and may be apparent with small samples.
 See <code>boxplot.stats</code> for for more information on how hinge
 positions are calculated for <code>boxplot</code>.</p>
-    <p>The upper whisker extends from the hinge to the highest value that is within
-1.5 * IQR of the hinge, where IQR is the inter-quartile range, or distance
-between the first and third quartiles. The lower whisker extends from the
-hinge to the lowest value within 1.5 * IQR of the hinge. Data beyond the
-end of the whiskers are outliers and plotted as points.</p>
+    <p>The upper whisker extends from the hinge to the largest value no further than
+1.5 * IQR from the hinge (where IQR is the inter-quartile range, or distance
+between the first and third quartiles). The lower whisker extends from the
+hinge to the smallest value at most 1.5 * IQR of the hinge. Data beyond the
+end of the whiskers are called &quot;outlying&quot; points and are plotted
+individually.</p>
     <p>In a notched box plot, the notches extend <code>1.58 * IQR / sqrt(n)</code>.
 This gives a roughly 95% confidence interval for comparing medians.
 See McGill et al. (1978) for more details.</p>
@@ -206,9 +208,9 @@ See McGill et al. (1978) for more details.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='geom_quantile.html'>stat_quantile</a></code> to view quantiles conditioned on a
-  continuous variable, <code><a href='geom_jitter.html'>geom_jitter</a></code> for another way to look
-  at conditional distributions.</p>
+    <p><code><a href='geom_quantile.html'>geom_quantile</a></code> for continuous x,
+  <code><a href='geom_violin.html'>geom_violin</a></code> for a richer display of the distribution, and
+  <code><a href='geom_jitter.html'>geom_jitter</a></code> for a useful technique for small data.</p>
     
 
     <h2 class="hasAnchor" id="examples">
@@ -237,7 +239,7 @@ Continuous x aesthetic -- did you forget aes(group=...)?</strong></div><img src=
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#details">Details</a></li>
+      <li><a href="#summary-statistics">Summary statistics</a></li>
 
       <li><a href="#aesthetics">Aesthetics</a></li>
 
@@ -259,9 +261,19 @@ Continuous x aesthetic -- did you forget aes(group=...)?</strong></div><img src=
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

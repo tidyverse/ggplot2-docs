@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vertical intervals: lines, crossbars &amp; errorbars. — geom_crossbar • ggplot2</title>
+<title>Vertical intervals: lines, crossbars &amp; errorbars — geom_crossbar • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/hadley/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -77,7 +77,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Vertical intervals: lines, crossbars &amp; errorbars.</h1>
+    <h1>Vertical intervals: lines, crossbars &amp; errorbars</h1>
     </div>
 
     
@@ -138,8 +138,8 @@ to the paired geom/stat.</dd>
 middle bar in <code>geom_crossbar()</code> and the middle point in
 <code>geom_pointrange()</code>.</dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code> (the default), removes missing values with
-a warning.  If <code>TRUE</code> silently removes missing values.</dd>
+      <dd>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
       <dt>show.legend</dt>
       <dd>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
@@ -159,7 +159,8 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p><code><a href='stat_summary_bin.html'>stat_summary</a></code> for examples of these guys in use,
- <code><a href='geom_smooth.html'>geom_smooth</a></code> for continuous analog</p>
+ <code><a href='geom_smooth.html'>geom_smooth</a></code> for continuous analog,
+ <code>geom_errorh</code> for a horizontal error bar.</p>
     
 
     <h2 class="hasAnchor" id="examples">
@@ -185,13 +186,13 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
 <span class='co'># specify the dodge width</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>trt</span>, <span class='no'>resp</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>group</span>))
 <span class='no'>p</span> +
- <span class='fu'><a href='geom_col.html'>geom_col</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>) +
+ <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>) +
  <span class='fu'>geom_errorbar</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>lower</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>upper</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.25</span>)</div><img src='geom_crossbar-12.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Because the bars and errorbars have different widths</span>
 <span class='co'># we need to specify how wide the objects we are dodging are</span>
 <span class='no'>dodge</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='position_dodge.html'>position_dodge</a></span>(<span class='kw'>width</span><span class='kw'>=</span><span class='fl'>0.9</span>)
 <span class='no'>p</span> +
-  <span class='fu'><a href='geom_col.html'>geom_col</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='no'>dodge</span>) +
+  <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='no'>dodge</span>) +
   <span class='fu'>geom_errorbar</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>lower</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>upper</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='no'>dodge</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.25</span>)</div><img src='geom_crossbar-14.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -215,9 +216,19 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

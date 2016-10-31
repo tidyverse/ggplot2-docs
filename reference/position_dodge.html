@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Adjust position by dodging overlaps to the side. — position_dodge • ggplot2</title>
+<title>Dodge overlapping objects side-to-side — position_dodge • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/hadley/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -77,11 +77,12 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Adjust position by dodging overlaps to the side.</h1>
+    <h1>Dodge overlapping objects side-to-side</h1>
     </div>
 
     
-    <p>Adjust position by dodging overlaps to the side.</p>
+    <p>Dodging preserves the vertical position of an geom while adjusting the
+horizontal position.</p>
     
 
     <pre><span class='fu'>position_dodge</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
@@ -91,7 +92,7 @@
       <dt>width</dt>
       <dd>Dodging width, when different to the width of the individual
 elements. This is useful when you want to align narrow geoms with wider
-geoms. See the examples for a use case.</dd>
+geoms. See the examples.</dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -109,7 +110,32 @@ geoms. See the examples for a use case.</dd>
     </h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>))) +
   <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><img src='position_dodge-2.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+
+<span class='co'># Dodging with various widths -------------------------------------</span>
+<span class='co'># To dodge items with different widths, you need to be explicit</span>
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"a"</span>,<span class='st'>"a"</span>,<span class='st'>"b"</span>,<span class='st'>"b"</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>2</span>:<span class='fl'>5</span>, <span class='kw'>g</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>1</span>:<span class='fl'>2</span>, <span class='fl'>2</span>))
+<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>g</span>)) +
+  <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>)
+<span class='no'>p</span></div><img src='position_dodge-4.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># A line range has no width:</span>
+<span class='no'>p</span> + <span class='fu'><a href='geom_crossbar.html'>geom_linerange</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span> - <span class='fl'>1</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><div class='output'><strong class='text-warning'>Warning message:
+Width not defined. Set with `position_dodge(width = ?)`</strong></div><img src='position_dodge-7.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># So you must explicitly specify the width</span>
+<span class='no'>p</span> + <span class='fu'><a href='geom_crossbar.html'>geom_linerange</a></span>(
+  <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span> - <span class='fl'>1</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>),
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_dodge</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
+)</div><img src='position_dodge-9.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># The same principle applies to error bars, which are usually</span>
+<span class='co'># narrower than the bars</span>
+<span class='no'>p</span> + <span class='fu'><a href='geom_crossbar.html'>geom_errorbar</a></span>(
+  <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span> - <span class='fl'>1</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>),
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>
+)</div><img src='position_dodge-11.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='geom_crossbar.html'>geom_errorbar</a></span>(
+  <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span> - <span class='fl'>1</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>),
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_dodge</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
+)</div><img src='position_dodge-13.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -130,9 +156,19 @@ geoms. See the examples for a use case.</dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

@@ -62,7 +62,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/hadley/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -101,17 +101,17 @@ Broken down into construct, build, render and draw times.</p>
       Examples
     </h2>
     <pre class="examples"><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>())</div><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.002    0.000   0.003
-#&gt; 2     build     0.016    0.001   0.016
-#&gt; 3    render     0.088    0.038   0.260
-#&gt; 4      draw     0.066    0.009   0.082
-#&gt; 5     TOTAL     0.172    0.048   0.361
+#&gt; 1 construct     0.005    0.004   0.008
+#&gt; 2     build     0.017    0.000   0.017
+#&gt; 3    render     0.056    0.000   0.056
+#&gt; 4      draw     0.096    0.008   0.111
+#&gt; 5     TOTAL     0.174    0.012   0.192
 #&gt; </div><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>))</div><img src='benchplot-4.png' alt='' width='540' height='400' /><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.215    0.019   0.247
-#&gt; 2     build     0.039    0.001   0.039
-#&gt; 3    render     0.121    0.004   0.129
-#&gt; 4      draw     0.112    0.013   0.139
-#&gt; 5     TOTAL     0.487    0.037   0.554
+#&gt; 1 construct     0.004    0.000   0.003
+#&gt; 2     build     0.036    0.000   0.036
+#&gt; 3    render     0.143    0.005   0.152
+#&gt; 4      draw     0.179    0.013   0.205
+#&gt; 5     TOTAL     0.362    0.018   0.396
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -131,9 +131,19 @@ Broken down into construct, build, render and draw times.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

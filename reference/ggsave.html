@@ -61,7 +61,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/hadley/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -98,28 +98,24 @@ extension.</p>
       <dt>plot</dt>
       <dd>Plot to save, defaults to last plot displayed.</dd>
       <dt>device</dt>
-      <dd>Device to use (function or any of the recognized extensions,
-e.g. <code>&quot;pdf&quot;</code>). By default, extracted from filename extension.
-<code>ggsave</code> currently recognises eps/ps, tex (pictex), pdf, jpeg, tiff,
-png, bmp, svg and wmf (windows only).</dd>
+      <dd>Device to use. Can be either be a device function
+(e.g. <code>png</code>), or one of &quot;eps&quot;, &quot;ps&quot;, &quot;tex&quot; (pictex),
+&quot;pdf&quot;, &quot;jpeg&quot;, &quot;tiff&quot;, &quot;png&quot;, &quot;bmp&quot;, &quot;svg&quot; or &quot;wmf&quot; (windows only).</dd>
       <dt>path</dt>
       <dd>Path to save plot to (combined with filename).</dd>
       <dt>scale</dt>
       <dd>Multiplicative scaling factor.</dd>
-      <dt>width, height</dt>
-      <dd>Plot dimensions, defaults to size of current graphics
-device.</dd>
-      <dt>units</dt>
-      <dd>Units for width and height when specified explicitly (in, cm,
-or mm)</dd>
+      <dt>width, height, units</dt>
+      <dd>Plot size in <code>units</code> (&quot;in&quot;, &quot;cm&quot;, or &quot;mm&quot;).
+If not supplied, uses the size of current graphics device.</dd>
       <dt>dpi</dt>
-      <dd>Resolution used for raster outputs.</dd>
+      <dd>Plot resolution. Applies only to raster output types.</dd>
       <dt>limitsize</dt>
       <dd>When <code>TRUE</code> (the default), <code>ggsave</code> will not
 save images larger than 50x50 inches, to prevent the common error of
 specifying dimensions in pixels.</dd>
       <dt>...</dt>
-      <dd>Other arguments passed on to graphics device</dd>
+      <dd>Other arguments passed on to graphics <code>device</code>.</dd>
     </dl>
     
 
@@ -163,9 +159,19 @@ specifying dimensions in pixels.</dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

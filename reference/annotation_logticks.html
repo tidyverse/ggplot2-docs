@@ -61,7 +61,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/hadley/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -152,7 +152,7 @@ long tick marks. In base 10, these are the &quot;1&quot; (or &quot;10&quot;) tic
 
 <span class='no'>a</span> + <span class='fu'>annotation_logticks</span>()                <span class='co'># Default: log ticks on bottom and left</span></div><img src='annotation_logticks-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"lr"</span>)    <span class='co'># Log ticks for y, on left and right</span></div><img src='annotation_logticks-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>)  <span class='co'># All four sides</span></div><img src='annotation_logticks-6.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Hide the minor grid lines because they don't align with the ticks</span>
-<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>) + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())</div><strong class='error'>Error in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x$y,     resolveHJust(x$just, x$hjust), resolveVJust(x$just, x$vjust),     x$rot, 0): polygon edge not found</strong><img src='annotation_logticks-9.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>) + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())</div><img src='annotation_logticks-8.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Another way to get the same results as 'a' above: log-transform the data before</span>
 <span class='co'># plotting it. Also hide the minor grid lines.</span>
 <span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>msleep</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>log10</span>(<span class='no'>bodywt</span>), <span class='fu'>log10</span>(<span class='no'>brainwt</span>))) +
@@ -161,21 +161,20 @@ long tick marks. In base 10, these are the &quot;1&quot; (or &quot;10&quot;) tic
  <span class='fu'><a href='scale_continuous.html'>scale_y_continuous</a></span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"brain"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='fu'>math_format</span>(<span class='fl'>10</span>^<span class='no'>.x</span>)) +
  <span class='fu'><a href='ggtheme.html'>theme_bw</a></span>() + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())
 
-<span class='no'>b</span> + <span class='fu'>annotation_logticks</span>()
-
+<span class='no'>b</span> + <span class='fu'>annotation_logticks</span>()</div><img src='annotation_logticks-10.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Using a coordinate transform requires scaled = FALSE</span>
 <span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>msleep</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>bodywt</span>, <span class='no'>brainwt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='coord_trans.html'>coord_trans</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"log10"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"log10"</span>) +
   <span class='fu'><a href='ggtheme.html'>theme_bw</a></span>()
 <span class='no'>t</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>scaled</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 27 rows containing missing values (geom_point).</strong></div><div class='input'>
+Removed 27 rows containing missing values (geom_point).</strong></div><img src='annotation_logticks-13.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Change the length of the ticks</span>
 <span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(
   <span class='kw'>short</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>.5</span>,<span class='st'>"mm"</span>),
   <span class='kw'>mid</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>3</span>,<span class='st'>"mm"</span>),
   <span class='kw'>long</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>4</span>,<span class='st'>"mm"</span>)
-)</div><strong class='error'>Error in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x$y,     resolveHJust(x$just, x$hjust), resolveVJust(x$just, x$vjust),     x$rot, 0): polygon edge not found</strong></pre>
+)</div><img src='annotation_logticks-15.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -196,9 +195,19 @@ Removed 27 rows containing missing values (geom_point).</strong></div><div class
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

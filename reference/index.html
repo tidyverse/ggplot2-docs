@@ -61,7 +61,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/hadley/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -83,93 +83,73 @@
 
     <div class="contents">
       <h2 id="section-plot-basics" class="hasAnchor"><a href="#section-plot-basics" class="anchor"></a>Plot basics</h2>
-      <p class="section-desc"></p>
+      <p class="section-desc"><p>All ggplot2 plots with a call to <code><a href="../reference/ggplot.html">ggplot()</a></code>, supplying default data and aesthethic mappings, specified by <code><a href="../reference/aes.html">aes()</a></code>. You then add components (listed below) with <code>+</code>. To save a plot to disk, use <code><a href="../reference/ggsave.html">ggsave()</a></code>.</p></p>
 
       
-      <p><a href="aes_.html">Define aesthetic mappings from strings, or quoted calls and formulas.</a></p>
-      <ul>
-        <li><code><a href="aes_.html">aes_</a></code></li><li><code><a href="aes_.html">aes_string</a></code></li><li><code><a href="aes_.html">aes_q</a></code></li>
-      </ul>
-      
-      <p><a href="aes.html">Define aesthetic mappings.</a></p>
+      <p><a href="aes.html">Construct aesthetic mappings</a></p>
       <ul>
         <li><code><a href="aes.html">aes</a></code></li>
       </ul>
       
-      <p><a href="gg-add.html">Add a new component to a ggplot or theme object.</a></p>
+      <p><a href="gg-add.html">Add components to a plot</a></p>
       <ul>
-        <li><code><a href="gg-add.html">+.gg</a></code></li><li><code><a href="gg-add.html">%+%</a></code></li><li><code><a href="gg-add.html">%+replace%</a></code></li>
+        <li><code><a href="gg-add.html">+.gg</a></code></li><li><code><a href="gg-add.html">%+%</a></code></li>
       </ul>
       
-      <p><a href="ggplot.html">Create a new ggplot plot.</a></p>
+      <p><a href="ggplot.html">Create a new ggplot</a></p>
       <ul>
-        <li><code><a href="ggplot.html">ggplot</a></code></li><li><code><a href="ggplot.html">ggplot.default</a></code></li><li><code><a href="ggplot.html">ggplot.data.frame</a></code></li>
+        <li><code><a href="ggplot.html">ggplot</a></code></li>
       </ul>
       
       <p><a href="ggsave.html">Save a ggplot (or other grid object) with sensible defaults</a></p>
       <ul>
         <li><code><a href="ggsave.html">ggsave</a></code></li>
       </ul>
-      
-      <p><a href="print.ggplot.html">Draw plot on current graphics device.</a></p>
-      <ul>
-        <li><code><a href="print.ggplot.html">print.ggplot</a></code></li><li><code><a href="print.ggplot.html">plot.ggplot</a></code></li>
-      </ul>
-      
-      <p><a href="qplot.html">Quick plot</a></p>
-      <ul>
-        <li><code><a href="qplot.html">qplot</a></code></li><li><code><a href="qplot.html">quickplot</a></code></li>
-      </ul>
-          <h2 id="section-geoms" class="hasAnchor"><a href="#section-geoms" class="anchor"></a>Geoms</h2>
-      <p class="section-desc"></p>
+          <h2 id="section-layer-geoms" class="hasAnchor"><a href="#section-layer-geoms" class="anchor"></a>Layer: geoms</h2>
+      <p class="section-desc"><p>A layer combines data, aesthetic mapping, a geom (geometric object), a stat (statistical transformation), and a position adjustment. Typically, you will create layers using a <code>geom_</code> function, overriding the default position and stat if needed.</p></p>
 
       <img src="icons/geom_abline.png" width="40" height="40" class="icon" />
-      <p><a href="geom_abline.html">Lines: horizontal, vertical, and specified by slope and intercept.</a></p>
+      <p><a href="geom_abline.html">Reference lines: horizontal, vertical, and diagonal</a></p>
       <ul>
         <li><code><a href="geom_abline.html">geom_abline</a></code></li><li><code><a href="geom_abline.html">geom_hline</a></code></li><li><code><a href="geom_abline.html">geom_vline</a></code></li>
       </ul>
       <img src="icons/geom_bar.png" width="40" height="40" class="icon" />
       <p><a href="geom_bar.html">Bars, rectangles with bases on x-axis</a></p>
       <ul>
-        <li><code><a href="geom_bar.html">geom_bar</a></code></li><li><code><a href="geom_bar.html">stat_count</a></code></li>
+        <li><code><a href="geom_bar.html">geom_bar</a></code></li><li><code><a href="geom_bar.html">geom_col</a></code></li><li><code><a href="geom_bar.html">stat_count</a></code></li>
       </ul>
       
-      <p><a href="geom_bin2d.html">Add heatmap of 2d bin counts.</a></p>
+      <p><a href="geom_bin2d.html">Heatmap of 2d bin counts</a></p>
       <ul>
         <li><code><a href="geom_bin2d.html">geom_bin2d</a></code></li><li><code><a href="geom_bin2d.html">stat_bin_2d</a></code></li><li><code><a href="geom_bin2d.html">stat_bin2d</a></code></li>
       </ul>
       
-      <p><a href="geom_blank.html">Blank, draws nothing.</a></p>
+      <p><a href="geom_blank.html">Draw nothing</a></p>
       <ul>
         <li><code><a href="geom_blank.html">geom_blank</a></code></li>
       </ul>
       <img src="icons/geom_boxplot.png" width="40" height="40" class="icon" />
-      <p><a href="geom_boxplot.html">A Tukey box and whiskers plot.</a></p>
+      <p><a href="geom_boxplot.html">A box and whiskers plot (in the style of Tukey)</a></p>
       <ul>
         <li><code><a href="geom_boxplot.html">geom_boxplot</a></code></li><li><code><a href="geom_boxplot.html">stat_boxplot</a></code></li>
       </ul>
-      
-      <p><a href="geom_col.html">Bars, rectangles with bases on x-axis</a></p>
-      <ul>
-        <li><code><a href="geom_col.html">geom_col</a></code></li>
-      </ul>
       <img src="icons/geom_contour.png" width="40" height="40" class="icon" />
-      <p><a href="geom_contour.html">Display contours of a 3d surface in 2d.</a></p>
+      <p><a href="geom_contour.html">2d contours of a 3d surface</a></p>
       <ul>
         <li><code><a href="geom_contour.html">geom_contour</a></code></li><li><code><a href="geom_contour.html">stat_contour</a></code></li>
       </ul>
       <img src="icons/stat_sum.png" width="40" height="40" class="icon" />
-      <p><a href="geom_count.html">Count the number of observations at each location.</a></p>
+      <p><a href="geom_count.html">Count overlapping points</a></p>
       <ul>
         <li><code><a href="geom_count.html">geom_count</a></code></li><li><code><a href="geom_count.html">stat_sum</a></code></li>
       </ul>
       
-      <p><a href="geom_density_2d.html">Contours from a 2d density estimate.</a></p>
+      <p><a href="geom_density_2d.html">Contours of a 2d density estimate</a></p>
       <ul>
         <li><code><a href="geom_density_2d.html">geom_density_2d</a></code></li><li><code><a href="geom_density_2d.html">geom_density2d</a></code></li><li><code><a href="geom_density_2d.html">stat_density_2d</a></code></li><li><code><a href="geom_density_2d.html">stat_density2d</a></code></li>
       </ul>
       <img src="icons/geom_density.png" width="40" height="40" class="icon" />
-      <p><a href="geom_density.html">Display a smooth density estimate.</a></p>
+      <p><a href="geom_density.html">Smoothed density estimates</a></p>
       <ul>
         <li><code><a href="geom_density.html">geom_density</a></code></li><li><code><a href="geom_density.html">stat_density</a></code></li>
       </ul>
@@ -184,100 +164,138 @@
         <li><code><a href="geom_errorbarh.html">geom_errorbarh</a></code></li>
       </ul>
       
-      <p><a href="geom_hex.html">Hexagon binning.</a></p>
+      <p><a href="geom_hex.html">Hexagonal heatmap of 2d bin counts</a></p>
       <ul>
         <li><code><a href="geom_hex.html">geom_hex</a></code></li><li><code><a href="geom_hex.html">stat_bin_hex</a></code></li><li><code><a href="geom_hex.html">stat_binhex</a></code></li>
       </ul>
       <img src="icons/geom_freqpoly.png" width="40" height="40" class="icon" />
-      <p><a href="geom_histogram.html">Histograms and frequency polygons.</a></p>
+      <p><a href="geom_histogram.html">Histograms and frequency polygons</a></p>
       <ul>
         <li><code><a href="geom_histogram.html">geom_freqpoly</a></code></li><li><code><a href="geom_histogram.html">geom_histogram</a></code></li><li><code><a href="geom_histogram.html">stat_bin</a></code></li>
       </ul>
       <img src="icons/geom_jitter.png" width="40" height="40" class="icon" />
-      <p><a href="geom_jitter.html">Points, jittered to reduce overplotting.</a></p>
+      <p><a href="geom_jitter.html">Jittered points</a></p>
       <ul>
         <li><code><a href="geom_jitter.html">geom_jitter</a></code></li>
       </ul>
       <img src="icons/geom_crossbar.png" width="40" height="40" class="icon" />
-      <p><a href="geom_linerange.html">Vertical intervals: lines, crossbars &amp; errorbars.</a></p>
+      <p><a href="geom_linerange.html">Vertical intervals: lines, crossbars &amp; errorbars</a></p>
       <ul>
         <li><code><a href="geom_linerange.html">geom_crossbar</a></code></li><li><code><a href="geom_linerange.html">geom_errorbar</a></code></li><li><code><a href="geom_linerange.html">geom_linerange</a></code></li><li><code><a href="geom_linerange.html">geom_pointrange</a></code></li>
       </ul>
       
-      <p><a href="geom_map.html">Polygons from a reference map.</a></p>
+      <p><a href="geom_map.html">Polygons from a reference map</a></p>
       <ul>
         <li><code><a href="geom_map.html">geom_map</a></code></li>
       </ul>
       <img src="icons/geom_path.png" width="40" height="40" class="icon" />
-      <p><a href="geom_path.html">Connect observations.</a></p>
+      <p><a href="geom_path.html">Connect observations</a></p>
       <ul>
         <li><code><a href="geom_path.html">geom_path</a></code></li><li><code><a href="geom_path.html">geom_line</a></code></li><li><code><a href="geom_path.html">geom_step</a></code></li>
       </ul>
       <img src="icons/geom_point.png" width="40" height="40" class="icon" />
-      <p><a href="geom_point.html">Points, as for a scatterplot</a></p>
+      <p><a href="geom_point.html">Points</a></p>
       <ul>
         <li><code><a href="geom_point.html">geom_point</a></code></li>
       </ul>
       <img src="icons/geom_polygon.png" width="40" height="40" class="icon" />
-      <p><a href="geom_polygon.html">Polygon, a filled path.</a></p>
+      <p><a href="geom_polygon.html">Polygons</a></p>
       <ul>
         <li><code><a href="geom_polygon.html">geom_polygon</a></code></li>
       </ul>
+      
+      <p><a href="geom_qq.html">A quantile-quantile plot</a></p>
+      <ul>
+        <li><code><a href="geom_qq.html">geom_qq</a></code></li><li><code><a href="geom_qq.html">stat_qq</a></code></li>
+      </ul>
       <img src="icons/geom_quantile.png" width="40" height="40" class="icon" />
-      <p><a href="geom_quantile.html">Add quantile lines from a quantile regression.</a></p>
+      <p><a href="geom_quantile.html">Quantile regression</a></p>
       <ul>
         <li><code><a href="geom_quantile.html">geom_quantile</a></code></li><li><code><a href="geom_quantile.html">stat_quantile</a></code></li>
       </ul>
       <img src="icons/geom_ribbon.png" width="40" height="40" class="icon" />
-      <p><a href="geom_ribbon.html">Ribbons and area plots.</a></p>
+      <p><a href="geom_ribbon.html">Ribbons and area plots</a></p>
       <ul>
         <li><code><a href="geom_ribbon.html">geom_ribbon</a></code></li><li><code><a href="geom_ribbon.html">geom_area</a></code></li>
       </ul>
       
-      <p><a href="geom_rug.html">Marginal rug plots.</a></p>
+      <p><a href="geom_rug.html">Rug plots in the margins</a></p>
       <ul>
         <li><code><a href="geom_rug.html">geom_rug</a></code></li>
       </ul>
       <img src="icons/geom_segment.png" width="40" height="40" class="icon" />
-      <p><a href="geom_segment.html">Line segments and curves.</a></p>
+      <p><a href="geom_segment.html">Line segments and curves</a></p>
       <ul>
         <li><code><a href="geom_segment.html">geom_segment</a></code></li><li><code><a href="geom_segment.html">geom_curve</a></code></li>
       </ul>
       <img src="icons/geom_smooth.png" width="40" height="40" class="icon" />
-      <p><a href="geom_smooth.html">Add a smoothed conditional mean.</a></p>
+      <p><a href="geom_smooth.html">Smoothed conditional means</a></p>
       <ul>
         <li><code><a href="geom_smooth.html">geom_smooth</a></code></li><li><code><a href="geom_smooth.html">stat_smooth</a></code></li>
       </ul>
       
-      <p><a href="geom_spoke.html">A line segment parameterised by location, direction and distance.</a></p>
+      <p><a href="geom_spoke.html">Line segments parameterised by location, direction and distance</a></p>
       <ul>
         <li><code><a href="geom_spoke.html">geom_spoke</a></code></li><li><code><a href="geom_spoke.html">stat_spoke</a></code></li>
       </ul>
       <img src="icons/geom_text.png" width="40" height="40" class="icon" />
-      <p><a href="geom_text.html">Textual annotations.</a></p>
+      <p><a href="geom_text.html">Text</a></p>
       <ul>
         <li><code><a href="geom_text.html">geom_label</a></code></li><li><code><a href="geom_text.html">geom_text</a></code></li>
       </ul>
       <img src="icons/geom_raster.png" width="40" height="40" class="icon" />
-      <p><a href="geom_tile.html">Draw rectangles.</a></p>
+      <p><a href="geom_tile.html">Rectangles</a></p>
       <ul>
         <li><code><a href="geom_tile.html">geom_raster</a></code></li><li><code><a href="geom_tile.html">geom_rect</a></code></li><li><code><a href="geom_tile.html">geom_tile</a></code></li>
       </ul>
       <img src="icons/geom_violin.png" width="40" height="40" class="icon" />
-      <p><a href="geom_violin.html">Violin plot.</a></p>
+      <p><a href="geom_violin.html">Violin plot</a></p>
       <ul>
         <li><code><a href="geom_violin.html">geom_violin</a></code></li><li><code><a href="geom_violin.html">stat_ydensity</a></code></li>
       </ul>
+          <h2 id="section-layer-stats" class="hasAnchor"><a href="#section-layer-stats" class="anchor"></a>Layer: stats</h2>
+      <p class="section-desc"><p>A handful of layers are more easily specified with a <code>stat_</code> function, drawing attention to the statistical transformation rather than the visual appearance.</p></p>
+
       
-      <p><a href="stat_qq.html">Calculation for quantile-quantile plot.</a></p>
+      <p><a href="stat_ecdf.html">Compute empirical cumulative distribution</a></p>
       <ul>
-        <li><code><a href="stat_qq.html">stat_qq</a></code></li><li><code><a href="stat_qq.html">geom_qq</a></code></li>
+        <li><code><a href="stat_ecdf.html">stat_ecdf</a></code></li>
       </ul>
-          <h2 id="section-position-adjustments" class="hasAnchor"><a href="#section-position-adjustments" class="anchor"></a>Position adjustments</h2>
-      <p class="section-desc"></p>
+      
+      <p><a href="stat_ellipse.html">Compute normal confidence ellipses</a></p>
+      <ul>
+        <li><code><a href="stat_ellipse.html">stat_ellipse</a></code></li>
+      </ul>
+      
+      <p><a href="stat_function.html">Compute function for each x value</a></p>
+      <ul>
+        <li><code><a href="stat_function.html">stat_function</a></code></li>
+      </ul>
+      <img src="icons/stat_identity.png" width="40" height="40" class="icon" />
+      <p><a href="stat_identity.html">Leave data as is</a></p>
+      <ul>
+        <li><code><a href="stat_identity.html">stat_identity</a></code></li>
+      </ul>
+      
+      <p><a href="stat_summary_2d.html">Bin and summarise in 2d (rectangle &amp; hexagons)</a></p>
+      <ul>
+        <li><code><a href="stat_summary_2d.html">stat_summary_2d</a></code></li><li><code><a href="stat_summary_2d.html">stat_summary2d</a></code></li><li><code><a href="stat_summary_2d.html">stat_summary_hex</a></code></li>
+      </ul>
+      
+      <p><a href="stat_summary.html">Summarise y values at unique/binned x</a></p>
+      <ul>
+        <li><code><a href="stat_summary.html">stat_summary_bin</a></code></li><li><code><a href="stat_summary.html">stat_summary</a></code></li>
+      </ul>
+      
+      <p><a href="stat_unique.html">Remove duplicates</a></p>
+      <ul>
+        <li><code><a href="stat_unique.html">stat_unique</a></code></li>
+      </ul>
+          <h2 id="section-layer-position-adjustment" class="hasAnchor"><a href="#section-layer-position-adjustment" class="anchor"></a>Layer: position adjustment</h2>
+      <p class="section-desc"><p>All layers have a position adjustment that resolves overlapping geoms. Override the default by using the <code>position</code> argument to the <code>geom_</code> or <code>stat_</code> function.</p></p>
 
       <img src="icons/position_dodge.png" width="40" height="40" class="icon" />
-      <p><a href="position_dodge.html">Adjust position by dodging overlaps to the side.</a></p>
+      <p><a href="position_dodge.html">Dodge overlapping objects side-to-side</a></p>
       <ul>
         <li><code><a href="position_dodge.html">position_dodge</a></code></li>
       </ul>
@@ -287,67 +305,24 @@
         <li><code><a href="position_identity.html">position_identity</a></code></li>
       </ul>
       <img src="icons/position_jitter.png" width="40" height="40" class="icon" />
-      <p><a href="position_jitter.html">Jitter points to avoid overplotting.</a></p>
+      <p><a href="position_jitter.html">Jitter points to avoid overplotting</a></p>
       <ul>
         <li><code><a href="position_jitter.html">position_jitter</a></code></li>
       </ul>
       
-      <p><a href="position_jitterdodge.html">Adjust position by simultaneously dodging and jittering</a></p>
+      <p><a href="position_jitterdodge.html">Simultaneously dodge and jitter</a></p>
       <ul>
         <li><code><a href="position_jitterdodge.html">position_jitterdodge</a></code></li>
       </ul>
       
-      <p><a href="position_nudge.html">Nudge points.</a></p>
+      <p><a href="position_nudge.html">Nudge points a fixed distance</a></p>
       <ul>
         <li><code><a href="position_nudge.html">position_nudge</a></code></li>
       </ul>
       <img src="icons/position_stack.png" width="40" height="40" class="icon" />
-      <p><a href="position_stack.html">Stack overlapping objects on top of one another.</a></p>
+      <p><a href="position_stack.html">Stack overlapping objects on top of each another</a></p>
       <ul>
         <li><code><a href="position_stack.html">position_stack</a></code></li><li><code><a href="position_stack.html">position_fill</a></code></li>
-      </ul>
-          <h2 id="section-stats" class="hasAnchor"><a href="#section-stats" class="anchor"></a>Stats</h2>
-      <p class="section-desc"></p>
-
-      
-      <p><a href="stat_ecdf.html">Empirical Cumulative Distribution Function</a></p>
-      <ul>
-        <li><code><a href="stat_ecdf.html">stat_ecdf</a></code></li>
-      </ul>
-      
-      <p><a href="stat_ellipse.html">Plot data ellipses.</a></p>
-      <ul>
-        <li><code><a href="stat_ellipse.html">stat_ellipse</a></code></li>
-      </ul>
-      
-      <p><a href="stat_function.html">Superimpose a function.</a></p>
-      <ul>
-        <li><code><a href="stat_function.html">stat_function</a></code></li>
-      </ul>
-      <img src="icons/stat_identity.png" width="40" height="40" class="icon" />
-      <p><a href="stat_identity.html">Identity statistic.</a></p>
-      <ul>
-        <li><code><a href="stat_identity.html">stat_identity</a></code></li>
-      </ul>
-      
-      <p><a href="stat_qq.html">Calculation for quantile-quantile plot.</a></p>
-      <ul>
-        <li><code><a href="stat_qq.html">stat_qq</a></code></li><li><code><a href="stat_qq.html">geom_qq</a></code></li>
-      </ul>
-      
-      <p><a href="stat_summary_2d.html">Bin and summarise in 2d (rectangle &amp; hexagons)</a></p>
-      <ul>
-        <li><code><a href="stat_summary_2d.html">stat_summary_2d</a></code></li><li><code><a href="stat_summary_2d.html">stat_summary2d</a></code></li><li><code><a href="stat_summary_2d.html">stat_summary_hex</a></code></li>
-      </ul>
-      
-      <p><a href="stat_summary.html">Summarise y values at unique/binned x x.</a></p>
-      <ul>
-        <li><code><a href="stat_summary.html">stat_summary_bin</a></code></li><li><code><a href="stat_summary.html">stat_summary</a></code></li>
-      </ul>
-      
-      <p><a href="stat_unique.html">Remove duplicates.</a></p>
-      <ul>
-        <li><code><a href="stat_unique.html">stat_unique</a></code></li>
       </ul>
           <h2 id="section-scales" class="hasAnchor"><a href="#section-scales" class="anchor"></a>Scales</h2>
       <p class="section-desc"></p>
@@ -619,11 +594,6 @@
       <p class="section-desc"></p>
 
       
-      <p><a href="calc_element.html">Calculate the element properties, by inheriting properties from its parents</a></p>
-      <ul>
-        <li><code><a href="calc_element.html">calc_element</a></code></li>
-      </ul>
-      
       <p><a href="element.html">Theme elements</a></p>
       <ul>
         <li><code><a href="element.html">element</a></code></li><li><code><a href="element.html">element_blank</a></code></li><li><code><a href="element.html">element_rect</a></code></li><li><code><a href="element.html">element_line</a></code></li><li><code><a href="element.html">element_text</a></code></li>
@@ -649,14 +619,27 @@
         <li><code><a href="rel.html">rel</a></code></li>
       </ul>
       
-      <p><a href="theme_update.html">Get, set and update themes.</a></p>
+      <p><a href="theme_get.html">Get, set and update themes</a></p>
       <ul>
-        <li><code><a href="theme_update.html">theme_update</a></code></li><li><code><a href="theme_update.html">theme_replace</a></code></li><li><code><a href="theme_update.html">theme_get</a></code></li><li><code><a href="theme_update.html">theme_set</a></code></li>
+        <li><code><a href="theme_get.html">theme_get</a></code></li><li><code><a href="theme_get.html">theme_set</a></code></li><li><code><a href="theme_get.html">theme_update</a></code></li><li><code><a href="theme_get.html">theme_replace</a></code></li><li><code><a href="theme_get.html">%+replace%</a></code></li>
       </ul>
       
       <p><a href="theme.html">Set theme elements</a></p>
       <ul>
         <li><code><a href="theme.html">theme</a></code></li>
+      </ul>
+          <h2 id="section-programming-with-ggplot-" class="hasAnchor"><a href="#section-programming-with-ggplot-" class="anchor"></a>Programming with ggplot2</h2>
+      <p class="section-desc"></p>
+
+      
+      <p><a href="aes_.html">Define aesthetic mappings from strings, or quoted calls and formulas.</a></p>
+      <ul>
+        <li><code><a href="aes_.html">aes_</a></code></li><li><code><a href="aes_.html">aes_string</a></code></li><li><code><a href="aes_.html">aes_q</a></code></li>
+      </ul>
+      
+      <p><a href="print.ggplot.html">Draw plot on current graphics device.</a></p>
+      <ul>
+        <li><code><a href="print.ggplot.html">print.ggplot</a></code></li><li><code><a href="print.ggplot.html">plot.ggplot</a></code></li>
       </ul>
           <h2 id="section-ggproto" class="hasAnchor"><a href="#section-ggproto" class="anchor"></a>ggproto</h2>
       <p class="section-desc"></p>
@@ -767,7 +750,7 @@
         <li><code><a href="borders.html">borders</a></code></li>
       </ul>
       
-      <p><a href="ggplot2-package.html">ggplot2: An Implementation of the Grammar of Graphics</a></p>
+      <p><a href="ggplot2-package.html">ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</a></p>
       <ul>
         <li><code><a href="ggplot2-package.html">ggplot2</a></code></li><li><code><a href="ggplot2-package.html">ggplot2-package</a></code></li>
       </ul>
@@ -792,6 +775,11 @@
         <li><code><a href="margin.html">margin</a></code></li>
       </ul>
       
+      <p><a href="qplot.html">Quick plot</a></p>
+      <ul>
+        <li><code><a href="qplot.html">qplot</a></code></li><li><code><a href="qplot.html">quickplot</a></code></li>
+      </ul>
+      
       <p><a href="resolution.html">Compute the &quot;resolution&quot; of a data vector.</a></p>
       <ul>
         <li><code><a href="resolution.html">resolution</a></code></li>
@@ -814,15 +802,16 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#section-plot-basics">Plot basics</a></li>
-      <li><a href="#section-geoms">Geoms</a></li>
-      <li><a href="#section-position-adjustments">Position adjustments</a></li>
-      <li><a href="#section-stats">Stats</a></li>
+      <li><a href="#section-layer-geoms">Layer: geoms</a></li>
+      <li><a href="#section-layer-stats">Layer: stats</a></li>
+      <li><a href="#section-layer-position-adjustment">Layer: position adjustment</a></li>
       <li><a href="#section-scales">Scales</a></li>
       <li><a href="#section-facetting">Facetting</a></li>
       <li><a href="#section-coordinate-systems">Coordinate systems</a></li>
       <li><a href="#section-data">Data</a></li>
       <li><a href="#section-annotations">Annotations</a></li>
       <li><a href="#section-themes">Themes</a></li>
+      <li><a href="#section-programming-with-ggplot-">Programming with ggplot2</a></li>
       <li><a href="#section-ggproto">ggproto</a></li>
       <li><a href="#section-autoplot-and-fortify">Autoplot and fortify</a></li>
       <li><a href="#section-vector-helpers">Vector helpers</a></li>
@@ -837,7 +826,7 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 
