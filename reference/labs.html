@@ -6,8 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Change axis labels, legend titles, plot title/subtitle and below-plot
- — labs • ggplot2</title>
+<title>Modify axis, legend, and plot labels — labs • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -78,13 +77,15 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Change axis labels, legend titles, plot title/subtitle and below-plot
-</h1>
+    <h1>Modify axis, legend, and plot labels</h1>
     </div>
 
     
-    <p>Change axis labels, legend titles, plot title/subtitle and below-plot
-caption.</p>
+    <p>Good labels are critical for making your plots accessible to a wider
+audience. Ensure the axis and legend labels display the full variable name.
+Use the plot <code>title</code> and <code>subtitle</code> to explain the main findings.
+It's common to use the <code>caption</code> to provide information about the
+data source.</p>
     
 
     <pre><span class='fu'>labs</span>(<span class='no'>...</span>)
@@ -98,43 +99,39 @@ caption.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd>a list of new names in the form aesthetic = &quot;new name&quot;</dd>
+      <dd><p>A list of new name-value pairs. The name should either be
+an aesthetic, or one of "title", "subtitle", or "caption".</p></dd>
       <dt>label</dt>
-      <dd>The text for the axis, plot title or caption below the plot.</dd>
+      <dd><p>The text for the axis, plot title or caption below the plot.</p></dd>
       <dt>subtitle</dt>
-      <dd>the text for the subtitle for the plot which will be
-displayed below the title. Leave <code>NULL</code> for no subtitle.</dd>
+      <dd><p>the text for the subtitle for the plot which will be
+displayed below the title. Leave <code>NULL</code> for no subtitle.</p></dd>
     </dl>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
-<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"New plot title"</span>)</div><img src='labs-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"New x label"</span>)</div><img src='labs-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>xlab</span>(<span class='st'>"New x label"</span>)</div><img src='labs-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>ylab</span>(<span class='st'>"New y label"</span>)</div><img src='labs-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>ggtitle</span>(<span class='st'>"New plot title"</span>)</div><img src='labs-10.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># Can add a subtitle to plots with either of the following</span>
-<span class='no'>p</span> + <span class='fu'>ggtitle</span>(<span class='st'>"New plot title"</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"A subtitle"</span>)</div><img src='labs-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"New plot title"</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"A subtitle"</span>)</div><img src='labs-14.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># Can add a plot caption underneath the whole plot (for sources, notes or</span>
-<span class='co'># copyright), similar to the \code{sub} parameter in base R, with the</span>
-<span class='co'># following</span>
-<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"(based on data from ...)"</span>)</div><img src='labs-16.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># This should work independently of other functions that modify the</span>
-<span class='co'># the scale names</span>
-<span class='no'>p</span> + <span class='fu'>ylab</span>(<span class='st'>"New y label"</span>) + <span class='fu'><a href='lims.html'>ylim</a></span>(<span class='fl'>2</span>, <span class='fl'>4</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 8 rows containing missing values (geom_point).</strong></div><img src='labs-19.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='lims.html'>ylim</a></span>(<span class='fl'>2</span>, <span class='fl'>4</span>) + <span class='fu'>ylab</span>(<span class='st'>"New y label"</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 8 rows containing missing values (geom_point).</strong></div><img src='labs-22.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># The labs function also modifies legend labels</span>
-<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cyl</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
-<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"Cylinders"</span>)</div><img src='labs-24.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># Can also pass in a list, if that is more convenient</span>
-<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='fu'>list</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Title"</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Subtitle"</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"X"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Y"</span>))</div><img src='labs-26.png' alt='' width='540' height='400' /></pre>
+    <p>You can also set axis and legend labels in the individual scales (using
+the first argument, the <code>name</code>. I recommend doing that if you're
+changing other scale options.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cyl</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
+<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"Cylinders"</span>)</div><img src='labs-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"New x label"</span>)</div><img src='labs-4.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># The plot title appears at the top-left, with the subtitle</span>
+<span class='co'># display in smaller text underneath it</span>
+<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"New plot title"</span>)</div><img src='labs-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"New plot title"</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"A subtitle"</span>)</div><img src='labs-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># The caption appears in the bottom-right, and is often used for</span>
+<span class='co'># sources, notes or copyright</span>
+<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"(based on data from ...)"</span>)</div><img src='labs-10.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

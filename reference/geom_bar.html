@@ -86,8 +86,8 @@ bar proportional to the number of cases in each group (or if the
 <code>weight</code> aethetic is supplied, the sum of the weights). If you want the
 heights of the bars to represent values in the data, use
 geom_col instead. <code>geom_bar</code> uses <code>stat_count</code> by
-default: it counts the  number of cases at each x position. <code>geom_col</code>
-uses <code>stat_identity</code>: it leaves the data as is.</p>
+default: it counts the  number of cases at each x position. <code>geom_col</code></p>
+<p>uses <code>stat_identity</code>: it leaves the data as is.</p>
     
 
     <pre><span class='fu'>geom_bar</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"count"</span>,
@@ -104,53 +104,50 @@ uses <code>stat_identity</code>: it leaves the data as is.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>position</dt>
-      <dd>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</dd>
+      <dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>width</dt>
-      <dd>Bar width. By default, set to 90% of the resolution of the data.</dd>
+      <dd><p>Bar width. By default, set to 90% of the resolution of the data.</p></dd>
       <dt>binwidth</dt>
-      <dd><code>geom_bar</code> no longer has a binwidth argument - if
-you use it you&#39;ll get an warning telling to you use
-<code><a href='geom_freqpoly.html'>geom_histogram</a></code> instead.</dd>
+      <dd><p><code>geom_bar</code> no longer has a binwidth argument - if
+you use it you'll get an warning telling to you use
+<code><a href='geom_freqpoly.html'>geom_histogram</a></code> instead.</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>inherit.aes</dt>
-      <dd>If <code>FALSE</code>, overrides the default aesthetics,
+      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn&#39;t inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</dd>
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
       <dt>geom, stat</dt>
-      <dd>Override the default connection between <code>geom_bar</code> and
-<code>stat_count</code>.</dd>
+      <dd><p>Override the default connection between <code>geom_bar</code> and
+<code>stat_count</code>.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -159,9 +156,9 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
 bar must always be shown to produce a valid visual comparison. Naomi Robbins
 has a nice
 <a href = 'article on this
-topic'>http://www.b-eye-network.com/view/index.php?cid=2468</a>. This is why it doesn&#39;t make sense to use a log-scaled y axis with a
+topic'>http://www.b-eye-network.com/view/index.php?cid=2468</a>. This is why it doesn't make sense to use a log-scaled y axis with a
 bar chart.</p>
-    <p>By default, multiple bar occupying the same <code>x</code> position will be
+<p>By default, multiple bar occupying the same <code>x</code> position will be
 stacked atop one another by <code><a href='position_stack.html'>position_stack</a></code>. If you want them
 to be dodged side-to-side, use <code><a href='position_dodge.html'>position_dodge</a></code>. Finally,
 <code><a href='position_stack.html'>position_fill</a></code> shows relative proportions at each <code>x</code> by
@@ -169,32 +166,48 @@ stacking the bars and then standardising each bar to have the same height.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
-    <p>\aesthetics{geom}{bar}</p>
+    
+    <p><code>geom_bar</code> understands the following aesthetics (required aesthetics are in bold):
+    <ul>
+<li>  </li>
+<li> <code><strong>x</strong></code>
+  </li>
+<li> <code><strong>y</strong></code>
+  </li>
+<li> <code>alpha</code>
+  </li>
+<li> <code>colour</code>
+  </li>
+<li> <code>fill</code>
+  </li>
+<li> <code>group</code>
+  </li>
+<li> <code>linetype</code>
+  </li>
+<li> <code>size</code>
+</li>
+</ul></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
-    <p></p>
-    <p><dl class='dl-horizontal'>
+    
+    <dl class='dl-horizontal'>
   <dt>count</dt><dd>number of points in bin</dd>
   <dt>prop</dt><dd>groupwise proportion</dd>
-</dl></p>
+</dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p><code><a href='geom_freqpoly.html'>geom_histogram</a></code> for continuous data,
   <code><a href='position_dodge.html'>position_dodge</a></code> for creating side-by-side barcharts.</p>
-    <p><code><a href='geom_freqpoly.html'>stat_bin</a></code>, which bins data in ranges and counts the
+<p><code><a href='geom_freqpoly.html'>stat_bin</a></code>, which bins data in ranges and counts the
   cases in each range. It differs from <code>stat_count</code>, which counts the
   number of cases at each x position (without binning into ranges).
   <code><a href='geom_freqpoly.html'>stat_bin</a></code> requires continuous x data, whereas
   <code>stat_count</code> can be used for both discrete and continuous x data.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># geom_bar is designed to make it easy to create bar charts that show</span>
 <span class='co'># counts (or sums of weights)</span>
 <span class='no'>g</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>class</span>))
@@ -214,7 +227,16 @@ stacking the bars and then standardising each bar to have the same height.</p>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fu'>c</span>(<span class='fl'>2.9</span>, <span class='fl'>3.1</span>, <span class='fl'>4.5</span>), <span class='fu'>c</span>(<span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>4</span>)))
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>)) + <span class='fu'>geom_bar</span>()</div><img src='geom_bar-10.png' alt='' width='540' height='400' /><div class='input'><span class='co'># cf. a histogram of the same data</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>)) + <span class='fu'><a href='geom_freqpoly.html'>geom_histogram</a></span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</div><img src='geom_bar-12.png' alt='' width='540' height='400' /><div class='input'>
-
+<span class='co'># Bar charts are automatically stacked when multiple bars are placed</span>
+<span class='co'># at the same location</span>
+<span class='no'>g</span> + <span class='fu'>geom_bar</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>drv</span>))</div><img src='geom_bar-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># You can instead dodge, or fill them</span>
+<span class='no'>g</span> + <span class='fu'>geom_bar</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>drv</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><img src='geom_bar-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>g</span> + <span class='fu'>geom_bar</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>drv</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"fill"</span>)</div><img src='geom_bar-18.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># To change plot order of bars, change levels in underlying factor</span>
+<span class='no'>reorder_size</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) {
+  <span class='fu'>factor</span>(<span class='no'>x</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fu'>names</span>(<span class='fu'>sort</span>(<span class='fu'>table</span>(<span class='no'>x</span>))))
+}
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>reorder_size</span>(<span class='no'>class</span>))) + <span class='fu'>geom_bar</span>()</div><img src='geom_bar-20.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

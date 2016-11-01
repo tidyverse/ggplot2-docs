@@ -92,13 +92,13 @@ a fill aesthetic supplied).</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>jitter.width</dt>
-      <dd>degree of jitter in x direction. Defaults to 40% of the
-resolution of the data.</dd>
+      <dd><p>degree of jitter in x direction. Defaults to 40% of the
+resolution of the data.</p></dd>
       <dt>jitter.height</dt>
-      <dd>degree of jitter in y direction. Defaults to 0.</dd>
+      <dd><p>degree of jitter in y direction. Defaults to 0.</p></dd>
       <dt>dodge.width</dt>
-      <dd>the amount to dodge in the x direction. Defaults to 0.75,
-the default <code>position_dodge()</code> width.</dd>
+      <dd><p>the amount to dodge in the x direction. Defaults to 0.75,
+the default <code>position_dodge()</code> width.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -110,10 +110,7 @@ the default <code>position_dodge()</code> width.</dd>
   <code><a href='position_stack.html'>position_stack</a></code></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>dsub</span> <span class='kw'>&lt;-</span> <span class='no'>diamonds</span>[ <span class='fu'>sample</span>(<span class='fu'>nrow</span>(<span class='no'>diamonds</span>), <span class='fl'>1000</span>), ]
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>dsub</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>cut</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>carat</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>clarity</span>)) +
   <span class='fu'><a href='geom_boxplot.html'>geom_boxplot</a></span>(<span class='kw'>outlier.size</span> <span class='kw'>=</span> <span class='fl'>0</span>) +

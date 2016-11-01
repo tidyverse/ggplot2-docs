@@ -83,8 +83,8 @@
     
     <p>Aesthetic mappings describe how variables in the data are mapped to visual
 properties (aesthetics) of geoms. <code><a href='aes.html'>aes</a></code> uses non-standard
-evaluation to capture the variable names. <code>aes_</code> and <code>aes_string</code>
-require you to explicitly quote the inputs either with <code>&quot;&quot;</code> for
+evaluation to capture the variable names. <code>aes_</code> and <code>aes_string</code></p>
+<p>require you to explicitly quote the inputs either with <code>""</code> for
 <code>aes_string()</code>, or with <code>quote</code> or <code>~</code> for <code>aes_()</code>.
 (<code>aes_q</code> is an alias to <code>aes_</code>)</p>
     
@@ -98,16 +98,16 @@ require you to explicitly quote the inputs either with <code>&quot;&quot;</code>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>x, y, ...</dt>
-      <dd>List of name value pairs. Elements must be either
-quoted calls, strings, one-sided formulas or constants.</dd>
+      <dd><p>List of name value pairs. Elements must be either
+quoted calls, strings, one-sided formulas or constants.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>It&#39;s better to use <code>aes_q()</code>, because there&#39;s no easy way to create the
-equivalent to <code>aes(colour = &quot;my colour&quot;)</code> or <code>aes{x = `X$1`}</code>
-with <code>aes_string()</code>.</p>
-    <p><code>aes_string</code> and <code>aes_</code> are particularly useful when writing
+    <p>It's better to use <code>aes_q()</code>, because there's no easy way to create the
+equivalent to <code>aes(colour = "my colour")</code> or <code>aes{x = `X$1`}</code></p>
+<p>with <code>aes_string()</code>.</p>
+<p><code>aes_string</code> and <code>aes_</code> are particularly useful when writing
 functions that create plots because you can use strings or quoted
 names/calls to define the aesthetic mappings, rather than having to use
 <code>substitute</code> to generate a call to <code>aes()</code>.</p>
@@ -117,38 +117,26 @@ names/calls to define the aesthetic mappings, rather than having to use
     <p><code><a href='aes.html'>aes</a></code></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Three ways of generating the same aesthetics</span>
 <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>cyl</span>)</div><div class='output co'>#&gt; * x      -&gt; mpg
 #&gt; * y      -&gt; wt
-#&gt; * colour -&gt; cyl
-#&gt; </div><div class='input'><span class='fu'>aes_</span>(<span class='fu'>quote</span>(<span class='no'>mpg</span>), <span class='fu'>quote</span>(<span class='no'>wt</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>quote</span>(<span class='no'>cyl</span>))</div><div class='output co'>#&gt; * colour -&gt; cyl
+#&gt; * colour -&gt; cyl</div><div class='input'><span class='fu'>aes_</span>(<span class='fu'>quote</span>(<span class='no'>mpg</span>), <span class='fu'>quote</span>(<span class='no'>wt</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>quote</span>(<span class='no'>cyl</span>))</div><div class='output co'>#&gt; * colour -&gt; cyl
 #&gt; * x      -&gt; mpg
-#&gt; * y      -&gt; wt
-#&gt; </div><div class='input'><span class='fu'>aes_</span>(~<span class='no'>mpg</span>, ~<span class='no'>wt</span>, <span class='kw'>col</span> <span class='kw'>=</span> ~<span class='no'>cyl</span>)</div><div class='output co'>#&gt; * colour -&gt; cyl
+#&gt; * y      -&gt; wt</div><div class='input'><span class='fu'>aes_</span>(~<span class='no'>mpg</span>, ~<span class='no'>wt</span>, <span class='kw'>col</span> <span class='kw'>=</span> ~<span class='no'>cyl</span>)</div><div class='output co'>#&gt; * colour -&gt; cyl
 #&gt; * x      -&gt; mpg
-#&gt; * y      -&gt; wt
-#&gt; </div><div class='input'><span class='fu'>aes_string</span>(<span class='st'>"mpg"</span>, <span class='st'>"wt"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"cyl"</span>)</div><div class='output co'>#&gt; * colour -&gt; cyl
+#&gt; * y      -&gt; wt</div><div class='input'><span class='fu'>aes_string</span>(<span class='st'>"mpg"</span>, <span class='st'>"wt"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"cyl"</span>)</div><div class='output co'>#&gt; * colour -&gt; cyl
 #&gt; * x      -&gt; mpg
-#&gt; * y      -&gt; wt
-#&gt; </div><div class='input'>
+#&gt; * y      -&gt; wt</div><div class='input'>
 <span class='co'># You can't easily mimic these calls with aes_string</span>
 <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>`$100`</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"smooth"</span>)</div><div class='output co'>#&gt; * x      -&gt; `$100`
-#&gt; * colour -&gt; &quot;smooth&quot;
-#&gt; </div><div class='input'><span class='fu'>aes_</span>(~ <span class='no'>`$100`</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"smooth"</span>)</div><div class='output co'>#&gt; * colour -&gt; &quot;smooth&quot;
-#&gt; * x      -&gt; `$100`
-#&gt; </div><div class='input'><span class='co'># Ok, you can, but it requires a _lot_ of quotes</span>
-<span class='fu'>aes_string</span>(<span class='st'>"`$100`"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>'"smooth"'</span>)</div><div class='output co'>#&gt; * colour -&gt; &quot;smooth&quot;
-#&gt; * x      -&gt; `$100`
-#&gt; </div><div class='input'>
+#&gt; * colour -&gt; "smooth"</div><div class='input'><span class='fu'>aes_</span>(~ <span class='no'>`$100`</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"smooth"</span>)</div><div class='output co'>#&gt; * colour -&gt; "smooth"
+#&gt; * x      -&gt; `$100`</div><div class='input'><span class='co'># Ok, you can, but it requires a _lot_ of quotes</span>
+<span class='fu'>aes_string</span>(<span class='st'>"`$100`"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>'"smooth"'</span>)</div><div class='output co'>#&gt; * colour -&gt; "smooth"
+#&gt; * x      -&gt; `$100`</div><div class='input'>
 <span class='co'># Convert strings to names with as.name</span>
 <span class='no'>var</span> <span class='kw'>&lt;-</span> <span class='st'>"cyl"</span>
-<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; * colour -&gt; x
-#&gt; </div><div class='input'><span class='fu'>aes_</span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>as.name</span>(<span class='no'>var</span>))</div><div class='output co'>#&gt; * colour -&gt; cyl
-#&gt; </div></pre>
+<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; * colour -&gt; x</div><div class='input'><span class='fu'>aes_</span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>as.name</span>(<span class='no'>var</span>))</div><div class='output co'>#&gt; * colour -&gt; cyl</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

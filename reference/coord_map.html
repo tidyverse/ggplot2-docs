@@ -108,36 +108,33 @@ in the mapproj package.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>projection</dt>
-      <dd>projection to use, see
-<code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for list</dd>
+      <dd><p>projection to use, see
+<code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for list</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code>.
-Ignored if the <code>parameters</code> argument is present.</dd>
+      <dd><p>other arguments passed on to <code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code>.
+Ignored if the <code>parameters</code> argument is present.</p></dd>
       <dt>parameters</dt>
-      <dd>optional numeric vector of parameters for use
+      <dd><p>optional numeric vector of parameters for use
 with the projection argument. This argument is optional only in
 the sense that certain projections do not require additional
-parameters. Passed to <code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code>.</dd>
+parameters. Passed to <code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code>.</p></dd>
       <dt>orientation</dt>
-      <dd>projection orientation, which defaults to
+      <dd><p>projection orientation, which defaults to
 <code>c(90, 0, mean(range(x)))</code>.  This is not optimal for many
 projections, so you will have to supply your own. See
-<code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for more information.</dd>
+<code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for more information.</p></dd>
       <dt>xlim</dt>
-      <dd>manually specific x limits (in degrees of longitude)</dd>
+      <dd><p>manually specific x limits (in degrees of longitude)</p></dd>
       <dt>ylim</dt>
-      <dd>manually specific y limits (in degrees of latitude)</dd>
+      <dd><p>manually specific y limits (in degrees of latitude)</p></dd>
       <dt>expand</dt>
-      <dd>If <code>TRUE</code>, the default, adds a small expansion factor to
-the limits to ensure that data and axes don&#39;t overlap. If <code>FALSE</code>,
-limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</dd>
+      <dd><p>If <code>TRUE</code>, the default, adds a small expansion factor to
+the limits to ensure that data and axes don't overlap. If <code>FALSE</code>,
+limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"maps"</span>)) {
 <span class='no'>nz</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='map_data.html'>map_data</a></span>(<span class='st'>"nz"</span>)
 <span class='co'># Prepare a map of NZ</span>

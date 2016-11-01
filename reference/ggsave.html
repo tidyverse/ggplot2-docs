@@ -94,35 +94,32 @@ extension.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>filename</dt>
-      <dd>File name to create on disk.</dd>
+      <dd><p>File name to create on disk.</p></dd>
       <dt>plot</dt>
-      <dd>Plot to save, defaults to last plot displayed.</dd>
+      <dd><p>Plot to save, defaults to last plot displayed.</p></dd>
       <dt>device</dt>
-      <dd>Device to use. Can be either be a device function
-(e.g. <code>png</code>), or one of &quot;eps&quot;, &quot;ps&quot;, &quot;tex&quot; (pictex),
-&quot;pdf&quot;, &quot;jpeg&quot;, &quot;tiff&quot;, &quot;png&quot;, &quot;bmp&quot;, &quot;svg&quot; or &quot;wmf&quot; (windows only).</dd>
+      <dd><p>Device to use. Can be either be a device function
+(e.g. <code>png</code>), or one of "eps", "ps", "tex" (pictex),
+"pdf", "jpeg", "tiff", "png", "bmp", "svg" or "wmf" (windows only).</p></dd>
       <dt>path</dt>
-      <dd>Path to save plot to (combined with filename).</dd>
+      <dd><p>Path to save plot to (combined with filename).</p></dd>
       <dt>scale</dt>
-      <dd>Multiplicative scaling factor.</dd>
+      <dd><p>Multiplicative scaling factor.</p></dd>
       <dt>width, height, units</dt>
-      <dd>Plot size in <code>units</code> (&quot;in&quot;, &quot;cm&quot;, or &quot;mm&quot;).
-If not supplied, uses the size of current graphics device.</dd>
+      <dd><p>Plot size in <code>units</code> ("in", "cm", or "mm").
+If not supplied, uses the size of current graphics device.</p></dd>
       <dt>dpi</dt>
-      <dd>Plot resolution. Applies only to raster output types.</dd>
+      <dd><p>Plot resolution. Applies only to raster output types.</p></dd>
       <dt>limitsize</dt>
-      <dd>When <code>TRUE</code> (the default), <code>ggsave</code> will not
+      <dd><p>When <code>TRUE</code> (the default), <code>ggsave</code> will not
 save images larger than 50x50 inches, to prevent the common error of
-specifying dimensions in pixels.</dd>
+specifying dimensions in pixels.</p></dd>
       <dt>...</dt>
-      <dd>Other arguments passed on to graphics <code>device</code>.</dd>
+      <dd><p>Other arguments passed on to graphics <code>device</code>.</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
 <span class='co'># ggplot(mtcars, aes(mpg, wt)) + geom_point()</span>
 <span class='co'># </span>

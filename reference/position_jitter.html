@@ -91,14 +91,13 @@ at least one discrete position.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>width, height</dt>
-      <dd>Amount of vertical and horizontal jitter. The jitter
+      <dd><p>Amount of vertical and horizontal jitter. The jitter
   is added in both positive and negative directions, so the total spread
-  is twice the value specified here.
-
-  If omitted, defaults to 40% of the resolution of the data: this means the
+  is twice the value specified here.</p>
+<p>If omitted, defaults to 40% of the resolution of the data: this means the
   jitter values will occupy 80% of the implied bins. Categorical data
   is aligned on the integers, so a width or height of 0.5 will spread the
-  data so it&#39;s not possible to see the distinction between the categories.</dd>
+  data so it's not possible to see the distinction between the categories.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -110,10 +109,7 @@ at least one discrete position.</p>
   <code><a href='position_stack.html'>position_stack</a></code></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Jittering is useful when you have a discrete position, and a relatively</span>
 <span class='co'># small number of points</span>
 <span class='co'># take up as much space as a boxplot or a bar</span>

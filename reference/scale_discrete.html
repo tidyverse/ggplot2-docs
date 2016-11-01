@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Discrete position. — scale_x_discrete • ggplot2</title>
+<title>Position scales for discrete data — scale_x_discrete • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,7 +77,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Discrete position.</h1>
+    <h1>Position scales for discrete data</h1>
     </div>
 
     
@@ -95,32 +95,53 @@ at integer positions).  This is what allows jittering to work.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd>common discrete scale parameters: <code>name</code>, <code>breaks</code>,
+      <dd><p>common discrete scale parameters: <code>name</code>, <code>breaks</code>,
 <code>labels</code>, <code>na.value</code>, <code>limits</code> and <code>guide</code>.  See
-<code><a href='discrete_scale.html'>discrete_scale</a></code> for more details</dd>
+<code><a href='discrete_scale.html'>discrete_scale</a></code> for more details</p></dd>
       <dt>expand</dt>
-      <dd>a numeric vector of length two giving multiplicative and
+      <dd><p>a numeric vector of length two giving multiplicative and
 additive expansion constants. These constants ensure that the data is
-placed some distance away from the axes.</dd>
+placed some distance away from the axes.</p></dd>
       <dt>position</dt>
-      <dd>The position of the axis. <code>left</code> or <code>right</code> for y
-axes, <code>top</code> or <code>bottom</code> for x axes</dd>
+      <dd><p>The position of the axis. <code>left</code> or <code>right</code> for y
+axes, <code>top</code> or <code>bottom</code> for x axes</p></dd>
     </dl>
     
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <p>Other position scales: <code><a href='scale_continuous.html'>scale_x_continuous</a></code>,
+  <code><a href='scale_date.html'>scale_x_date</a></code></p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>cut</span>)) + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>()</div><img src='scale_x_discrete-2.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># The discrete position scale is added automatically whenever you</span>
+<span class='co'># have a discrete position.</span>
 
+(<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='fu'>subset</span>(<span class='no'>diamonds</span>, <span class='no'>carat</span> <span class='kw'>&gt;</span> <span class='fl'>1</span>), <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>cut</span>, <span class='no'>clarity</span>)) +
+      <span class='fu'><a href='geom_jitter.html'>geom_jitter</a></span>())</div><img src='scale_x_discrete-4.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>d</span> + <span class='fu'>scale_x_discrete</span>(<span class='st'>"Cut"</span>)</div><img src='scale_x_discrete-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_x_discrete</span>(<span class='st'>"Cut"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Fair"</span> <span class='kw'>=</span> <span class='st'>"F"</span>,<span class='st'>"Good"</span> <span class='kw'>=</span> <span class='st'>"G"</span>,
+  <span class='st'>"Very Good"</span> <span class='kw'>=</span> <span class='st'>"VG"</span>,<span class='st'>"Perfect"</span> <span class='kw'>=</span> <span class='st'>"P"</span>,<span class='st'>"Ideal"</span> <span class='kw'>=</span> <span class='st'>"I"</span>))</div><img src='scale_x_discrete-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Use limits to adjust the which levels (and in what order)</span>
+<span class='co'># are displayed</span>
+<span class='no'>d</span> + <span class='fu'>scale_x_discrete</span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Fair"</span>,<span class='st'>"Ideal"</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 11189 rows containing missing values (geom_point).</span></div><img src='scale_x_discrete-11.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># you can also use the short hand functions xlim and ylim</span>
+<span class='no'>d</span> + <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='st'>"Fair"</span>,<span class='st'>"Ideal"</span>, <span class='st'>"Good"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 9610 rows containing missing values (geom_point).</span></div><img src='scale_x_discrete-14.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'><a href='lims.html'>ylim</a></span>(<span class='st'>"I1"</span>, <span class='st'>"IF"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 16770 rows containing missing values (geom_point).</span></div><img src='scale_x_discrete-17.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># See ?reorder to reorder based on the values of another variable</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>manufacturer</span>, <span class='no'>cty</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><img src='scale_x_discrete-19.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>reorder</span>(<span class='no'>manufacturer</span>, <span class='no'>cty</span>), <span class='no'>cty</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><img src='scale_x_discrete-21.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>reorder</span>(<span class='no'>manufacturer</span>, <span class='no'>displ</span>), <span class='no'>cty</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><img src='scale_x_discrete-23.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Use abbreviate as a formatter to reduce long names</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>reorder</span>(<span class='no'>manufacturer</span>, <span class='no'>displ</span>), <span class='no'>cty</span>)) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
+  <span class='fu'>scale_x_discrete</span>(<span class='kw'>labels</span> <span class='kw'>=</span> <span class='no'>abbreviate</span>)</div><img src='scale_x_discrete-25.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

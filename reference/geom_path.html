@@ -104,58 +104,55 @@ connected together.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>stat</dt>
-      <dd>The statistical transformation to use on the data for this
-layer, as a string.</dd>
+      <dd><p>The statistical transformation to use on the data for this
+layer, as a string.</p></dd>
       <dt>position</dt>
-      <dd>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</dd>
+      <dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>lineend</dt>
-      <dd>Line end style (round, butt, square)</dd>
+      <dd><p>Line end style (round, butt, square)</p></dd>
       <dt>linejoin</dt>
-      <dd>Line join style (round, mitre, bevel)</dd>
+      <dd><p>Line join style (round, mitre, bevel)</p></dd>
       <dt>linemitre</dt>
-      <dd>Line mitre limit (number greater than 1)</dd>
+      <dd><p>Line mitre limit (number greater than 1)</p></dd>
       <dt>arrow</dt>
-      <dd>Arrow specification, as created by <code><a href='http://www.rdocumentation.org/packages/grid/topics/arrow'>arrow</a></code></dd>
+      <dd><p>Arrow specification, as created by <code><a href='http://www.rdocumentation.org/packages/grid/topics/arrow'>arrow</a></code></p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>inherit.aes</dt>
-      <dd>If <code>FALSE</code>, overrides the default aesthetics,
+      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn&#39;t inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</dd>
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
       <dt>direction</dt>
-      <dd>direction of stairs: &#39;vh&#39; for vertical then horizontal, or
-&#39;hv&#39; for horizontal then vertical</dd>
+      <dd><p>direction of stairs: 'vh' for vertical then horizontal, or
+'hv' for horizontal then vertical</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -165,8 +162,25 @@ corresponds to a single case which provides the start and end coordinates.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
-    <p>\aesthetics{geom}{path}</p>
+    
+    <p><code>geom_path</code> understands the following aesthetics (required aesthetics are in bold):
+    <ul>
+<li>  </li>
+<li> <code><strong>x</strong></code>
+  </li>
+<li> <code><strong>y</strong></code>
+  </li>
+<li> <code>alpha</code>
+  </li>
+<li> <code>colour</code>
+  </li>
+<li> <code>group</code>
+  </li>
+<li> <code>linetype</code>
+  </li>
+<li> <code>size</code>
+</li>
+</ul></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -174,10 +188,7 @@ corresponds to a single case which provides the start and end coordinates.</p>
  <code><a href='geom_segment.html'>geom_segment</a></code>: Line segments</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># geom_line() is suitable for time series</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>economics</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>date</span>, <span class='no'>unemploy</span>)) + <span class='fu'>geom_line</span>()</div><img src='geom_path-2.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>economics_long</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>date</span>, <span class='no'>value01</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>variable</span>)) +
   <span class='fu'>geom_line</span>()</div><img src='geom_path-4.png' alt='' width='540' height='400' /><div class='input'>
@@ -209,13 +220,21 @@ corresponds to a single case which provides the start and end coordinates.</p>
   <span class='kw'>y2</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>NA</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span>),
   <span class='kw'>y3</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>NA</span>, <span class='fl'>4</span>, <span class='fl'>5</span>)
 )
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y1</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_line</span>()</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 1 rows containing missing values (geom_point).</strong></div><div class='output'><strong class='text-warning'>Warning message:
-Removed 1 rows containing missing values (geom_path).</strong></div><img src='geom_path-28.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y2</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_line</span>()</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 1 rows containing missing values (geom_point).</strong></div><div class='output'><strong class='text-warning'>Warning message:
-Removed 1 rows containing missing values (geom_path).</strong></div><img src='geom_path-32.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y3</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_line</span>()</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 1 rows containing missing values (geom_point).</strong></div><img src='geom_path-35.png' alt='' width='540' height='400' /><div class='input'>
-
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y1</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_line</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_point).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_path).</span></div><img src='geom_path-28.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y2</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_line</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_point).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_path).</span></div><img src='geom_path-32.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y3</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_line</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_point).</span></div><img src='geom_path-35.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Setting line type vs colour/size</span>
+<span class='co'># Line type needs to be applied to a line as a whole, so it can</span>
+<span class='co'># not be used with colour or size that vary across a line</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>seq</span>(<span class='fl'>0.01</span>, <span class='fl'>.99</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
+  <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='no'>x</span>, <span class='fl'>2</span>),
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>qlogis</span>(<span class='no'>x</span>), <span class='fl'>2</span> * <span class='fu'>qlogis</span>(<span class='no'>x</span>)),
+  <span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fu'>c</span>(<span class='st'>"a"</span>,<span class='st'>"b"</span>),
+  <span class='kw'>each</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+)
+<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>x</span>, <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>group</span><span class='kw'>=</span><span class='no'>group</span>))
+<span class='co'># These work</span>
+<span class='no'>p</span> + <span class='fu'>geom_line</span>(<span class='kw'>linetype</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><img src='geom_path-37.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_line</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>group</span>), <span class='kw'>linetype</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><img src='geom_path-39.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_line</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>x</span>))</div><img src='geom_path-41.png' alt='' width='540' height='400' /><div class='input'><span class='co'># But this doesn't</span>
+<span class='fu'><a href='should_stop.html'>should_stop</a></span>(<span class='no'>p</span> + <span class='fu'>geom_line</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>x</span>), <span class='kw'>linetype</span><span class='kw'>=</span><span class='fl'>2</span>))</div><img src='geom_path-43.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -91,64 +91,61 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>facets</dt>
-      <dd>a formula with the rows (of the tabular display) on the LHS
+      <dd><p>a formula with the rows (of the tabular display) on the LHS
 and the columns (of the tabular display) on the RHS; the dot in the
 formula is used to indicate there should be no faceting on this dimension
 (either row or column). The formula can also be provided as a string
-instead of a classical formula object</dd>
+instead of a classical formula object</p></dd>
       <dt>margins</dt>
-      <dd>either a logical value or a character
+      <dd><p>either a logical value or a character
 vector. Margins are additional facets which contain all the data
 for each of the possible values of the faceting variables. If
 <code>FALSE</code>, no additional facets are included (the
 default). If <code>TRUE</code>, margins are included for all faceting
 variables. If specified as a character vector, it is the names of
-variables for which margins are to be created.</dd>
+variables for which margins are to be created.</p></dd>
       <dt>scales</dt>
-      <dd>Are scales shared across all facets (the default,
-<code>&quot;fixed&quot;</code>), or do they vary across rows (<code>&quot;free_x&quot;</code>),
-columns (<code>&quot;free_y&quot;</code>), or both rows and columns (<code>&quot;free&quot;</code>)</dd>
+      <dd><p>Are scales shared across all facets (the default,
+<code>"fixed"</code>), or do they vary across rows (<code>"free_x"</code>),
+columns (<code>"free_y"</code>), or both rows and columns (<code>"free"</code>)</p></dd>
       <dt>space</dt>
-      <dd>If <code>&quot;fixed&quot;</code>, the default, all panels have the same size.
- If <code>&quot;free_y&quot;</code> their height will be proportional to the length of the
- y scale; if <code>&quot;free_x&quot;</code> their width will be proportional to the
-length of the x scale; or if <code>&quot;free&quot;</code> both height and width will
-vary.  This setting has no effect unless the appropriate scales also vary.</dd>
+      <dd><p>If <code>"fixed"</code>, the default, all panels have the same size.
+ If <code>"free_y"</code> their height will be proportional to the length of the
+ y scale; if <code>"free_x"</code> their width will be proportional to the
+length of the x scale; or if <code>"free"</code> both height and width will
+vary.  This setting has no effect unless the appropriate scales also vary.</p></dd>
       <dt>shrink</dt>
-      <dd>If <code>TRUE</code>, will shrink scales to fit output of
+      <dd><p>If <code>TRUE</code>, will shrink scales to fit output of
 statistics, not raw data. If <code>FALSE</code>, will be range of raw data
-before statistical summary.</dd>
+before statistical summary.</p></dd>
       <dt>labeller</dt>
-      <dd>A function that takes one data frame of labels and
+      <dd><p>A function that takes one data frame of labels and
 returns a list or data frame of character vectors. Each input
 column corresponds to one factor. Thus there will be more than
 one with formulae of the type <code>~cyl + am</code>. Each output
 column gets displayed as one separate line in the strip
-label. This function should inherit from the &quot;labeller&quot; S3 class
+label. This function should inherit from the "labeller" S3 class
 for compatibility with <code><a href='labeller.html'>labeller</a>()</code>. See
 <code><a href='labellers.html'>label_value</a></code> for more details and pointers to other
-options.</dd>
+options.</p></dd>
       <dt>as.table</dt>
-      <dd>If <code>TRUE</code>, the default, the facets are laid out like
+      <dd><p>If <code>TRUE</code>, the default, the facets are laid out like
 a table with highest values at the bottom-right. If <code>FALSE</code>, the
-facets are laid out like a plot with the highest value at the top-right.</dd>
+facets are laid out like a plot with the highest value at the top-right.</p></dd>
       <dt>switch</dt>
-      <dd>By default, the labels are displayed on the top and
-right of the plot. If <code>&quot;x&quot;</code>, the top labels will be
-displayed to the bottom. If <code>&quot;y&quot;</code>, the right-hand side
+      <dd><p>By default, the labels are displayed on the top and
+right of the plot. If <code>"x"</code>, the top labels will be
+displayed to the bottom. If <code>"y"</code>, the right-hand side
 labels will be displayed to the left. Can also be set to
-<code>&quot;both&quot;</code>.</dd>
+<code>"both"</code>.</p></dd>
       <dt>drop</dt>
-      <dd>If <code>TRUE</code>, the default, all factor levels not used in the
+      <dd><p>If <code>TRUE</code>, the default, all factor levels not used in the
 data will automatically be dropped. If <code>FALSE</code>, all factor levels
-will be shown, regardless of whether or not they appear in the data.</dd>
+will be shown, regardless of whether or not they appear in the data.</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>cty</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 
 <span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>)</div><img src='facet_grid-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>drv</span> ~ <span class='no'>.</span>)</div><img src='facet_grid-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>drv</span> ~ <span class='no'>cyl</span>)</div><img src='facet_grid-6.png' alt='' width='540' height='400' /><div class='input'>
@@ -198,7 +195,15 @@ will be shown, regardless of whether or not they appear in the data.</dd>
 <span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>switch</span> <span class='kw'>=</span> <span class='st'>"both"</span>)</div><img src='facet_grid-22.png' alt='' width='540' height='400' /><div class='input'><span class='co'># It looks better without boxes around the strips</span>
 <span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>switch</span> <span class='kw'>=</span> <span class='st'>"both"</span>) +
   <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>strip.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())</div><img src='facet_grid-24.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># Margins ----------------------------------------------------------</span></div></pre>
+<span class='co'># Margins ----------------------------------------------------------</span>
+<span class='co'># Margins can be specified by logically (all yes or all no) or by specific</span>
+<span class='co'># variables as (character) variable names</span>
+<span class='no'>mg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
+<span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>)</div><img src='facet_grid-26.png' alt='' width='540' height='400' /><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><img src='facet_grid-28.png' alt='' width='540' height='400' /><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='st'>"am"</span>)</div><img src='facet_grid-30.png' alt='' width='540' height='400' /><div class='input'><span class='co'># when margins are made over "vs", since the facets for "am" vary</span>
+<span class='co'># within the values of "vs", the marginal facet for "vs" is also</span>
+<span class='co'># a margin over "am".</span>
+<span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='st'>"vs"</span>)</div><img src='facet_grid-32.png' alt='' width='540' height='400' /><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='st'>"gear"</span>)</div><img src='facet_grid-34.png' alt='' width='540' height='400' /><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"gear"</span>, <span class='st'>"am"</span>))</div><img src='facet_grid-36.png' alt='' width='540' height='400' /><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

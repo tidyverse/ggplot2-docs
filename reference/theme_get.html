@@ -99,24 +99,24 @@ shorthands for changing individual elements in the current theme.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>new</dt>
-      <dd>new theme (a list of theme elements)</dd>
+      <dd><p>new theme (a list of theme elements)</p></dd>
       <dt>...</dt>
-      <dd>named list of theme settings</dd>
+      <dd><p>named list of theme settings</p></dd>
       <dt>e1, e2</dt>
-      <dd>Theme and element to combine</dd>
+      <dd><p>Theme and element to combine</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="adding-on-to-a-theme"><a class="anchor" href="#adding-on-to-a-theme"></a>Adding on to a theme</h2>
 
-    <p></p>
+    
     <p><code>+</code> and <code>%+replace%</code> can be used to modify elements in themes.</p>
-    <p><code>+</code> updates the elements of e1 that differ from elements specified (not
+<p><code>+</code> updates the elements of e1 that differ from elements specified (not
 NULL) in e2. Thus this operator can be used to incrementally add or modify
 attributes of a ggplot theme.</p>
-    <p>In contrast, <code>%+replace%</code> replaces the entire element; any element of
+<p>In contrast, <code>%+replace%</code> replaces the entire element; any element of
 a theme not specified in e2 will not be present in the resulting theme (i.e.
 NULL). Thus this operator can be used to overwrite an entire theme.</p>
-    <p><code>theme_update</code> uses the <code>+</code> operator, so that any unspecified
+<p><code>theme_update</code> uses the <code>+</code> operator, so that any unspecified
 values in the theme element will default to the values they are set in the
 theme. <code>theme_replace</code> uses <code>%+replace%</code> tocompletely replace
 the element, so any unspecified values will overwrite the current value in
@@ -127,10 +127,7 @@ the theme with <code>NULL</code>s.</p>
     <p><code><a href='+.gg.html'>+.gg</a></code></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 <span class='no'>p</span></div><img src='theme_get-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>old</span> <span class='kw'>&lt;-</span> <span class='fu'>theme_set</span>(<span class='fu'><a href='ggtheme.html'>theme_bw</a></span>())
@@ -139,64 +136,61 @@ the theme with <code>NULL</code>s.</p>
 <span class='co'>#theme_replace NULLs out the fill attribute of panel.background,</span>
 <span class='co'>#resulting in a white background:</span>
 <span class='fu'>theme_get</span>()$<span class='no'>panel.background</span></div><div class='output co'>#&gt; List of 5
-#&gt;  $ fill         : chr &quot;grey92&quot;
+#&gt;  $ fill         : chr "grey92"
 #&gt;  $ colour       : logi NA
 #&gt;  $ size         : NULL
 #&gt;  $ linetype     : NULL
 #&gt;  $ inherit.blank: logi TRUE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-#&gt; </div><div class='input'><span class='no'>old</span> <span class='kw'>&lt;-</span> <span class='fu'>theme_replace</span>(<span class='kw'>panel.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"pink"</span>))
+#&gt;  - attr(*, "class")= chr [1:2] "element_rect" "element"</div><div class='input'><span class='no'>old</span> <span class='kw'>&lt;-</span> <span class='fu'>theme_replace</span>(<span class='kw'>panel.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"pink"</span>))
 <span class='fu'>theme_get</span>()$<span class='no'>panel.background</span></div><div class='output co'>#&gt; List of 5
 #&gt;  $ fill         : NULL
-#&gt;  $ colour       : chr &quot;pink&quot;
+#&gt;  $ colour       : chr "pink"
 #&gt;  $ size         : NULL
 #&gt;  $ linetype     : NULL
 #&gt;  $ inherit.blank: logi FALSE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-#&gt; </div><div class='input'><span class='no'>p</span></div><img src='theme_get-12.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>theme_set</span>(<span class='no'>old</span>)
+#&gt;  - attr(*, "class")= chr [1:2] "element_rect" "element"</div><div class='input'><span class='no'>p</span></div><img src='theme_get-12.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>theme_set</span>(<span class='no'>old</span>)
 
 <span class='co'>#theme_update only changes the colour attribute, leaving the others intact:</span>
 <span class='no'>old</span> <span class='kw'>&lt;-</span> <span class='fu'>theme_update</span>(<span class='kw'>panel.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"pink"</span>))
 <span class='fu'>theme_get</span>()$<span class='no'>panel.background</span></div><div class='output co'>#&gt; List of 5
-#&gt;  $ fill         : chr &quot;grey92&quot;
-#&gt;  $ colour       : chr &quot;pink&quot;
+#&gt;  $ fill         : chr "grey92"
+#&gt;  $ colour       : chr "pink"
 #&gt;  $ size         : NULL
 #&gt;  $ linetype     : NULL
 #&gt;  $ inherit.blank: logi FALSE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-#&gt; </div><div class='input'><span class='no'>p</span></div><img src='theme_get-16.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>theme_set</span>(<span class='no'>old</span>)
+#&gt;  - attr(*, "class")= chr [1:2] "element_rect" "element"</div><div class='input'><span class='no'>p</span></div><img src='theme_get-16.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>theme_set</span>(<span class='no'>old</span>)
 
 <span class='fu'>theme_get</span>()</div><div class='output co'>#&gt; List of 57
 #&gt;  $ line                 :List of 6
-#&gt;   ..$ colour       : chr &quot;black&quot;
+#&gt;   ..$ colour       : chr "black"
 #&gt;   ..$ size         : num 0.5
 #&gt;   ..$ linetype     : num 1
-#&gt;   ..$ lineend      : chr &quot;butt&quot;
+#&gt;   ..$ lineend      : chr "butt"
 #&gt;   ..$ arrow        : logi FALSE
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_line" "element"
 #&gt;  $ rect                 :List of 5
-#&gt;   ..$ fill         : chr &quot;white&quot;
-#&gt;   ..$ colour       : chr &quot;black&quot;
+#&gt;   ..$ fill         : chr "white"
+#&gt;   ..$ colour       : chr "black"
 #&gt;   ..$ size         : num 0.5
 #&gt;   ..$ linetype     : num 1
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_rect" "element"
 #&gt;  $ text                 :List of 11
-#&gt;   ..$ family       : chr &quot;&quot;
-#&gt;   ..$ face         : chr &quot;plain&quot;
-#&gt;   ..$ colour       : chr &quot;black&quot;
+#&gt;   ..$ family       : chr ""
+#&gt;   ..$ face         : chr "plain"
+#&gt;   ..$ colour       : chr "black"
 #&gt;   ..$ size         : num 11
 #&gt;   ..$ hjust        : num 0.5
 #&gt;   ..$ vjust        : num 0.5
 #&gt;   ..$ angle        : num 0
 #&gt;   ..$ lineheight   : num 0.9
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 0 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 0 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : logi FALSE
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.title.x         :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -206,12 +200,12 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : num 1
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 5.5 0 0 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 5.5 0 0 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.title.x.top     :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -221,12 +215,12 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : num 0
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 5.5 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 5.5 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.title.y         :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -236,12 +230,12 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : num 1
 #&gt;   ..$ angle        : num 90
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 5.5 0 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 5.5 0 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.title.y.right   :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -251,17 +245,17 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : num 0
 #&gt;   ..$ angle        : num -90
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 0 5.5
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 0 5.5
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.text            :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
-#&gt;   ..$ colour       : chr &quot;grey30&quot;
-#&gt;   ..$ size         :Class &#39;rel&#39;  num 0.8
+#&gt;   ..$ colour       : chr "grey30"
+#&gt;   ..$ size         :Class 'rel'  num 0.8
 #&gt;   ..$ hjust        : NULL
 #&gt;   ..$ vjust        : NULL
 #&gt;   ..$ angle        : NULL
@@ -269,7 +263,7 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ margin       : NULL
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.text.x          :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -279,12 +273,12 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : num 1
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 2.2 0 0 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 2.2 0 0 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.text.x.top      :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -294,12 +288,12 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : num 0
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 2.2 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 2.2 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.text.y          :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -309,12 +303,12 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : NULL
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 2.2 0 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 2.2 0 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.text.y.right    :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -324,25 +318,25 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : NULL
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 0 2.2
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 0 2.2
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ axis.ticks           :List of 6
-#&gt;   ..$ colour       : chr &quot;grey20&quot;
+#&gt;   ..$ colour       : chr "grey20"
 #&gt;   ..$ size         : NULL
 #&gt;   ..$ linetype     : NULL
 #&gt;   ..$ lineend      : NULL
 #&gt;   ..$ arrow        : logi FALSE
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
-#&gt;  $ axis.ticks.length    :Class &#39;unit&#39;  atomic [1:1] 2.75
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_line" "element"
+#&gt;  $ axis.ticks.length    :Class 'unit'  atomic [1:1] 2.75
+#&gt;   .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. ..- attr(*, "unit")= chr "pt"
 #&gt;  $ axis.line            : list()
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
 #&gt;  $ axis.line.x          : NULL
 #&gt;  $ axis.line.y          : NULL
 #&gt;  $ legend.background    :List of 5
@@ -351,32 +345,32 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ size         : NULL
 #&gt;   ..$ linetype     : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-#&gt;  $ legend.margin        :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 0 0
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 1
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;cm&quot;
-#&gt;  $ legend.spacing       :Class &#39;unit&#39;  atomic [1:1] 0.4
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 1
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;cm&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_rect" "element"
+#&gt;  $ legend.margin        :Classes 'margin', 'unit'  atomic [1:4] 0 0 0 0
+#&gt;   .. ..- attr(*, "valid.unit")= int 1
+#&gt;   .. ..- attr(*, "unit")= chr "cm"
+#&gt;  $ legend.spacing       :Class 'unit'  atomic [1:1] 0.4
+#&gt;   .. ..- attr(*, "valid.unit")= int 1
+#&gt;   .. ..- attr(*, "unit")= chr "cm"
 #&gt;  $ legend.spacing.x     : NULL
 #&gt;  $ legend.spacing.y     : NULL
 #&gt;  $ legend.key           :List of 5
-#&gt;   ..$ fill         : chr &quot;grey95&quot;
-#&gt;   ..$ colour       : chr &quot;white&quot;
+#&gt;   ..$ fill         : chr "grey95"
+#&gt;   ..$ colour       : chr "white"
 #&gt;   ..$ size         : NULL
 #&gt;   ..$ linetype     : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-#&gt;  $ legend.key.size      :Class &#39;unit&#39;  atomic [1:1] 1.2
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 3
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;lines&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_rect" "element"
+#&gt;  $ legend.key.size      :Class 'unit'  atomic [1:1] 1.2
+#&gt;   .. ..- attr(*, "valid.unit")= int 3
+#&gt;   .. ..- attr(*, "unit")= chr "lines"
 #&gt;  $ legend.key.height    : NULL
 #&gt;  $ legend.key.width     : NULL
 #&gt;  $ legend.text          :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
 #&gt;   ..$ colour       : NULL
-#&gt;   ..$ size         :Class &#39;rel&#39;  num 0.8
+#&gt;   ..$ size         :Class 'rel'  num 0.8
 #&gt;   ..$ hjust        : NULL
 #&gt;   ..$ vjust        : NULL
 #&gt;   ..$ angle        : NULL
@@ -384,7 +378,7 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ margin       : NULL
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ legend.text.align    : NULL
 #&gt;  $ legend.title         :List of 11
 #&gt;   ..$ family       : NULL
@@ -398,119 +392,119 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ margin       : NULL
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ legend.title.align   : NULL
-#&gt;  $ legend.position      : chr &quot;right&quot;
+#&gt;  $ legend.position      : chr "right"
 #&gt;  $ legend.direction     : NULL
-#&gt;  $ legend.justification : chr &quot;center&quot;
+#&gt;  $ legend.justification : chr "center"
 #&gt;  $ legend.box           : NULL
-#&gt;  $ legend.box.margin    :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 0 0
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 1
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;cm&quot;
+#&gt;  $ legend.box.margin    :Classes 'margin', 'unit'  atomic [1:4] 0 0 0 0
+#&gt;   .. ..- attr(*, "valid.unit")= int 1
+#&gt;   .. ..- attr(*, "unit")= chr "cm"
 #&gt;  $ legend.box.background: list()
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
-#&gt;  $ legend.box.spacing   :Class &#39;unit&#39;  atomic [1:1] 0.4
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 1
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;cm&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
+#&gt;  $ legend.box.spacing   :Class 'unit'  atomic [1:1] 0.4
+#&gt;   .. ..- attr(*, "valid.unit")= int 1
+#&gt;   .. ..- attr(*, "unit")= chr "cm"
 #&gt;  $ panel.background     :List of 5
-#&gt;   ..$ fill         : chr &quot;grey92&quot;
+#&gt;   ..$ fill         : chr "grey92"
 #&gt;   ..$ colour       : logi NA
 #&gt;   ..$ size         : NULL
 #&gt;   ..$ linetype     : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_rect" "element"
 #&gt;  $ panel.border         : list()
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
-#&gt;  $ panel.spacing        :Class &#39;unit&#39;  atomic [1:1] 5.5
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
+#&gt;  $ panel.spacing        :Class 'unit'  atomic [1:1] 5.5
+#&gt;   .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. ..- attr(*, "unit")= chr "pt"
 #&gt;  $ panel.spacing.x      : NULL
 #&gt;  $ panel.spacing.y      : NULL
 #&gt;  $ panel.grid.major     :List of 6
-#&gt;   ..$ colour       : chr &quot;white&quot;
+#&gt;   ..$ colour       : chr "white"
 #&gt;   ..$ size         : NULL
 #&gt;   ..$ linetype     : NULL
 #&gt;   ..$ lineend      : NULL
 #&gt;   ..$ arrow        : logi FALSE
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_line" "element"
 #&gt;  $ panel.grid.minor     :List of 6
-#&gt;   ..$ colour       : chr &quot;white&quot;
+#&gt;   ..$ colour       : chr "white"
 #&gt;   ..$ size         : num 0.25
 #&gt;   ..$ linetype     : NULL
 #&gt;   ..$ lineend      : NULL
 #&gt;   ..$ arrow        : logi FALSE
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_line" "element"
 #&gt;  $ panel.ontop          : logi FALSE
 #&gt;  $ plot.background      :List of 5
 #&gt;   ..$ fill         : NULL
-#&gt;   ..$ colour       : chr &quot;white&quot;
+#&gt;   ..$ colour       : chr "white"
 #&gt;   ..$ size         : NULL
 #&gt;   ..$ linetype     : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_rect" "element"
 #&gt;  $ plot.title           :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
 #&gt;   ..$ colour       : NULL
-#&gt;   ..$ size         :Class &#39;rel&#39;  num 1.2
+#&gt;   ..$ size         :Class 'rel'  num 1.2
 #&gt;   ..$ hjust        : num 0
 #&gt;   ..$ vjust        : num 1
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 6.6 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 6.6 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ plot.subtitle        :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
 #&gt;   ..$ colour       : NULL
-#&gt;   ..$ size         :Class &#39;rel&#39;  num 0.9
+#&gt;   ..$ size         :Class 'rel'  num 0.9
 #&gt;   ..$ hjust        : num 0
 #&gt;   ..$ vjust        : num 1
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 4.95 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 4.95 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ plot.caption         :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
 #&gt;   ..$ colour       : NULL
-#&gt;   ..$ size         :Class &#39;rel&#39;  num 0.9
+#&gt;   ..$ size         :Class 'rel'  num 0.9
 #&gt;   ..$ hjust        : num 1
 #&gt;   ..$ vjust        : num 1
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 4.95 0 0 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 4.95 0 0 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt;  $ plot.margin          :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 5.5 5.5 5.5 5.5
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
+#&gt;  $ plot.margin          :Classes 'margin', 'unit'  atomic [1:4] 5.5 5.5 5.5 5.5
+#&gt;   .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. ..- attr(*, "unit")= chr "pt"
 #&gt;  $ strip.background     :List of 5
-#&gt;   ..$ fill         : chr &quot;grey85&quot;
+#&gt;   ..$ fill         : chr "grey85"
 #&gt;   ..$ colour       : logi NA
 #&gt;   ..$ size         : NULL
 #&gt;   ..$ linetype     : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-#&gt;  $ strip.placement      : chr &quot;inside&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_rect" "element"
+#&gt;  $ strip.placement      : chr "inside"
 #&gt;  $ strip.text           :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
-#&gt;   ..$ colour       : chr &quot;grey10&quot;
-#&gt;   ..$ size         :Class &#39;rel&#39;  num 0.8
+#&gt;   ..$ colour       : chr "grey10"
+#&gt;   ..$ size         :Class 'rel'  num 0.8
 #&gt;   ..$ hjust        : NULL
 #&gt;   ..$ vjust        : NULL
 #&gt;   ..$ angle        : NULL
@@ -518,7 +512,7 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ margin       : NULL
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ strip.text.x         :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -528,12 +522,12 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : NULL
 #&gt;   ..$ angle        : NULL
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 5.5 0 5.5 0
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 5.5 0 5.5 0
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
 #&gt;  $ strip.text.y         :List of 11
 #&gt;   ..$ family       : NULL
 #&gt;   ..$ face         : NULL
@@ -543,22 +537,21 @@ the theme with <code>NULL</code>s.</p>
 #&gt;   ..$ vjust        : NULL
 #&gt;   ..$ angle        : num -90
 #&gt;   ..$ lineheight   : NULL
-#&gt;   ..$ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 5.5 0 5.5
-#&gt;   .. .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;   ..$ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 5.5 0 5.5
+#&gt;   .. .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. .. ..- attr(*, "unit")= chr "pt"
 #&gt;   ..$ debug        : NULL
 #&gt;   ..$ inherit.blank: logi TRUE
-#&gt;   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt;  $ strip.switch.pad.grid:Class &#39;unit&#39;  atomic [1:1] 0.1
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 1
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;cm&quot;
-#&gt;  $ strip.switch.pad.wrap:Class &#39;unit&#39;  atomic [1:1] 0.1
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 1
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;cm&quot;
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;theme&quot; &quot;gg&quot;
-#&gt;  - attr(*, &quot;complete&quot;)= logi TRUE
-#&gt;  - attr(*, &quot;validate&quot;)= logi TRUE
-#&gt; </div><div class='input'>
+#&gt;   ..- attr(*, "class")= chr [1:2] "element_text" "element"
+#&gt;  $ strip.switch.pad.grid:Class 'unit'  atomic [1:1] 0.1
+#&gt;   .. ..- attr(*, "valid.unit")= int 1
+#&gt;   .. ..- attr(*, "unit")= chr "cm"
+#&gt;  $ strip.switch.pad.wrap:Class 'unit'  atomic [1:1] 0.1
+#&gt;   .. ..- attr(*, "valid.unit")= int 1
+#&gt;   .. ..- attr(*, "unit")= chr "cm"
+#&gt;  - attr(*, "class")= chr [1:2] "theme" "gg"
+#&gt;  - attr(*, "complete")= logi TRUE
+#&gt;  - attr(*, "validate")= logi TRUE</div><div class='input'>
 
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) +
@@ -572,22 +565,21 @@ the theme with <code>NULL</code>s.</p>
 <span class='no'>rep_el</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggtheme.html'>theme_grey</a></span>() <span class='kw'>%+replace%</span> <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"Times"</span>))
 
 <span class='no'>add_el</span>$<span class='no'>text</span></div><div class='output co'>#&gt; List of 11
-#&gt;  $ family       : chr &quot;Times&quot;
-#&gt;  $ face         : chr &quot;plain&quot;
-#&gt;  $ colour       : chr &quot;black&quot;
+#&gt;  $ family       : chr "Times"
+#&gt;  $ face         : chr "plain"
+#&gt;  $ colour       : chr "black"
 #&gt;  $ size         : num 11
 #&gt;  $ hjust        : num 0.5
 #&gt;  $ vjust        : num 0.5
 #&gt;  $ angle        : num 0
 #&gt;  $ lineheight   : num 0.9
-#&gt;  $ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 0 0
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;  $ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 0 0
+#&gt;   .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. ..- attr(*, "unit")= chr "pt"
 #&gt;  $ debug        : logi FALSE
 #&gt;  $ inherit.blank: logi FALSE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt; </div><div class='input'><span class='no'>rep_el</span>$<span class='no'>text</span></div><div class='output co'>#&gt; List of 11
-#&gt;  $ family       : chr &quot;Times&quot;
+#&gt;  - attr(*, "class")= chr [1:2] "element_text" "element"</div><div class='input'><span class='no'>rep_el</span>$<span class='no'>text</span></div><div class='output co'>#&gt; List of 11
+#&gt;  $ family       : chr "Times"
 #&gt;  $ face         : NULL
 #&gt;  $ colour       : NULL
 #&gt;  $ size         : NULL
@@ -598,8 +590,7 @@ the theme with <code>NULL</code>s.</p>
 #&gt;  $ margin       : NULL
 #&gt;  $ debug        : NULL
 #&gt;  $ inherit.blank: logi FALSE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt; </div></pre>
+#&gt;  - attr(*, "class")= chr [1:2] "element_text" "element"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -99,67 +99,64 @@ a rectangle behind the text, making it easier to read.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>stat</dt>
-      <dd>The statistical transformation to use on the data for this
-layer, as a string.</dd>
+      <dd><p>The statistical transformation to use on the data for this
+layer, as a string.</p></dd>
       <dt>position</dt>
-      <dd>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</dd>
+      <dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>parse</dt>
-      <dd>If TRUE, the labels will be parsed into expressions and
-displayed as described in ?plotmath</dd>
+      <dd><p>If TRUE, the labels will be parsed into expressions and
+displayed as described in ?plotmath</p></dd>
       <dt>nudge_x, nudge_y</dt>
-      <dd>Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.</dd>
+      <dd><p>Horizontal and vertical adjustment to nudge labels by.
+Useful for offsetting text from points, particularly on discrete scales.</p></dd>
       <dt>label.padding</dt>
-      <dd>Amount of padding around label. Defaults to 0.25 lines.</dd>
+      <dd><p>Amount of padding around label. Defaults to 0.25 lines.</p></dd>
       <dt>label.r</dt>
-      <dd>Radius of rounded corners. Defaults to 0.15 lines.</dd>
+      <dd><p>Radius of rounded corners. Defaults to 0.15 lines.</p></dd>
       <dt>label.size</dt>
-      <dd>Size of label border, in mm.</dd>
+      <dd><p>Size of label border, in mm.</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>inherit.aes</dt>
-      <dd>If <code>FALSE</code>, overrides the default aesthetics,
+      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn&#39;t inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</dd>
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
       <dt>check_overlap</dt>
-      <dd>If <code>TRUE</code>, text that overlaps previous text in the
-same layer will not be plotted.</dd>
+      <dd><p>If <code>TRUE</code>, text that overlaps previous text in the
+same layer will not be plotted.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Note the the &quot;width&quot; and &quot;height&quot; of a text element are 0, so stacking
+    <p>Note the the "width" and "height" of a text element are 0, so stacking
 and dodging text will not work by default, and axis limits are not
 automatically expanded to include all text. Obviously, labels do have
 height and width, but they are physical units, not data units. The amount of
@@ -168,31 +165,57 @@ resize a plot, labels stay the same size, but the size of the axes changes.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
-    <p>\aesthetics{geom}{text}</p>
+    
+    <p><code>geom_text</code> understands the following aesthetics (required aesthetics are in bold):
+    <ul>
+<li>  </li>
+<li> <code><strong>x</strong></code>
+  </li>
+<li> <code><strong>y</strong></code>
+  </li>
+<li> <code><strong>label</strong></code>
+  </li>
+<li> <code>alpha</code>
+  </li>
+<li> <code>angle</code>
+  </li>
+<li> <code>colour</code>
+  </li>
+<li> <code>family</code>
+  </li>
+<li> <code>fontface</code>
+  </li>
+<li> <code>group</code>
+  </li>
+<li> <code>hjust</code>
+  </li>
+<li> <code>lineheight</code>
+  </li>
+<li> <code>size</code>
+  </li>
+<li> <code>vjust</code>
+</li>
+</ul></p>
     
     <h2 class="hasAnchor" id="-code-geom-label-code-"><a class="anchor" href="#-code-geom-label-code-"></a>&lt;code&gt;geom_label&lt;/code&gt;</h2>
 
-    <p></p>
+    
     <p>Currently <code>geom_label</code> does not support the <code>rot</code> parameter and
 is considerably slower than <code>geom_text</code>. The <code>fill</code> aesthetic
 controls the background colour of the label.</p>
     
     <h2 class="hasAnchor" id="alignment"><a class="anchor" href="#alignment"></a>Alignment</h2>
 
-    <p></p>
-    <p>You can modify text alignment with the <code>vjust</code> and <code>hjust</code>
-aesthetics. These can either be a number between 0 (right/bottom) and
-1 (top/left) or a character (&quot;left&quot;, &quot;middle&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;center&quot;,
-&quot;top&quot;). There are two special alignments: &quot;inward&quot; and &quot;outward&quot;.
+    
+    <p>You can modify text alignment with the <code>vjust</code> and <code>hjust</code></p>
+<p>aesthetics. These can either be a number between 0 (right/bottom) and
+1 (top/left) or a character ("left", "middle", "right", "bottom", "center",
+"top"). There are two special alignments: "inward" and "outward".
 Inward always aligns text towards the center, and outward aligns
 it away from the center</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='fu'>rownames</span>(<span class='no'>mtcars</span>)))
 
 <span class='no'>p</span> + <span class='fu'>geom_text</span>()</div><img src='geom_label-2.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Avoid overlaps</span>
@@ -219,7 +242,42 @@ it away from the center</p>
 <span class='no'>p</span> +
   <span class='fu'>geom_text</span>() +
   <span class='fu'><a href='annotate.html'>annotate</a></span>(<span class='st'>"text"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"plot mpg vs. wt"</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>15</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><img src='geom_label-28.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Aligning labels and bars --------------------------------------------------</span>
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
+  <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>)),
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>1</span>),
+  <span class='kw'>grp</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"a"</span>, <span class='st'>"b"</span>)
+)
 
+<span class='co'># ggplot2 doesn't know you want to give the labels the same virtual width</span>
+<span class='co'># as the bars:</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
+  <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>) +
+  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Width not defined. Set with `position_dodge(width = ?)`</span></div><img src='geom_label-31.png' alt='' width='540' height='400' /><div class='input'><span class='co'># So tell it:</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
+  <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>) +
+  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='position_dodge.html'>position_dodge</a></span>(<span class='fl'>0.9</span>))</div><img src='geom_label-33.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Use you can't nudge and dodge text, so instead adjust the y postion</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
+  <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>) +
+  <span class='fu'>geom_text</span>(
+    <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>0.05</span>),
+    <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='position_dodge.html'>position_dodge</a></span>(<span class='fl'>0.9</span>),
+    <span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0</span>
+  )</div><img src='geom_label-35.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># To place text in the middle of each bar in a stacked barplot, you</span>
+<span class='co'># need to set the vjust parameter of position_stack()</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
+ <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
+ <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='position_stack.html'>position_stack</a></span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>))</div><img src='geom_label-37.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Justification -------------------------------------------------------------</span>
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
+  <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1.5</span>),
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1.5</span>),
+  <span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"bottom-left"</span>, <span class='st'>"bottom-right"</span>, <span class='st'>"top-left"</span>, <span class='st'>"top-right"</span>, <span class='st'>"center"</span>)
+)
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
+  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>text</span>))</div><img src='geom_label-39.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
+  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>text</span>), <span class='kw'>vjust</span> <span class='kw'>=</span> <span class='st'>"inward"</span>, <span class='kw'>hjust</span> <span class='kw'>=</span> <span class='st'>"inward"</span>)</div><img src='geom_label-41.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

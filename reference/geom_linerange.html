@@ -104,57 +104,73 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>stat</dt>
-      <dd>The statistical transformation to use on the data for this
-layer, as a string.</dd>
+      <dd><p>The statistical transformation to use on the data for this
+layer, as a string.</p></dd>
       <dt>position</dt>
-      <dd>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</dd>
+      <dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>fatten</dt>
-      <dd>A multiplicative factor used to increase the size of the
+      <dd><p>A multiplicative factor used to increase the size of the
 middle bar in <code>geom_crossbar()</code> and the middle point in
-<code>geom_pointrange()</code>.</dd>
+<code>geom_pointrange()</code>.</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>inherit.aes</dt>
-      <dd>If <code>FALSE</code>, overrides the default aesthetics,
+      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn&#39;t inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</dd>
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
-    <p>\aesthetics{geom}{linerange}</p>
+    
+    <p><code>geom_linerange</code> understands the following aesthetics (required aesthetics are in bold):
+    <ul>
+<li>  </li>
+<li> <code><strong>x</strong></code>
+  </li>
+<li> <code><strong>ymin</strong></code>
+  </li>
+<li> <code><strong>ymax</strong></code>
+  </li>
+<li> <code>alpha</code>
+  </li>
+<li> <code>colour</code>
+  </li>
+<li> <code>group</code>
+  </li>
+<li> <code>linetype</code>
+  </li>
+<li> <code>size</code>
+</li>
+</ul></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -163,10 +179,7 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
  <code>geom_errorh</code> for a horizontal error bar.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>#' # Create a simple example dataset</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
   <span class='kw'>trt</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>)),

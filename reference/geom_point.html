@@ -96,47 +96,44 @@ appropriate.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>stat</dt>
-      <dd>The statistical transformation to use on the data for this
-layer, as a string.</dd>
+      <dd><p>The statistical transformation to use on the data for this
+layer, as a string.</p></dd>
       <dt>position</dt>
-      <dd>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</dd>
+      <dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>inherit.aes</dt>
-      <dd>If <code>FALSE</code>, overrides the default aesthetics,
+      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn&#39;t inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</dd>
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -147,7 +144,7 @@ another variable is mapped to point shape or colour, however.</p>
     
     <h2 class="hasAnchor" id="overplotting"><a class="anchor" href="#overplotting"></a>Overplotting</h2>
 
-    <p></p>
+    
     <p>The biggest potential problem with a scatterplot is overplotting: whenever
 you have more than a few points, points may be plotted on top of one
 another. This can severely distort the visual appearance of the plot.
@@ -156,24 +153,42 @@ that can help. You can add additional information with
 <code><a href='geom_smooth.html'>geom_smooth</a></code>, <code><a href='geom_quantile.html'>geom_quantile</a></code> or
 <code><a href='geom_density_2d.html'>geom_density_2d</a></code>. If you have few unique x values,
 <code><a href='geom_boxplot.html'>geom_boxplot</a></code> may also be useful.</p>
-    <p>Alternatively, you can
+<p>Alternatively, you can
 summarise the number of points at each location and display that in some
 way, using <code><a href='geom_count.html'>geom_count</a></code>, <code><a href='geom_hex.html'>geom_hex</a></code>, or
 <code><a href='geom_density_2d.html'>geom_density2d</a></code>.</p>
-    <p>Another technique is to make the points transparent (e.g.
+<p>Another technique is to make the points transparent (e.g.
 <code>geom_point(alpha = 0.05)</code>) or very small (e.g.
-<code>geom_point(shape = &quot;.&quot;)</code>).</p>
+<code>geom_point(shape = ".")</code>).</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
-    <p>\aesthetics{geom}{point}</p>
+    
+    <p><code>geom_point</code> understands the following aesthetics (required aesthetics are in bold):
+    <ul>
+<li>  </li>
+<li> <code><strong>x</strong></code>
+  </li>
+<li> <code><strong>y</strong></code>
+  </li>
+<li> <code>alpha</code>
+  </li>
+<li> <code>colour</code>
+  </li>
+<li> <code>fill</code>
+  </li>
+<li> <code>group</code>
+  </li>
+<li> <code>shape</code>
+  </li>
+<li> <code>size</code>
+  </li>
+<li> <code>stroke</code>
+</li>
+</ul></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>))
 <span class='no'>p</span> + <span class='fu'>geom_point</span>()</div><img src='geom_point-2.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Add aesthetic mappings</span>
@@ -182,14 +197,31 @@ way, using <code><a href='geom_count.html'>geom_count</a></code>, <code><a href=
 <span class='no'>p</span> + <span class='fu'>geom_point</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cyl</span>)) + <span class='fu'><a href='scale_colour_gradient.html'>scale_colour_gradient</a></span>(<span class='kw'>low</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)</div><img src='geom_point-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_point</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>shape</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) + <span class='fu'><a href='scale_shape.html'>scale_shape</a></span>(<span class='kw'>solid</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><img src='geom_point-12.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Set aesthetics to fixed value</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) + <span class='fu'>geom_point</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><img src='geom_point-14.png' alt='' width='540' height='400' /><div class='input'>
-
+<span class='co'># Varying alpha is useful for large datasets</span>
+<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>))
+<span class='no'>d</span> + <span class='fu'>geom_point</span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>10</span>)</div><img src='geom_point-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>geom_point</span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>20</span>)</div><img src='geom_point-18.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>geom_point</span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>100</span>)</div><img src='geom_point-20.png' alt='' width='540' height='400' /><div class='input'>
 
 <span class='co'># For shapes that have a border (like 21), you can colour the inside and</span>
 <span class='co'># outside separately. Use the stroke aesthetic to modify the width of the</span>
 <span class='co'># border</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) +
-  <span class='fu'>geom_point</span>(<span class='kw'>shape</span> <span class='kw'>=</span> <span class='fl'>21</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><img src='geom_point-16.png' alt='' width='540' height='400' /><div class='input'>
-
+  <span class='fu'>geom_point</span>(<span class='kw'>shape</span> <span class='kw'>=</span> <span class='fl'>21</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><img src='geom_point-22.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># You can create interesting shapes by layering multiple points of</span>
+<span class='co'># different sizes</span>
+<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>shape</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))
+<span class='no'>p</span> + <span class='fu'>geom_point</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>) +
+  <span class='fu'>geom_point</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey90"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)</div><img src='geom_point-24.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_point</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4.5</span>) +
+  <span class='fu'>geom_point</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"pink"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>) +
+  <span class='fu'>geom_point</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>shape</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><img src='geom_point-26.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># These extra layers don't usually appear in the legend, but we can</span>
+<span class='co'># force their inclusion</span>
+<span class='no'>p</span> + <span class='fu'>geom_point</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4.5</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) +
+  <span class='fu'>geom_point</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"pink"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) +
+  <span class='fu'>geom_point</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>shape</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><img src='geom_point-28.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># geom_point warns when missing values have been dropped from the data set</span>
+<span class='co'># and not plotted, you can turn this off by setting na.rm = TRUE</span>
+<span class='no'>mtcars2</span> <span class='kw'>&lt;-</span> <span class='fu'>transform</span>(<span class='no'>mtcars</span>, <span class='kw'>mpg</span> <span class='kw'>=</span> <span class='fu'>ifelse</span>(<span class='fu'>runif</span>(<span class='fl'>32</span>) <span class='kw'>&lt;</span> <span class='fl'>0.2</span>, <span class='fl'>NA</span>, <span class='no'>mpg</span>))
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars2</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) + <span class='fu'>geom_point</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 6 rows containing missing values (geom_point).</span></div><img src='geom_point-31.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars2</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) + <span class='fu'>geom_point</span>(<span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><img src='geom_point-33.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

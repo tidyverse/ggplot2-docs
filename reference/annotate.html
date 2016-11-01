@@ -85,7 +85,7 @@
 the properties of the geoms are not mapped from variables of a data frame,
 but are instead passed in as vectors. This is useful for adding small annotations
 (such as text labels) or if you have your data in vectors, and for some
-reason don&#39;t want to put them in a data frame.</p>
+reason don't want to put them in a data frame.</p>
     
 
     <pre><span class='fu'>annotate</span>(<span class='no'>geom</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xmin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xmax</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -95,18 +95,18 @@ reason don&#39;t want to put them in a data frame.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>geom</dt>
-      <dd>name of geom to use for annotation</dd>
+      <dd><p>name of geom to use for annotation</p></dd>
       <dt>x, y, xmin, ymin, xmax, ymax, xend, yend</dt>
-      <dd>positioning aesthetics -
-you must specify at least one of these.</dd>
+      <dd><p>positioning aesthetics -
+you must specify at least one of these.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -117,10 +117,7 @@ set. This means that layers created with this function will never
 affect the legend.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>wt</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 <span class='no'>p</span> + <span class='fu'>annotate</span>(<span class='st'>"text"</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>25</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Some text"</span>)</div><img src='annotate-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>annotate</span>(<span class='st'>"text"</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>:<span class='fl'>5</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>25</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Some text"</span>)</div><img src='annotate-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>annotate</span>(<span class='st'>"rect"</span>, <span class='kw'>xmin</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>xmax</span> <span class='kw'>=</span> <span class='fl'>4.2</span>, <span class='kw'>ymin</span> <span class='kw'>=</span> <span class='fl'>12</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='fl'>21</span>,
   <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>.2</span>)</div><img src='annotate-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>annotate</span>(<span class='st'>"segment"</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2.5</span>, <span class='kw'>xend</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>15</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='fl'>25</span>,

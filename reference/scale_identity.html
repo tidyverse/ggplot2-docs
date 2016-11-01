@@ -83,8 +83,8 @@
     
     <p>Use this set of scales when your data has already been scaled, i.e. it
 already represents aesthetic values that ggplot2 can handle directly
-This will not produce a legend unless you also supply the <code>breaks</code>
-and <code>labels</code>.</p>
+This will not produce a legend unless you also supply the <code>breaks</code></p>
+<p>and <code>labels</code>.</p>
     
 
     <pre><span class='fu'>scale_colour_identity</span>(<span class='no'>...</span>, <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"none"</span>)
@@ -102,17 +102,14 @@ and <code>labels</code>.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code> or
-<code><a href='continuous_scale.html'>continuous_scale</a></code></dd>
+      <dd><p>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code> or
+<code><a href='continuous_scale.html'>continuous_scale</a></code></p></dd>
       <dt>guide</dt>
-      <dd>Guide to use for this scale - defaults to <code>&quot;none&quot;</code>.</dd>
+      <dd><p>Guide to use for this scale - defaults to <code>"none"</code>.</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>luv_colours</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>u</span>, <span class='no'>v</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>col</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>) +
   <span class='fu'>scale_color_identity</span>() +

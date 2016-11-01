@@ -92,21 +92,21 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>aesthetics</dt>
-      <dd>the names of the aesthetics that this scale works with</dd>
+      <dd><p>the names of the aesthetics that this scale works with</p></dd>
       <dt>scale_name</dt>
-      <dd>the name of the scale</dd>
+      <dd><p>the name of the scale</p></dd>
       <dt>palette</dt>
-      <dd>a palette function that when called with a single integer
+      <dd><p>a palette function that when called with a single integer
 argument (the number of levels in the scale) returns the values that
-they should take</dd>
+they should take</p></dd>
       <dt>name</dt>
-      <dd>the name of the scale - used as the axis label or the legend
-title</dd>
+      <dd><p>the name of the scale - used as the axis label or the legend
+title</p></dd>
       <dt>breaks</dt>
-      <dd>control the breaks in the guide.  There are four possible
-types of input:
-<ul>
-<li> <code>NULL</code>: don&#39;t display any breaks
+      <dd><p>control the breaks in the guide.  There are four possible
+types of input:</p><ul>
+<li>  </li>
+<li> <code>NULL</code>: don't display any breaks
   </li>
 <li> a character vector giving the breaks as they should appear on the
    axis or in the legend.
@@ -118,42 +118,41 @@ types of input:
     specifying which breaks to display.
 </li>
 </ul>
-
-This parameter does not affect in any way how the data is scaled - it
-only affects the appearance of the legend.</dd>
+<p>This parameter does not affect in any way how the data is scaled - it
+only affects the appearance of the legend.</p></dd>
       <dt>labels</dt>
-      <dd><code>NULL</code> for no labels, <code>waiver()</code> for default
+      <dd><p><code>NULL</code> for no labels, <code>waiver()</code> for default
 labels (labels the same as breaks), a character vector the same length
 as breaks, or a named character vector whose names are used to match
-replacement the labels for matching breaks.</dd>
+replacement the labels for matching breaks.</p></dd>
       <dt>limits</dt>
-      <dd>A character vector specifying the data range for the scale.
-and the default order of their display in guides.</dd>
+      <dd><p>A character vector specifying the data range for the scale.
+and the default order of their display in guides.</p></dd>
       <dt>expand</dt>
-      <dd>a numeric vector of length two, giving a multiplicative and
+      <dd><p>a numeric vector of length two, giving a multiplicative and
 additive constant used to expand the range of the scales so that there
 is a small gap between the data and the axes. The defaults are (0,0.6)
-for discrete scales and (0.05,0) for continuous scales.</dd>
+for discrete scales and (0.05,0) for continuous scales.</p></dd>
       <dt>na.translate</dt>
-      <dd>Unlike continuous scales, discrete scales can easily show
+      <dd><p>Unlike continuous scales, discrete scales can easily show
 missing values, and do so by default. If you want to remove missing values
-from a discrete scale, specify <code>na.translate = FALSE</code>.</dd>
+from a discrete scale, specify <code>na.translate = FALSE</code>.</p></dd>
       <dt>na.value</dt>
-      <dd>If <code>na.translate = TRUE</code>, what value aesthetic
+      <dd><p>If <code>na.translate = TRUE</code>, what value aesthetic
 value should missing be displayed as? Does not apply to position scales
-where <code>NA</code> is always placed at the far right.</dd>
+where <code>NA</code> is always placed at the far right.</p></dd>
       <dt>drop</dt>
-      <dd>Should unused factor levels be omitted from the scale?
+      <dd><p>Should unused factor levels be omitted from the scale?
 The default, <code>TRUE</code>, uses the levels that appear in the data;
-<code>FALSE</code> uses all the levels in the factor.</dd>
+<code>FALSE</code> uses all the levels in the factor.</p></dd>
       <dt>guide</dt>
-      <dd>the name of, or actual function, used to create the
-guide. See <code><a href='guides.html'>guides</a></code> for more info.</dd>
+      <dd><p>the name of, or actual function, used to create the
+guide. See <code><a href='guides.html'>guides</a></code> for more info.</p></dd>
       <dt>position</dt>
-      <dd>The position of the axis. &quot;left&quot; or &quot;right&quot; for vertical
-scales, &quot;top&quot; or &quot;bottom&quot; for horizontal scales</dd>
+      <dd><p>The position of the axis. "left" or "right" for vertical
+scales, "top" or "bottom" for horizontal scales</p></dd>
       <dt>super</dt>
-      <dd>The super class to use for the constructed scale</dd>
+      <dd><p>The super class to use for the constructed scale</p></dd>
     </dl>
     
 

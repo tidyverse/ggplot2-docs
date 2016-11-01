@@ -96,80 +96,77 @@ stacked, with each dot representing one observation.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>position</dt>
-      <dd>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</dd>
+      <dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>binwidth</dt>
-      <dd>When <code>method</code> is &quot;dotdensity&quot;, this specifies maximum bin
-width. When <code>method</code> is &quot;histodot&quot;, this specifies bin width.
-Defaults to 1/30 of the range of the data</dd>
+      <dd><p>When <code>method</code> is "dotdensity", this specifies maximum bin
+width. When <code>method</code> is "histodot", this specifies bin width.
+Defaults to 1/30 of the range of the data</p></dd>
       <dt>binaxis</dt>
-      <dd>The axis to bin along, &quot;x&quot; (default) or &quot;y&quot;</dd>
+      <dd><p>The axis to bin along, "x" (default) or "y"</p></dd>
       <dt>method</dt>
-      <dd>&quot;dotdensity&quot; (default) for dot-density binning, or
-&quot;histodot&quot; for fixed bin widths (like stat_bin)</dd>
+      <dd><p>"dotdensity" (default) for dot-density binning, or
+"histodot" for fixed bin widths (like stat_bin)</p></dd>
       <dt>binpositions</dt>
-      <dd>When <code>method</code> is &quot;dotdensity&quot;, &quot;bygroup&quot; (default)
-determines positions of the bins for each group separately. &quot;all&quot; determines
+      <dd><p>When <code>method</code> is "dotdensity", "bygroup" (default)
+determines positions of the bins for each group separately. "all" determines
 positions of the bins with all the data taken together; this is used for
-aligning dot stacks across multiple groups.</dd>
+aligning dot stacks across multiple groups.</p></dd>
       <dt>stackdir</dt>
-      <dd>which direction to stack the dots. &quot;up&quot; (default),
-&quot;down&quot;, &quot;center&quot;, &quot;centerwhole&quot; (centered, but with dots aligned)</dd>
+      <dd><p>which direction to stack the dots. "up" (default),
+"down", "center", "centerwhole" (centered, but with dots aligned)</p></dd>
       <dt>stackratio</dt>
-      <dd>how close to stack the dots. Default is 1, where dots just
-just touch. Use smaller values for closer, overlapping dots.</dd>
+      <dd><p>how close to stack the dots. Default is 1, where dots just
+just touch. Use smaller values for closer, overlapping dots.</p></dd>
       <dt>dotsize</dt>
-      <dd>The diameter of the dots relative to <code>binwidth</code>, default 1.</dd>
+      <dd><p>The diameter of the dots relative to <code>binwidth</code>, default 1.</p></dd>
       <dt>stackgroups</dt>
-      <dd>should dots be stacked across groups? This has the effect
-that <code>position = &quot;stack&quot;</code> should have, but can&#39;t (because this geom has
-some odd properties).</dd>
+      <dd><p>should dots be stacked across groups? This has the effect
+that <code>position = "stack"</code> should have, but can't (because this geom has
+some odd properties).</p></dd>
       <dt>origin</dt>
-      <dd>When <code>method</code> is &quot;histodot&quot;, origin of first bin</dd>
+      <dd><p>When <code>method</code> is "histodot", origin of first bin</p></dd>
       <dt>right</dt>
-      <dd>When <code>method</code> is &quot;histodot&quot;, should intervals be closed
-on the right (a, b], or not [a, b)</dd>
+      <dd><p>When <code>method</code> is "histodot", should intervals be closed
+on the right (a, b], or not [a, b)</p></dd>
       <dt>width</dt>
-      <dd>When <code>binaxis</code> is &quot;y&quot;, the spacing of the dot stacks
-for dodging.</dd>
+      <dd><p>When <code>binaxis</code> is "y", the spacing of the dot stacks
+for dodging.</p></dd>
       <dt>drop</dt>
-      <dd>If TRUE, remove all bins with zero counts</dd>
+      <dd><p>If TRUE, remove all bins with zero counts</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>inherit.aes</dt>
-      <dd>If <code>FALSE</code>, overrides the default aesthetics,
+      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn&#39;t inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</dd>
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -180,30 +177,45 @@ With dot-density binning, the bin positions are determined by the data and
 (1999) for details on the dot-density binning algorithm. With histodot
 binning, the bins have fixed positions and fixed widths, much like a
 histogram.</p>
-    <p>When binning along the x axis and stacking along the y axis, the numbers on
+<p>When binning along the x axis and stacking along the y axis, the numbers on
 y axis are not meaningful, due to technical limitations of ggplot2. You can
 hide the y axis, as in one of the examples, or manually scale it
 to match the number of dots.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
-    <p>\aesthetics{geom}{dotplot}</p>
+    
+    <p><code>geom_dotplot</code> understands the following aesthetics (required aesthetics are in bold):
+    <ul>
+<li>  </li>
+<li> <code><strong>x</strong></code>
+  </li>
+<li> <code><strong>y</strong></code>
+  </li>
+<li> <code>alpha</code>
+  </li>
+<li> <code>colour</code>
+  </li>
+<li> <code>fill</code>
+  </li>
+<li> <code>group</code>
+</li>
+</ul></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
-    <p></p>
-    <p><dl class='dl-horizontal'>
-  <dt>x</dt><dd>center of each bin, if binaxis is &quot;x&quot;</dd>
-  <dt>y</dt><dd>center of each bin, if binaxis is &quot;x&quot;</dd>
-  <dt>binwidth</dt><dd>max width of each bin if method is &quot;dotdensity&quot;;
-    width of each bin if method is &quot;histodot&quot;</dd>
+    
+    <dl class='dl-horizontal'>
+  <dt>x</dt><dd>center of each bin, if binaxis is "x"</dd>
+  <dt>y</dt><dd>center of each bin, if binaxis is "x"</dd>
+  <dt>binwidth</dt><dd>max width of each bin if method is "dotdensity";
+    width of each bin if method is "histodot"</dd>
   <dt>count</dt><dd>number of points in bin</dd>
   <dt>ncount</dt><dd>count, scaled to maximum of 1</dd>
   <dt>density</dt><dd>density of points in bin, scaled to integrate to 1,
-    if method is &quot;histodot&quot;</dd>
-  <dt>ndensity</dt><dd>density, scaled to maximum of 1, if method is &quot;histodot&quot;</dd>
-</dl></p>
+    if method is "histodot"</dd>
+  <dt>ndensity</dt><dd>density, scaled to maximum of 1, if method is "histodot"</dd>
+</dl>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -211,11 +223,8 @@ to match the number of dots.</p>
    53(3), 276-281.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) + <span class='fu'>geom_dotplot</span>()</div><div class='output'><strong class='text-info'>`stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</strong></div><img src='geom_dotplot-3.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) + <span class='fu'>geom_dotplot</span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)</div><img src='geom_dotplot-5.png' alt='' width='540' height='400' /><div class='input'>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) + <span class='fu'>geom_dotplot</span>()</div><div class='output co'>#&gt; <span class='message'>`stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='geom_dotplot-3.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) + <span class='fu'>geom_dotplot</span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)</div><img src='geom_dotplot-5.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Use fixed-width bins</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) +
   <span class='fu'>geom_dotplot</span>(<span class='kw'>method</span><span class='kw'>=</span><span class='st'>"histodot"</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)</div><img src='geom_dotplot-7.png' alt='' width='540' height='400' /><div class='input'>
@@ -230,7 +239,25 @@ to match the number of dots.</p>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) + <span class='fu'>geom_dotplot</span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>stackratio</span> <span class='kw'>=</span> <span class='fl'>.7</span>)</div><img src='geom_dotplot-15.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Expand dot diameter</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) + <span class='fu'>geom_dotplot</span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>dotsize</span> <span class='kw'>=</span> <span class='fl'>1.25</span>)</div><img src='geom_dotplot-17.png' alt='' width='540' height='400' /><div class='input'>
-
+<span class='co'># Examples with stacking along y axis instead of x</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) +
+  <span class='fu'>geom_dotplot</span>(<span class='kw'>binaxis</span> <span class='kw'>=</span> <span class='st'>"y"</span>, <span class='kw'>stackdir</span> <span class='kw'>=</span> <span class='st'>"center"</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='geom_dotplot-20.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) +
+  <span class='fu'>geom_dotplot</span>(<span class='kw'>binaxis</span> <span class='kw'>=</span> <span class='st'>"y"</span>, <span class='kw'>stackdir</span> <span class='kw'>=</span> <span class='st'>"center"</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='geom_dotplot-23.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) +
+  <span class='fu'>geom_dotplot</span>(<span class='kw'>binaxis</span> <span class='kw'>=</span> <span class='st'>"y"</span>, <span class='kw'>stackdir</span> <span class='kw'>=</span> <span class='st'>"centerwhole"</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='geom_dotplot-26.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) +
+  <span class='fu'>geom_dotplot</span>(<span class='kw'>binaxis</span> <span class='kw'>=</span> <span class='st'>"y"</span>, <span class='kw'>stackdir</span> <span class='kw'>=</span> <span class='st'>"center"</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='geom_dotplot-29.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># binpositions="all" ensures that the bins are aligned between groups</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>am</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) +
+  <span class='fu'>geom_dotplot</span>(<span class='kw'>binaxis</span> <span class='kw'>=</span> <span class='st'>"y"</span>, <span class='kw'>stackdir</span> <span class='kw'>=</span> <span class='st'>"center"</span>, <span class='kw'>binpositions</span><span class='kw'>=</span><span class='st'>"all"</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='geom_dotplot-32.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Stacking multiple groups, with different fill</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
+  <span class='fu'>geom_dotplot</span>(<span class='kw'>stackgroups</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>binpositions</span> <span class='kw'>=</span> <span class='st'>"all"</span>)</div><img src='geom_dotplot-34.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
+  <span class='fu'>geom_dotplot</span>(<span class='kw'>stackgroups</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"histodot"</span>)</div><img src='geom_dotplot-36.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
+  <span class='fu'>geom_dotplot</span>(<span class='kw'>binaxis</span> <span class='kw'>=</span> <span class='st'>"y"</span>, <span class='kw'>stackgroups</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"histodot"</span>)</div><img src='geom_dotplot-38.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

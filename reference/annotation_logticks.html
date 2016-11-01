@@ -93,50 +93,47 @@ These tick marks probably make sense only for base 10.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>base</dt>
-      <dd>the base of the log (default 10)</dd>
+      <dd><p>the base of the log (default 10)</p></dd>
       <dt>sides</dt>
-      <dd>a string that controls which sides of the plot the log ticks appear on.
-It can be set to a string containing any of <code>&quot;trbl&quot;</code>, for top, right,
-bottom, and left.</dd>
+      <dd><p>a string that controls which sides of the plot the log ticks appear on.
+It can be set to a string containing any of <code>"trbl"</code>, for top, right,
+bottom, and left.</p></dd>
       <dt>scaled</dt>
-      <dd>is the data already log-scaled? This should be <code>TRUE</code>
-(default) when the data is already transformed with <code>log10()</code> or when
+      <dd><p>is the data already log-scaled? This should be <code>TRUE</code></p>
+<p>(default) when the data is already transformed with <code>log10()</code> or when
 using <code>scale_y_log10</code>. It should be <code>FALSE</code> when using
-<code>coord_trans(y = &quot;log10&quot;)</code>.</dd>
+<code>coord_trans(y = "log10")</code>.</p></dd>
       <dt>short</dt>
-      <dd>a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying the length of the
-short tick marks</dd>
+      <dd><p>a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying the length of the
+short tick marks</p></dd>
       <dt>mid</dt>
-      <dd>a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying the length of the
-middle tick marks. In base 10, these are the &quot;5&quot; ticks.</dd>
+      <dd><p>a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying the length of the
+middle tick marks. In base 10, these are the "5" ticks.</p></dd>
       <dt>long</dt>
-      <dd>a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying the length of the
-long tick marks. In base 10, these are the &quot;1&quot; (or &quot;10&quot;) ticks.</dd>
+      <dd><p>a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying the length of the
+long tick marks. In base 10, these are the "1" (or "10") ticks.</p></dd>
       <dt>colour</dt>
-      <dd>Colour of the tick marks.</dd>
+      <dd><p>Colour of the tick marks.</p></dd>
       <dt>size</dt>
-      <dd>Thickness of tick marks, in mm.</dd>
+      <dd><p>Thickness of tick marks, in mm.</p></dd>
       <dt>linetype</dt>
-      <dd>Linetype of tick marks (<code>solid</code>, <code>dashed</code>, etc.)</dd>
+      <dd><p>Linetype of tick marks (<code>solid</code>, <code>dashed</code>, etc.)</p></dd>
       <dt>alpha</dt>
-      <dd>The transparency of the tick marks.</dd>
+      <dd><p>The transparency of the tick marks.</p></dd>
       <dt>color</dt>
-      <dd>An alias for <code>colour</code>.</dd>
+      <dd><p>An alias for <code>colour</code>.</p></dd>
       <dt>...</dt>
-      <dd>Other parameters passed on to the layer</dd>
+      <dd><p>Other parameters passed on to the layer</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p><code><a href='scale_continuous.html'>scale_y_continuous</a></code>, <code><a href='scale_continuous.html'>scale_y_log10</a></code> for log scale
   transformations.</p>
-    <p><code><a href='coord_trans.html'>coord_trans</a></code> for log coordinate transformations.</p>
+<p><code><a href='coord_trans.html'>coord_trans</a></code> for log coordinate transformations.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Make a log-log plot (without log ticks)</span>
 <span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>msleep</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>bodywt</span>, <span class='no'>brainwt</span>)) +
  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) +
@@ -150,9 +147,11 @@ long tick marks. In base 10, these are the &quot;1&quot; (or &quot;10&quot;) tic
  ) +
  <span class='fu'><a href='ggtheme.html'>theme_bw</a></span>()
 
-<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>()                <span class='co'># Default: log ticks on bottom and left</span></div><img src='annotation_logticks-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"lr"</span>)    <span class='co'># Log ticks for y, on left and right</span></div><img src='annotation_logticks-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>)  <span class='co'># All four sides</span></div><img src='annotation_logticks-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>()                <span class='co'># Default: log ticks on bottom and left</span></div><div class='output co'>#&gt; <span class='error'>Error in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x$y,     resolveHJust(x$just, x$hjust), resolveVJust(x$just, x$vjust),     x$rot, 0): polygon edge not found</span></div><img src='annotation_logticks-3.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"lr"</span>)    <span class='co'># Log ticks for y, on left and right</span>
+<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>)  <span class='co'># All four sides</span></div><div class='output co'>#&gt; <span class='error'>Error in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x$y,     resolveHJust(x$just, x$hjust), resolveVJust(x$just, x$vjust),     x$rot, 0): polygon edge not found</span></div><div class='input'>
 <span class='co'># Hide the minor grid lines because they don't align with the ticks</span>
-<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>) + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())</div><img src='annotation_logticks-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>) + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())
+
 <span class='co'># Another way to get the same results as 'a' above: log-transform the data before</span>
 <span class='co'># plotting it. Also hide the minor grid lines.</span>
 <span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>msleep</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>log10</span>(<span class='no'>bodywt</span>), <span class='fu'>log10</span>(<span class='no'>brainwt</span>))) +
@@ -161,20 +160,20 @@ long tick marks. In base 10, these are the &quot;1&quot; (or &quot;10&quot;) tic
  <span class='fu'><a href='scale_continuous.html'>scale_y_continuous</a></span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"brain"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='fu'>math_format</span>(<span class='fl'>10</span>^<span class='no'>.x</span>)) +
  <span class='fu'><a href='ggtheme.html'>theme_bw</a></span>() + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())
 
-<span class='no'>b</span> + <span class='fu'>annotation_logticks</span>()</div><img src='annotation_logticks-10.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>b</span> + <span class='fu'>annotation_logticks</span>()
+
 <span class='co'># Using a coordinate transform requires scaled = FALSE</span>
 <span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>msleep</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>bodywt</span>, <span class='no'>brainwt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='coord_trans.html'>coord_trans</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"log10"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"log10"</span>) +
   <span class='fu'><a href='ggtheme.html'>theme_bw</a></span>()
-<span class='no'>t</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>scaled</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 27 rows containing missing values (geom_point).</strong></div><img src='annotation_logticks-13.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>t</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>scaled</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 27 rows containing missing values (geom_point).</span></div><div class='input'>
 <span class='co'># Change the length of the ticks</span>
 <span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(
   <span class='kw'>short</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>.5</span>,<span class='st'>"mm"</span>),
   <span class='kw'>mid</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>3</span>,<span class='st'>"mm"</span>),
   <span class='kw'>long</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>4</span>,<span class='st'>"mm"</span>)
-)</div><img src='annotation_logticks-15.png' alt='' width='540' height='400' /></pre>
+)</div><div class='output co'>#&gt; <span class='error'>Error in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x$y,     resolveHJust(x$just, x$hjust), resolveVJust(x$just, x$vjust),     x$rot, 0): polygon edge not found</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

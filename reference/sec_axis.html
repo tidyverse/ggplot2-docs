@@ -96,12 +96,12 @@ opposite of the primary axis.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>trans</dt>
-      <dd>A transformation formula</dd>
+      <dd><p>A transformation formula</p></dd>
       <dt>name</dt>
-      <dd>The name of the secondary axis</dd>
+      <dd><p>The name of the secondary axis</p></dd>
       <dt>breaks</dt>
-      <dd>One of:
-<ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li><code>NULL</code> for no breaks
   </li>
 <li><code>waiver()</code> for the default breaks computed by the transformation object
@@ -110,11 +110,10 @@ opposite of the primary axis.</p>
   </li>
 <li>A function that takes the limits as input and returns breaks as output
 </li>
-</ul>
-</dd>
+</ul></dd>
       <dt>labels</dt>
-      <dd>One of:
-<ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li><code>NULL</code> for no labels
   </li>
 <li><code>waiver()</code> for the default labels computed by the transformation object
@@ -123,8 +122,7 @@ opposite of the primary axis.</p>
   </li>
 <li>A function that takes the breaks as input and returns labels as output
 </li>
-</ul>
-</dd>
+</ul></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -133,14 +131,11 @@ opposite of the primary axis.</p>
 Except for the <code>trans</code> argument any of the arguments can be set to
 <code>derive()</code> which would result in the secondary axis inheriting the
 settings from the primary axis.</p>
-    <p><code>dup_axis</code> is provide as a shorthand for creating a secondary axis that
+<p><code>dup_axis</code> is provide as a shorthand for creating a secondary axis that
 is a duplication of the primary axis, effectively mirroring the primary axis.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>cyl</span>, <span class='no'>mpg</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 

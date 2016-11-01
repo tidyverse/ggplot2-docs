@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Continuous position scales (x &amp; y). — scale_continuous • ggplot2</title>
+<title>Position scales for continuous data (x &amp; y) — scale_continuous • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,13 +77,14 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Continuous position scales (x &amp; y).</h1>
+    <h1>Position scales for continuous data (x &amp; y)</h1>
     </div>
 
     
-    <p><code>scale_x_continuous</code> and <code>scale_y_continuous</code> are the key functions.
-The others, <code>scale_x_log10</code>, <code>scale_y_sqrt</code> etc, are aliases
-that set the <code>trans</code> argument to commonly used transformations.</p>
+    <p><code>scale_x_continuous</code> and <code>scale_y_continuous</code> are the default
+scales for continuous x and y aesthetics. There are three variants
+that set the <code>trans</code> argument for commonly used transformations:
+<code>scale_*_log10</code>, <code>scale_*_sqrt</code> and <code>scale_*_reverse</code>.</p>
     
 
     <pre><span class='fu'>scale_x_continuous</span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(),
@@ -111,11 +112,12 @@ that set the <code>trans</code> argument to commonly used transformations.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>name</dt>
-      <dd>The name of the scale. Used as axis or legend title. If
+      <dd><p>The name of the scale. Used as axis or legend title. If
 <code>NULL</code>, the default, the name of the scale is taken from the first
-mapping used for that aesthetic.</dd>
+mapping used for that aesthetic.</p></dd>
       <dt>breaks</dt>
-      <dd>One of: <ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li> <code>NULL</code> for no breaks
   </li>
 <li> <code>waiver()</code> for the default breaks computed by the
@@ -126,10 +128,10 @@ mapping used for that aesthetic.</dd>
 <li> A function that takes the limits as input and returns breaks
     as output
 </li>
-</ul>
-</dd>
+</ul></dd>
       <dt>minor_breaks</dt>
-      <dd>One of: <ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li> <code>NULL</code> for no minor breaks
   </li>
 <li> <code>waiver()</code> for the default breaks (one minor break between
@@ -139,10 +141,10 @@ mapping used for that aesthetic.</dd>
   </li>
 <li> A function that given the limits returns a vector of minor breaks.
 </li>
-</ul>
-</dd>
+</ul></dd>
       <dt>labels</dt>
-      <dd>One of: <ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li> <code>NULL</code> for no labels
   </li>
 <li> <code>waiver()</code> for the default labels computed by the
@@ -153,60 +155,116 @@ mapping used for that aesthetic.</dd>
 <li> A function that takes the breaks as input and returns labels
     as output
 </li>
-</ul>
-</dd>
+</ul></dd>
       <dt>limits</dt>
-      <dd>A numeric vector of length two providing limits of the scale.
-Use <code>NA</code> to refer to the existing minimum or maximum.</dd>
+      <dd><p>A numeric vector of length two providing limits of the scale.
+Use <code>NA</code> to refer to the existing minimum or maximum.</p></dd>
       <dt>expand</dt>
-      <dd>A numeric vector of length two giving multiplicative and
+      <dd><p>A numeric vector of length two giving multiplicative and
 additive expansion constants. These constants ensure that the data is
 placed some distance away from the axes. The defaults are
 <code>c(0.05, 0)</code> for continuous variables, and <code>c(0, 0.6)</code> for
-discrete variables.</dd>
+discrete variables.</p></dd>
       <dt>oob</dt>
-      <dd>Function that handles limits outside of the scale limits
-(out of bounds). The default replaces out of bounds values with NA.</dd>
+      <dd><p>Function that handles limits outside of the scale limits
+(out of bounds). The default replaces out of bounds values with NA.</p></dd>
       <dt>na.value</dt>
-      <dd>Missing values will be replaced with this value.</dd>
+      <dd><p>Missing values will be replaced with this value.</p></dd>
       <dt>trans</dt>
-      <dd>Either the name of a transformation object, or the
-  object itself. Built-in transformations include &quot;asn&quot;, &quot;atanh&quot;,
-  &quot;boxcox&quot;, &quot;exp&quot;, &quot;identity&quot;, &quot;log&quot;, &quot;log10&quot;, &quot;log1p&quot;, &quot;log2&quot;,
-  &quot;logit&quot;, &quot;probability&quot;, &quot;probit&quot;, &quot;reciprocal&quot;, &quot;reverse&quot; and &quot;sqrt&quot;.
-
-  A transformation object bundles together a transform, it&#39;s inverse,
+      <dd><p>Either the name of a transformation object, or the
+  object itself. Built-in transformations include "asn", "atanh",
+  "boxcox", "exp", "identity", "log", "log10", "log1p", "log2",
+  "logit", "probability", "probit", "reciprocal", "reverse" and "sqrt".</p>
+<p>A transformation object bundles together a transform, it's inverse,
   and methods for generating breaks and labels. Transformation objects
   are defined in the scales package, and are called <code>name_trans</code>, e.g.
   <code><a href='http://www.rdocumentation.org/packages/scales/topics/boxcox_trans'>boxcox_trans</a></code>. You can create your own
-  transformation with <code><a href='http://www.rdocumentation.org/packages/scales/topics/trans_new'>trans_new</a></code>.</dd>
+  transformation with <code><a href='http://www.rdocumentation.org/packages/scales/topics/trans_new'>trans_new</a></code>.</p></dd>
       <dt>position</dt>
-      <dd>The position of the axis. &quot;left&quot; or &quot;right&quot; for vertical
-scales, &quot;top&quot; or &quot;bottom&quot; for horizontal scales</dd>
+      <dd><p>The position of the axis. "left" or "right" for vertical
+scales, "top" or "bottom" for horizontal scales</p></dd>
       <dt>sec.axis</dt>
-      <dd>specifify a secondary axis</dd>
+      <dd><p>specifify a secondary axis</p></dd>
       <dt>...</dt>
-      <dd>Other arguments passed on to <code>scale_(x|y)_continuous</code></dd>
+      <dd><p>Other arguments passed on to <code>scale_(x|y)_continuous</code></p></dd>
     </dl>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>For simple manipulation of labels and limits, you may wish to use
+<code><a href='labs.html'>labs</a>()</code> and <code><a href='lims.html'>lims</a>()</code> instead.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='scale_date.html'>scale_date</a></code> for date/time position scales.</p>
     <p><code><a href='sec_axis.html'>sec_axis</a></code> for how to specify secondary axes</p>
+<p>Other position scales: <code><a href='scale_date.html'>scale_x_date</a></code>,
+  <code><a href='scale_x_discrete.html'>scale_x_discrete</a></code></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'>
-</div></pre>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>p1 <- ggplot(mpg, aes(displ, hwy)) +
+  geom_point()
+p1
+
+# Manipulating the default position scales lets you:
+#  * change the axis labels
+p1 +
+  scale_x_continuous("Engine displacement (L)") +
+  scale_y_continuous("Highway MPG")
+
+# You can also use the short-cut labs().
+# Use NULL to suppress axis labels
+p1 + labs(x = NULL, y = NULL)
+
+#  * modify the axis limits
+p1 + scale_x_continuous(limits = c(2, 6))
+p1 + scale_x_continuous(limits = c(0, 10))
+
+# you can also use the short hand functions `xlim()` and `ylim()`
+p1 + xlim(2, 6)
+
+#  * choose where the ticks appear
+p1 + scale_x_continuous(breaks = c(2, 4, 6))
+
+#  * add what labels they have
+p1 + scale_x_continuous(
+  breaks = c(2, 4, 6),
+  label = c("two", "four", "six")
+)
+
+# Typically you'll pass a function to the `labels` argument.
+Some common formats are built into the scales package:
+df <- data.frame(
+  x = rnorm(10) * 100000,
+  y = seq(0, 1, length.out = 10)
+)
+p2 <- ggplot(df, aes(x, y)) + geom_point()
+p2 + scale_y_continuous(labels = scales::percent)
+p2 + scale_y_continuous(labels = scales::dollar)
+p2 + scale_x_continuous(labels = scales::comma)
+
+# You can also override the default linear mapping by using a
+# transformation. There are three shortcuts:
+p1 + scale_y_log10()
+p1 + scale_y_sqrt()
+p1 + scale_y_reverse()
+
+# Or you can supply a transformation in the `trans` argument:
+p1 + scale_y_continuous(trans = scales::reciprocal_trans())
+
+# You can also create your own. See ?scales::trans_new
+</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:32:6: unexpected symbol</span>
+#&gt; <span class='error'>31: # Typically you'll pass a function to the `labels` argument.</span>
+#&gt; <span class='error'>32: Some common</span>
+#&gt; <span class='error'>         ^</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#details">Details</a></li>
+
       <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>

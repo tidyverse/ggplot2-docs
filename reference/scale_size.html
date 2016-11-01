@@ -99,11 +99,12 @@ to a size of 0.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>name</dt>
-      <dd>The name of the scale. Used as axis or legend title. If
+      <dd><p>The name of the scale. Used as axis or legend title. If
 <code>NULL</code>, the default, the name of the scale is taken from the first
-mapping used for that aesthetic.</dd>
+mapping used for that aesthetic.</p></dd>
       <dt>breaks</dt>
-      <dd>One of: <ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li> <code>NULL</code> for no breaks
   </li>
 <li> <code>waiver()</code> for the default breaks computed by the
@@ -114,10 +115,10 @@ mapping used for that aesthetic.</dd>
 <li> A function that takes the limits as input and returns breaks
     as output
 </li>
-</ul>
-</dd>
+</ul></dd>
       <dt>labels</dt>
-      <dd>One of: <ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li> <code>NULL</code> for no labels
   </li>
 <li> <code>waiver()</code> for the default labels computed by the
@@ -128,32 +129,30 @@ mapping used for that aesthetic.</dd>
 <li> A function that takes the breaks as input and returns labels
     as output
 </li>
-</ul>
-</dd>
+</ul></dd>
       <dt>limits</dt>
-      <dd>A numeric vector of length two providing limits of the scale.
-Use <code>NA</code> to refer to the existing minimum or maximum.</dd>
+      <dd><p>A numeric vector of length two providing limits of the scale.
+Use <code>NA</code> to refer to the existing minimum or maximum.</p></dd>
       <dt>range</dt>
-      <dd>a numeric vector of length 2 that specifies the minimum and
-maximum size of the plotting symbol after transformation.</dd>
+      <dd><p>a numeric vector of length 2 that specifies the minimum and
+maximum size of the plotting symbol after transformation.</p></dd>
       <dt>trans</dt>
-      <dd>Either the name of a transformation object, or the
-  object itself. Built-in transformations include &quot;asn&quot;, &quot;atanh&quot;,
-  &quot;boxcox&quot;, &quot;exp&quot;, &quot;identity&quot;, &quot;log&quot;, &quot;log10&quot;, &quot;log1p&quot;, &quot;log2&quot;,
-  &quot;logit&quot;, &quot;probability&quot;, &quot;probit&quot;, &quot;reciprocal&quot;, &quot;reverse&quot; and &quot;sqrt&quot;.
-
-  A transformation object bundles together a transform, it&#39;s inverse,
+      <dd><p>Either the name of a transformation object, or the
+  object itself. Built-in transformations include "asn", "atanh",
+  "boxcox", "exp", "identity", "log", "log10", "log1p", "log2",
+  "logit", "probability", "probit", "reciprocal", "reverse" and "sqrt".</p>
+<p>A transformation object bundles together a transform, it's inverse,
   and methods for generating breaks and labels. Transformation objects
   are defined in the scales package, and are called <code>name_trans</code>, e.g.
   <code><a href='http://www.rdocumentation.org/packages/scales/topics/boxcox_trans'>boxcox_trans</a></code>. You can create your own
-  transformation with <code><a href='http://www.rdocumentation.org/packages/scales/topics/trans_new'>trans_new</a></code>.</dd>
+  transformation with <code><a href='http://www.rdocumentation.org/packages/scales/topics/trans_new'>trans_new</a></code>.</p></dd>
       <dt>guide</dt>
-      <dd>Name of guide object, or object itself.</dd>
+      <dd><p>Name of guide object, or object itself.</p></dd>
       <dt>...</dt>
-      <dd>Other arguments passed on to <code><a href='continuous_scale.html'>continuous_scale</a></code>
-to control name, limits, breaks, labels and so forth.</dd>
+      <dd><p>Other arguments passed on to <code><a href='continuous_scale.html'>continuous_scale</a></code></p>
+<p>to control name, limits, breaks, labels and so forth.</p></dd>
       <dt>max_size</dt>
-      <dd>Size of largest points.</dd>
+      <dd><p>Size of largest points.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -162,10 +161,7 @@ to control name, limits, breaks, labels and so forth.</dd>
   to points with size 0.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>hwy</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>hwy</span>)) +
    <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 <span class='no'>p</span></div><img src='scale_size-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_size</span>(<span class='st'>"Highway mpg"</span>)</div><img src='scale_size-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_size</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>10</span>))</div><img src='scale_size-6.png' alt='' width='540' height='400' /><div class='input'>

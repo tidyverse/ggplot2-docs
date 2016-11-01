@@ -95,37 +95,50 @@ colour-blind safe palettes.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code>
-to control name, limits, breaks, labels and so forth.</dd>
+      <dd><p>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code></p>
+<p>to control name, limits, breaks, labels and so forth.</p></dd>
       <dt>h</dt>
-      <dd>range of hues to use, in [0, 360]</dd>
+      <dd><p>range of hues to use, in [0, 360]</p></dd>
       <dt>c</dt>
-      <dd>chroma (intensity of colour), maximum value varies depending on
-combination of hue and luminance.</dd>
+      <dd><p>chroma (intensity of colour), maximum value varies depending on
+combination of hue and luminance.</p></dd>
       <dt>l</dt>
-      <dd>luminance (lightness), in [0, 100]</dd>
+      <dd><p>luminance (lightness), in [0, 100]</p></dd>
       <dt>h.start</dt>
-      <dd>hue to start at</dd>
+      <dd><p>hue to start at</p></dd>
       <dt>direction</dt>
-      <dd>direction to travel around the colour wheel,
-1 = clockwise, -1 = counter-clockwise</dd>
+      <dd><p>direction to travel around the colour wheel,
+1 = clockwise, -1 = counter-clockwise</p></dd>
       <dt>na.value</dt>
-      <dd>Colour to use for missing values</dd>
+      <dd><p>Colour to use for missing values</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other colour scales:
+    <p>Other colour scales: <code><a href='scale_alpha.html'>scale_alpha</a></code>,
   <code><a href='scale_colour_brewer.html'>scale_colour_brewer</a></code>,
   <code><a href='scale_colour_gradient.html'>scale_colour_gradient</a></code>,
   <code><a href='scale_colour_grey.html'>scale_colour_grey</a></code></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>dsamp</span> <span class='kw'>&lt;-</span> <span class='no'>diamonds</span>[<span class='fu'>sample</span>(<span class='fu'>nrow</span>(<span class='no'>diamonds</span>), <span class='fl'>1000</span>), ]
+(<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>dsamp</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>clarity</span>)))</div><img src='scale_colour_hue-2.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Change scale label</span>
+<span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>()</div><img src='scale_colour_hue-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='st'>"clarity"</span>)</div><img src='scale_colour_hue-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='fu'>expression</span>(<span class='no'>clarity</span>[<span class='no'>beta</span>]))</div><img src='scale_colour_hue-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Adjust luminosity and chroma</span>
+<span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='kw'>l</span> <span class='kw'>=</span> <span class='fl'>40</span>, <span class='kw'>c</span> <span class='kw'>=</span> <span class='fl'>30</span>)</div><img src='scale_colour_hue-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='kw'>l</span> <span class='kw'>=</span> <span class='fl'>70</span>, <span class='kw'>c</span> <span class='kw'>=</span> <span class='fl'>30</span>)</div><img src='scale_colour_hue-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='kw'>l</span> <span class='kw'>=</span> <span class='fl'>70</span>, <span class='kw'>c</span> <span class='kw'>=</span> <span class='fl'>150</span>)</div><img src='scale_colour_hue-14.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='kw'>l</span> <span class='kw'>=</span> <span class='fl'>80</span>, <span class='kw'>c</span> <span class='kw'>=</span> <span class='fl'>150</span>)</div><img src='scale_colour_hue-16.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Change range of hues used</span>
+<span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>90</span>))</div><img src='scale_colour_hue-18.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>90</span>, <span class='fl'>180</span>))</div><img src='scale_colour_hue-20.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>180</span>, <span class='fl'>270</span>))</div><img src='scale_colour_hue-22.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_colour_hue</span>(<span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>270</span>, <span class='fl'>360</span>))</div><img src='scale_colour_hue-24.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Vary opacity</span>
+<span class='co'># (only works with pdf, quartz and cairo devices)</span>
+<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>dsamp</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>clarity</span>))
+<span class='no'>d</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)</div><img src='scale_colour_hue-26.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</div><img src='scale_colour_hue-28.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.2</span>)</div><img src='scale_colour_hue-30.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Colour of missing values is controlled with na.value:</span>
+<span class='no'>miss</span> <span class='kw'>&lt;-</span> <span class='fu'>factor</span>(<span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='fl'>NA</span>, <span class='fl'>1</span>:<span class='fl'>5</span>), <span class='fu'>nrow</span>(<span class='no'>mtcars</span>), <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>miss</span>))</div><img src='scale_colour_hue-32.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>miss</span>)) +
+  <span class='fu'>scale_colour_hue</span>(<span class='kw'>na.value</span> <span class='kw'>=</span> <span class='st'>"black"</span>)</div><img src='scale_colour_hue-34.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

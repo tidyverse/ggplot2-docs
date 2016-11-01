@@ -100,77 +100,73 @@ display the results with a non-standard geom.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>position</dt>
-      <dd>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</dd>
+      <dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>method</dt>
-      <dd>smoothing method (function) to use, eg. &quot;lm&quot;, &quot;glm&quot;,
-  &quot;gam&quot;, &quot;loess&quot;, &quot;rlm&quot;.
-
-  For <code>method = &quot;auto&quot;</code> the smoothing method is chosen based on the
+      <dd><p>smoothing method (function) to use, eg. "lm", "glm",
+  "gam", "loess", "rlm".</p>
+<p>For <code>method = "auto"</code> the smoothing method is chosen based on the
   size of the largest group (across all panels). <code>loess</code> is
   used for than 1,000 observations; otherwise <code><a href='http://www.rdocumentation.org/packages/mgcv/topics/gam'>gam</a></code> is
-  used with <code>formula = y ~ s(x, bs = &quot;cs&quot;)</code>. Somewhat anecdotally,
+  used with <code>formula = y ~ s(x, bs = "cs")</code>. Somewhat anecdotally,
   <code>loess</code> gives a better appearance, but is O(n^2) in memory, so does
-  not work for larger datasets.</dd>
+  not work for larger datasets.</p></dd>
       <dt>formula</dt>
-      <dd>formula to use in smoothing function, eg. <code>y ~ x</code>,
-<code>y ~ poly(x, 2)</code>, <code>y ~ log(x)</code></dd>
+      <dd><p>formula to use in smoothing function, eg. <code>y ~ x</code>,
+<code>y ~ poly(x, 2)</code>, <code>y ~ log(x)</code></p></dd>
       <dt>se</dt>
-      <dd>display confidence interval around smooth? (TRUE by default, see
-level to control</dd>
+      <dd><p>display confidence interval around smooth? (TRUE by default, see
+level to control</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>inherit.aes</dt>
-      <dd>If <code>FALSE</code>, overrides the default aesthetics,
+      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn&#39;t inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</dd>
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
       <dt>geom, stat</dt>
-      <dd>Use to override the default connection between
-<code>geom_smooth</code> and <code>stat_smooth</code>.</dd>
+      <dd><p>Use to override the default connection between
+<code>geom_smooth</code> and <code>stat_smooth</code>.</p></dd>
       <dt>n</dt>
-      <dd>number of points to evaluate smoother at</dd>
+      <dd><p>number of points to evaluate smoother at</p></dd>
       <dt>span</dt>
-      <dd>Controls the amount of smoothing for the default loess smoother.
+      <dd><p>Controls the amount of smoothing for the default loess smoother.
 Smaller numbers produce wigglier lines, larger numbers produce smoother
-lines.</dd>
+lines.</p></dd>
       <dt>fullrange</dt>
-      <dd>should the fit span the full range of the plot, or just
-the data</dd>
+      <dd><p>should the fit span the full range of the plot, or just
+the data</p></dd>
       <dt>level</dt>
-      <dd>level of confidence interval to use (0.95 by default)</dd>
+      <dd><p>level of confidence interval to use (0.95 by default)</p></dd>
       <dt>method.args</dt>
-      <dd>List of additional arguments passed on to the modelling
-function defined by <code>method</code>.</dd>
+      <dd><p>List of additional arguments passed on to the modelling
+function defined by <code>method</code>.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -184,18 +180,39 @@ scale, and then back-transformed to the response scale.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
-    <p>\aesthetics{geom}{smooth}</p>
+    
+    <p><code>geom_smooth</code> understands the following aesthetics (required aesthetics are in bold):
+    <ul>
+<li>  </li>
+<li> <code><strong>x</strong></code>
+  </li>
+<li> <code><strong>y</strong></code>
+  </li>
+<li> <code>alpha</code>
+  </li>
+<li> <code>colour</code>
+  </li>
+<li> <code>fill</code>
+  </li>
+<li> <code>group</code>
+  </li>
+<li> <code>linetype</code>
+  </li>
+<li> <code>size</code>
+  </li>
+<li> <code>weight</code>
+</li>
+</ul></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
-    <p></p>
-    <p><dl class='dl-horizontal'>
+    
+    <dl class='dl-horizontal'>
   <dt>y</dt><dd>predicted value</dd>
   <dt>ymin</dt><dd>lower pointwise confidence interval around the mean</dd>
   <dt>ymax</dt><dd>upper pointwise confidence interval around the mean</dd>
   <dt>se</dt><dd>standard error</dd>
-</dl></p>
+</dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -205,19 +222,16 @@ scale, and then back-transformed to the response scale.</p>
   <code>loess</code> for local smooths</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'>geom_smooth</span>()</div><div class='output'><strong class='text-info'>`geom_smooth()` using method = &#39;loess&#39;</strong></div><img src='geom_smooth-3.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>geom_smooth</span>()</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess'</span></div><img src='geom_smooth-3.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Use span to control the "wiggliness" of the default loess smoother</span>
 <span class='co'># The span is the fraction of points used to fit each local regression:</span>
 <span class='co'># small numbers make a wigglier curve, larger numbers make a smoother curve.</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'>geom_smooth</span>(<span class='kw'>span</span> <span class='kw'>=</span> <span class='fl'>0.3</span>)</div><div class='output'><strong class='text-info'>`geom_smooth()` using method = &#39;loess&#39;</strong></div><img src='geom_smooth-6.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>geom_smooth</span>(<span class='kw'>span</span> <span class='kw'>=</span> <span class='fl'>0.3</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess'</span></div><img src='geom_smooth-6.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Instead of a loess smooth, you can use any other modelling function:</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
@@ -233,9 +247,24 @@ scale, and then back-transformed to the response scale.</p>
   <span class='fu'>geom_smooth</span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>)</div><img src='geom_smooth-12.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'>geom_smooth</span>(<span class='kw'>span</span> <span class='kw'>=</span> <span class='fl'>0.8</span>) +
-  <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>drv</span>)</div><div class='output'><strong class='text-info'>`geom_smooth()` using method = &#39;loess&#39;</strong></div><img src='geom_smooth-15.png' alt='' width='540' height='400' /><div class='input'>
-
-</div></pre>
+  <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>drv</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess'</span></div><img src='geom_smooth-15.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>binomial_smooth</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>...</span>) {
+  <span class='fu'>geom_smooth</span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"glm"</span>, <span class='kw'>method.args</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"binomial"</span>), <span class='no'>...</span>)
+}
+<span class='co'># To fit a logistic regression, you need to coerce the values to</span>
+<span class='co'># a numeric vector lying between 0 and 1.</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>rpart</span><span class='kw'>::</span><span class='no'>kyphosis</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>Age</span>, <span class='no'>Kyphosis</span>)) +
+  <span class='fu'><a href='geom_jitter.html'>geom_jitter</a></span>(<span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>0.05</span>) +
+  <span class='fu'>binomial_smooth</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Computation failed in `stat_smooth()`:</span>
+#&gt; <span class='warning'>y values must be 0 &lt;= y &lt;= 1</span></div><img src='geom_smooth-18.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>rpart</span><span class='kw'>::</span><span class='no'>kyphosis</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>Age</span>, <span class='fu'>as.numeric</span>(<span class='no'>Kyphosis</span>) - <span class='fl'>1</span>)) +
+  <span class='fu'><a href='geom_jitter.html'>geom_jitter</a></span>(<span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>0.05</span>) +
+  <span class='fu'>binomial_smooth</span>()</div><img src='geom_smooth-20.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>rpart</span><span class='kw'>::</span><span class='no'>kyphosis</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>Age</span>, <span class='fu'>as.numeric</span>(<span class='no'>Kyphosis</span>) - <span class='fl'>1</span>)) +
+  <span class='fu'><a href='geom_jitter.html'>geom_jitter</a></span>(<span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>0.05</span>) +
+  <span class='fu'>binomial_smooth</span>(<span class='kw'>formula</span> <span class='kw'>=</span> <span class='no'>y</span> ~ <span class='kw'>splines</span><span class='kw'>::</span><span class='fu'>ns</span>(<span class='no'>x</span>, <span class='fl'>2</span>))</div><img src='geom_smooth-22.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># But in this case, it's probably better to fit the model yourself</span>
+<span class='co'># so you can exercise more control and see whether or not it's a good model</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

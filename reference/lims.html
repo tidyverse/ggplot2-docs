@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convenience functions to set the axis limits. — lims • ggplot2</title>
+<title>Set scale limits — lims • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,13 +77,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convenience functions to set the axis limits.</h1>
+    <h1>Set scale limits</h1>
     </div>
 
     
-    <p>Observations not in this range will be dropped completely and
-not passed to any other layers.  If a NA value is substituted for one of the
-limits that limit is automatically calculated.</p>
+    <p>This is a shortcut for supplying the <code>limits</code> argument to the
+individual scales. Note that, by default, any values outside the limits
+will be replaced with <code>NA</code>.</p>
     
 
     <pre><span class='fu'>lims</span>(<span class='no'>...</span>)
@@ -95,93 +95,46 @@ limits that limit is automatically calculated.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd>If numeric, will create a continuous scale, if factor or
-character, will create a discrete scale.  For <code>lims</code>, every
-argument must be named.</dd>
+      <dd><p>A name-value pair. The name must be an aesthetic, and the value
+  must be either a length-2 numeric, a character, a factor, or a date/time.</p>
+<p>A numeric value will create a continuous scale. If the larger value
+  comes first, the scale will be reversed. You can leave one value as
+  <code>NA</code> to compute from the range of the data.</p>
+<p>A character or factor value will create a discrete scale.</p>
+<p>A date-time value will create a continuous date/time scale.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p>For changing x or y axis limits <strong>without</strong> dropping data
-  observations, see <code><a href='coord_cartesian.html'>coord_cartesian</a></code>.</p>
+  observations, see <code><a href='coord_cartesian.html'>coord_cartesian</a></code>. To expand the range of
+  a plot to always include certain values, see <code><a href='expand_limits.html'>expand_limits</a></code>.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'><span class='co'># xlim</span>
-<span class='fu'>xlim</span>(<span class='fl'>15</span>, <span class='fl'>20</span>)</div><div class='output co'>#&gt; &lt;ScaleContinuousPosition&gt;
-#&gt;  Range:  
-#&gt;  Limits:   15 --   20
-#&gt; </div><div class='input'><span class='fu'>xlim</span>(<span class='fl'>20</span>, <span class='fl'>15</span>)</div><div class='output co'>#&gt; &lt;ScaleContinuousPosition&gt;
-#&gt;  Range:  
-#&gt;  Limits:  -20 --  -15
-#&gt; </div><div class='input'><span class='fu'>xlim</span>(<span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>20</span>))</div><div class='output co'>#&gt; &lt;ScaleContinuousPosition&gt;
-#&gt;  Range:  
-#&gt;  Limits:   10 --   20
-#&gt; </div><div class='input'><span class='fu'>xlim</span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"c"</span>)</div><div class='output co'>#&gt; &lt;ggproto object: Class ScaleDiscretePosition, ScaleDiscrete, Scale&gt;
-#&gt;     aesthetics: x xmin xmax xend
-#&gt;     axis_order: function
-#&gt;     break_info: function
-#&gt;     break_positions: function
-#&gt;     breaks: waiver
-#&gt;     call: call
-#&gt;     clone: function
-#&gt;     dimension: function
-#&gt;     drop: TRUE
-#&gt;     expand: waiver
-#&gt;     get_breaks: function
-#&gt;     get_breaks_minor: function
-#&gt;     get_labels: function
-#&gt;     get_limits: function
-#&gt;     guide: none
-#&gt;     is_discrete: function
-#&gt;     is_empty: function
-#&gt;     labels: waiver
-#&gt;     limits: a b c
-#&gt;     make_sec_title: function
-#&gt;     make_title: function
-#&gt;     map: function
-#&gt;     map_df: function
-#&gt;     n.breaks.cache: NULL
-#&gt;     na.translate: TRUE
-#&gt;     na.value: NA
-#&gt;     name: waiver
-#&gt;     palette: function
-#&gt;     palette.cache: NULL
-#&gt;     position: bottom
-#&gt;     range: &lt;ggproto object: Class RangeDiscrete, Range&gt;
-#&gt;         range: NULL
-#&gt;         reset: function
-#&gt;         train: function
-#&gt;         super:  &lt;ggproto object: Class RangeDiscrete, Range&gt;
-#&gt;     range_c: &lt;ggproto object: Class RangeContinuous, Range&gt;
-#&gt;         range: NULL
-#&gt;         reset: function
-#&gt;         train: function
-#&gt;         super:  &lt;ggproto object: Class RangeContinuous, Range&gt;
-#&gt;     reset: function
-#&gt;     scale_name: position_d
-#&gt;     train: function
-#&gt;     train_df: function
-#&gt;     transform: function
-#&gt;     transform_df: function
-#&gt;     super:  &lt;ggproto object: Class ScaleDiscretePosition, ScaleDiscrete, Scale&gt;
-#&gt; </div><div class='input'>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># Zoom into a specified area</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'>xlim</span>(<span class='fl'>15</span>, <span class='fl'>20</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 19 rows containing missing values (geom_point).</strong></div><img src='lims-11.png' alt='' width='540' height='400' /><div class='input'><span class='co'># with automatic lower limit</span>
+  <span class='fu'>xlim</span>(<span class='fl'>15</span>, <span class='fl'>20</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 19 rows containing missing values (geom_point).</span></div><img src='lims-3.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># reverse scale</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'>xlim</span>(<span class='fl'>NA</span>, <span class='fl'>20</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 14 rows containing missing values (geom_point).</strong></div><img src='lims-14.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># Change both xlim and ylim</span>
+  <span class='fu'>xlim</span>(<span class='fl'>20</span>, <span class='fl'>15</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 19 rows containing missing values (geom_point).</span></div><img src='lims-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># with automatic lower limit</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'>lims</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>20</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>3</span>, <span class='fl'>5</span>))</div><div class='output'><strong class='text-warning'>Warning message:
-Removed 18 rows containing missing values (geom_point).</strong></div><img src='lims-17.png' alt='' width='540' height='400' /></pre>
+  <span class='fu'>xlim</span>(<span class='fl'>NA</span>, <span class='fl'>20</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 14 rows containing missing values (geom_point).</span></div><img src='lims-9.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># You can also supply limits that are larger than the data.</span>
+<span class='co'># This is useful if you want to match scales across different plots</span>
+<span class='no'>small</span> <span class='kw'>&lt;-</span> <span class='fu'>subset</span>(<span class='no'>mtcars</span>, <span class='no'>cyl</span> <span class='kw'>==</span> <span class='fl'>4</span>)
+<span class='no'>big</span> <span class='kw'>&lt;-</span> <span class='fu'>subset</span>(<span class='no'>mtcars</span>, <span class='no'>cyl</span> <span class='kw'>&gt;</span> <span class='fl'>4</span>)
+
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>small</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
+  <span class='fu'>lims</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>))</div><img src='lims-11.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>big</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
+  <span class='fu'>lims</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>))</div><img src='lims-13.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

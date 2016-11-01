@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alpha scales. — scale_alpha • ggplot2</title>
+<title>Alpha transparency scales — scale_alpha • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,11 +77,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Alpha scales.</h1>
+    <h1>Alpha transparency scales</h1>
     </div>
 
     
-    <p><code>scale_alpha</code> is an alias for <code>scale_alpha_continuous</code> since
+    <p>Alpha-transparency scales are not tremendously useful, but can be a
+convenient way to visually down-weight less important observations.
+<code>scale_alpha</code> is an alias for <code>scale_alpha_continuous</code> since
 that is the most common use of alpha, and it saves a bit of typing.</p>
     
 
@@ -94,29 +96,34 @@ that is the most common use of alpha, and it saves a bit of typing.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd>Other arguments passed on to <code><a href='continuous_scale.html'>continuous_scale</a></code>
-or <code><a href='discrete_scale.html'>discrete_scale</a></code> as appropriate, to control name, limits,
-breaks, labels and so forth.</dd>
+      <dd><p>Other arguments passed on to <code><a href='continuous_scale.html'>continuous_scale</a></code></p>
+<p>or <code><a href='discrete_scale.html'>discrete_scale</a></code> as appropriate, to control name, limits,
+breaks, labels and so forth.</p></dd>
       <dt>range</dt>
-      <dd>range of output alpha values.  Should lie between 0 and 1.</dd>
+      <dd><p>Output range of alpha values. Must lie between 0 and 1.</p></dd>
     </dl>
     
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'>(<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>cyl</span>)) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='no'>cyl</span>)))</div><img src='scale_alpha-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_alpha</span>(<span class='st'>"cylinders"</span>)</div><img src='scale_alpha-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_alpha</span>(<span class='st'>"number\nof\ncylinders"</span>)</div><img src='scale_alpha-6.png' alt='' width='540' height='400' /><div class='input'>
-<span class='no'>p</span> + <span class='fu'>scale_alpha</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.4</span>, <span class='fl'>0.8</span>))</div><img src='scale_alpha-8.png' alt='' width='540' height='400' /><div class='input'>
-(<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>cyl</span>)) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))))</div><img src='scale_alpha-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_alpha_discrete</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.4</span>, <span class='fl'>0.8</span>))</div><img src='scale_alpha-12.png' alt='' width='540' height='400' /></pre>
+    <p>Other colour scales: <code><a href='scale_colour_brewer.html'>scale_colour_brewer</a></code>,
+  <code><a href='scale_colour_gradient.html'>scale_colour_gradient</a></code>,
+  <code><a href='scale_colour_grey.html'>scale_colour_grey</a></code>,
+  <code><a href='scale_colour_hue.html'>scale_colour_hue</a></code></p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='no'>year</span>))
+
+<span class='no'>p</span></div><img src='scale_alpha-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_alpha</span>(<span class='st'>"cylinders"</span>)</div><img src='scale_alpha-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_alpha</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.4</span>, <span class='fl'>0.8</span>))</div><img src='scale_alpha-6.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

@@ -93,25 +93,25 @@ faster performance.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>_class</dt>
-      <dd>Class name to assign to the object. This is stored as the class
+      <dd><p>Class name to assign to the object. This is stored as the class
 attribute of the object. If <code>NULL</code> (the default), no class name will
-be added to the object.</dd>
+be added to the object.</p></dd>
       <dt>_inherit</dt>
-      <dd>ggproto object to inherit from. If <code>NULL</code>, don&#39;t inherit
-from any object.</dd>
+      <dd><p>ggproto object to inherit from. If <code>NULL</code>, don't inherit
+from any object.</p></dd>
       <dt>...</dt>
-      <dd>A list of members in the ggproto object.</dd>
+      <dd><p>A list of members in the ggproto object.</p></dd>
       <dt>parent, self</dt>
-      <dd>Access parent class <code>parent</code> of object <code>self</code>.</dd>
+      <dd><p>Access parent class <code>parent</code> of object <code>self</code>.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="calling-ggproto-methods"><a class="anchor" href="#calling-ggproto-methods"></a>Calling ggproto methods</h2>
 
-    <p></p>
+    
     <p>ggproto methods can take an optional <code>self</code> argument: if it is present,
-it is a regular method; if it&#39;s absent, it&#39;s a &quot;static&quot; method (i.e. it
-doesn&#39;t use any fields).</p>
-    <p>Imagine you have a ggproto object <code>Adder</code>, which has a
+it is a regular method; if it's absent, it's a "static" method (i.e. it
+doesn't use any fields).</p>
+<p>Imagine you have a ggproto object <code>Adder</code>, which has a
 method <code>addx = function(self, n) n + self$x</code>. Then, to call this
 function, you would use <code>Adder$addx(10)</code> -- the <code>self</code> is passed
 in automatically by the wrapper function. <code>self</code> be located anywhere
@@ -119,7 +119,7 @@ in the function signature, although customarily it comes first.</p>
     
     <h2 class="hasAnchor" id="calling-methods-in-a-parent"><a class="anchor" href="#calling-methods-in-a-parent"></a>Calling methods in a parent</h2>
 
-    <p></p>
+    
     <p>To explicitly call a methods in a parent, use
 <code>ggproto_parent(Parent, self)</code>.</p>
     

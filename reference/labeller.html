@@ -92,32 +92,32 @@ named character vectors that will serve as a lookup table.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd>Named arguments of the form <code>variable =
-labeller</code>. Each labeller is passed to <code><a href='as_labeller.html'>as_labeller</a>()</code>
-and can be a lookup table, a function taking and returning
-character vectors, or simply a labeller function.</dd>
+      <dd><p>Named arguments of the form <code>variable =
+labeller</code>. Each labeller is passed to <code><a href='as_labeller.html'>as_labeller</a>()</code></p>
+<p>and can be a lookup table, a function taking and returning
+character vectors, or simply a labeller function.</p></dd>
       <dt>.rows, .cols</dt>
-      <dd>Labeller for a whole margin (either the rows or
+      <dd><p>Labeller for a whole margin (either the rows or
 the columns). It is passed to <code><a href='as_labeller.html'>as_labeller</a>()</code>. When a
-margin-wide labeller is set, make sure you don&#39;t mention in
-<code>...</code> any variable belonging to the margin.</dd>
+margin-wide labeller is set, make sure you don't mention in
+<code>...</code> any variable belonging to the margin.</p></dd>
       <dt>keep.as.numeric</dt>
-      <dd>Deprecated. All supplied labellers and
+      <dd><p>Deprecated. All supplied labellers and
 on-labeller functions should be able to work with character
-labels.</dd>
+labels.</p></dd>
       <dt>.multi_line</dt>
-      <dd>Whether to display the labels of multiple
+      <dd><p>Whether to display the labels of multiple
 factors on separate lines. This is passed to the labeller
-function.</dd>
+function.</p></dd>
       <dt>.default</dt>
-      <dd>Default labeller for variables not specified. Also
-used with lookup tables or non-labeller functions.</dd>
+      <dd><p>Default labeller for variables not specified. Also
+used with lookup tables or non-labeller functions.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A labeller function to supply to <code><a href='facet_grid.html'>facet_grid</a></code>
-  for the argument <code>labeller</code>.</p>
+    <p>A labeller function to supply to <code><a href='facet_grid.html'>facet_grid</a></code></p>
+<p>for the argument <code>labeller</code>.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -134,11 +134,58 @@ functions taking a character vector such as
     <p><code><a href='as_labeller.html'>as_labeller</a>()</code>, <a href='labellers.html'>labellers</a></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>p1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
+
+<span class='co'># You can assign different labellers to variables:</span>
+<span class='no'>p1</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>,
+  <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>labeller</span>(<span class='kw'>vs</span> <span class='kw'>=</span> <span class='no'>label_both</span>, <span class='kw'>am</span> <span class='kw'>=</span> <span class='no'>label_value</span>))</div><img src='labeller-2.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Or whole margins:</span>
+<span class='no'>p1</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>,
+  <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>labeller</span>(<span class='kw'>.rows</span> <span class='kw'>=</span> <span class='no'>label_both</span>, <span class='kw'>.cols</span> <span class='kw'>=</span> <span class='no'>label_value</span>))</div><img src='labeller-4.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># You can supply functions operating on strings:</span>
+<span class='no'>capitalize</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>string</span>) {
+  <span class='fu'>substr</span>(<span class='no'>string</span>, <span class='fl'>1</span>, <span class='fl'>1</span>) <span class='kw'>&lt;-</span> <span class='fu'>toupper</span>(<span class='fu'>substr</span>(<span class='no'>string</span>, <span class='fl'>1</span>, <span class='fl'>1</span>))
+  <span class='no'>string</span>
+}
+<span class='no'>p2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>msleep</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>sleep_total</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>awake</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
+<span class='no'>p2</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>vore</span> ~ <span class='no'>conservation</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>labeller</span>(<span class='kw'>vore</span> <span class='kw'>=</span> <span class='no'>capitalize</span>))</div><img src='labeller-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Or use character vectors as lookup tables:</span>
+<span class='no'>conservation_status</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(
+  <span class='kw'>cd</span> <span class='kw'>=</span> <span class='st'>"Conservation Dependent"</span>,
+  <span class='kw'>en</span> <span class='kw'>=</span> <span class='st'>"Endangered"</span>,
+  <span class='kw'>lc</span> <span class='kw'>=</span> <span class='st'>"Least concern"</span>,
+  <span class='kw'>nt</span> <span class='kw'>=</span> <span class='st'>"Near Threatened"</span>,
+  <span class='kw'>vu</span> <span class='kw'>=</span> <span class='st'>"Vulnerable"</span>,
+  <span class='kw'>domesticated</span> <span class='kw'>=</span> <span class='st'>"Domesticated"</span>
+)
+<span class='co'>## Source: http://en.wikipedia.org/wiki/Wikipedia:Conservation_status</span>
+
+<span class='no'>p2</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>vore</span> ~ <span class='no'>conservation</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>labeller</span>(
+  <span class='kw'>.default</span> <span class='kw'>=</span> <span class='no'>capitalize</span>,
+  <span class='kw'>conservation</span> <span class='kw'>=</span> <span class='no'>conservation_status</span>
+))</div><img src='labeller-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># In the following example, we rename the levels to the long form,</span>
+<span class='co'># then apply a wrap labeller to the columns to prevent cropped text</span>
+<span class='no'>msleep</span>$<span class='no'>conservation2</span> <span class='kw'>&lt;-</span> <span class='kw'>plyr</span><span class='kw'>::</span><span class='fu'>revalue</span>(<span class='no'>msleep</span>$<span class='no'>conservation</span>,
+  <span class='no'>conservation_status</span>)
+
+<span class='no'>p2</span> <span class='kw'>%+%</span> <span class='no'>msleep</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>vore</span> ~ <span class='no'>conservation2</span>)</div><img src='labeller-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p2</span> <span class='kw'>%+%</span> <span class='no'>msleep</span> +
+  <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>vore</span> ~ <span class='no'>conservation2</span>,
+    <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>labeller</span>(<span class='kw'>conservation2</span> <span class='kw'>=</span> <span class='fu'><a href='labellers.html'>label_wrap_gen</a></span>(<span class='fl'>10</span>))
+  )</div><img src='labeller-12.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># labeller() is especially useful to act as a global labeller. You</span>
+<span class='co'># can set it up once and use it on a range of different plots with</span>
+<span class='co'># different facet specifications.</span>
+
+<span class='no'>global_labeller</span> <span class='kw'>&lt;-</span> <span class='fu'>labeller</span>(
+  <span class='kw'>vore</span> <span class='kw'>=</span> <span class='no'>capitalize</span>,
+  <span class='kw'>conservation</span> <span class='kw'>=</span> <span class='no'>conservation_status</span>,
+  <span class='kw'>conservation2</span> <span class='kw'>=</span> <span class='fu'><a href='labellers.html'>label_wrap_gen</a></span>(<span class='fl'>10</span>),
+  <span class='kw'>.default</span> <span class='kw'>=</span> <span class='no'>label_both</span>
+)
+
+<span class='no'>p2</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>vore</span> ~ <span class='no'>conservation</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>global_labeller</span>)</div><img src='labeller-14.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p2</span> + <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>vore</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>global_labeller</span>)</div><img src='labeller-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p2</span> <span class='kw'>%+%</span> <span class='no'>msleep</span> + <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>conservation2</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>global_labeller</span>)</div><img src='labeller-18.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -93,19 +93,20 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>aesthetics</dt>
-      <dd>the names of the aesthetics that this scale works with</dd>
+      <dd><p>the names of the aesthetics that this scale works with</p></dd>
       <dt>scale_name</dt>
-      <dd>the name of the scale</dd>
+      <dd><p>the name of the scale</p></dd>
       <dt>palette</dt>
-      <dd>a palette function that when called with a single integer
+      <dd><p>a palette function that when called with a single integer
 argument (the number of levels in the scale) returns the values that
-they should take</dd>
+they should take</p></dd>
       <dt>name</dt>
-      <dd>The name of the scale. Used as axis or legend title. If
+      <dd><p>The name of the scale. Used as axis or legend title. If
 <code>NULL</code>, the default, the name of the scale is taken from the first
-mapping used for that aesthetic.</dd>
+mapping used for that aesthetic.</p></dd>
       <dt>breaks</dt>
-      <dd>One of: <ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li> <code>NULL</code> for no breaks
   </li>
 <li> <code>waiver()</code> for the default breaks computed by the
@@ -116,10 +117,10 @@ mapping used for that aesthetic.</dd>
 <li> A function that takes the limits as input and returns breaks
     as output
 </li>
-</ul>
-</dd>
+</ul></dd>
       <dt>minor_breaks</dt>
-      <dd>One of: <ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li> <code>NULL</code> for no minor breaks
   </li>
 <li> <code>waiver()</code> for the default breaks (one minor break between
@@ -129,10 +130,10 @@ mapping used for that aesthetic.</dd>
   </li>
 <li> A function that given the limits returns a vector of minor breaks.
 </li>
-</ul>
-</dd>
+</ul></dd>
       <dt>labels</dt>
-      <dd>One of: <ul>
+      <dd><p>One of:</p><ul>
+<li>  </li>
 <li> <code>NULL</code> for no labels
   </li>
 <li> <code>waiver()</code> for the default labels computed by the
@@ -143,44 +144,42 @@ mapping used for that aesthetic.</dd>
 <li> A function that takes the breaks as input and returns labels
     as output
 </li>
-</ul>
-</dd>
+</ul></dd>
       <dt>limits</dt>
-      <dd>A numeric vector of length two providing limits of the scale.
-Use <code>NA</code> to refer to the existing minimum or maximum.</dd>
+      <dd><p>A numeric vector of length two providing limits of the scale.
+Use <code>NA</code> to refer to the existing minimum or maximum.</p></dd>
       <dt>rescaler</dt>
-      <dd>Used by diverging and n colour gradients
+      <dd><p>Used by diverging and n colour gradients
 (i.e. <code><a href='scale_colour_gradient.html'>scale_colour_gradient2</a></code>, <code><a href='scale_colour_gradient.html'>scale_colour_gradientn</a></code>).
-A function used to scale the input values to the range [0, 1].</dd>
+A function used to scale the input values to the range [0, 1].</p></dd>
       <dt>oob</dt>
-      <dd>Function that handles limits outside of the scale limits
-(out of bounds). The default replaces out of bounds values with NA.</dd>
+      <dd><p>Function that handles limits outside of the scale limits
+(out of bounds). The default replaces out of bounds values with NA.</p></dd>
       <dt>expand</dt>
-      <dd>A numeric vector of length two giving multiplicative and
+      <dd><p>A numeric vector of length two giving multiplicative and
 additive expansion constants. These constants ensure that the data is
 placed some distance away from the axes. The defaults are
 <code>c(0.05, 0)</code> for continuous variables, and <code>c(0, 0.6)</code> for
-discrete variables.</dd>
+discrete variables.</p></dd>
       <dt>na.value</dt>
-      <dd>Missing values will be replaced with this value.</dd>
+      <dd><p>Missing values will be replaced with this value.</p></dd>
       <dt>trans</dt>
-      <dd>Either the name of a transformation object, or the
-  object itself. Built-in transformations include &quot;asn&quot;, &quot;atanh&quot;,
-  &quot;boxcox&quot;, &quot;exp&quot;, &quot;identity&quot;, &quot;log&quot;, &quot;log10&quot;, &quot;log1p&quot;, &quot;log2&quot;,
-  &quot;logit&quot;, &quot;probability&quot;, &quot;probit&quot;, &quot;reciprocal&quot;, &quot;reverse&quot; and &quot;sqrt&quot;.
-
-  A transformation object bundles together a transform, it&#39;s inverse,
+      <dd><p>Either the name of a transformation object, or the
+  object itself. Built-in transformations include "asn", "atanh",
+  "boxcox", "exp", "identity", "log", "log10", "log1p", "log2",
+  "logit", "probability", "probit", "reciprocal", "reverse" and "sqrt".</p>
+<p>A transformation object bundles together a transform, it's inverse,
   and methods for generating breaks and labels. Transformation objects
   are defined in the scales package, and are called <code>name_trans</code>, e.g.
   <code><a href='http://www.rdocumentation.org/packages/scales/topics/boxcox_trans'>boxcox_trans</a></code>. You can create your own
-  transformation with <code><a href='http://www.rdocumentation.org/packages/scales/topics/trans_new'>trans_new</a></code>.</dd>
+  transformation with <code><a href='http://www.rdocumentation.org/packages/scales/topics/trans_new'>trans_new</a></code>.</p></dd>
       <dt>guide</dt>
-      <dd>Name of guide object, or object itself.</dd>
+      <dd><p>Name of guide object, or object itself.</p></dd>
       <dt>position</dt>
-      <dd>The position of the axis. &quot;left&quot; or &quot;right&quot; for vertical
-scales, &quot;top&quot; or &quot;bottom&quot; for horizontal scales</dd>
+      <dd><p>The position of the axis. "left" or "right" for vertical
+scales, "top" or "bottom" for horizontal scales</p></dd>
       <dt>super</dt>
-      <dd>The super class to use for the constructed scale</dd>
+      <dd><p>The super class to use for the constructed scale</p></dd>
     </dl>
     
 

@@ -99,79 +99,97 @@ boxplot.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>position</dt>
-      <dd>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</dd>
+      <dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>draw_quantiles</dt>
-      <dd>If <code>not(NULL)</code> (default), draw horizontal lines
-at the given quantiles of the density estimate.</dd>
+      <dd><p>If <code>not(NULL)</code> (default), draw horizontal lines
+at the given quantiles of the density estimate.</p></dd>
       <dt>trim</dt>
-      <dd>If <code>TRUE</code> (default), trim the tails of the violins
-to the range of the data. If <code>FALSE</code>, don&#39;t trim the tails.</dd>
+      <dd><p>If <code>TRUE</code> (default), trim the tails of the violins
+to the range of the data. If <code>FALSE</code>, don't trim the tails.</p></dd>
       <dt>scale</dt>
-      <dd>if &quot;area&quot; (default), all violins have the same area (before trimming
-the tails). If &quot;count&quot;, areas are scaled proportionally to the number of
-observations. If &quot;width&quot;, all violins have the same maximum width.</dd>
+      <dd><p>if "area" (default), all violins have the same area (before trimming
+the tails). If "count", areas are scaled proportionally to the number of
+observations. If "width", all violins have the same maximum width.</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>inherit.aes</dt>
-      <dd>If <code>FALSE</code>, overrides the default aesthetics,
+      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn&#39;t inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</dd>
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
       <dt>geom, stat</dt>
-      <dd>Use to override the default connection between
-<code>geom_violin</code> and <code>stat_ydensity</code>.</dd>
+      <dd><p>Use to override the default connection between
+<code>geom_violin</code> and <code>stat_ydensity</code>.</p></dd>
       <dt>bw</dt>
-      <dd>The smoothing bandwidth to be used.
+      <dd><p>The smoothing bandwidth to be used.
 If numeric, the standard deviation of the smoothing kernel.
 If character, a rule to choose the bandwidth, as listed in
-<code><a href='http://www.rdocumentation.org/packages/stats/topics/bandwidth'>bw.nrd</a></code>.</dd>
+<code><a href='http://www.rdocumentation.org/packages/stats/topics/bandwidth'>bw.nrd</a></code>.</p></dd>
       <dt>adjust</dt>
-      <dd>A multiplicate bandwidth adjustment. This makes it possible
+      <dd><p>A multiplicate bandwidth adjustment. This makes it possible
 to adjust the bandwidth while still using the a bandwidth estimator.
-For exampe, <code>adjust = 1/2</code> means use half of the default bandwidth.</dd>
+For exampe, <code>adjust = 1/2</code> means use half of the default bandwidth.</p></dd>
       <dt>kernel</dt>
-      <dd>Kernel. See list of available kernels in <code>density</code>.</dd>
+      <dd><p>Kernel. See list of available kernels in <code>density</code>.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
-    <p>\aesthetics{geom}{violin}</p>
+    
+    <p><code>geom_violin</code> understands the following aesthetics (required aesthetics are in bold):
+    <ul>
+<li>  </li>
+<li> <code><strong>x</strong></code>
+  </li>
+<li> <code><strong>y</strong></code>
+  </li>
+<li> <code>alpha</code>
+  </li>
+<li> <code>colour</code>
+  </li>
+<li> <code>fill</code>
+  </li>
+<li> <code>group</code>
+  </li>
+<li> <code>linetype</code>
+  </li>
+<li> <code>size</code>
+  </li>
+<li> <code>weight</code>
+</li>
+</ul></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
-    <p></p>
-    <p><dl class='dl-horizontal'>
+    
+    <dl class='dl-horizontal'>
   <dt>density</dt><dd>density estimate</dd>
   <dt>scaled</dt><dd>density estimate, scaled to maximum of 1</dd>
   <dt>count</dt><dd>density * number of points - probably useless for violin plots</dd>
@@ -179,7 +197,7 @@ For exampe, <code>adjust = 1/2</code> means use half of the default bandwidth.</
                      or to a constant maximum width</dd>
   <dt>n</dt><dd>number of points</dd>
   <dt>width</dt><dd>width of violin bounding box</dd>
-</dl></p>
+</dl>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -188,17 +206,47 @@ Plot-Density Trace Synergism. The American Statistician 52, 181-184.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code>geom_violin</code> for examples, and <code><a href='geom_density.html'>stat_density</a></code>
-  for examples with data along the x axis.</p>
+    <p><code>geom_violin</code> for examples, and <code><a href='geom_density.html'>stat_density</a></code></p>
+<p>for examples with data along the x axis.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='no'>mpg</span>))
 <span class='no'>p</span> + <span class='fu'>geom_violin</span>()</div><img src='geom_violin-2.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_violin</span>() + <span class='fu'><a href='geom_jitter.html'>geom_jitter</a></span>(<span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.1</span>)</div><img src='geom_violin-4.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Scale maximum width proportional to sample size:</span>
+<span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='kw'>scale</span> <span class='kw'>=</span> <span class='st'>"count"</span>)</div><img src='geom_violin-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Scale maximum width to 1 for all violins:</span>
+<span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='kw'>scale</span> <span class='kw'>=</span> <span class='st'>"width"</span>)</div><img src='geom_violin-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Default is to trim violins to the range of the data. To disable:</span>
+<span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='kw'>trim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><img src='geom_violin-10.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Use a smaller bandwidth for closer density fit (default is 1).</span>
+<span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>.5</span>)</div><img src='geom_violin-12.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Add aesthetic mappings</span>
+<span class='co'># Note that violins are automatically dodged when any aesthetic is</span>
+<span class='co'># a factor</span>
+<span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><img src='geom_violin-14.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><img src='geom_violin-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>)))</div><img src='geom_violin-18.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>am</span>)))</div><img src='geom_violin-20.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Set aesthetics to fixed value</span>
+<span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"grey80"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"#3366FF"</span>)</div><img src='geom_violin-22.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Show quartiles</span>
+<span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='kw'>draw_quantiles</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.25</span>, <span class='fl'>0.5</span>, <span class='fl'>0.75</span>))</div><img src='geom_violin-24.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Scales vs. coordinate transforms -------</span>
+<span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"ggplot2movies"</span>)) {
+<span class='co'># Scale transformations occur before the density statistics are computed.</span>
+<span class='co'># Coordinate transformations occur afterwards.  Observe the effect on the</span>
+<span class='co'># number of outliers.</span>
+<span class='no'>m</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>movies</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>votes</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>rating</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'><a href='cut_interval.html'>cut_width</a></span>(<span class='no'>rating</span>, <span class='fl'>0.5</span>)))
+<span class='no'>m</span> + <span class='fu'>geom_violin</span>()
+<span class='no'>m</span> + <span class='fu'>geom_violin</span>() + <span class='fu'><a href='scale_continuous.html'>scale_y_log10</a></span>()
+<span class='no'>m</span> + <span class='fu'>geom_violin</span>() + <span class='fu'><a href='coord_trans.html'>coord_trans</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"log10"</span>)
+<span class='no'>m</span> + <span class='fu'>geom_violin</span>() + <span class='fu'><a href='scale_continuous.html'>scale_y_log10</a></span>() + <span class='fu'><a href='coord_trans.html'>coord_trans</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"log10"</span>)
 
+<span class='co'># Violin plots with continuous x:</span>
+<span class='co'># Use the group aesthetic to group observations in violins</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>movies</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>year</span>, <span class='no'>budget</span>)) + <span class='fu'>geom_violin</span>()
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>movies</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>year</span>, <span class='no'>budget</span>)) +
+  <span class='fu'>geom_violin</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'><a href='cut_interval.html'>cut_width</a></span>(<span class='no'>year</span>, <span class='fl'>10</span>)), <span class='kw'>scale</span> <span class='kw'>=</span> <span class='st'>"width"</span>)
+}</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 53573 rows containing non-finite values (stat_ydensity).</span></div><img src='geom_violin-27.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

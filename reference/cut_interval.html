@@ -81,8 +81,8 @@
     </div>
 
     
-    <p><code>cut_interval</code> makes <code>n</code> groups with equal range, <code>cut_number</code>
-makes <code>n</code> groups with (approximately) equal numbers of observations;
+    <p><code>cut_interval</code> makes <code>n</code> groups with equal range, <code>cut_number</code></p>
+<p>makes <code>n</code> groups with (approximately) equal numbers of observations;
 <code>cut_width</code> makes groups of width <code>width</code>.</p>
     
 
@@ -96,27 +96,26 @@ makes <code>n</code> groups with (approximately) equal numbers of observations;
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>x</dt>
-      <dd>numeric vector</dd>
+      <dd><p>numeric vector</p></dd>
       <dt>n</dt>
-      <dd>number of intervals to create, OR</dd>
+      <dd><p>number of intervals to create, OR</p></dd>
       <dt>length</dt>
-      <dd>length of each interval</dd>
+      <dd><p>length of each interval</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code>cut</code></dd>
+      <dd><p>other arguments passed on to <code>cut</code></p></dd>
       <dt>width</dt>
-      <dd>The bin width.</dd>
+      <dd><p>The bin width.</p></dd>
       <dt>center, boundary</dt>
-      <dd>Specify either the position of edge or the center of
+      <dd><p>Specify either the position of edge or the center of
   a bin. Since all bins are aligned, specifying the position of a single bin
-  (which doesn&#39;t need to be in the range of the data) affects the location of
-  all bins. If not specified, uses the &quot;tile layers algorithm&quot;, and sets
-  the boundary to half of the binwidth.
-
-  To center on integers, <code>width = 1</code> and <code>center = 0</code>.
-  <code>boundary = 0.5</code>.</dd>
+  (which doesn't need to be in the range of the data) affects the location of
+  all bins. If not specified, uses the "tile layers algorithm", and sets
+  the boundary to half of the binwidth.</p>
+<p>To center on integers, <code>width = 1</code> and <code>center = 0</code>.
+  <code>boundary = 0.5</code>.</p></dd>
       <dt>closed</dt>
-      <dd>One of <code>&quot;right&quot;</code> or <code>&quot;left&quot;</code> indicating whether right
-or left edges of bins are included in the bin.</dd>
+      <dd><p>One of <code>"right"</code> or <code>"left"</code> indicating whether right
+or left edges of bins are included in the bin.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -124,45 +123,36 @@ or left edges of bins are included in the bin.</dd>
     <p><code>cut_number</code></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>table</span>(<span class='fu'>cut_interval</span>(<span class='fl'>1</span>:<span class='fl'>100</span>, <span class='fl'>10</span>))</div><div class='output co'>#&gt; 
 #&gt;    [1,10.9] (10.9,20.8] (20.8,30.7] (30.7,40.6] (40.6,50.5] (50.5,60.4] 
 #&gt;          10          10          10          10          10          10 
 #&gt; (60.4,70.3] (70.3,80.2] (80.2,90.1]  (90.1,100] 
-#&gt;          10          10          10          10 
-#&gt; </div><div class='input'><span class='fu'>table</span>(<span class='fu'>cut_interval</span>(<span class='fl'>1</span>:<span class='fl'>100</span>, <span class='fl'>11</span>))</div><div class='output co'>#&gt; 
+#&gt;          10          10          10          10 </div><div class='input'><span class='fu'>table</span>(<span class='fu'>cut_interval</span>(<span class='fl'>1</span>:<span class='fl'>100</span>, <span class='fl'>11</span>))</div><div class='output co'>#&gt; 
 #&gt;   [1,10]  (10,19]  (19,28]  (28,37]  (37,46]  (46,55]  (55,64]  (64,73] 
 #&gt;       10        9        9        9        9        9        9        9 
 #&gt;  (73,82]  (82,91] (91,100] 
-#&gt;        9        9        9 
-#&gt; </div><div class='input'>
+#&gt;        9        9        9 </div><div class='input'>
 <span class='fu'>table</span>(<span class='fu'>cut_number</span>(<span class='fu'>runif</span>(<span class='fl'>1000</span>), <span class='fl'>10</span>))</div><div class='output co'>#&gt; 
-#&gt; [0.000104,0.101]    (0.101,0.204]    (0.204,0.299]    (0.299,0.409] 
-#&gt;              100              100              100              100 
-#&gt;    (0.409,0.524]    (0.524,0.633]    (0.633,0.725]    (0.725,0.816] 
-#&gt;              100              100              100              100 
-#&gt;    (0.816,0.907]        (0.907,1] 
-#&gt;              100              100 
-#&gt; </div><div class='input'>
+#&gt; [0.000382,0.0947]    (0.0947,0.181]     (0.181,0.302]     (0.302,0.407] 
+#&gt;               100               100               100               100 
+#&gt;     (0.407,0.498]     (0.498,0.604]     (0.604,0.728]     (0.728,0.814] 
+#&gt;               100               100               100               100 
+#&gt;       (0.814,0.9]           (0.9,1] 
+#&gt;               100               100 </div><div class='input'>
 <span class='fu'>table</span>(<span class='fu'>cut_width</span>(<span class='fu'>runif</span>(<span class='fl'>1000</span>), <span class='fl'>0.1</span>))</div><div class='output co'>#&gt; 
 #&gt; [-0.05,0.05]  (0.05,0.15]  (0.15,0.25]  (0.25,0.35]  (0.35,0.45]  (0.45,0.55] 
-#&gt;           48           99          112          104           94           89 
+#&gt;           48          110           98           96          110           99 
 #&gt;  (0.55,0.65]  (0.65,0.75]  (0.75,0.85]  (0.85,0.95]  (0.95,1.05] 
-#&gt;          110          103          104           96           41 
-#&gt; </div><div class='input'><span class='fu'>table</span>(<span class='fu'>cut_width</span>(<span class='fu'>runif</span>(<span class='fl'>1000</span>), <span class='fl'>0.1</span>, <span class='kw'>boundary</span> <span class='kw'>=</span> <span class='fl'>0</span>))</div><div class='output co'>#&gt; 
+#&gt;          100           90          111           93           45 </div><div class='input'><span class='fu'>table</span>(<span class='fu'>cut_width</span>(<span class='fu'>runif</span>(<span class='fl'>1000</span>), <span class='fl'>0.1</span>, <span class='kw'>boundary</span> <span class='kw'>=</span> <span class='fl'>0</span>))</div><div class='output co'>#&gt; 
 #&gt;   [0,0.1] (0.1,0.2] (0.2,0.3] (0.3,0.4] (0.4,0.5] (0.5,0.6] (0.6,0.7] (0.7,0.8] 
-#&gt;       101        86       120        99        98        95       116        97 
+#&gt;        89       110       102        92       103        97       101       112 
 #&gt; (0.8,0.9]   (0.9,1] 
-#&gt;       101        87 
-#&gt; </div><div class='input'><span class='fu'>table</span>(<span class='fu'>cut_width</span>(<span class='fu'>runif</span>(<span class='fl'>1000</span>), <span class='fl'>0.1</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>0</span>))</div><div class='output co'>#&gt; 
+#&gt;        88       106 </div><div class='input'><span class='fu'>table</span>(<span class='fu'>cut_width</span>(<span class='fu'>runif</span>(<span class='fl'>1000</span>), <span class='fl'>0.1</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>0</span>))</div><div class='output co'>#&gt; 
 #&gt; [-0.05,0.05]  (0.05,0.15]  (0.15,0.25]  (0.25,0.35]  (0.35,0.45]  (0.45,0.55] 
-#&gt;           42          108           83          114          111          113 
+#&gt;           48           95          113          117           92           90 
 #&gt;  (0.55,0.65]  (0.65,0.75]  (0.75,0.85]  (0.85,0.95]  (0.95,1.05] 
-#&gt;           92          109           88           97           43 
-#&gt; </div></pre>
+#&gt;           97          108          107           83           50 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

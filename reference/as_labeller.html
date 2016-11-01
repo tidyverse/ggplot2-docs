@@ -90,17 +90,17 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>x</dt>
-      <dd>Object to coerce to a labeller function. If a named
+      <dd><p>Object to coerce to a labeller function. If a named
 character vector, it is used as a lookup table before being
 passed on to <code>default</code>. If a non-labeller function, it is
 assumed it takes and returns character vectors and is applied to
-the labels. If a labeller, it is simply applied to the labels.</dd>
+the labels. If a labeller, it is simply applied to the labels.</p></dd>
       <dt>default</dt>
-      <dd>Default labeller to process the labels produced by
-lookup tables or modified by non-labeller functions.</dd>
+      <dd><p>Default labeller to process the labels produced by
+lookup tables or modified by non-labeller functions.</p></dd>
       <dt>multi_line</dt>
-      <dd>Whether to display the labels of multiple factors
-on separate lines. This is passed to the labeller function.</dd>
+      <dd><p>Whether to display the labels of multiple factors
+on separate lines. This is passed to the labeller function.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -108,10 +108,7 @@ on separate lines. This is passed to the labeller function.</dd>
     <p><code><a href='labeller.html'>labeller</a>()</code>, <a href='labellers.html'>labellers</a></p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>disp</span>, <span class='no'>drat</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 <span class='no'>p</span> + <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>am</span>)</div><img src='as_labeller-2.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Rename labels on the fly with a lookup character vector</span>

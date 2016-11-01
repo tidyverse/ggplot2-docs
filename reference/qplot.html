@@ -82,8 +82,8 @@
 
     
     <p><code>qplot</code> is the basic plotting function in the ggplot2 package,
-designed to be familiar if you&#39;re used to base <code>plot()</code>.
-It&#39;s a convenient wrapper for creating a number of different types of plots
+designed to be familiar if you're used to base <code>plot()</code>.
+It's a convenient wrapper for creating a number of different types of plots
 using a consistent calling scheme.</p>
     
 
@@ -100,40 +100,53 @@ using a consistent calling scheme.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>x, y, ...</dt>
-      <dd>Aesthetics passed into each layer</dd>
+      <dd><p>Aesthetics passed into each layer</p></dd>
       <dt>data</dt>
-      <dd>Data frame to use (optional).  If not specified, will create
-one, extracting vectors from the current environment.</dd>
+      <dd><p>Data frame to use (optional).  If not specified, will create
+one, extracting vectors from the current environment.</p></dd>
       <dt>facets</dt>
-      <dd>faceting formula to use. Picks <code><a href='facet_wrap.html'>facet_wrap</a></code> or
+      <dd><p>faceting formula to use. Picks <code><a href='facet_wrap.html'>facet_wrap</a></code> or
 <code><a href='facet_grid.html'>facet_grid</a></code> depending on whether the formula is one-
-or two-sided</dd>
+or two-sided</p></dd>
       <dt>margins</dt>
-      <dd>See <code>facet_grid</code>: display marginal facets?</dd>
+      <dd><p>See <code>facet_grid</code>: display marginal facets?</p></dd>
       <dt>geom</dt>
-      <dd>Character vector specifying geom(s) to draw. Defaults to
-&quot;point&quot; if x and y are specified, and &quot;histogram&quot; if only x is specified.</dd>
+      <dd><p>Character vector specifying geom(s) to draw. Defaults to
+"point" if x and y are specified, and "histogram" if only x is specified.</p></dd>
       <dt>xlim, ylim</dt>
-      <dd>X and y axis limits</dd>
+      <dd><p>X and y axis limits</p></dd>
       <dt>log</dt>
-      <dd>Which variables to log transform (&quot;x&quot;, &quot;y&quot;, or &quot;xy&quot;)</dd>
+      <dd><p>Which variables to log transform ("x", "y", or "xy")</p></dd>
       <dt>main, xlab, ylab</dt>
-      <dd>Character vector (or expression) giving plot title,
-x axis label, and y axis label respectively.</dd>
+      <dd><p>Character vector (or expression) giving plot title,
+x axis label, and y axis label respectively.</p></dd>
       <dt>asp</dt>
-      <dd>The y/x aspect ratio</dd>
+      <dd><p>The y/x aspect ratio</p></dd>
       <dt>stat, position</dt>
-      <dd>DEPRECATED.</dd>
+      <dd><p>DEPRECATED.</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Use data from data.frame</span>
 <span class='fu'>qplot</span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>)</div><img src='qplot-2.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>qplot</span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cyl</span>)</div><img src='qplot-4.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>qplot</span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>cyl</span>)</div><img src='qplot-6.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>qplot</span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>facets</span> <span class='kw'>=</span> <span class='no'>vs</span> ~ <span class='no'>am</span>)</div><img src='qplot-8.png' alt='' width='540' height='400' /><div class='input'>
-
+<span class='fu'>qplot</span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fu'>rnorm</span>(<span class='fl'>10</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>10</span>))</div><img src='qplot-10.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>qplot</span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>10</span>])</div><img src='qplot-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'>lm</span>(<span class='no'>mpg</span> ~ <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>)
+<span class='fu'>qplot</span>(<span class='fu'>resid</span>(<span class='no'>mod</span>), <span class='fu'>fitted</span>(<span class='no'>mod</span>))</div><img src='qplot-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>() {
+   <span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>:<span class='fl'>10</span>
+   <span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='no'>a</span> ^ <span class='fl'>2</span>
+   <span class='fu'>qplot</span>(<span class='no'>a</span>, <span class='no'>b</span>)
+}
+<span class='fu'>f</span>()</div><img src='qplot-16.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># To set aesthetics, wrap in I()</span>
+<span class='fu'>qplot</span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>I</span>(<span class='st'>"red"</span>))</div><img src='qplot-18.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># qplot will attempt to guess what geom you want depending on the input</span>
+<span class='co'># both x and y supplied = scatterplot</span>
+<span class='fu'>qplot</span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>)</div><img src='qplot-20.png' alt='' width='540' height='400' /><div class='input'><span class='co'># just x supplied = histogram</span>
+<span class='fu'>qplot</span>(<span class='no'>mpg</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='qplot-23.png' alt='' width='540' height='400' /><div class='input'><span class='co'># just y supplied = scatterplot, with x = seq_along(y)</span>
+<span class='fu'>qplot</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>)</div><img src='qplot-25.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Use different geoms</span>
+<span class='fu'>qplot</span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"path"</span>)</div><img src='qplot-27.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>qplot</span>(<span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"boxplot"</span>, <span class='st'>"jitter"</span>))</div><img src='qplot-29.png' alt='' width='540' height='400' /><div class='input'><span class='fu'>qplot</span>(<span class='no'>mpg</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"dotplot"</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='qplot-32.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

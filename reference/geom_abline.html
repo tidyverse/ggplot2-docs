@@ -98,40 +98,37 @@ These are useful for annotating plots.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>xintercept, yintercept, slope, intercept</dt>
-      <dd>Parameters that control the
+      <dd><p>Parameters that control the
 position of the line. If these are set, <code>data</code>, <code>mapping</code> and
-<code>show.legend</code> are overridden</dd>
+<code>show.legend</code> are overridden</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -140,28 +137,29 @@ position of the line. If these are set, <code>data</code>, <code>mapping</code> 
 parameters in two ways: either as arguments to the layer function,
 or via aesthetics. If you use arguments, e.g.
 <code>geom_abline(intercept = 0, slope = 1)</code>, then behind the scenes
-the geom makes a new data frame containing just the data you&#39;ve supplied.
+the geom makes a new data frame containing just the data you've supplied.
 That means that the lines will be the same in all facets; if you want them
 to vary across facets, construct the data frame yourself and use aesthetics.</p>
-    <p>Unlike most other geoms, these geoms do not inherit aesthetics from the plot
+<p>Unlike most other geoms, these geoms do not inherit aesthetics from the plot
 default, because they do not understand x and y aesthetics which are
 commonly set in the plot. They also do not affect the x and y scales.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
+    
     <p>These geoms are drawn using with <code><a href='geom_path.html'>geom_line</a></code> so support the
 same aesthetics: <code>alpha</code>, <code>colour</code>, <code>linetype</code> and
 <code>size</code>. They also each have aesthetics that control the position of
 the line:</p>
-    <p><ul>
+<ul>
+<li>  </li>
 <li> <code>geom_vline</code>: <code>xintercept</code>
   </li>
 <li> <code>geom_hline</code>: <code>yintercept</code>
   </li>
 <li> <code>geom_abline</code>: <code>slope</code> and <code>intercept</code>
 </li>
-</ul></p>
+</ul>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -169,10 +167,7 @@ the line:</p>
   adding straight line segments to a plot.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 
 <span class='co'># Fixed values</span>
@@ -180,8 +175,7 @@ the line:</p>
 <span class='no'>p</span> + <span class='fu'>geom_abline</span>() <span class='co'># Can't see it - outside the range of the data</span></div><img src='geom_abline-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_abline</span>(<span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>20</span>)</div><img src='geom_abline-10.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Calculate slope and intercept of line of best fit</span>
 <span class='fu'>coef</span>(<span class='fu'>lm</span>(<span class='no'>mpg</span> ~ <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>))</div><div class='output co'>#&gt; (Intercept)          wt 
-#&gt;   37.285126   -5.344472 
-#&gt; </div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_abline</span>(<span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>37</span>, <span class='kw'>slope</span> <span class='kw'>=</span> -<span class='fl'>5</span>)</div><img src='geom_abline-14.png' alt='' width='540' height='400' /><div class='input'><span class='co'># But this is easier to do with geom_smooth:</span>
+#&gt;   37.285126   -5.344472 </div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_abline</span>(<span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>37</span>, <span class='kw'>slope</span> <span class='kw'>=</span> -<span class='fl'>5</span>)</div><img src='geom_abline-14.png' alt='' width='540' height='400' /><div class='input'><span class='co'># But this is easier to do with geom_smooth:</span>
 <span class='no'>p</span> + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>, <span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><img src='geom_abline-16.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># To show different lines in different facets, use aesthetics</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Compute the &quot;resolution&quot; of a data vector. — resolution • ggplot2</title>
+<title>Compute the "resolution" of a data vector. — resolution • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,7 +77,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Compute the &quot;resolution&quot; of a data vector.</h1>
+    <h1>Compute the "resolution" of a data vector.</h1>
     </div>
 
     
@@ -91,10 +91,10 @@ to be one.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>x</dt>
-      <dd>numeric vector</dd>
+      <dd><p>numeric vector</p></dd>
       <dt>zero</dt>
-      <dd>should a zero value be automatically included in the
-computation of resolution</dd>
+      <dd><p>should a zero value be automatically included in the
+computation of resolution</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -103,16 +103,8 @@ computation of resolution</dd>
 variable, and the resolution is 1.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'><span class='fu'>resolution</span>(<span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] 1
-#&gt; </div><div class='input'><span class='fu'>resolution</span>((<span class='fl'>1</span>:<span class='fl'>10</span>) - <span class='fl'>0.5</span>)</div><div class='output co'>#&gt; [1] 0.5
-#&gt; </div><div class='input'><span class='fu'>resolution</span>((<span class='fl'>1</span>:<span class='fl'>10</span>) - <span class='fl'>0.5</span>, <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] 1
-#&gt; </div><div class='input'><span class='fu'>resolution</span>(<span class='fu'>c</span>(<span class='fl'>1</span>,<span class='fl'>2</span>, <span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>50</span>))</div><div class='output co'>#&gt; [1] 1
-#&gt; </div><div class='input'><span class='fu'>resolution</span>(<span class='fu'>as.integer</span>(<span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>50</span>)))  <span class='co'># Returns 1</span></div><div class='output co'>#&gt; [1] 1
-#&gt; </div></pre>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>resolution</span>(<span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>resolution</span>((<span class='fl'>1</span>:<span class='fl'>10</span>) - <span class='fl'>0.5</span>)</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'><span class='fu'>resolution</span>((<span class='fl'>1</span>:<span class='fl'>10</span>) - <span class='fl'>0.5</span>, <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>resolution</span>(<span class='fu'>c</span>(<span class='fl'>1</span>,<span class='fl'>2</span>, <span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>50</span>))</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>resolution</span>(<span class='fu'>as.integer</span>(<span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>50</span>)))  <span class='co'># Returns 1</span></div><div class='output co'>#&gt; [1] 1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

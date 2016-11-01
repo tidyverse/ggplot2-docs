@@ -91,20 +91,17 @@ statistics which display y conditional on x, to x conditional on y.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>xlim</dt>
-      <dd>Limits for the x and y axes.</dd>
+      <dd><p>Limits for the x and y axes.</p></dd>
       <dt>ylim</dt>
-      <dd>Limits for the x and y axes.</dd>
+      <dd><p>Limits for the x and y axes.</p></dd>
       <dt>expand</dt>
-      <dd>If <code>TRUE</code>, the default, adds a small expansion factor to
-the limits to ensure that data and axes don&#39;t overlap. If <code>FALSE</code>,
-limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</dd>
+      <dd><p>If <code>TRUE</code>, the default, adds a small expansion factor to
+the limits to ensure that data and axes don't overlap. If <code>FALSE</code>,
+limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Very useful for creating boxplots, and other interval</span>
 <span class='co'># geoms in the horizontal instead of vertical position.</span>
 
@@ -113,7 +110,7 @@ limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</
   <span class='fu'>coord_flip</span>()</div><img src='coord_flip-2.png' alt='' width='540' height='400' /><div class='input'>
 <span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>)) +
   <span class='fu'><a href='geom_freqpoly.html'>geom_histogram</a></span>()
-<span class='no'>h</span></div><div class='output'><strong class='text-info'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</strong></div><img src='coord_flip-5.png' alt='' width='540' height='400' /><div class='input'><span class='no'>h</span> + <span class='fu'>coord_flip</span>()</div><div class='output'><strong class='text-info'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</strong></div><img src='coord_flip-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>h</span> + <span class='fu'>coord_flip</span>() + <span class='fu'><a href='scale_continuous.html'>scale_x_reverse</a></span>()</div><div class='output'><strong class='text-info'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</strong></div><img src='coord_flip-11.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>h</span></div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='coord_flip-5.png' alt='' width='540' height='400' /><div class='input'><span class='no'>h</span> + <span class='fu'>coord_flip</span>()</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='coord_flip-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>h</span> + <span class='fu'>coord_flip</span>() + <span class='fu'><a href='scale_continuous.html'>scale_x_reverse</a></span>()</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='coord_flip-11.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># You can also use it to flip line and area plots:</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='kw'>y</span> <span class='kw'>=</span> (<span class='fl'>1</span>:<span class='fl'>5</span>) ^ <span class='fl'>2</span>)
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +

@@ -89,35 +89,31 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>element</dt>
-      <dd>The name of the theme element to calculate</dd>
+      <dd><p>The name of the theme element to calculate</p></dd>
       <dt>theme</dt>
-      <dd>A theme object (like theme_grey())</dd>
+      <dd><p>A theme object (like theme_grey())</p></dd>
       <dt>verbose</dt>
-      <dd>If TRUE, print out which elements this one inherits from</dd>
+      <dd><p>If TRUE, print out which elements this one inherits from</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggtheme.html'>theme_grey</a></span>()
 <span class='fu'>calc_element</span>(<span class='st'>'text'</span>, <span class='no'>t</span>)</div><div class='output co'>#&gt; List of 11
-#&gt;  $ family       : chr &quot;&quot;
-#&gt;  $ face         : chr &quot;plain&quot;
-#&gt;  $ colour       : chr &quot;black&quot;
+#&gt;  $ family       : chr ""
+#&gt;  $ face         : chr "plain"
+#&gt;  $ colour       : chr "black"
 #&gt;  $ size         : num 11
 #&gt;  $ hjust        : num 0.5
 #&gt;  $ vjust        : num 0.5
 #&gt;  $ angle        : num 0
 #&gt;  $ lineheight   : num 0.9
-#&gt;  $ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 0 0
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;  $ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 0 0
+#&gt;   .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. ..- attr(*, "unit")= chr "pt"
 #&gt;  $ debug        : logi FALSE
 #&gt;  $ inherit.blank: logi TRUE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt; </div><div class='input'>
+#&gt;  - attr(*, "class")= chr [1:2] "element_text" "element"</div><div class='input'>
 <span class='co'># Compare the "raw" element definition to the element with calculated inheritance</span>
 <span class='no'>t</span>$<span class='no'>axis.text.x</span></div><div class='output co'>#&gt; List of 11
 #&gt;  $ family       : NULL
@@ -128,28 +124,26 @@
 #&gt;  $ vjust        : num 1
 #&gt;  $ angle        : NULL
 #&gt;  $ lineheight   : NULL
-#&gt;  $ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 2.2 0 0 0
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;  $ margin       :Classes 'margin', 'unit'  atomic [1:4] 2.2 0 0 0
+#&gt;   .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. ..- attr(*, "unit")= chr "pt"
 #&gt;  $ debug        : NULL
 #&gt;  $ inherit.blank: logi TRUE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt; </div><div class='input'><span class='fu'>calc_element</span>(<span class='st'>'axis.text.x'</span>, <span class='no'>t</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output'><strong class='text-info'>axis.text.x --&gt; </strong></div><div class='output'><strong class='text-info'>axis.text</strong></div><div class='output'><strong class='text-info'>axis.text --&gt; </strong></div><div class='output'><strong class='text-info'>text</strong></div><div class='output'><strong class='text-info'>text --&gt; </strong></div><div class='output'><strong class='text-info'>nothing (top level)</strong></div><div class='output co'>#&gt; List of 11
-#&gt;  $ family       : chr &quot;&quot;
-#&gt;  $ face         : chr &quot;plain&quot;
-#&gt;  $ colour       : chr &quot;grey30&quot;
+#&gt;  - attr(*, "class")= chr [1:2] "element_text" "element"</div><div class='input'><span class='fu'>calc_element</span>(<span class='st'>'axis.text.x'</span>, <span class='no'>t</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='message'>axis.text.x --&gt; </span></div><div class='output co'>#&gt; <span class='message'>axis.text</span></div><div class='output co'>#&gt; <span class='message'>axis.text --&gt; </span></div><div class='output co'>#&gt; <span class='message'>text</span></div><div class='output co'>#&gt; <span class='message'>text --&gt; </span></div><div class='output co'>#&gt; <span class='message'>nothing (top level)</span></div><div class='output co'>#&gt; List of 11
+#&gt;  $ family       : chr ""
+#&gt;  $ face         : chr "plain"
+#&gt;  $ colour       : chr "grey30"
 #&gt;  $ size         : num 8.8
 #&gt;  $ hjust        : num 0.5
 #&gt;  $ vjust        : num 1
 #&gt;  $ angle        : num 0
 #&gt;  $ lineheight   : num 0.9
-#&gt;  $ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 2.2 0 0 0
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;  $ margin       :Classes 'margin', 'unit'  atomic [1:4] 2.2 0 0 0
+#&gt;   .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. ..- attr(*, "unit")= chr "pt"
 #&gt;  $ debug        : logi FALSE
 #&gt;  $ inherit.blank: logi TRUE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt; </div><div class='input'>
+#&gt;  - attr(*, "class")= chr [1:2] "element_text" "element"</div><div class='input'>
 <span class='co'># This reports that axis.text.x inherits from axis.text,</span>
 <span class='co'># which inherits from text. You can view each of them with:</span>
 <span class='no'>t</span>$<span class='no'>axis.text.x</span></div><div class='output co'>#&gt; List of 11
@@ -161,17 +155,16 @@
 #&gt;  $ vjust        : num 1
 #&gt;  $ angle        : NULL
 #&gt;  $ lineheight   : NULL
-#&gt;  $ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 2.2 0 0 0
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;  $ margin       :Classes 'margin', 'unit'  atomic [1:4] 2.2 0 0 0
+#&gt;   .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. ..- attr(*, "unit")= chr "pt"
 #&gt;  $ debug        : NULL
 #&gt;  $ inherit.blank: logi TRUE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt; </div><div class='input'><span class='no'>t</span>$<span class='no'>axis.text</span></div><div class='output co'>#&gt; List of 11
+#&gt;  - attr(*, "class")= chr [1:2] "element_text" "element"</div><div class='input'><span class='no'>t</span>$<span class='no'>axis.text</span></div><div class='output co'>#&gt; List of 11
 #&gt;  $ family       : NULL
 #&gt;  $ face         : NULL
-#&gt;  $ colour       : chr &quot;grey30&quot;
-#&gt;  $ size         :Class &#39;rel&#39;  num 0.8
+#&gt;  $ colour       : chr "grey30"
+#&gt;  $ size         :Class 'rel'  num 0.8
 #&gt;  $ hjust        : NULL
 #&gt;  $ vjust        : NULL
 #&gt;  $ angle        : NULL
@@ -179,23 +172,21 @@
 #&gt;  $ margin       : NULL
 #&gt;  $ debug        : NULL
 #&gt;  $ inherit.blank: logi TRUE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt; </div><div class='input'><span class='no'>t</span>$<span class='no'>text</span></div><div class='output co'>#&gt; List of 11
-#&gt;  $ family       : chr &quot;&quot;
-#&gt;  $ face         : chr &quot;plain&quot;
-#&gt;  $ colour       : chr &quot;black&quot;
+#&gt;  - attr(*, "class")= chr [1:2] "element_text" "element"</div><div class='input'><span class='no'>t</span>$<span class='no'>text</span></div><div class='output co'>#&gt; List of 11
+#&gt;  $ family       : chr ""
+#&gt;  $ face         : chr "plain"
+#&gt;  $ colour       : chr "black"
 #&gt;  $ size         : num 11
 #&gt;  $ hjust        : num 0.5
 #&gt;  $ vjust        : num 0.5
 #&gt;  $ angle        : num 0
 #&gt;  $ lineheight   : num 0.9
-#&gt;  $ margin       :Classes &#39;margin&#39;, &#39;unit&#39;  atomic [1:4] 0 0 0 0
-#&gt;   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-#&gt;   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
+#&gt;  $ margin       :Classes 'margin', 'unit'  atomic [1:4] 0 0 0 0
+#&gt;   .. ..- attr(*, "valid.unit")= int 8
+#&gt;   .. ..- attr(*, "unit")= chr "pt"
 #&gt;  $ debug        : logi FALSE
 #&gt;  $ inherit.blank: logi TRUE
-#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-#&gt; </div></pre>
+#&gt;  - attr(*, "class")= chr [1:2] "element_text" "element"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

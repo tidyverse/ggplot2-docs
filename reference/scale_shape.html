@@ -92,19 +92,16 @@ continuous variable to shape.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd>common discrete scale parameters: <code>name</code>, <code>breaks</code>,
+      <dd><p>common discrete scale parameters: <code>name</code>, <code>breaks</code>,
 <code>labels</code>, <code>na.value</code>, <code>limits</code> and <code>guide</code>.  See
-<code><a href='discrete_scale.html'>discrete_scale</a></code> for more details</dd>
+<code><a href='discrete_scale.html'>discrete_scale</a></code> for more details</p></dd>
       <dt>solid</dt>
-      <dd>Should the shapes be solid, <code>TRUE</code>, or hollow,
-<code>FALSE</code>?</dd>
+      <dd><p>Should the shapes be solid, <code>TRUE</code>, or hollow,
+<code>FALSE</code>?</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>dsmall</span> <span class='kw'>&lt;-</span> <span class='no'>diamonds</span>[<span class='fu'>sample</span>(<span class='fu'>nrow</span>(<span class='no'>diamonds</span>), <span class='fl'>100</span>), ]
 
 (<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>dsmall</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>shape</span> <span class='kw'>=</span> <span class='no'>cut</span>)))</div><img src='scale_shape-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_shape</span>(<span class='kw'>solid</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) <span class='co'># the default</span></div><img src='scale_shape-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_shape</span>(<span class='kw'>solid</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><img src='scale_shape-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_shape</span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Cut of diamond"</span>)</div><img src='scale_shape-8.png' alt='' width='540' height='400' /><div class='input'>

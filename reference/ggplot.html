@@ -92,18 +92,18 @@ subsequent layers unless specifically overridden.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>data</dt>
-      <dd>Default dataset to use for plot. If not already a data.frame,
+      <dd><p>Default dataset to use for plot. If not already a data.frame,
 will be converted to one by <code><a href='fortify.html'>fortify</a></code>. If not specified,
-must be suppled in each layer added to the plot.</dd>
+must be suppled in each layer added to the plot.</p></dd>
       <dt>mapping</dt>
-      <dd>Default list of aesthetic mappings to use for plot.
-If not specified, must be suppled in each layer added to the plot.</dd>
+      <dd><p>Default list of aesthetic mappings to use for plot.
+If not specified, must be suppled in each layer added to the plot.</p></dd>
       <dt>...</dt>
-      <dd>Other arguments passed on to methods. Not currently used.</dd>
+      <dd><p>Other arguments passed on to methods. Not currently used.</p></dd>
       <dt>environment</dt>
-      <dd>If an variable defined in the aesthetic mapping is not
+      <dd><p>If an variable defined in the aesthetic mapping is not
 found in the data, ggplot will look for it in this environment. It defaults
-to using the environment in which <code>ggplot()</code> is called.</dd>
+to using the environment in which <code>ggplot()</code> is called.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -111,14 +111,15 @@ to using the environment in which <code>ggplot()</code> is called.</dd>
     <p><code>ggplot()</code> is used to construct the initial plot object,
 and is almost always followed by <code>+</code> to add component to the
 plot. There are three common ways to invoke <code>ggplot</code>:</p>
-    <p><ol>
+<ol>
+<li>  </li>
 <li> <code>ggplot(df, aes(x, y, &lt;other aesthetics&gt;))</code>
   </li>
 <li> <code>ggplot(df)</code>
   </li>
 <li> <code>ggplot()</code>
 </li>
-</ol></p>
+</ol>
     <p>The first method is recommended if all layers use the same
 data and the same set of aesthetics, although this method
 can also be used to add a layer using data from another
@@ -133,10 +134,7 @@ multiple data frames are used to produce different layers, as
 is often the case in complex graphics.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Generate some sample data, then compute mean and standard deviation</span>
 <span class='co'># in each group</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
@@ -168,8 +166,7 @@ is often the case in complex graphics.</p>
     <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>gp</span>, <span class='no'>mean</span>, <span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>mean</span> - <span class='no'>sd</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>mean</span> + <span class='no'>sd</span>),
     <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>'red'</span>,
     <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.4</span>
-  )</div><div class='output'><strong class='text-warning'>Warning message:
-Ignoring unknown aesthetics: y</strong></div><img src='ggplot-7.png' alt='' width='540' height='400' /></pre>
+  )</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown aesthetics: y</span></div><img src='ggplot-7.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

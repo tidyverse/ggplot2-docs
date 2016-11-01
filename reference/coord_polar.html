@@ -90,18 +90,15 @@ are a stacked bar chart in polar coordinates.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>theta</dt>
-      <dd>variable to map angle to (<code>x</code> or <code>y</code>)</dd>
+      <dd><p>variable to map angle to (<code>x</code> or <code>y</code>)</p></dd>
       <dt>start</dt>
-      <dd>offset of starting point from 12 o&#39;clock in radians</dd>
+      <dd><p>offset of starting point from 12 o'clock in radians</p></dd>
       <dt>direction</dt>
-      <dd>1, clockwise; -1, anticlockwise</dd>
+      <dd><p>1, clockwise; -1, anticlockwise</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># NOTE: Use these plots with caution - polar coordinates has</span>
 <span class='co'># major perceptual problems.  The main point of these examples is</span>
 <span class='co'># to demonstrate how these common plots can be described in the</span>
@@ -112,6 +109,35 @@ are a stacked bar chart in polar coordinates.</p>
  <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 <span class='no'>pie</span> + <span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"y"</span>)</div><img src='coord_polar-2.png' alt='' width='540' height='400' /><div class='input'>
 
+<span class='co'># A coxcomb plot = bar chart + polar coordinates</span>
+<span class='no'>cxc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
+  <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>)
+<span class='no'>cxc</span> + <span class='fu'>coord_polar</span>()</div><img src='coord_polar-4.png' alt='' width='540' height='400' /><div class='input'><span class='co'># A new type of plot?</span>
+<span class='no'>cxc</span> + <span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"y"</span>)</div><img src='coord_polar-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># The bullseye chart</span>
+<span class='no'>pie</span> + <span class='fu'>coord_polar</span>()</div><img src='coord_polar-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Hadley's favourite pie chart</span>
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
+  <span class='kw'>variable</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"does not resemble"</span>, <span class='st'>"resembles"</span>),
+  <span class='kw'>value</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>20</span>, <span class='fl'>80</span>)
+)
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>value</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>variable</span>)) +
+  <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>) +
+  <span class='fu'><a href='scale_manual.html'>scale_fill_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"red"</span>, <span class='st'>"yellow"</span>)) +
+  <span class='fu'>coord_polar</span>(<span class='st'>"y"</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='no'>pi</span> / <span class='fl'>3</span>) +
+  <span class='fu'><a href='labs.html'>labs</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Pac man"</span>)</div><img src='coord_polar-10.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Windrose + doughnut plot</span>
+<span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"ggplot2movies"</span>)) {
+<span class='no'>movies</span>$<span class='no'>rrating</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='cut_interval.html'>cut_interval</a></span>(<span class='no'>movies</span>$<span class='no'>rating</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+<span class='no'>movies</span>$<span class='no'>budgetq</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='cut_interval.html'>cut_number</a></span>(<span class='no'>movies</span>$<span class='no'>budget</span>, <span class='fl'>4</span>)
+
+<span class='no'>doh</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>movies</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>rrating</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>budgetq</span>))
+
+<span class='co'># Wind rose</span>
+<span class='no'>doh</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>) + <span class='fu'>coord_polar</span>()
+<span class='co'># Race track plot</span>
+<span class='no'>doh</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"fill"</span>) + <span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"y"</span>)
+}</div><img src='coord_polar-12.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

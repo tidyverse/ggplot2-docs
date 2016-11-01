@@ -87,8 +87,7 @@ Histograms (<code>geom_histogram</code>) display the count with bars; frequency
 polygons (<code>geom_freqpoly</code>), display the counts with lines. Frequency
 polygons are more suitable when you want to compare the distribution
 across a the levels of a categorical variable.</p>
-
-    <p><code>stat_bin</code> is suitable only for continuous x data. If your x data is
+<p><code>stat_bin</code> is suitable only for continuous x data. If your x data is
   discrete, you probably want to use <code><a href='geom_bar.html'>stat_count</a></code>.</p>
     
 
@@ -108,80 +107,76 @@ across a the levels of a categorical variable.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mapping</dt>
-      <dd>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</dd>
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
       <dt>data</dt>
-      <dd>The data to be displayed in this layer. There are three
-   options:
-
-   If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.
-
-   A <code>data.frame</code>, or other object, will override the plot
+      <dd><p>The data to be displayed in this layer. There are three
+   options:</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
    data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.
-
-   A <code>function</code> will be called with a single argument,
+   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+<p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</dd>
+   will be used as the layer data.</p></dd>
       <dt>position</dt>
-      <dd>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</dd>
+      <dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
       <dt>...</dt>
-      <dd>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-<code>color = &quot;red&quot;</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</dd>
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p></dd>
       <dt>na.rm</dt>
-      <dd>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</dd>
+      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
       <dt>show.legend</dt>
-      <dd>logical. Should this layer be included in the legends?
+      <dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</dd>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
       <dt>inherit.aes</dt>
-      <dd>If <code>FALSE</code>, overrides the default aesthetics,
+      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn&#39;t inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</dd>
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
       <dt>binwidth</dt>
-      <dd>The width of the bins. The default is to use <code>bins</code>
-  bins that cover the range of the data. You should always override
+      <dd><p>The width of the bins. The default is to use <code>bins</code></p>
+<p>bins that cover the range of the data. You should always override
   this value, exploring multiple widths to find the best to illustrate the
-  stories in your data.
-
-  The bin width of a date variable is the number of days in each time; the
-  bin width of a time variable is the number of seconds.</dd>
+  stories in your data.</p>
+<p>The bin width of a date variable is the number of days in each time; the
+  bin width of a time variable is the number of seconds.</p></dd>
       <dt>bins</dt>
-      <dd>Number of bins. Overridden by <code>binwidth</code>. Defaults to 30</dd>
+      <dd><p>Number of bins. Overridden by <code>binwidth</code>. Defaults to 30</p></dd>
       <dt>geom, stat</dt>
-      <dd>Use to override the default connection between
-<code>geom_histogram</code>/<code>geom_freqpoly</code> and <code>stat_bin</code>.</dd>
+      <dd><p>Use to override the default connection between
+<code>geom_histogram</code>/<code>geom_freqpoly</code> and <code>stat_bin</code>.</p></dd>
       <dt>center</dt>
-      <dd>The center of one of the bins.  Note that if center is above or
+      <dd><p>The center of one of the bins.  Note that if center is above or
 below the range of the data, things will be shifted by an appropriate
 number of <code>width</code>s. To center on integers, for example, use
 <code>width=1</code> and <code>center=0</code>, even if <code>0</code> is outside the range
 of the data.  At most one of <code>center</code> and <code>boundary</code> may be
-specified.</dd>
+specified.</p></dd>
       <dt>boundary</dt>
-      <dd>A boundary between two bins. As with <code>center</code>, things
+      <dd><p>A boundary between two bins. As with <code>center</code>, things
 are shifted when <code>boundary</code> is outside the range of the data. For
 example, to center on integers, use <code>width = 1</code> and <code>boundary =
 0.5</code>, even if <code>1</code> is outside the range of the data.  At most one of
-<code>center</code> and <code>boundary</code> may be specified.</dd>
+<code>center</code> and <code>boundary</code> may be specified.</p></dd>
       <dt>breaks</dt>
-      <dd>Alternatively, you can supply a numeric vector giving
+      <dd><p>Alternatively, you can supply a numeric vector giving
 the bin boundaries. Overrides <code>binwidth</code>, <code>bins</code>, <code>center</code>,
-and <code>boundary</code>.</dd>
+and <code>boundary</code>.</p></dd>
       <dt>closed</dt>
-      <dd>One of <code>&quot;right&quot;</code> or <code>&quot;left&quot;</code> indicating whether right
-or left edges of bins are included in the bin.</dd>
+      <dd><p>One of <code>"right"</code> or <code>"left"</code> indicating whether right
+or left edges of bins are included in the bin.</p></dd>
       <dt>pad</dt>
-      <dd>If <code>TRUE</code>, adds empty bins at either end of x. This ensures
-frequency polygons touch 0. Defaults to <code>FALSE</code>.</dd>
+      <dd><p>If <code>TRUE</code>, adds empty bins at either end of x. This ensures
+frequency polygons touch 0. Defaults to <code>FALSE</code>.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -193,19 +188,19 @@ story behind your data.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p></p>
+    
     <p><code>geom_histogram</code> uses the same aesthetics as <code><a href='geom_bar.html'>geom_bar</a></code>;
 <code>geom_freqpoly</code> uses the same aesthetics as <code><a href='geom_path.html'>geom_line</a></code>.</p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
-    <p></p>
-    <p><dl class='dl-horizontal'>
+    
+    <dl class='dl-horizontal'>
   <dt>count</dt><dd>number of points in bin</dd>
   <dt>density</dt><dd>density of points in bin, scaled to integrate to 1</dd>
   <dt>ncount</dt><dd>count, scaled to maximum of 1</dd>
   <dt>ndensity</dt><dd>density, scaled to maximum of 1</dd>
-</dl></p>
+</dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -214,12 +209,9 @@ story behind your data.</p>
   x data, whereas stat_bin is suitable only for continuous x data.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>)) +
-  <span class='fu'>geom_histogram</span>()</div><div class='output'><strong class='text-info'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</strong></div><img src='geom_freqpoly-3.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>)) +
+  <span class='fu'>geom_histogram</span>()</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='geom_freqpoly-3.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>)) +
   <span class='fu'>geom_histogram</span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)</div><img src='geom_freqpoly-5.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>)) +
   <span class='fu'>geom_histogram</span>(<span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>200</span>)</div><img src='geom_freqpoly-7.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Rather than stacking histograms, it's easier to compare frequency</span>
@@ -263,8 +255,7 @@ story behind your data.</p>
 <span class='co'># has value 0, so log transformations are not appropriate</span>
 <span class='no'>m</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>movies</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>rating</span>))
 <span class='no'>m</span> + <span class='fu'>geom_histogram</span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>0.5</span>) + <span class='fu'><a href='scale_continuous.html'>scale_y_sqrt</a></span>()
-}</div><div class='output'><strong class='text-warning'>Warning message:
-Ignoring unknown aesthetics: weight</strong></div><img src='geom_freqpoly-16.png' alt='' width='540' height='400' /></pre>
+}</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown aesthetics: weight</span></div><img src='geom_freqpoly-16.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
