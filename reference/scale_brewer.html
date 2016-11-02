@@ -102,8 +102,8 @@ more information.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd><p>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code></p>
-<p>to control name, limits, breaks, labels and so forth.</p></dd>
+      <dd><p>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code>
+to control name, limits, breaks, labels and so forth.</p></dd>
       <dt>type</dt>
       <dd><p>One of seq (sequential), div (diverging) or qual (qualitative)</p></dd>
       <dt>palette</dt>
@@ -143,10 +143,10 @@ interpolate 6 colours from any palette to a continuous scale.</p>
 
     
     <p>The following palettes are available for use with these scales:</p><dl class='dl-horizontal'>
-  <dt>Diverging</dt><dd>BrBG, PiYG, PRGn, PuOr, RdBu, RdGy, RdYlBu, RdYlGn, Spectral</dd>
-  <dt>Qualitative</dt><dd>Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3</dd>
-  <dt>Sequential</dt><dd>Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges,
-     OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu, YlOrBr, YlOrRd</dd>
+  <dt>Diverging</dt><dd><p>BrBG, PiYG, PRGn, PuOr, RdBu, RdGy, RdYlBu, RdYlGn, Spectral</p></dd>
+  <dt>Qualitative</dt><dd><p>Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3</p></dd>
+  <dt>Sequential</dt><dd><p>Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges,
+     OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu, YlOrBr, YlOrRd</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -165,6 +165,7 @@ interpolate 6 colours from any palette to a continuous scale.</p>
 <span class='no'>d</span> + <span class='fu'>scale_colour_brewer</span>(<span class='st'>"Diamond\nclarity"</span>)</div><img src='scale_colour_brewer-6.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Select brewer palette to use, see ?scales::brewer_pal for more details</span>
 <span class='no'>d</span> + <span class='fu'>scale_colour_brewer</span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"Greens"</span>)</div><img src='scale_colour_brewer-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>scale_colour_brewer</span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"Set1"</span>)</div><img src='scale_colour_brewer-10.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='co'># scale_fill_brewer works just the same as</span>
 <span class='co'># scale_colour_brewer but for fill colours</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>price</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +

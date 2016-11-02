@@ -6,8 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wrap up a selection of summary functions from Hmisc to make it easy to use
- — hmisc • ggplot2</title>
+<title>A selection of summary functions from Hmisc — hmisc • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -78,12 +77,18 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Wrap up a selection of summary functions from Hmisc to make it easy to use
-</h1>
+    <h1>A selection of summary functions from Hmisc</h1>
     </div>
 
     
-    <p>See the Hmisc documentation for details of their options.</p>
+    <p>These are wrappers around functions from <span class="pkg">Hmsic</span> designed to make them
+easier to use with <code><a href='stat_summary_bin.html'>stat_summary</a></code>. See the Hmisc documentation
+for more details:</p><ul>
+<li><p><code><a href='http://www.rdocumentation.org/packages/Hmisc/topics/smean.sd'>smean.cl.boot</a></code></p></li>
+<li><p><code><a href='http://www.rdocumentation.org/packages/Hmisc/topics/smean.sd'>smean.cl.normal</a></code></p></li>
+<li><p><code><a href='http://www.rdocumentation.org/packages/Hmisc/topics/smean.sd'>smean.sdl</a></code></p></li>
+<li><p><code><a href='http://www.rdocumentation.org/packages/Hmisc/topics/smean.sd'>smedian.hilow</a></code></p></li>
+</ul>
     
 
     <pre><span class='fu'>mean_cl_boot</span>(<span class='no'>x</span>, <span class='no'>...</span>)
@@ -102,21 +107,28 @@
       <dd><p>other arguments passed on to the respective Hmisc function.</p></dd>
     </dl>
     
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code><a href='http://www.rdocumentation.org/packages/Hmisc/topics/smean.sd'>smean.cl.boot</a></code>,
-  <code><a href='http://www.rdocumentation.org/packages/Hmisc/topics/smean.sd'>smean.cl.normal</a></code>, <code><a href='http://www.rdocumentation.org/packages/Hmisc/topics/smean.sd'>smean.sdl</a></code>,
-   <code><a href='http://www.rdocumentation.org/packages/Hmisc/topics/smean.sd'>smedian.hilow</a></code></p>
+    <p>A data frame with columns <code>y</code>, <code>ymin</code>, and <code>ymax</code>.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rnorm</span>(<span class='fl'>100</span>)
+<span class='fu'>mean_cl_boot</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;            y       ymin      ymax
+#&gt; 1 0.07278526 -0.1279372 0.2609592</div><div class='input'><span class='fu'>mean_cl_normal</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;            y       ymin      ymax
+#&gt; 1 0.07278526 -0.1325043 0.2780748</div><div class='input'><span class='fu'>mean_sdl</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;            y     ymin    ymax
+#&gt; 1 0.07278526 -1.99644 2.14201</div><div class='input'><span class='fu'>median_hilow</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;           y      ymin     ymax
+#&gt; 1 0.1712141 -2.045659 1.670362</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#see-also">See also</a></li>
-          </ul>
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

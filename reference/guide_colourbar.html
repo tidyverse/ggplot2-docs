@@ -116,7 +116,7 @@ specified in <code><a href='labs.html'>labs</a></code> is used for the title.</p
 (default for a horizontal guide), or "right."</p></dd>
       <dt>title.theme</dt>
       <dd><p>A theme object for rendering the title text. Usually the
-object of <code><a href='element.html'>element_text</a></code> is expected. By default, the theme is
+object of <code><a href='margin.html'>element_text</a></code> is expected. By default, the theme is
 specified by <code>legend.title</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></dd>
       <dt>title.hjust</dt>
       <dd><p>A number specifying horizontal justification of the
@@ -133,7 +133,7 @@ label. One of "top", "bottom" (default for horizontal guide), "left", or
 "right" (default for vertical guide).</p></dd>
       <dt>label.theme</dt>
       <dd><p>A theme object for rendering the label text. Usually the
-object of <code><a href='element.html'>element_text</a></code> is expected. By default, the theme is
+object of <code><a href='margin.html'>element_text</a></code> is expected. By default, the theme is
 specified by <code>legend.text</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></dd>
       <dt>label.hjust</dt>
       <dd><p>A numeric specifying horizontal justification of the
@@ -170,8 +170,8 @@ be visible.</p></dd>
       <dd><p>A character string indicating the direction of the guide.
 One of "horizontal" or "vertical."</p></dd>
       <dt>default.unit</dt>
-      <dd><p>A character string indicating <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code></p>
-<p>for <code>barwidth</code> and <code>barheight</code>.</p></dd>
+      <dd><p>A character string indicating <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code>
+for <code>barwidth</code> and <code>barheight</code>.</p></dd>
       <dt>reverse</dt>
       <dd><p>logical. If <code>TRUE</code> the colorbar is reversed. By default,
 the highest value is on the top and the lowest value is on the bottom</p></dd>
@@ -221,7 +221,7 @@ see <code><a href='guides.html'>guides</a></code>.</p>
 <span class='co'># label position</span>
 <span class='no'>p1</span> + <span class='fu'><a href='guides.html'>guides</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>guide_colorbar</span>(<span class='kw'>label.position</span> <span class='kw'>=</span> <span class='st'>"left"</span>))</div><img src='guide_colourbar-14.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># label theme</span>
-<span class='no'>p1</span> + <span class='fu'><a href='guides.html'>guides</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>guide_colorbar</span>(<span class='kw'>label.theme</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>0</span>)))</div><img src='guide_colourbar-16.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p1</span> + <span class='fu'><a href='guides.html'>guides</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>guide_colorbar</span>(<span class='kw'>label.theme</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_text</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>0</span>)))</div><img src='guide_colourbar-16.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># small number of bins</span>
 <span class='no'>p1</span> + <span class='fu'><a href='guides.html'>guides</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>guide_colorbar</span>(<span class='kw'>nbin</span> <span class='kw'>=</span> <span class='fl'>3</span>))</div><img src='guide_colourbar-18.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># large number of bins</span>

@@ -153,24 +153,15 @@ using <code><a href='http://www.rdocumentation.org/packages/MASS/topics/bandwidt
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_density_2d</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code>alpha</code>
-  </li>
-<li> <code>colour</code>
-  </li>
-<li> <code>group</code>
-  </li>
-<li> <code>linetype</code>
-  </li>
-<li> <code>size</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>colour</code></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>linetype</code></p></li>
+<li><p><code>size</code></p></li>
 </ul></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
@@ -190,7 +181,8 @@ using <code><a href='http://www.rdocumentation.org/packages/MASS/topics/bandwidt
  <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
  <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='fl'>0.5</span>, <span class='fl'>6</span>) +
  <span class='fu'><a href='lims.html'>ylim</a></span>(<span class='fl'>40</span>, <span class='fl'>110</span>)
-<span class='no'>m</span> + <span class='fu'>geom_density_2d</span>()</div><img src='geom_density_2d-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>m</span> + <span class='fu'>stat_density_2d</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>..level..</span>), <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"polygon"</span>)</div><img src='geom_density_2d-4.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>m</span> + <span class='fu'>geom_density_2d</span>()</div><img src='geom_density_2d-2.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>m</span> + <span class='fu'>stat_density_2d</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>..level..</span>), <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"polygon"</span>)</div><img src='geom_density_2d-4.png' alt='' width='540' height='400' /><div class='input'>
 <span class='fu'>set.seed</span>(<span class='fl'>4393</span>)
 <span class='no'>dsmall</span> <span class='kw'>&lt;-</span> <span class='no'>diamonds</span>[<span class='fu'>sample</span>(<span class='fu'>nrow</span>(<span class='no'>diamonds</span>), <span class='fl'>1000</span>), ]
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>dsmall</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>))

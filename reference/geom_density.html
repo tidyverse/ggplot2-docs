@@ -162,38 +162,27 @@ stack density values.</p></dd>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_density</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code>alpha</code>
-  </li>
-<li> <code>colour</code>
-  </li>
-<li> <code>fill</code>
-  </li>
-<li> <code>group</code>
-  </li>
-<li> <code>linetype</code>
-  </li>
-<li> <code>size</code>
-  </li>
-<li> <code>weight</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>colour</code></p></li>
+<li><p><code>fill</code></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>linetype</code></p></li>
+<li><p><code>size</code></p></li>
+<li><p><code>weight</code></p></li>
 </ul></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
     
     <dl class='dl-horizontal'>
-  <dt>density</dt><dd>density estimate</dd>
-  <dt>count</dt><dd>density * number of points - useful for stacked density
-     plots</dd>
-  <dt>scaled</dt><dd>density estimate, scaled to maximum of 1</dd>
+  <dt>density</dt><dd><p>density estimate</p></dd>
+  <dt>count</dt><dd><p>density * number of points - useful for stacked density
+     plots</p></dd>
+  <dt>scaled</dt><dd><p>density estimate, scaled to maximum of 1</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -214,6 +203,7 @@ stack density values.</p></dd>
   <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='fl'>55</span>, <span class='fl'>70</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 45 rows containing non-finite values (stat_density).</span></div><img src='geom_density-9.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>depth</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
   <span class='fu'>geom_density</span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.1</span>) +
   <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='fl'>55</span>, <span class='fl'>70</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 45 rows containing non-finite values (stat_density).</span></div><img src='geom_density-12.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='co'># Stacked density plots: if you want to create a stacked density plot, you</span>
 <span class='co'># probably want to 'count' (density * n) variable instead of the default</span>
 <span class='co'># density</span>

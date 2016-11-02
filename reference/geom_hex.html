@@ -146,24 +146,15 @@ horizontal directions. Overrides <code>bins</code> if both set.</p></dd>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_hex</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code>alpha</code>
-  </li>
-<li> <code>colour</code>
-  </li>
-<li> <code>fill</code>
-  </li>
-<li> <code>group</code>
-  </li>
-<li> <code>size</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>colour</code></p></li>
+<li><p><code>fill</code></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>size</code></p></li>
 </ul></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -174,6 +165,7 @@ horizontal directions. Overrides <code>bins</code> if both set.</p></dd>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>))
 <span class='no'>d</span> + <span class='fu'>geom_hex</span>()</div><img src='geom_hex-2.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='co'># You can control the size of the bins by specifying the number of</span>
 <span class='co'># bins in each direction:</span>
 <span class='no'>d</span> + <span class='fu'>geom_hex</span>(<span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><img src='geom_hex-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>geom_hex</span>(<span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>30</span>)</div><img src='geom_hex-6.png' alt='' width='540' height='400' /><div class='input'>

@@ -102,27 +102,17 @@ axes must be based on a one-to-one transformation of the primary axes.</p>
       <dd><p>The name of the secondary axis</p></dd>
       <dt>breaks</dt>
       <dd><p>One of:</p><ul>
-<li>  </li>
-<li><code>NULL</code> for no breaks
-  </li>
-<li><code>waiver()</code> for the default breaks computed by the transformation object
-  </li>
-<li>A numeric vector of positions
-  </li>
-<li>A function that takes the limits as input and returns breaks as output
-</li>
+<li><p><code>NULL</code> for no breaks</p></li>
+<li><p><code>waiver()</code> for the default breaks computed by the transformation object</p></li>
+<li><p>A numeric vector of positions</p></li>
+<li><p>A function that takes the limits as input and returns breaks as output</p></li>
 </ul></dd>
       <dt>labels</dt>
       <dd><p>One of:</p><ul>
-<li>  </li>
-<li><code>NULL</code> for no labels
-  </li>
-<li><code>waiver()</code> for the default labels computed by the transformation object
-  </li>
-<li>A character vector giving labels (must be same length as <code>breaks</code>)
-  </li>
-<li>A function that takes the breaks as input and returns labels as output
-</li>
+<li><p><code>NULL</code> for no labels</p></li>
+<li><p><code>waiver()</code> for the default labels computed by the transformation object</p></li>
+<li><p>A character vector giving labels (must be same length as <code>breaks</code>)</p></li>
+<li><p>A function that takes the breaks as input and returns labels as output</p></li>
 </ul></dd>
     </dl>
     
@@ -131,8 +121,8 @@ axes must be based on a one-to-one transformation of the primary axes.</p>
     <p><code>sec_axis</code> is used to create the specifications for a secondary axis.
 Except for the <code>trans</code> argument any of the arguments can be set to
 <code>derive()</code> which would result in the secondary axis inheriting the
-settings from the primary axis.</p>
-<p><code>dup_axis</code> is provide as a shorthand for creating a secondary axis that
+settings from the primary axis.
+    <code>dup_axis</code> is provide as a shorthand for creating a secondary axis that
 is a duplication of the primary axis, effectively mirroring the primary axis.</p>
     
 

@@ -165,36 +165,21 @@ resize a plot, labels stay the same size, but the size of the axes changes.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_text</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code><strong>label</strong></code>
-  </li>
-<li> <code>alpha</code>
-  </li>
-<li> <code>angle</code>
-  </li>
-<li> <code>colour</code>
-  </li>
-<li> <code>family</code>
-  </li>
-<li> <code>fontface</code>
-  </li>
-<li> <code>group</code>
-  </li>
-<li> <code>hjust</code>
-  </li>
-<li> <code>lineheight</code>
-  </li>
-<li> <code>size</code>
-  </li>
-<li> <code>vjust</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code><strong>label</strong></code></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>angle</code></p></li>
+<li><p><code>colour</code></p></li>
+<li><p><code>family</code></p></li>
+<li><p><code>fontface</code></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>hjust</code></p></li>
+<li><p><code>lineheight</code></p></li>
+<li><p><code>size</code></p></li>
+<li><p><code>vjust</code></p></li>
 </ul></p>
     
     <h2 class="hasAnchor" id="-code-geom-label-code-"><a class="anchor" href="#-code-geom-label-code-"></a>&lt;code&gt;geom_label&lt;/code&gt;</h2>
@@ -207,8 +192,8 @@ controls the background colour of the label.</p>
     <h2 class="hasAnchor" id="alignment"><a class="anchor" href="#alignment"></a>Alignment</h2>
 
     
-    <p>You can modify text alignment with the <code>vjust</code> and <code>hjust</code></p>
-<p>aesthetics. These can either be a number between 0 (right/bottom) and
+    <p>You can modify text alignment with the <code>vjust</code> and <code>hjust</code>
+aesthetics. These can either be a number between 0 (right/bottom) and
 1 (top/left) or a character ("left", "middle", "right", "bottom", "center",
 "top"). There are two special alignments: "inward" and "outward".
 Inward always aligns text towards the center, and outward aligns
@@ -242,6 +227,7 @@ it away from the center</p>
 <span class='no'>p</span> +
   <span class='fu'>geom_text</span>() +
   <span class='fu'><a href='annotate.html'>annotate</a></span>(<span class='st'>"text"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"plot mpg vs. wt"</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>15</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><img src='geom_label-28.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='co'># Aligning labels and bars --------------------------------------------------</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
   <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>)),

@@ -105,20 +105,14 @@ title</p></dd>
       <dt>breaks</dt>
       <dd><p>control the breaks in the guide.  There are four possible
 types of input:</p><ul>
-<li>  </li>
-<li> <code>NULL</code>: don't display any breaks
-  </li>
-<li> a character vector giving the breaks as they should appear on the
-   axis or in the legend.
-  </li>
-<li> <code>waiver()</code> to use the default break computation.
-  </li>
-<li> a function, that when called with a single argument, a character
+<li><p><code>NULL</code>: don't display any breaks</p></li>
+<li><p>a character vector giving the breaks as they should appear on the
+   axis or in the legend.</p></li>
+<li><p><code>waiver()</code> to use the default break computation.</p></li>
+<li><p>a function, that when called with a single argument, a character
     vector giving the limits of the scale, returns a character vector
-    specifying which breaks to display.
-</li>
-</ul>
-<p>This parameter does not affect in any way how the data is scaled - it
+    specifying which breaks to display.</p></li>
+</ul><p>This parameter does not affect in any way how the data is scaled - it
 only affects the appearance of the legend.</p></dd>
       <dt>labels</dt>
       <dd><p><code>NULL</code> for no labels, <code>waiver()</code> for default

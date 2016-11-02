@@ -102,22 +102,14 @@ e1 %+% e2</pre>
     <h2 class="hasAnchor" id="what-can-you-add-"><a class="anchor" href="#what-can-you-add-"></a>What can you add?</h2>
 
     
-    <p>You can add any of the following types of objects:</p>
-<ul>
-<li>  </li>
-<li> A <code><a href='aes.html'>aes</a>()</code> objects replaces the default aesthetics.
-  </li>
-<li> A layer created by a <code>geom_</code> or <code>stat_</code> function adds
-    new layer.
-  </li>
-<li> A <code>scale</code> overrides the existing scale.
-  </li>
-<li> A <code><a href='theme.html'>theme</a></code> modifies the current theme.
-  </li>
-<li> A <code>coord</code> overrides current coordinate system.
-  </li>
-<li> A <code>facet</code> specificatio override current faceting.
-</li>
+    <p>You can add any of the following types of objects:</p><ul>
+<li><p>A <code><a href='aes.html'>aes</a>()</code> objects replaces the default aesthetics.</p></li>
+<li><p>A layer created by a <code>geom_</code> or <code>stat_</code> function adds
+    new layer.</p></li>
+<li><p>A <code>scale</code> overrides the existing scale.</p></li>
+<li><p>A <code><a href='theme.html'>theme</a></code> modifies the current theme.</p></li>
+<li><p>A <code>coord</code> overrides current coordinate system.</p></li>
+<li><p>A <code>facet</code> specificatio override current faceting.</p></li>
 </ul>
     <p>To replace the current default data frame, you must use <code>%+%</code>,
 due to S3 method precedence issues.</p>

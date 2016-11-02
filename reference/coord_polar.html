@@ -109,6 +109,7 @@ are a stacked bar chart in polar coordinates.</p>
  <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 <span class='no'>pie</span> + <span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"y"</span>)</div><img src='coord_polar-2.png' alt='' width='540' height='400' /><div class='input'>
 
+
 <span class='co'># A coxcomb plot = bar chart + polar coordinates</span>
 <span class='no'>cxc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
   <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>)

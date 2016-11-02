@@ -86,8 +86,9 @@ the x axis into bins and counting the number of observations in each bin.
 Histograms (<code>geom_histogram</code>) display the count with bars; frequency
 polygons (<code>geom_freqpoly</code>), display the counts with lines. Frequency
 polygons are more suitable when you want to compare the distribution
-across a the levels of a categorical variable.</p>
-<p><code>stat_bin</code> is suitable only for continuous x data. If your x data is
+across a the levels of a categorical variable.
+
+    <code>stat_bin</code> is suitable only for continuous x data. If your x data is
   discrete, you probably want to use <code><a href='geom_bar.html'>stat_count</a></code>.</p>
     
 
@@ -143,8 +144,8 @@ rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
       <dt>binwidth</dt>
-      <dd><p>The width of the bins. The default is to use <code>bins</code></p>
-<p>bins that cover the range of the data. You should always override
+      <dd><p>The width of the bins. The default is to use <code>bins</code>
+  bins that cover the range of the data. You should always override
   this value, exploring multiple widths to find the best to illustrate the
   stories in your data.</p>
 <p>The bin width of a date variable is the number of days in each time; the
@@ -188,7 +189,6 @@ story behind your data.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_histogram</code> uses the same aesthetics as <code><a href='geom_bar.html'>geom_bar</a></code>;
 <code>geom_freqpoly</code> uses the same aesthetics as <code><a href='geom_path.html'>geom_line</a></code>.</p>
     
@@ -196,10 +196,10 @@ story behind your data.</p>
 
     
     <dl class='dl-horizontal'>
-  <dt>count</dt><dd>number of points in bin</dd>
-  <dt>density</dt><dd>density of points in bin, scaled to integrate to 1</dd>
-  <dt>ncount</dt><dd>count, scaled to maximum of 1</dd>
-  <dt>ndensity</dt><dd>density, scaled to maximum of 1</dd>
+  <dt>count</dt><dd><p>number of points in bin</p></dd>
+  <dt>density</dt><dd><p>density of points in bin, scaled to integrate to 1</p></dd>
+  <dt>ncount</dt><dd><p>count, scaled to maximum of 1</p></dd>
+  <dt>ndensity</dt><dd><p>density, scaled to maximum of 1</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>

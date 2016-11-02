@@ -162,24 +162,15 @@ corresponds to a single case which provides the start and end coordinates.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_path</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code>alpha</code>
-  </li>
-<li> <code>colour</code>
-  </li>
-<li> <code>group</code>
-  </li>
-<li> <code>linetype</code>
-  </li>
-<li> <code>size</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>colour</code></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>linetype</code></p></li>
+<li><p><code>size</code></p></li>
 </ul></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -221,6 +212,7 @@ corresponds to a single case which provides the start and end coordinates.</p>
   <span class='kw'>y3</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>NA</span>, <span class='fl'>4</span>, <span class='fl'>5</span>)
 )
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y1</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_line</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_point).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_path).</span></div><img src='geom_path-28.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y2</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_line</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_point).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_path).</span></div><img src='geom_path-32.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y3</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_line</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_point).</span></div><img src='geom_path-35.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='co'># Setting line type vs colour/size</span>
 <span class='co'># Line type needs to be applied to a line as a whole, so it can</span>
 <span class='co'># not be used with colour or size that vary across a line</span>

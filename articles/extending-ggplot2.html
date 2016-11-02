@@ -29,7 +29,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/hadley/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -45,7 +45,7 @@
       <h1>Extending ggplot2</h1>
                         <h4 class="author">Hadley Wickham</h4>
             
-            <h4 class="date">2016-10-31</h4>
+            <h4 class="date">2016-11-02</h4>
           </div>
 
     
@@ -447,7 +447,7 @@ geom_chull &lt;-<span class="st"> </span>function(<span class="dt">mapping =</sp
 <span class="co">#&gt;  $ inherit.blank: logi TRUE</span>
 <span class="co">#&gt;  - attr(*, "class")= chr [1:2] "element_rect" "element"</span>
 
-new_theme &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ggtheme.html">theme_grey</a></span>() +<span class="st"> </span><span class="kw"><a href="../reference/theme.html">theme</a></span>(<span class="dt">legend.key =</span> <span class="kw"><a href="../reference/element.html">element_rect</a></span>(<span class="dt">colour =</span> <span class="st">"red"</span>))
+new_theme &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ggtheme.html">theme_grey</a></span>() +<span class="st"> </span><span class="kw"><a href="../reference/theme.html">theme</a></span>(<span class="dt">legend.key =</span> <span class="kw"><a href="../reference/margin.html">element_rect</a></span>(<span class="dt">colour =</span> <span class="st">"red"</span>))
 new_theme$legend.key
 <span class="co">#&gt; List of 5</span>
 <span class="co">#&gt;  $ fill         : chr "grey95"</span>
@@ -457,7 +457,7 @@ new_theme$legend.key
 <span class="co">#&gt;  $ inherit.blank: logi FALSE</span>
 <span class="co">#&gt;  - attr(*, "class")= chr [1:2] "element_rect" "element"</span></code></pre></div>
 <p>To override it completely, use <code>%+replace%</code> instead of <code>+</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_theme &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ggtheme.html">theme_grey</a></span>() %+replace%<span class="st"> </span><span class="kw"><a href="../reference/theme.html">theme</a></span>(<span class="dt">legend.key =</span> <span class="kw"><a href="../reference/element.html">element_rect</a></span>(<span class="dt">colour =</span> <span class="st">"red"</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_theme &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ggtheme.html">theme_grey</a></span>() %+replace%<span class="st"> </span><span class="kw"><a href="../reference/theme.html">theme</a></span>(<span class="dt">legend.key =</span> <span class="kw"><a href="../reference/margin.html">element_rect</a></span>(<span class="dt">colour =</span> <span class="st">"red"</span>))
 new_theme$legend.key
 <span class="co">#&gt; List of 5</span>
 <span class="co">#&gt;  $ fill         : NULL</span>
@@ -474,16 +474,16 @@ new_theme$legend.key
 <th>Theme function</th>
 <th>Description</th>
 </tr></thead><tbody><tr class="odd"><td>line</td>
-<td><code><a href="../reference/element.html">element_line()</a></code></td>
+<td><code><a href="../reference/margin.html">element_line()</a></code></td>
 <td>all line elements</td>
 </tr><tr class="even"><td>rect</td>
-<td><code><a href="../reference/element.html">element_rect()</a></code></td>
+<td><code><a href="../reference/margin.html">element_rect()</a></code></td>
 <td>all rectangular elements</td>
 </tr><tr class="odd"><td>text</td>
-<td><code><a href="../reference/element.html">element_text()</a></code></td>
+<td><code><a href="../reference/margin.html">element_text()</a></code></td>
 <td>all text</td>
 </tr><tr class="even"><td>title</td>
-<td><code><a href="../reference/element.html">element_text()</a></code></td>
+<td><code><a href="../reference/margin.html">element_text()</a></code></td>
 <td>all text in title elements (plot, axes &amp; legend)</td>
 </tr></tbody></table><p>These set default properties that are inherited by more specific settings. These are most useful for setting an overall &ldquo;background&rdquo; colour and overall font settings (e.g.&nbsp;family and size).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">y =</span> <span class="dv">1</span>:<span class="dv">3</span>)
@@ -493,7 +493,7 @@ base &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ggplot
 
 base</code></pre></div>
 <p><img src="extending-ggplot2_files/figure-html/axis-line-ex-1.png" width="672" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">base +<span class="st"> </span><span class="kw"><a href="../reference/theme.html">theme</a></span>(<span class="dt">text =</span> <span class="kw"><a href="../reference/element.html">element_text</a></span>(<span class="dt">colour =</span> <span class="st">"red"</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">base +<span class="st"> </span><span class="kw"><a href="../reference/theme.html">theme</a></span>(<span class="dt">text =</span> <span class="kw"><a href="../reference/margin.html">element_text</a></span>(<span class="dt">colour =</span> <span class="st">"red"</span>))</code></pre></div>
 <p><img src="extending-ggplot2_files/figure-html/axis-line-ex-2.png" width="672" style="display: block; margin: auto;"></p>
 <p>You should generally start creating a theme by modifying these values.</p>
 </div>
@@ -916,9 +916,18 @@ FacetBootstrap &lt;-<span class="st"> </span><span class="kw"><a href="../refere
 </div>
 
 <div class="author">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang.</p>
+  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
-      </footer></div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script></footer></div>
 
   </body></html>

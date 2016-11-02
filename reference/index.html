@@ -83,7 +83,7 @@
 
     <div class="contents">
       <h2 id="section-plot-basics" class="hasAnchor"><a href="#section-plot-basics" class="anchor"></a>Plot basics</h2>
-      <p class="section-desc"><p>All ggplot2 plots with a call to <code><a href="../reference/ggplot.html">ggplot()</a></code>, supplying default data and aesthethic mappings, specified by <code><a href="../reference/aes.html">aes()</a></code>. You then add components (listed below) with <code>+</code>. To save a plot to disk, use <code><a href="../reference/ggsave.html">ggsave()</a></code>.</p></p>
+      <p class="section-desc"><p>All ggplot2 plots with a call to <code><a href="../reference/ggplot.html">ggplot()</a></code>, supplying default data and aesthethic mappings, specified by <code><a href="../reference/aes.html">aes()</a></code>. You then add layers, scales, coords and facets with <code>+</code>. To save a plot to disk, use <code><a href="../reference/ggsave.html">ggsave()</a></code>.</p></p>
 
       
       <p><a href="aes.html">Construct aesthetic mappings</a></p>
@@ -104,6 +104,11 @@
       <p><a href="ggsave.html">Save a ggplot (or other grid object) with sensible defaults</a></p>
       <ul>
         <li><code><a href="ggsave.html">ggsave</a></code></li>
+      </ul>
+      
+      <p><a href="qplot.html">Quick plot</a></p>
+      <ul>
+        <li><code><a href="qplot.html">qplot</a></code></li><li><code><a href="qplot.html">quickplot</a></code></li>
       </ul>
           <h2 id="section-layer-geoms" class="hasAnchor"><a href="#section-layer-geoms" class="anchor"></a>Layer: geoms</h2>
       <p class="section-desc"><p>A layer combines data, aesthetic mapping, a geom (geometric object), a stat (statistical transformation), and a position adjustment. Typically, you will create layers using a <code>geom_</code> function, overriding the default position and stat if needed.</p></p>
@@ -362,6 +367,29 @@
       <ul>
         <li><code><a href="geom_abline.html">geom_abline</a></code></li><li><code><a href="geom_abline.html">geom_hline</a></code></li><li><code><a href="geom_abline.html">geom_vline</a></code></li>
       </ul>
+          <h2 id="section-aesthetics" class="hasAnchor"><a href="#section-aesthetics" class="anchor"></a>Aesthetics</h2>
+      <p class="section-desc"><p>The following help topics give a broad overview of some of the ways you can use each aesthetic</p></p>
+
+      
+      <p><a href="aes_colour_fill_alpha.html">Colour related aesthetics: colour, fill and alpha</a></p>
+      <ul>
+        <li><code><a href="aes_colour_fill_alpha.html">aes_colour_fill_alpha</a></code></li><li><code><a href="aes_colour_fill_alpha.html">colour</a></code></li><li><code><a href="aes_colour_fill_alpha.html">color</a></code></li><li><code><a href="aes_colour_fill_alpha.html">fill</a></code></li>
+      </ul>
+      
+      <p><a href="aes_group_order.html">Aesthetics: grouping</a></p>
+      <ul>
+        <li><code><a href="aes_group_order.html">aes_group_order</a></code></li><li><code><a href="aes_group_order.html">group</a></code></li>
+      </ul>
+      
+      <p><a href="aes_linetype_size_shape.html">Differentiation related aesthetics: linetype, size, shape</a></p>
+      <ul>
+        <li><code><a href="aes_linetype_size_shape.html">aes_linetype_size_shape</a></code></li><li><code><a href="aes_linetype_size_shape.html">linetype</a></code></li><li><code><a href="aes_linetype_size_shape.html">size</a></code></li><li><code><a href="aes_linetype_size_shape.html">shape</a></code></li>
+      </ul>
+      
+      <p><a href="aes_position.html">Position related aesthetics: x, y, xmin, xmax, ymin, ymax, xend, yend</a></p>
+      <ul>
+        <li><code><a href="aes_position.html">aes_position</a></code></li><li><code><a href="aes_position.html">x</a></code></li><li><code><a href="aes_position.html">y</a></code></li><li><code><a href="aes_position.html">xmin</a></code></li><li><code><a href="aes_position.html">xmax</a></code></li><li><code><a href="aes_position.html">ymin</a></code></li><li><code><a href="aes_position.html">ymax</a></code></li><li><code><a href="aes_position.html">xend</a></code></li><li><code><a href="aes_position.html">yend</a></code></li>
+      </ul>
           <h2 id="section-scales" class="hasAnchor"><a href="#section-scales" class="anchor"></a>Scales</h2>
       <p class="section-desc"><p>Scales control the details of how data values are translated to visual properties. Override the default scales to tweak details like the axis labels or legend keys, or to use a completely different translation from data to aesthetic. <code><a href="../reference/labs.html">labs()</a></code> and <code><a href="../reference/lims.html">lims()</a></code> are convenient helpers for the most common adjustments to the labels and limits.</p></p>
 
@@ -497,7 +525,7 @@
       
       <p><a href="labellers.html">Useful labeller functions</a></p>
       <ul>
-        <li><code><a href="labellers.html">label_value</a></code></li><li><code><a href="labellers.html">label_both</a></code></li><li><code><a href="labellers.html">label_context</a></code></li><li><code><a href="labellers.html">label_parsed</a></code></li><li><code><a href="labellers.html">label_wrap_gen</a></code></li>
+        <li><code><a href="labellers.html">labellers</a></code></li><li><code><a href="labellers.html">label_value</a></code></li><li><code><a href="labellers.html">label_both</a></code></li><li><code><a href="labellers.html">label_context</a></code></li><li><code><a href="labellers.html">label_parsed</a></code></li><li><code><a href="labellers.html">label_wrap_gen</a></code></li>
       </ul>
           <h2 id="section-coordinate-systems" class="hasAnchor"><a href="#section-coordinate-systems" class="anchor"></a>Coordinate systems</h2>
       <p class="section-desc"><p>The coordinate system determines how the <code>x</code> and <code>y</code> aesthetics combine to position elements in the plot. The default coordinate system is Cartesian (<code><a href="../reference/coord_cartesian.html">coord_cartesian()</a></code>), which can be tweaked with <code><a href="../reference/coord_map.html">coord_map()</a></code>, <code><a href="../reference/coord_fixed.html">coord_fixed()</a></code>, <code><a href="../reference/coord_flip.html">coord_flip()</a></code>, and <code><a href="../reference/coord_trans.html">coord_trans()</a></code>, or completely replaced with <code><a href="../reference/coord_polar.html">coord_polar()</a></code>.</p></p>
@@ -533,7 +561,7 @@
         <li><code><a href="coord_trans.html">coord_trans</a></code></li>
       </ul>
           <h2 id="section-themes" class="hasAnchor"><a href="#section-themes" class="anchor"></a>Themes</h2>
-      <p class="section-desc"><p>Themes control the display of all non-data elements of the plot. You can override all settings with a complete theme like <code><a href="../reference/ggtheme.html">theme_bw()</a></code>, or choose to tweak individual settings by using <code><a href="../reference/theme.html">theme()</a></code> and the <code>element_</code> functions.</p></p>
+      <p class="section-desc"><p>Themes control the display of all non-data elements of the plot. You can override all settings with a complete theme like <code><a href="../reference/ggtheme.html">theme_bw()</a></code>, or choose to tweak individual settings by using <code><a href="../reference/theme.html">theme()</a></code> and the <code>element_</code> functions. Use <code><a href="../reference/theme_get.html">theme_set()</a></code> to modify the active theme, affecting all future plots.</p></p>
 
       
       <p><a href="element.html">Theme elements</a></p>
@@ -546,7 +574,7 @@
         <li><code><a href="ggtheme.html">theme_grey</a></code></li><li><code><a href="ggtheme.html">theme_gray</a></code></li><li><code><a href="ggtheme.html">theme_bw</a></code></li><li><code><a href="ggtheme.html">theme_linedraw</a></code></li><li><code><a href="ggtheme.html">theme_light</a></code></li><li><code><a href="ggtheme.html">theme_dark</a></code></li><li><code><a href="ggtheme.html">theme_minimal</a></code></li><li><code><a href="ggtheme.html">theme_classic</a></code></li><li><code><a href="ggtheme.html">theme_void</a></code></li>
       </ul>
       
-      <p><a href="theme_get.html">Get, set, and modify the current theme</a></p>
+      <p><a href="theme_get.html">Get, set, and modify the active theme</a></p>
       <ul>
         <li><code><a href="theme_get.html">theme_get</a></code></li><li><code><a href="theme_get.html">theme_set</a></code></li><li><code><a href="theme_get.html">theme_update</a></code></li><li><code><a href="theme_get.html">theme_replace</a></code></li><li><code><a href="theme_get.html">%+replace%</a></code></li>
       </ul>
@@ -556,145 +584,53 @@
         <li><code><a href="theme.html">theme</a></code></li>
       </ul>
           <h2 id="section-programming-with-ggplot-" class="hasAnchor"><a href="#section-programming-with-ggplot-" class="anchor"></a>Programming with ggplot2</h2>
-      <p class="section-desc"></p>
+      <p class="section-desc"><p>These functions provides tools to help you program with ggplot2, creating functions and for-loops that generate plots for you.</p></p>
 
       
-      <p><a href="aes_.html">Define aesthetic mappings from strings, or quoted calls and formulas.</a></p>
+      <p><a href="aes_.html">Define aesthetic mappings programatically</a></p>
       <ul>
         <li><code><a href="aes_.html">aes_</a></code></li><li><code><a href="aes_.html">aes_string</a></code></li><li><code><a href="aes_.html">aes_q</a></code></li>
       </ul>
       
-      <p><a href="print.ggplot.html">Draw plot on current graphics device.</a></p>
+      <p><a href="print.ggplot.html">Explicitly draw plot</a></p>
       <ul>
         <li><code><a href="print.ggplot.html">print.ggplot</a></code></li><li><code><a href="print.ggplot.html">plot.ggplot</a></code></li>
       </ul>
-          <h2 id="section-extending-ggplot-with-ggproto" class="hasAnchor"><a href="#section-extending-ggplot-with-ggproto" class="anchor"></a>Extending ggplot2 with ggproto</h2>
-      <p class="section-desc"></p>
+          <h2 id="section-extending-ggplot-" class="hasAnchor"><a href="#section-extending-ggplot-" class="anchor"></a>Extending ggplot2</h2>
+      <p class="section-desc"><p>To create your own geoms, stats, scales, and facets, you&rsquo;ll need to learn a bit about the object oriented system that ggplot2 uses. Start by reading <code><a href="../articles/extending-ggplot2.html">vignette("extending-ggplot2")</a></code> then consult these functions for more details.</p></p>
 
-      
-      <p><a href="as.list.ggproto.html">Convert a ggproto object to a list</a></p>
-      <ul>
-        <li><code><a href="as.list.ggproto.html">as.list.ggproto</a></code></li>
-      </ul>
-      
-      <p><a href="format.ggproto.html">Format a ggproto object</a></p>
-      <ul>
-        <li><code><a href="format.ggproto.html">format.ggproto</a></code></li>
-      </ul>
       
       <p><a href="ggproto.html">Create a new ggproto object</a></p>
       <ul>
-        <li><code><a href="ggproto.html">ggproto</a></code></li><li><code><a href="ggproto.html">ggproto_parent</a></code></li>
+        <li><code><a href="ggproto.html">ggproto</a></code></li><li><code><a href="ggproto.html">ggproto_parent</a></code></li><li><code><a href="ggproto.html">is.ggproto</a></code></li>
       </ul>
       
-      <p><a href="is.ggproto.html">Is an object a ggproto object?</a></p>
+      <p><a href="print.ggproto.html">Format or print a ggproto object</a></p>
       <ul>
-        <li><code><a href="is.ggproto.html">is.ggproto</a></code></li>
-      </ul>
-      
-      <p><a href="print.ggproto.html">Print a ggproto object</a></p>
-      <ul>
-        <li><code><a href="print.ggproto.html">print.ggproto</a></code></li>
-      </ul>
-          <h2 id="section-autoplot-and-fortify" class="hasAnchor"><a href="#section-autoplot-and-fortify" class="anchor"></a>Autoplot and fortify</h2>
-      <p class="section-desc"></p>
-
-      
-      <p><a href="autoplot.html">Create a complete ggplot appropriate to a particular data type</a></p>
-      <ul>
-        <li><code><a href="autoplot.html">autoplot</a></code></li>
-      </ul>
-      
-      <p><a href="fortify-multcomp.html">Fortify methods for objects produced by </a></p>
-      <ul>
-        <li><code><a href="fortify-multcomp.html">fortify-multcomp</a></code></li><li><code><a href="fortify-multcomp.html">fortify.glht</a></code></li><li><code><a href="fortify-multcomp.html">fortify.confint.glht</a></code></li><li><code><a href="fortify-multcomp.html">fortify.summary.glht</a></code></li><li><code><a href="fortify-multcomp.html">fortify.cld</a></code></li>
-      </ul>
-      
-      <p><a href="fortify.lm.html">Supplement the data fitted to a linear model with model fit statistics.</a></p>
-      <ul>
-        <li><code><a href="fortify.lm.html">fortify.lm</a></code></li>
-      </ul>
-      
-      <p><a href="fortify.map.html">Fortify method for map objects.</a></p>
-      <ul>
-        <li><code><a href="fortify.map.html">fortify.map</a></code></li>
-      </ul>
-      
-      <p><a href="fortify.html">Fortify a model with data.</a></p>
-      <ul>
-        <li><code><a href="fortify.html">fortify</a></code></li>
-      </ul>
-      
-      <p><a href="fortify.sp.html">Fortify method for classes from the sp package.</a></p>
-      <ul>
-        <li><code><a href="fortify.sp.html">fortify.sp</a></code></li><li><code><a href="fortify.sp.html">fortify.SpatialPolygonsDataFrame</a></code></li><li><code><a href="fortify.sp.html">fortify.SpatialPolygons</a></code></li><li><code><a href="fortify.sp.html">fortify.Polygons</a></code></li><li><code><a href="fortify.sp.html">fortify.Polygon</a></code></li><li><code><a href="fortify.sp.html">fortify.SpatialLinesDataFrame</a></code></li><li><code><a href="fortify.sp.html">fortify.Lines</a></code></li><li><code><a href="fortify.sp.html">fortify.Line</a></code></li>
-      </ul>
-      
-      <p><a href="map_data.html">Create a data frame of map data.</a></p>
-      <ul>
-        <li><code><a href="map_data.html">map_data</a></code></li>
+        <li><code><a href="print.ggproto.html">print.ggproto</a></code></li><li><code><a href="print.ggproto.html">format.ggproto</a></code></li>
       </ul>
           <h2 id="section-vector-helpers" class="hasAnchor"><a href="#section-vector-helpers" class="anchor"></a>Vector helpers</h2>
-      <p class="section-desc"></p>
+      <p class="section-desc"><p>ggplot2 also provides a handful of helpers that are useful for creating visualisations.</p></p>
 
       
-      <p><a href="cut_interval.html">Cut up numeric vector into useful groups.</a></p>
+      <p><a href="cut_interval.html">Discretise numeric data into categorical</a></p>
       <ul>
         <li><code><a href="cut_interval.html">cut_interval</a></code></li><li><code><a href="cut_interval.html">cut_number</a></code></li><li><code><a href="cut_interval.html">cut_width</a></code></li>
       </ul>
       
-      <p><a href="hmisc.html">Wrap up a selection of summary functions from Hmisc to make it easy to use
-</a></p>
+      <p><a href="hmisc.html">A selection of summary functions from Hmisc</a></p>
       <ul>
         <li><code><a href="hmisc.html">hmisc</a></code></li><li><code><a href="hmisc.html">mean_cl_boot</a></code></li><li><code><a href="hmisc.html">mean_cl_normal</a></code></li><li><code><a href="hmisc.html">mean_sdl</a></code></li><li><code><a href="hmisc.html">median_hilow</a></code></li>
       </ul>
       
-      <p><a href="mean_se.html">Calculate mean and standard errors on either side.</a></p>
+      <p><a href="mean_se.html">Calculate mean and standard error</a></p>
       <ul>
         <li><code><a href="mean_se.html">mean_se</a></code></li>
       </ul>
       
-      <p><a href="resolution.html">Compute the &quot;resolution&quot; of a data vector.</a></p>
+      <p><a href="resolution.html">Compute the &quot;resolution&quot; of a numeric vector</a></p>
       <ul>
         <li><code><a href="resolution.html">resolution</a></code></li>
-      </ul>
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-      <p class="section-desc"></p>
-
-      
-      <p><a href="aes_colour_fill_alpha.html">Colour related aesthetics: colour, fill and alpha</a></p>
-      <ul>
-        <li><code><a href="aes_colour_fill_alpha.html">aes_colour_fill_alpha</a></code></li><li><code><a href="aes_colour_fill_alpha.html">colour</a></code></li><li><code><a href="aes_colour_fill_alpha.html">color</a></code></li><li><code><a href="aes_colour_fill_alpha.html">fill</a></code></li>
-      </ul>
-      
-      <p><a href="aes_group_order.html">Aesthetics: group</a></p>
-      <ul>
-        <li><code><a href="aes_group_order.html">aes_group_order</a></code></li><li><code><a href="aes_group_order.html">group</a></code></li>
-      </ul>
-      
-      <p><a href="aes_linetype_size_shape.html">Differentiation related aesthetics: linetype, size, shape</a></p>
-      <ul>
-        <li><code><a href="aes_linetype_size_shape.html">aes_linetype_size_shape</a></code></li><li><code><a href="aes_linetype_size_shape.html">linetype</a></code></li><li><code><a href="aes_linetype_size_shape.html">size</a></code></li><li><code><a href="aes_linetype_size_shape.html">shape</a></code></li>
-      </ul>
-      
-      <p><a href="aes_position.html">Position related aesthetics: x, y, xmin, xmax, ymin, ymax, xend, yend</a></p>
-      <ul>
-        <li><code><a href="aes_position.html">aes_position</a></code></li><li><code><a href="aes_position.html">x</a></code></li><li><code><a href="aes_position.html">y</a></code></li><li><code><a href="aes_position.html">xmin</a></code></li><li><code><a href="aes_position.html">xmax</a></code></li><li><code><a href="aes_position.html">ymin</a></code></li><li><code><a href="aes_position.html">ymax</a></code></li><li><code><a href="aes_position.html">xend</a></code></li><li><code><a href="aes_position.html">yend</a></code></li>
-      </ul>
-      
-      <p><a href="qplot.html">Quick plot</a></p>
-      <ul>
-        <li><code><a href="qplot.html">qplot</a></code></li><li><code><a href="qplot.html">quickplot</a></code></li>
-      </ul>
-      
-      <p><a href="translate_qplot_ggplot.html">Translating between qplot and ggplot</a></p>
-      <ul>
-        <li><code><a href="translate_qplot_ggplot.html">translate_qplot_ggplot</a></code></li>
-      </ul>
-      
-      <p><a href="translate_qplot_lattice.html">Translating between qplot and lattice</a></p>
-      <ul>
-        <li><code><a href="translate_qplot_lattice.html">translate_qplot_lattice</a></code></li>
       </ul>
           <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
       <p class="section-desc"><p>ggplot2 comes with a selection of built-in datasets that are used in examples to illustrate various visualisation challenges.</p></p>
@@ -749,6 +685,24 @@
       <ul>
         <li><code><a href="txhousing.html">txhousing</a></code></li>
       </ul>
+          <h2 id="section-autoplot-and-fortify" class="hasAnchor"><a href="#section-autoplot-and-fortify" class="anchor"></a>Autoplot and fortify</h2>
+      <p class="section-desc"><p><code><a href="../reference/autoplot.html">autoplot()</a></code> is an extension mechansim for ggplot2 it provides a way for package authors to add methods that work like the base <code>plot()</code> function, generating useful default plots with little user interaction. <code><a href="../reference/fortify.html">fortify()</a></code> turns objects into tidy data frames: it has largely been superceded by the <a href="https://github.com/dgrtwo/broom">broom package</a>.</p></p>
+
+      
+      <p><a href="autoplot.html">Create a complete ggplot appropriate to a particular data type</a></p>
+      <ul>
+        <li><code><a href="autoplot.html">autoplot</a></code></li>
+      </ul>
+      
+      <p><a href="fortify.html">Fortify a model with data.</a></p>
+      <ul>
+        <li><code><a href="fortify.html">fortify</a></code></li>
+      </ul>
+      
+      <p><a href="map_data.html">Create a data frame of map data</a></p>
+      <ul>
+        <li><code><a href="map_data.html">map_data</a></code></li>
+      </ul>
     
     </div>
   </div>
@@ -761,6 +715,7 @@
       <li><a href="#section-layer-stats">Layer: stats</a></li>
       <li><a href="#section-layer-position-adjustment">Layer: position adjustment</a></li>
       <li><a href="#section-layer-annotations">Layer: annotations</a></li>
+      <li><a href="#section-aesthetics">Aesthetics</a></li>
       <li><a href="#section-scales">Scales</a></li>
       <li><a href="#section-guides-axes-and-legends">Guides: axes and legends</a></li>
       <li><a href="#section-facetting">Facetting</a></li>
@@ -768,11 +723,10 @@
       <li><a href="#section-coordinate-systems">Coordinate systems</a></li>
       <li><a href="#section-themes">Themes</a></li>
       <li><a href="#section-programming-with-ggplot-">Programming with ggplot2</a></li>
-      <li><a href="#section-extending-ggplot-with-ggproto">Extending ggplot2 with ggproto</a></li>
-      <li><a href="#section-autoplot-and-fortify">Autoplot and fortify</a></li>
+      <li><a href="#section-extending-ggplot-">Extending ggplot2</a></li>
       <li><a href="#section-vector-helpers">Vector helpers</a></li>
-      <li><a href="#section-all-functions">All functions</a></li>
       <li><a href="#section-data">Data</a></li>
+      <li><a href="#section-autoplot-and-fortify">Autoplot and fortify</a></li>
     </ul>
   </div>
 </div>

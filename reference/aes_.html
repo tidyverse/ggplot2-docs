@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Define aesthetic mappings from strings, or quoted calls and formulas. — aes_ • ggplot2</title>
+<title>Define aesthetic mappings programatically — aes_ • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,16 +77,17 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Define aesthetic mappings from strings, or quoted calls and formulas.</h1>
+    <h1>Define aesthetic mappings programatically</h1>
     </div>
 
     
     <p>Aesthetic mappings describe how variables in the data are mapped to visual
 properties (aesthetics) of geoms. <code><a href='aes.html'>aes</a></code> uses non-standard
-evaluation to capture the variable names. <code>aes_</code> and <code>aes_string</code></p>
-<p>require you to explicitly quote the inputs either with <code>""</code> for
+evaluation to capture the variable names. <code>aes_</code> and <code>aes_string</code>
+require you to explicitly quote the inputs either with <code>""</code> for
 <code>aes_string()</code>, or with <code>quote</code> or <code>~</code> for <code>aes_()</code>.
-(<code>aes_q</code> is an alias to <code>aes_</code>)</p>
+(<code>aes_q</code> is an alias to <code>aes_</code>). This makes <code>aes_</code> and
+<code>aes_string</code> easy to program with.</p>
     
 
     <pre><span class='fu'>aes_</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)
@@ -104,13 +105,13 @@ quoted calls, strings, one-sided formulas or constants.</p></dd>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>It's better to use <code>aes_q()</code>, because there's no easy way to create the
-equivalent to <code>aes(colour = "my colour")</code> or <code>aes{x = `X$1`}</code></p>
-<p>with <code>aes_string()</code>.</p>
-<p><code>aes_string</code> and <code>aes_</code> are particularly useful when writing
+    <p><code>aes_string</code> and <code>aes_</code> are particularly useful when writing
 functions that create plots because you can use strings or quoted
 names/calls to define the aesthetic mappings, rather than having to use
 <code>substitute</code> to generate a call to <code>aes()</code>.</p>
+<p>I recommend using <code>aes_()</code>, because creating the equivalents of
+<code>aes(colour = "my colour")</code> or <code>aes{x = `X$1`}</code>
+with <code>aes_string()</code> is quite clunky.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

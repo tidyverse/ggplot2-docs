@@ -162,41 +162,30 @@ For exampe, <code>adjust = 1/2</code> means use half of the default bandwidth.</
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_violin</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code>alpha</code>
-  </li>
-<li> <code>colour</code>
-  </li>
-<li> <code>fill</code>
-  </li>
-<li> <code>group</code>
-  </li>
-<li> <code>linetype</code>
-  </li>
-<li> <code>size</code>
-  </li>
-<li> <code>weight</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>colour</code></p></li>
+<li><p><code>fill</code></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>linetype</code></p></li>
+<li><p><code>size</code></p></li>
+<li><p><code>weight</code></p></li>
 </ul></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
     
     <dl class='dl-horizontal'>
-  <dt>density</dt><dd>density estimate</dd>
-  <dt>scaled</dt><dd>density estimate, scaled to maximum of 1</dd>
-  <dt>count</dt><dd>density * number of points - probably useless for violin plots</dd>
-  <dt>violinwidth</dt><dd>density scaled for the violin plot, according to area, counts
-                     or to a constant maximum width</dd>
-  <dt>n</dt><dd>number of points</dd>
-  <dt>width</dt><dd>width of violin bounding box</dd>
+  <dt>density</dt><dd><p>density estimate</p></dd>
+  <dt>scaled</dt><dd><p>density estimate, scaled to maximum of 1</p></dd>
+  <dt>count</dt><dd><p>density * number of points - probably useless for violin plots</p></dd>
+  <dt>violinwidth</dt><dd><p>density scaled for the violin plot, according to area, counts
+                     or to a constant maximum width</p></dd>
+  <dt>n</dt><dd><p>number of points</p></dd>
+  <dt>width</dt><dd><p>width of violin bounding box</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
@@ -206,13 +195,14 @@ Plot-Density Trace Synergism. The American Statistician 52, 181-184.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code>geom_violin</code> for examples, and <code><a href='geom_density.html'>stat_density</a></code></p>
-<p>for examples with data along the x axis.</p>
+    <p><code>geom_violin</code> for examples, and <code><a href='geom_density.html'>stat_density</a></code>
+  for examples with data along the x axis.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='no'>mpg</span>))
 <span class='no'>p</span> + <span class='fu'>geom_violin</span>()</div><img src='geom_violin-2.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='no'>p</span> + <span class='fu'>geom_violin</span>() + <span class='fu'><a href='geom_jitter.html'>geom_jitter</a></span>(<span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.1</span>)</div><img src='geom_violin-4.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Scale maximum width proportional to sample size:</span>
 <span class='no'>p</span> + <span class='fu'>geom_violin</span>(<span class='kw'>scale</span> <span class='kw'>=</span> <span class='st'>"count"</span>)</div><img src='geom_violin-6.png' alt='' width='540' height='400' /><div class='input'>

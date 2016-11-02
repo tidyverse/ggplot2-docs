@@ -180,38 +180,27 @@ scale, and then back-transformed to the response scale.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_smooth</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code>alpha</code>
-  </li>
-<li> <code>colour</code>
-  </li>
-<li> <code>fill</code>
-  </li>
-<li> <code>group</code>
-  </li>
-<li> <code>linetype</code>
-  </li>
-<li> <code>size</code>
-  </li>
-<li> <code>weight</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>colour</code></p></li>
+<li><p><code>fill</code></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>linetype</code></p></li>
+<li><p><code>size</code></p></li>
+<li><p><code>weight</code></p></li>
 </ul></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
     
     <dl class='dl-horizontal'>
-  <dt>y</dt><dd>predicted value</dd>
-  <dt>ymin</dt><dd>lower pointwise confidence interval around the mean</dd>
-  <dt>ymax</dt><dd>upper pointwise confidence interval around the mean</dd>
-  <dt>se</dt><dd>standard error</dd>
+  <dt>y</dt><dd><p>predicted value</p></dd>
+  <dt>ymin</dt><dd><p>lower pointwise confidence interval around the mean</p></dd>
+  <dt>ymax</dt><dd><p>upper pointwise confidence interval around the mean</p></dd>
+  <dt>se</dt><dd><p>standard error</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -248,6 +237,7 @@ scale, and then back-transformed to the response scale.</p>
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'>geom_smooth</span>(<span class='kw'>span</span> <span class='kw'>=</span> <span class='fl'>0.8</span>) +
   <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>drv</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess'</span></div><img src='geom_smooth-15.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='no'>binomial_smooth</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>...</span>) {
   <span class='fu'>geom_smooth</span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"glm"</span>, <span class='kw'>method.args</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"binomial"</span>), <span class='no'>...</span>)
 }

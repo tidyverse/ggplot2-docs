@@ -82,8 +82,8 @@
 
     
     <p>Labeller functions are in charge of formatting the strip labels of
-facet grids and wraps. Most of them accept a <code>multi_line</code></p>
-<p>argument to control whether multiple factors (defined in formulae
+facet grids and wraps. Most of them accept a <code>multi_line</code>
+argument to control whether multiple factors (defined in formulae
 such as <code>~first + second</code>) should be displayed on a single
 line separated with commas, or each on their own line.</p>
     
@@ -120,9 +120,9 @@ on separate lines.</p></dd>
 value. <code>label_context()</code> is context-dependent and uses
 <code>label_value()</code> for single factor facetting and
 <code>label_both()</code> when multiple factors are
-involved. <code>label_wrap_gen()</code> uses <code><a href='http://www.rdocumentation.org/packages/base/topics/strwrap'>strwrap</a>()</code></p>
-<p>for line wrapping.</p>
-<p><code>label_parsed()</code> interprets the labels as plotmath
+involved. <code>label_wrap_gen()</code> uses <code><a href='http://www.rdocumentation.org/packages/base/topics/strwrap'>strwrap</a>()</code>
+for line wrapping.
+    <code>label_parsed()</code> interprets the labels as plotmath
 expressions. <code><a href='label_bquote.html'>label_bquote</a>()</code> offers a more flexible
 way of constructing plotmath expressions. See examples and
 <code>bquote()</code> for details on the syntax of the
@@ -148,8 +148,8 @@ argument.</p>
   first elements of each vector and display each of them on their
   own line. Then the second facet gets the second elements of each
   vector, and so on.</p>
-<p>If it's useful to your labeller, you can retrieve the <code>type</code></p>
-<p>attribute of the incoming data frame of labels. The value of this
+<p>If it's useful to your labeller, you can retrieve the <code>type</code>
+  attribute of the incoming data frame of labels. The value of this
   attribute reflects the kind of strips your labeller is dealing
   with: <code>"cols"</code> for columns and <code>"rows"</code> for rows. Note
   that <code><a href='facet_wrap.html'>facet_wrap</a>()</code> has columns by default and rows
@@ -171,6 +171,7 @@ argument.</p>
 
 <span class='co'># Displaying only the values</span>
 <span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>)</div><img src='labellers-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_value</span>)</div><img src='labellers-4.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='co'># Displaying both the values and the variables</span>
 <span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_both</span>)</div><img src='labellers-6.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Displaying only the values or both the values and variables</span>

@@ -81,8 +81,8 @@
     </div>
 
     
-    <p><code>stat_summary</code> operates on unique <code>x</code>; <code>stat_summary_bin</code></p>
-<p>operators on binned <code>x</code>. They are more flexible versions of
+    <p><code>stat_summary</code> operates on unique <code>x</code>; <code>stat_summary_bin</code>
+operators on binned <code>x</code>. They are more flexible versions of
 <code><a href='geom_freqpoly.html'>stat_bin</a></code>: instead of just counting, they can compute any
 aggregate.</p>
     
@@ -151,32 +151,26 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>stat_summary</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code>group</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code>group</code></p></li>
 </ul></p>
     
     <h2 class="hasAnchor" id="summary-functions"><a class="anchor" href="#summary-functions"></a>Summary functions</h2>
 
     
     <p>You can either supply summary functions individually (<code>fun.y</code>,
-<code>fun.ymax</code>, <code>fun.ymin</code>), or as a single function (<code>fun.data</code>):</p>
-<dl class='dl-horizontal'>
-  <dt>fun.data</dt><dd>Complete summary function. Should take numeric vector as
-     input and return data frame as output</dd>
-  <dt>fun.ymin</dt><dd>ymin summary function (should take numeric vector and
-    return single number)</dd>
-  <dt>fun.y</dt><dd>y summary function (should take numeric vector and return
-    single number)</dd>
-  <dt>fun.ymax</dt><dd>ymax summary function (should take numeric vector and
-    return single number)</dd>
+<code>fun.ymax</code>, <code>fun.ymin</code>), or as a single function (<code>fun.data</code>):</p><dl class='dl-horizontal'>
+  <dt>fun.data</dt><dd><p>Complete summary function. Should take numeric vector as
+     input and return data frame as output</p></dd>
+  <dt>fun.ymin</dt><dd><p>ymin summary function (should take numeric vector and
+    return single number)</p></dd>
+  <dt>fun.y</dt><dd><p>y summary function (should take numeric vector and return
+    single number)</p></dd>
+  <dt>fun.ymax</dt><dd><p>ymax summary function (should take numeric vector and
+    return single number)</p></dd>
 </dl>
     <p>A simple vector function is easiest to work with as you can return a single
 number, but is somewhat less flexible. If your summary function computes
@@ -201,6 +195,7 @@ multiple values at once (e.g. ymin and ymax), use <code>fun.data</code>.</p>
   <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><img src='stat_summary_bin-10.png' alt='' width='540' height='400' /><div class='input'>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>cut</span>))
 <span class='no'>d</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>()</div><img src='stat_summary_bin-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>stat_summary_bin</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>price</span>), <span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"bar"</span>)</div><img src='stat_summary_bin-14.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='co'># Don't use ylim to zoom into a summary plot - this throws the</span>
 <span class='co'># data away</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>cyl</span>, <span class='no'>mpg</span>)) +

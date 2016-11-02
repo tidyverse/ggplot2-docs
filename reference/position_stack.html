@@ -109,18 +109,13 @@ values in reverse order of the group aesthetic, which for bar charts is
 usually defined by the fill aesthetic (the default group aesthetic is formed
 by the combination of all discrete aesthetics except for x and y). This
 default ensures that bar colours align with the default legend.</p>
-<p>There are three ways to override the defaults depending on what you want:</p>
-<ol>
-<li>  </li>
-<li> Change the order of the levels in the underyling factor. This
-    will change the stacking order, and the order of keys in the legend.
-    </li>
-<li> Set the legend <code>breaks</code> to change the order of the keys
-    without affecting the stacking.
-    </li>
-<li> Manually set the group aesthetic to change the stacking order
-    without affecting the legend.
-</li>
+<p>There are three ways to override the defaults depending on what you want:</p><ol>
+<li><p>Change the order of the levels in the underyling factor. This
+    will change the stacking order, and the order of keys in the legend.</p></li>
+<li><p>Set the legend <code>breaks</code> to change the order of the keys
+    without affecting the stacking.</p></li>
+<li><p>Manually set the group aesthetic to change the stacking order
+    without affecting the legend.</p></li>
 </ol>
     <p>Stacking of positive and negative values are performed separately so that
 positive values stack upwards from the x-axis and negative values stack

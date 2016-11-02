@@ -136,8 +136,8 @@ to the paired geom/stat.</p></dd>
 justification value should be a number between 0 and 1.  Defaults to 0.5
 for both, centering each pixel over its data location.</p></dd>
       <dt>interpolate</dt>
-      <dd><p>If <code>TRUE</code> interpolate linearly, if <code>FALSE</code></p>
-<p>(the default) don't interpolate.</p></dd>
+      <dd><p>If <code>TRUE</code> interpolate linearly, if <code>FALSE</code>
+(the default) don't interpolate.</p></dd>
       <dt>na.rm</dt>
       <dd><p>If <code>FALSE</code>, the default, missing values are removed with
 a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
@@ -154,26 +154,16 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_tile</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code>alpha</code>
-  </li>
-<li> <code>colour</code>
-  </li>
-<li> <code>fill</code>
-  </li>
-<li> <code>group</code>
-  </li>
-<li> <code>linetype</code>
-  </li>
-<li> <code>size</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>colour</code></p></li>
+<li><p><code>fill</code></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>linetype</code></p></li>
+<li><p><code>size</code></p></li>
 </ul></p>
     
 
@@ -197,6 +187,7 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
   <span class='fu'>geom_tile</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>z</span>))</div><img src='geom_raster-6.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
   <span class='fu'>geom_tile</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>z</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='no'>w</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown aesthetics: width</span></div><img src='geom_raster-9.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>xmin</span> <span class='kw'>=</span> <span class='no'>x</span> - <span class='no'>w</span> / <span class='fl'>2</span>, <span class='kw'>xmax</span> <span class='kw'>=</span> <span class='no'>x</span> + <span class='no'>w</span> / <span class='fl'>2</span>, <span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>)) +
   <span class='fu'>geom_rect</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>z</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='no'>w</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown aesthetics: width</span></div><img src='geom_raster-12.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='co'># Justification controls where the cells are anchored</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>expand.grid</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>5</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>5</span>)
 <span class='no'>df</span>$<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'>runif</span>(<span class='fu'>nrow</span>(<span class='no'>df</span>))

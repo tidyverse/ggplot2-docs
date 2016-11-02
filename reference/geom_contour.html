@@ -81,8 +81,8 @@
     </div>
 
     
-    <p>ggplot2 can not draw true 3d surfaces, but you can use <code>geom_contour</code></p>
-<p>and <code><a href='geom_raster.html'>geom_tile</a></code> to visualise 3d surfaces in 2d. To be a valid
+    <p>ggplot2 can not draw true 3d surfaces, but you can use <code>geom_contour</code>
+and <code><a href='geom_raster.html'>geom_tile</a></code> to visualise 3d surfaces in 2d. To be a valid
 surface, the data must contain only a single row for each unique combination
 of the variables mapped to the <code>x</code> and <code>y</code> aesthetics. Contouring
 tends to work best when <code>x</code> and <code>y</code> form a (roughly) evenly
@@ -151,33 +151,23 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    
     <p><code>geom_contour</code> understands the following aesthetics (required aesthetics are in bold):
     <ul>
-<li>  </li>
-<li> <code><strong>x</strong></code>
-  </li>
-<li> <code><strong>y</strong></code>
-  </li>
-<li> <code>alpha</code>
-  </li>
-<li> <code>colour</code>
-  </li>
-<li> <code>group</code>
-  </li>
-<li> <code>linetype</code>
-  </li>
-<li> <code>size</code>
-  </li>
-<li> <code>weight</code>
-</li>
+<li><p><code><strong>x</strong></code></p></li>
+<li><p><code><strong>y</strong></code></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>colour</code></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>linetype</code></p></li>
+<li><p><code>size</code></p></li>
+<li><p><code>weight</code></p></li>
 </ul></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
     
     <dl class='dl-horizontal'>
- <dt>level</dt><dd>height of contour</dd>
+ <dt>level</dt><dd><p>height of contour</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -192,6 +182,7 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
 <span class='co'># Or compute from raw data</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>faithful</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>waiting</span>, <span class='no'>eruptions</span>)) +
   <span class='fu'><a href='geom_density_2d.html'>geom_density_2d</a></span>()</div><img src='geom_contour-4.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='co'># Setting bins creates evenly spaced contours in the range of the data</span>
 <span class='no'>v</span> + <span class='fu'>geom_contour</span>(<span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><img src='geom_contour-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>v</span> + <span class='fu'>geom_contour</span>(<span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><img src='geom_contour-8.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Setting binwidth does the same thing, parameterised by the distance</span>

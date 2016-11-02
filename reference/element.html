@@ -82,20 +82,12 @@
 
     
     <p>In conjunction with the <a href='theme.html'>theme</a> system, the <code>element_</code> functions
-specify the display of how non-data components of the plot are a drawn.</p>
-<ul>
-<li>  </li>
-<li> <code>element_blank</code>: draws nothing, and assigns no space.
-  </li>
-<li> <code>element_rect</code>: borders and backgrounds.
-  </li>
-<li> <code>element_line</code>: lines.
-  </li>
-<li> <code>element_text</code>: text.
-</li>
-</ul>
-
-    <p><code>rel()</code> is used to specify sizes relative to the parent,
+specify the display of how non-data components of the plot are a drawn.</p><ul>
+<li><p><code>element_blank</code>: draws nothing, and assigns no space.</p></li>
+<li><p><code>element_rect</code>: borders and backgrounds.</p></li>
+<li><p><code>element_line</code>: lines.</p></li>
+<li><p><code>element_text</code>: text.</p></li>
+</ul><p><code>rel()</code> is used to specify sizes relative to the parent,
 <code>margins()</code> is used to specify the margins of elements.</p>
     
 
@@ -163,11 +155,13 @@ side of the text facing towards the center of the plot.</p></dd>
       <dd><p>If <code>TRUE</code>, aids visual debugging by drawing a solid
 rectangle behind the complete text area, and a point where each label
 is anchored.</p></dd>
+      <dt>x</dt>
+      <dd><p>A single number specifying size relative to parent element.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An S3 object of class <code>element</code>.</p>
+    <p>An S3 object of class <code>element</code>, <code>rel</code>, or <code>margin</code>.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -178,14 +172,19 @@ is anchored.</p></dd>
   <span class='kw'>axis.text</span> <span class='kw'>=</span> <span class='fu'>element_blank</span>()
 )</div><img src='margin-2.png' alt='' width='540' height='400' /><div class='input'>
 <span class='no'>plot</span> + <span class='fu'><a href='theme.html'>theme</a></span>(
-  <span class='kw'>axis.text</span> <span class='kw'>=</span> <span class='fu'>element_text</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>12</span>)
+  <span class='kw'>axis.text</span> <span class='kw'>=</span> <span class='fu'>element_text</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'>rel</span>(<span class='fl'>1.5</span>))
 )</div><img src='margin-4.png' alt='' width='540' height='400' /><div class='input'>
 <span class='no'>plot</span> + <span class='fu'><a href='theme.html'>theme</a></span>(
-  <span class='kw'>axis.line.x</span> <span class='kw'>=</span> <span class='fu'>element_line</span>()
+  <span class='kw'>axis.line</span> <span class='kw'>=</span> <span class='fu'>element_line</span>(<span class='kw'>arrow</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>arrow</a></span>())
 )</div><img src='margin-6.png' alt='' width='540' height='400' /><div class='input'>
 <span class='no'>plot</span> + <span class='fu'><a href='theme.html'>theme</a></span>(
-  <span class='kw'>panel.background</span> <span class='kw'>=</span> <span class='fu'>element_rect</span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"grey95"</span>),
-  <span class='kw'>panel.border</span> <span class='kw'>=</span> <span class='fu'>element_rect</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey70"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+  <span class='kw'>panel.background</span> <span class='kw'>=</span> <span class='fu'>element_rect</span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>),
+  <span class='kw'>plot.margin</span> <span class='kw'>=</span> <span class='fu'>margin</span>(<span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='st'>"cm"</span>),
+  <span class='kw'>plot.background</span> <span class='kw'>=</span> <span class='fu'>element_rect</span>(
+    <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"grey90"</span>,
+    <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
+    <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>
+  )
 )</div><img src='margin-8.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
