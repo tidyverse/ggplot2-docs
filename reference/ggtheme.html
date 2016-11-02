@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ggplot2 themes — ggtheme • ggplot2</title>
+<title>Complete themes — ggtheme • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,12 +77,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>ggplot2 themes</h1>
+    <h1>Complete themes</h1>
     </div>
 
     
-    <p>Themes set the general aspect of the plot such as the colour of the
-background, gridlines, the size and colour of fonts.</p>
+    <p>These are complete themes which control all non-data display. Use
+<code><a href='theme.html'>theme</a></code> if you just need to tweak the display of an existing
+theme.</p>
     
 
     <pre><span class='fu'>theme_grey</span>(<span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>""</span>)
@@ -142,9 +143,7 @@ A completely empty theme.</dd>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>wt</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mpg</span>,
      <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>gear</span>))) + <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>am</span>)
-
-<span class='no'>p</span></div><img src='ggtheme-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_bw</span>()</div><img src='ggtheme-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_linedraw</span>()</div><img src='ggtheme-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_light</span>()</div><img src='ggtheme-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_dark</span>()</div><img src='ggtheme-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_minimal</span>()</div><img src='ggtheme-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_classic</span>()</div><img src='ggtheme-14.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_void</span>()</div><img src='ggtheme-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_gray</span>() <span class='co'># default theme</span></div><img src='ggtheme-18.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+<span class='no'>p</span> + <span class='fu'>theme_gray</span>() <span class='co'># the default</span></div><img src='ggtheme-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_bw</span>()</div><img src='ggtheme-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_linedraw</span>()</div><img src='ggtheme-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_light</span>()</div><img src='ggtheme-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_dark</span>()</div><img src='ggtheme-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_minimal</span>()</div><img src='ggtheme-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_classic</span>()</div><img src='ggtheme-14.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>theme_void</span>()</div><img src='ggtheme-16.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

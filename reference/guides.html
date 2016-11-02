@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Set guides for each scale. — guides • ggplot2</title>
+<title>Set guides for each scale — guides • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,12 +77,12 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Set guides for each scale.</h1>
+    <h1>Set guides for each scale</h1>
     </div>
 
     
-    <p>Guides for each scale can be set in call of <code>scale_*</code> with argument
-<code>guide</code>, or in <code>guides</code>.</p>
+    <p>Guides for each scale can be set scale-by-scale with the <code>guide</code></p>
+<p>argument, or en masse with <code>guides()</code>.</p>
     
 
     <pre><span class='fu'>guides</span>(<span class='no'>...</span>)</pre>
@@ -90,7 +90,10 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
-      <dd><p>List of scale guide pairs</p></dd>
+      <dd><p>List of scale name-guide pairs.  The guide can either
+be a string (i.e. "colorbar" or "legend"), or a call to a guide function
+(i.e. <code><a href='guide_colourbar.html'>guide_colourbar</a></code> or <code><a href='guide_legend.html'>guide_legend</a></code>)
+specifying additional arguments.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>

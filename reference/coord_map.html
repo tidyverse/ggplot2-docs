@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Map projections. — coord_map • ggplot2</title>
+<title>Map projections — coord_map • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,27 +77,16 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Map projections.</h1>
+    <h1>Map projections</h1>
     </div>
 
     
-    <p>The representation of a portion of the earth, which is approximately spherical,
-onto a flat 2D plane requires a projection. This is what
-<code>coord_map</code> does. These projections account for the fact that the
-actual length (in km) of one degree of longitude varies between the equator
-and the pole. Near the equator, the ratio between the lengths of one degree
-of latitude and one degree of longitude is approximately 1. Near the pole, it
-is tends towards infinity because the length of one degree of longitude tends
-towards 0. For regions that span only a few degrees and are not too close to
-the poles, setting the aspect ratio of the plot to the appropriate lat/lon
-ratio approximates the usual mercator projection. This is what
-<code>coord_quickmap</code> does. With <code>coord_map</code> all elements of the
-graphic have to be projected which is not the case here. So
-<code>coord_quickmap</code> has the advantage of being much faster, in
-particular for complex plots such as those using with
-<code><a href='geom_raster.html'>geom_tile</a></code>, at the expense of correctness in the projection.
-This coordinate system provides the full range of map projections available
-in the mapproj package.</p>
+    <p><code>coord_map</code> projects a portion of the earth, which is approximately
+spherical, onto a flat 2D plane using any projection defined by the
+<code>mapproj</code> package. Map projections do not, in general, preserve straight
+lines, so this requires considerable computation. <code>coord_quickmap</code> is a
+quick approximation that does preserve straight lines. It works best for
+smaller areas closer to the equator.</p>
     
 
     <pre><span class='fu'>coord_map</span>(<span class='kw'>projection</span> <span class='kw'>=</span> <span class='st'>"mercator"</span>, <span class='no'>...</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -110,28 +99,37 @@ in the mapproj package.</p>
       <dt>projection</dt>
       <dd><p>projection to use, see
 <code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for list</p></dd>
-      <dt>...</dt>
-      <dd><p>other arguments passed on to <code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code>.
-Ignored if the <code>parameters</code> argument is present.</p></dd>
-      <dt>parameters</dt>
-      <dd><p>optional numeric vector of parameters for use
-with the projection argument. This argument is optional only in
-the sense that certain projections do not require additional
-parameters. Passed to <code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code>.</p></dd>
+      <dt>..., parameters</dt>
+      <dd><p>Other arguments passed on to
+<code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code>. Use <code>...</code> for named parameters to
+the projection, and <code>parameters</code> for unnamed parameters.
+<code>...</code> is ignored if the <code>parameters</code> argument is present.</p></dd>
       <dt>orientation</dt>
       <dd><p>projection orientation, which defaults to
 <code>c(90, 0, mean(range(x)))</code>.  This is not optimal for many
 projections, so you will have to supply your own. See
 <code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for more information.</p></dd>
-      <dt>xlim</dt>
-      <dd><p>manually specific x limits (in degrees of longitude)</p></dd>
-      <dt>ylim</dt>
-      <dd><p>manually specific y limits (in degrees of latitude)</p></dd>
+      <dt>xlim, ylim</dt>
+      <dd><p>Manually specific x/y limits (in degrees of
+longitude/latitude)</p></dd>
       <dt>expand</dt>
       <dd><p>If <code>TRUE</code>, the default, adds a small expansion factor to
 the limits to ensure that data and axes don't overlap. If <code>FALSE</code>,
 limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</p></dd>
     </dl>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>In general, map projections must account for the fact that the actual length
+(in km) of one degree of longitude varies between the equator and the pole.
+Near the equator, the ratio between the lengths of one degree of latitude and
+one degree of longitude is approximately 1. Near the pole, it is tends
+towards infinity because the length of one degree of longitude tends towards
+0. For regions that span only a few degrees and are not too close to the
+poles, setting the aspect ratio of the plot to the appropriate lat/lon ratio
+approximates the usual mercator projection. This is what
+<code>coord_quickmap</code> does, and is much faster (particularly for complex
+plots like <code><a href='geom_raster.html'>geom_tile</a></code>) at the expense of correctness.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -193,7 +191,9 @@ limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

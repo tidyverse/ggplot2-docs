@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Use values without scaling. — scale_identity • ggplot2</title>
+<title>Use values without scaling — scale_identity • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,7 +77,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Use values without scaling.</h1>
+    <h1>Use values without scaling</h1>
     </div>
 
     
@@ -105,7 +105,7 @@ This will not produce a legend unless you also supply the <code>breaks</code></p
       <dd><p>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code> or
 <code><a href='continuous_scale.html'>continuous_scale</a></code></p></dd>
       <dt>guide</dt>
-      <dd><p>Guide to use for this scale - defaults to <code>"none"</code>.</p></dd>
+      <dd><p>Guide to use for this scale. Defaults to <code>"none"</code>.</p></dd>
     </dl>
     
 
@@ -131,7 +131,8 @@ This will not produce a legend unless you also supply the <code>breaks</code></p
   <span class='fu'>scale_fill_identity</span>(<span class='st'>"trt"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>4</span>], <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='no'>df</span>$<span class='no'>colour</span>,
   <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"legend"</span>)</div><img src='scale_identity-10.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># cyl scaled to appropriate size</span>
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><img src='scale_identity-12.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><img src='scale_identity-12.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># cyl used as point size</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>cyl</span>)) +

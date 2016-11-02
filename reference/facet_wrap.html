@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wrap a 1d ribbon of panels into 2d. — facet_wrap • ggplot2</title>
+<title>Wrap a 1d ribbon of panels into 2d — facet_wrap • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,14 +77,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Wrap a 1d ribbon of panels into 2d.</h1>
+    <h1>Wrap a 1d ribbon of panels into 2d</h1>
     </div>
 
     
-    <p>Most displays are roughly rectangular, so if you have a categorical
-variable with many levels, it doesn't make sense to try and display them
-all in one row (or one column). To solve this dilemma, <code>facet_wrap</code></p>
-<p>wraps a 1d sequence of panels into 2d, making best use of screen real estate.</p>
+    <p><code>facet_wrap</code> wraps a 1d sequence of panels into 2d. This is generally
+a better use of screen space than <code><a href='facet_grid.html'>facet_grid</a></code> because most
+displays are roughly rectangular.</p>
     
 
     <pre><span class='fu'>facet_wrap</span>(<span class='no'>facets</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>,

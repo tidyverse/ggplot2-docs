@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create your own discrete scale. — scale_manual • ggplot2</title>
+<title>Create your own discrete scale — scale_manual • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,7 +77,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create your own discrete scale.</h1>
+    <h1>Create your own discrete scale</h1>
     </div>
 
     
@@ -115,21 +115,19 @@ given <code>na.value</code>.</p></dd>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))
-
-<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"red"</span>, <span class='st'>"blue"</span>, <span class='st'>"green"</span>))</div><img src='scale_manual-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(
-  <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"8"</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='st'>"4"</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='st'>"6"</span> <span class='kw'>=</span> <span class='st'>"green"</span>))</div><img src='scale_manual-4.png' alt='' width='540' height='400' /><div class='input'><span class='co'># With rgb hex values</span>
-<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"#FF0000"</span>, <span class='st'>"#0000FF"</span>, <span class='st'>"#00FF00"</span>))</div><img src='scale_manual-6.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># As with other scales you can use breaks to control the appearance</span>
-<span class='co'># of the legend</span>
+<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"red"</span>, <span class='st'>"blue"</span>, <span class='st'>"green"</span>))</div><img src='scale_manual-2.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># It's recommended to use a named vector</span>
 <span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"8"</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='st'>"4"</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='st'>"6"</span> <span class='kw'>=</span> <span class='st'>"darkgreen"</span>, <span class='st'>"10"</span> <span class='kw'>=</span> <span class='st'>"orange"</span>)
-<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>)</div><img src='scale_manual-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>))</div><img src='scale_manual-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"8"</span>, <span class='st'>"6"</span>, <span class='st'>"4"</span>))</div><img src='scale_manual-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>),
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"four"</span>, <span class='st'>"six"</span>, <span class='st'>"eight"</span>))</div><img src='scale_manual-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>)</div><img src='scale_manual-4.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># As with other scales you can use breaks to control the appearance</span>
+<span class='co'># of the legend.</span>
+<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>)</div><img src='scale_manual-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(
+  <span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>,
+  <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>),
+  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"four"</span>, <span class='st'>"six"</span>, <span class='st'>"eight"</span>)
+)</div><img src='scale_manual-8.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># And limits to control the possible values of the scale</span>
-<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"8"</span>))</div><img src='scale_manual-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>, <span class='st'>"10"</span>))</div><img src='scale_manual-18.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># Notice that the values are matched with limits, and not breaks</span>
-<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>6</span>, <span class='fl'>8</span>, <span class='fl'>4</span>), <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>8</span>, <span class='fl'>4</span>, <span class='fl'>6</span>),
-  <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"grey50"</span>, <span class='st'>"grey80"</span>, <span class='st'>"black"</span>))</div><img src='scale_manual-20.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"8"</span>))</div><img src='scale_manual-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>, <span class='st'>"10"</span>))</div><img src='scale_manual-12.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

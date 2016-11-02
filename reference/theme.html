@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Set theme elements — theme • ggplot2</title>
+<title>Modify components of a theme — theme • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,15 +77,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Set theme elements</h1>
+    <h1>Modify components of a theme</h1>
     </div>
 
     
-    <p>Theme elements can inherit properties from other theme elements.
-For example, <code>axis.title.x</code> inherits from <code>axis.title</code>,
-which in turn inherits from <code>text</code>. All text elements inherit
-directly or indirectly from <code>text</code>; all lines inherit from
-<code>line</code>, and all rectangular objects inherit from <code>rect</code>.</p>
+    <p>Use <code>theme()</code> to modify individual components of a theme. <code>theme()</code></p>
+<p>only affects a single plot: see <code><a href='theme_get.html'>theme_update</a></code> if you want
+to affect all subsequent plots.</p>
     
 
     <pre><span class='fu'>theme</span>(<span class='no'>line</span>, <span class='no'>rect</span>, <span class='no'>text</span>, <span class='no'>title</span>, <span class='no'>aspect.ratio</span>, <span class='no'>axis.title</span>, <span class='no'>axis.title.x</span>,
@@ -320,12 +318,20 @@ elements.</p></dd>
       <dd><p><code>TRUE</code> to run validate_element, <code>FALSE</code> to bypass checks.</p></dd>
     </dl>
     
+    <h2 class="hasAnchor" id="theme-inheritance"><a class="anchor" href="#theme-inheritance"></a>Theme inheritance</h2>
+
+    
+    <p>Theme elements can inherit properties from other theme elements.
+For example, <code>axis.title.x</code> inherits from <code>axis.title</code>,
+which in turn inherits from <code>text</code>. All text elements inherit
+directly or indirectly from <code>text</code>; all lines inherit from
+<code>line</code>, and all rectangular objects inherit from <code>rect</code>.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p><code><a href='+.gg.html'>+.gg</a></code> and <code><a href='theme_get.html'>%+replace%</a></code>,
-  <code><a href='rel.html'>rel</a></code> for details of relative sizing,
-  <code><a href='element.html'>element_blank</a></code>, <code><a href='element.html'>element_line</a></code>,
-  <code><a href='element.html'>element_rect</a></code>, and <code><a href='element.html'>element_text</a></code> for
+  <code><a href='margin.html'>element_blank</a></code>, <code><a href='margin.html'>element_line</a></code>,
+  <code><a href='margin.html'>element_rect</a></code>, and <code><a href='margin.html'>element_text</a></code> for
   details of the specific theme elements.</p>
     
 
@@ -335,21 +341,21 @@ elements.</p></dd>
   <span class='fu'><a href='labs.html'>labs</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Fuel economy declines as weight increases"</span>)
 <span class='no'>p1</span></div><img src='theme-2.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Plot ---------------------------------------------------------------------</span>
-<span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>plot.title</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='rel.html'>rel</a></span>(<span class='fl'>2</span>)))</div><img src='theme-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>plot.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"green"</span>))</div><img src='theme-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>plot.title</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_text</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>rel</a></span>(<span class='fl'>2</span>)))</div><img src='theme-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>plot.background</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_rect</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"green"</span>))</div><img src='theme-6.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Panels --------------------------------------------------------------------</span>
 
-<span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>panel.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>))</div><img src='theme-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>panel.border</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(<span class='kw'>linetype</span> <span class='kw'>=</span> <span class='st'>"dashed"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>NA</span>))</div><img src='theme-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>panel.grid.major</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_line</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>))</div><img src='theme-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(
-  <span class='kw'>panel.grid.major.y</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>(),
-  <span class='kw'>panel.grid.minor.y</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>()
+<span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>panel.background</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_rect</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>))</div><img src='theme-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>panel.border</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_rect</a></span>(<span class='kw'>linetype</span> <span class='kw'>=</span> <span class='st'>"dashed"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>NA</span>))</div><img src='theme-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>panel.grid.major</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_line</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>))</div><img src='theme-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(
+  <span class='kw'>panel.grid.major.y</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_blank</a></span>(),
+  <span class='kw'>panel.grid.minor.y</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_blank</a></span>()
 )</div><img src='theme-14.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Put gridlines on top of data</span>
 <span class='no'>p1</span> + <span class='fu'>theme</span>(
-  <span class='kw'>panel.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>NA</span>),
-  <span class='kw'>panel.grid.major</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_line</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>),
+  <span class='kw'>panel.background</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_rect</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>NA</span>),
+  <span class='kw'>panel.grid.major</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_line</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>),
   <span class='kw'>panel.ontop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 )</div><img src='theme-16.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Axes ----------------------------------------------------------------------</span>
-<span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.line</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_line</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey80"</span>))</div><img src='theme-18.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.text</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"blue"</span>))</div><img src='theme-20.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.ticks</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_line</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><img src='theme-22.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.ticks.length</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>.25</span>, <span class='st'>"cm"</span>))</div><img src='theme-24.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.title.y</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='rel.html'>rel</a></span>(<span class='fl'>1.5</span>), <span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>90</span>))</div><img src='theme-26.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.line</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_line</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey80"</span>))</div><img src='theme-18.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.text</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_text</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"blue"</span>))</div><img src='theme-20.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.ticks</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_line</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><img src='theme-22.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.ticks.length</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>.25</span>, <span class='st'>"cm"</span>))</div><img src='theme-24.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.title.y</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_text</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>rel</a></span>(<span class='fl'>1.5</span>), <span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>90</span>))</div><img src='theme-26.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Legend --------------------------------------------------------------------</span>
 <span class='no'>p2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='kw'>shape</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>))) +
@@ -373,19 +379,19 @@ elements.</p></dd>
 <span class='co'># The legend.box properties work similarly for the space around</span>
 <span class='co'># all the legends</span>
 <span class='no'>p2</span> + <span class='fu'>theme</span>(
-  <span class='kw'>legend.box.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(),
+  <span class='kw'>legend.box.background</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_rect</a></span>(),
   <span class='kw'>legend.box.margin</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>margin</a></span>(<span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>6</span>)
 )</div><img src='theme-38.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># You can also control the display of the keys</span>
 <span class='co'># and the justifaction related to the plot area can be set</span>
-<span class='no'>p2</span> + <span class='fu'>theme</span>(<span class='kw'>legend.key</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>))</div><img src='theme-40.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p2</span> + <span class='fu'>theme</span>(<span class='kw'>legend.text</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>))</div><img src='theme-42.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p2</span> + <span class='fu'>theme</span>(<span class='kw'>legend.title</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>face</span> <span class='kw'>=</span> <span class='st'>"bold"</span>))</div><img src='theme-44.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p2</span> + <span class='fu'>theme</span>(<span class='kw'>legend.key</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_rect</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>))</div><img src='theme-40.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p2</span> + <span class='fu'>theme</span>(<span class='kw'>legend.text</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_text</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>))</div><img src='theme-42.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p2</span> + <span class='fu'>theme</span>(<span class='kw'>legend.title</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_text</a></span>(<span class='kw'>face</span> <span class='kw'>=</span> <span class='st'>"bold"</span>))</div><img src='theme-44.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Strips --------------------------------------------------------------------</span>
 
 <span class='no'>p3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~ <span class='no'>cyl</span>)
 <span class='no'>p3</span></div><img src='theme-46.png' alt='' width='540' height='400' /><div class='input'>
-<span class='no'>p3</span> + <span class='fu'>theme</span>(<span class='kw'>strip.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_rect</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>))</div><img src='theme-48.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p3</span> + <span class='fu'>theme</span>(<span class='kw'>strip.text.x</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>face</span> <span class='kw'>=</span> <span class='st'>"bold"</span>))</div><img src='theme-50.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p3</span> + <span class='fu'>theme</span>(<span class='kw'>panel.spacing</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>1</span>, <span class='st'>"lines"</span>))</div><img src='theme-52.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p3</span> + <span class='fu'>theme</span>(<span class='kw'>strip.background</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_rect</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>))</div><img src='theme-48.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p3</span> + <span class='fu'>theme</span>(<span class='kw'>strip.text.x</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_text</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>face</span> <span class='kw'>=</span> <span class='st'>"bold"</span>))</div><img src='theme-50.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p3</span> + <span class='fu'>theme</span>(<span class='kw'>panel.spacing</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>1</span>, <span class='st'>"lines"</span>))</div><img src='theme-52.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -393,6 +399,8 @@ elements.</p></dd>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#theme-inheritance">Theme inheritance</a></li>
+
       <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>

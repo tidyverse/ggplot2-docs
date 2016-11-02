@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scale for shapes, aka glyphs. — scale_shape • ggplot2</title>
+<title>Scales for shapes, aka glyphs — scale_shape • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,14 +77,15 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Scale for shapes, aka glyphs.</h1>
+    <h1>Scales for shapes, aka glyphs</h1>
     </div>
 
     
-    <p>Maps discrete variables to six easily discernible shapes. If you have
-more than six levels, you will get a warning message, and the seventh
-and subsequence levels will not appear on the plot. You can not map a
-continuous variable to shape.</p>
+    <p><code>scale_shape</code> maps discrete variables to six easily discernible shapes.
+If you have more than six levels, you will get a warning message, and the
+seventh and subsequence levels will not appear on the plot. Use
+<code><a href='scale_manual.html'>scale_shape_manual</a></code> to supply your own values. You can not map
+a continuous variable to shape.</p>
     
 
     <pre><span class='fu'>scale_shape</span>(<span class='no'>...</span>, <span class='kw'>solid</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>

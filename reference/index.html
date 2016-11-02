@@ -324,9 +324,52 @@
       <ul>
         <li><code><a href="position_stack.html">position_stack</a></code></li><li><code><a href="position_stack.html">position_fill</a></code></li>
       </ul>
+          <h2 id="section-layer-annotations" class="hasAnchor"><a href="#section-layer-annotations" class="anchor"></a>Layer: annotations</h2>
+      <p class="section-desc"><p>Annotation are special types of layer than don&rsquo;t inherit global settings from the plot. Rhey are used to add fixed reference data to plot.</p></p>
+
+      
+      <p><a href="annotate.html">Create an annotation layer</a></p>
+      <ul>
+        <li><code><a href="annotate.html">annotate</a></code></li>
+      </ul>
+      
+      <p><a href="annotation_custom.html">Annotation: Custom grob</a></p>
+      <ul>
+        <li><code><a href="annotation_custom.html">annotation_custom</a></code></li>
+      </ul>
+      
+      <p><a href="annotation_logticks.html">Annotation: log tick marks</a></p>
+      <ul>
+        <li><code><a href="annotation_logticks.html">annotation_logticks</a></code></li>
+      </ul>
+      
+      <p><a href="annotation_map.html">Annotation: a maps</a></p>
+      <ul>
+        <li><code><a href="annotation_map.html">annotation_map</a></code></li>
+      </ul>
+      
+      <p><a href="annotation_raster.html">Annotation: high-performance rectangular tiling</a></p>
+      <ul>
+        <li><code><a href="annotation_raster.html">annotation_raster</a></code></li>
+      </ul>
+      
+      <p><a href="borders.html">Create a layer of map borders</a></p>
+      <ul>
+        <li><code><a href="borders.html">borders</a></code></li>
+      </ul>
+      <img src="icons/geom_abline.png" width="40" height="40" class="icon" />
+      <p><a href="geom_abline.html">Reference lines: horizontal, vertical, and diagonal</a></p>
+      <ul>
+        <li><code><a href="geom_abline.html">geom_abline</a></code></li><li><code><a href="geom_abline.html">geom_hline</a></code></li><li><code><a href="geom_abline.html">geom_vline</a></code></li>
+      </ul>
           <h2 id="section-scales" class="hasAnchor"><a href="#section-scales" class="anchor"></a>Scales</h2>
       <p class="section-desc"><p>Scales control the details of how data values are translated to visual properties. Override the default scales to tweak details like the axis labels or legend keys, or to use a completely different translation from data to aesthetic. <code><a href="../reference/labs.html">labs()</a></code> and <code><a href="../reference/lims.html">lims()</a></code> are convenient helpers for the most common adjustments to the labels and limits.</p></p>
 
+      
+      <p><a href="expand_limits.html">Expand the plot limits, using data</a></p>
+      <ul>
+        <li><code><a href="expand_limits.html">expand_limits</a></code></li>
+      </ul>
       
       <p><a href="labs.html">Modify axis, legend, and plot labels</a></p>
       <ul>
@@ -363,265 +406,152 @@
         <li><code><a href="scale_discrete.html">scale_x_discrete</a></code></li><li><code><a href="scale_discrete.html">scale_y_discrete</a></code></li>
       </ul>
       <img src="icons/scale_colour_gradient.png" width="40" height="40" class="icon" />
-      <p><a href="scale_gradient.html">Smooth gradient between two colours</a></p>
+      <p><a href="scale_gradient.html">Gradient colour scales</a></p>
       <ul>
         <li><code><a href="scale_gradient.html">scale_colour_gradient</a></code></li><li><code><a href="scale_gradient.html">scale_fill_gradient</a></code></li><li><code><a href="scale_gradient.html">scale_colour_gradient2</a></code></li><li><code><a href="scale_gradient.html">scale_fill_gradient2</a></code></li><li><code><a href="scale_gradient.html">scale_colour_gradientn</a></code></li><li><code><a href="scale_gradient.html">scale_fill_gradientn</a></code></li><li><code><a href="scale_gradient.html">scale_colour_continuous</a></code></li><li><code><a href="scale_gradient.html">scale_colour_datetime</a></code></li><li><code><a href="scale_gradient.html">scale_colour_date</a></code></li><li><code><a href="scale_gradient.html">scale_fill_continuous</a></code></li><li><code><a href="scale_gradient.html">scale_fill_datetime</a></code></li><li><code><a href="scale_gradient.html">scale_fill_date</a></code></li><li><code><a href="scale_gradient.html">scale_color_continuous</a></code></li><li><code><a href="scale_gradient.html">scale_color_gradient</a></code></li><li><code><a href="scale_gradient.html">scale_color_gradient2</a></code></li><li><code><a href="scale_gradient.html">scale_color_gradientn</a></code></li>
       </ul>
       <img src="icons/scale_colour_grey.png" width="40" height="40" class="icon" />
-      <p><a href="scale_grey.html">Sequential grey colour scale.</a></p>
+      <p><a href="scale_grey.html">Sequential grey colour scales</a></p>
       <ul>
         <li><code><a href="scale_grey.html">scale_colour_grey</a></code></li><li><code><a href="scale_grey.html">scale_fill_grey</a></code></li><li><code><a href="scale_grey.html">scale_color_grey</a></code></li>
       </ul>
       <img src="icons/scale_colour_hue.png" width="40" height="40" class="icon" />
-      <p><a href="scale_hue.html">Qualitative colour scale with evenly spaced hues.</a></p>
+      <p><a href="scale_hue.html">Evenly spaced colours for discrete data</a></p>
       <ul>
         <li><code><a href="scale_hue.html">scale_colour_hue</a></code></li><li><code><a href="scale_hue.html">scale_fill_hue</a></code></li><li><code><a href="scale_hue.html">scale_colour_discrete</a></code></li><li><code><a href="scale_hue.html">scale_fill_discrete</a></code></li><li><code><a href="scale_hue.html">scale_color_discrete</a></code></li><li><code><a href="scale_hue.html">scale_color_hue</a></code></li>
       </ul>
-      <img src="icons/scale_identity.png" width="40" height="40" class="icon" />
-      <p><a href="scale_identity.html">Use values without scaling.</a></p>
+      
+      <p><a href="scale_identity.html">Use values without scaling</a></p>
       <ul>
-        <li><code><a href="scale_identity.html">scale_identity</a></code></li><li><code><a href="scale_identity.html">scale_colour_identity</a></code></li><li><code><a href="scale_identity.html">scale_fill_identity</a></code></li><li><code><a href="scale_identity.html">scale_shape_identity</a></code></li><li><code><a href="scale_identity.html">scale_linetype_identity</a></code></li><li><code><a href="scale_identity.html">scale_alpha_identity</a></code></li><li><code><a href="scale_identity.html">scale_size_identity</a></code></li><li><code><a href="scale_identity.html">scale_color_identity</a></code></li>
+        <li><code><a href="scale_identity.html">scale_colour_identity</a></code></li><li><code><a href="scale_identity.html">scale_fill_identity</a></code></li><li><code><a href="scale_identity.html">scale_shape_identity</a></code></li><li><code><a href="scale_identity.html">scale_linetype_identity</a></code></li><li><code><a href="scale_identity.html">scale_alpha_identity</a></code></li><li><code><a href="scale_identity.html">scale_size_identity</a></code></li><li><code><a href="scale_identity.html">scale_color_identity</a></code></li>
       </ul>
       <img src="icons/scale_linetype.png" width="40" height="40" class="icon" />
-      <p><a href="scale_linetype.html">Scale for line patterns.</a></p>
+      <p><a href="scale_linetype.html">Scale for line patterns</a></p>
       <ul>
         <li><code><a href="scale_linetype.html">scale_linetype</a></code></li><li><code><a href="scale_linetype.html">scale_linetype_continuous</a></code></li><li><code><a href="scale_linetype.html">scale_linetype_discrete</a></code></li>
       </ul>
-      <img src="icons/scale_manual.png" width="40" height="40" class="icon" />
-      <p><a href="scale_manual.html">Create your own discrete scale.</a></p>
+      
+      <p><a href="scale_manual.html">Create your own discrete scale</a></p>
       <ul>
-        <li><code><a href="scale_manual.html">scale_manual</a></code></li><li><code><a href="scale_manual.html">scale_colour_manual</a></code></li><li><code><a href="scale_manual.html">scale_fill_manual</a></code></li><li><code><a href="scale_manual.html">scale_size_manual</a></code></li><li><code><a href="scale_manual.html">scale_shape_manual</a></code></li><li><code><a href="scale_manual.html">scale_linetype_manual</a></code></li><li><code><a href="scale_manual.html">scale_alpha_manual</a></code></li><li><code><a href="scale_manual.html">scale_color_manual</a></code></li>
+        <li><code><a href="scale_manual.html">scale_colour_manual</a></code></li><li><code><a href="scale_manual.html">scale_fill_manual</a></code></li><li><code><a href="scale_manual.html">scale_size_manual</a></code></li><li><code><a href="scale_manual.html">scale_shape_manual</a></code></li><li><code><a href="scale_manual.html">scale_linetype_manual</a></code></li><li><code><a href="scale_manual.html">scale_alpha_manual</a></code></li><li><code><a href="scale_manual.html">scale_color_manual</a></code></li>
       </ul>
       <img src="icons/scale_shape.png" width="40" height="40" class="icon" />
-      <p><a href="scale_shape.html">Scale for shapes, aka glyphs.</a></p>
+      <p><a href="scale_shape.html">Scales for shapes, aka glyphs</a></p>
       <ul>
         <li><code><a href="scale_shape.html">scale_shape</a></code></li><li><code><a href="scale_shape.html">scale_shape_discrete</a></code></li><li><code><a href="scale_shape.html">scale_shape_continuous</a></code></li>
       </ul>
       <img src="icons/scale_size.png" width="40" height="40" class="icon" />
-      <p><a href="scale_size.html">Scale size (area or radius).</a></p>
+      <p><a href="scale_size.html">Scales for area or radius</a></p>
       <ul>
         <li><code><a href="scale_size.html">scale_size</a></code></li><li><code><a href="scale_size.html">scale_size_continuous</a></code></li><li><code><a href="scale_size.html">scale_radius</a></code></li><li><code><a href="scale_size.html">scale_size</a></code></li><li><code><a href="scale_size.html">scale_size_discrete</a></code></li><li><code><a href="scale_size.html">scale_size_area</a></code></li><li><code><a href="scale_size.html">scale_size_datetime</a></code></li><li><code><a href="scale_size.html">scale_size_date</a></code></li>
       </ul>
-          <h2 id="section-facetting" class="hasAnchor"><a href="#section-facetting" class="anchor"></a>Facetting</h2>
-      <p class="section-desc"></p>
-
-      
-      <p><a href="as_labeller.html">Coerce to labeller function</a></p>
-      <ul>
-        <li><code><a href="as_labeller.html">as_labeller</a></code></li>
-      </ul>
-      <img src="icons/facet_grid.png" width="40" height="40" class="icon" />
-      <p><a href="facet_grid.html">Lay out panels in a grid.</a></p>
-      <ul>
-        <li><code><a href="facet_grid.html">facet_grid</a></code></li>
-      </ul>
-      <img src="icons/facet_null.png" width="40" height="40" class="icon" />
-      <p><a href="facet_null.html">Facet specification: a single panel.</a></p>
-      <ul>
-        <li><code><a href="facet_null.html">facet_null</a></code></li>
-      </ul>
-      
-      <p><a href="facet_wrap.html">Wrap a 1d ribbon of panels into 2d.</a></p>
-      <ul>
-        <li><code><a href="facet_wrap.html">facet_wrap</a></code></li>
-      </ul>
-      
-      <p><a href="label_bquote.html">Backquoted labeller</a></p>
-      <ul>
-        <li><code><a href="label_bquote.html">label_bquote</a></code></li>
-      </ul>
-      
-      <p><a href="labeller.html">Generic labeller function for facets</a></p>
-      <ul>
-        <li><code><a href="labeller.html">labeller</a></code></li>
-      </ul>
-      
-      <p><a href="labellers.html">Labeller functions</a></p>
-      <ul>
-        <li><code><a href="labellers.html">labellers</a></code></li><li><code><a href="labellers.html">label_value</a></code></li><li><code><a href="labellers.html">label_both</a></code></li><li><code><a href="labellers.html">label_context</a></code></li><li><code><a href="labellers.html">label_parsed</a></code></li><li><code><a href="labellers.html">label_wrap_gen</a></code></li>
-      </ul>
-          <h2 id="section-coordinate-systems" class="hasAnchor"><a href="#section-coordinate-systems" class="anchor"></a>Coordinate systems</h2>
-      <p class="section-desc"></p>
-
-      <img src="icons/coord_cartesian.png" width="40" height="40" class="icon" />
-      <p><a href="coord_cartesian.html">Cartesian coordinates.</a></p>
-      <ul>
-        <li><code><a href="coord_cartesian.html">coord_cartesian</a></code></li>
-      </ul>
-      <img src="icons/coord_fixed.png" width="40" height="40" class="icon" />
-      <p><a href="coord_fixed.html">Cartesian coordinates with fixed relationship between x and y scales.</a></p>
-      <ul>
-        <li><code><a href="coord_fixed.html">coord_fixed</a></code></li><li><code><a href="coord_fixed.html">coord_equal</a></code></li>
-      </ul>
-      <img src="icons/coord_flip.png" width="40" height="40" class="icon" />
-      <p><a href="coord_flip.html">Flipped cartesian coordinates.</a></p>
-      <ul>
-        <li><code><a href="coord_flip.html">coord_flip</a></code></li>
-      </ul>
-      <img src="icons/coord_map.png" width="40" height="40" class="icon" />
-      <p><a href="coord_map.html">Map projections.</a></p>
-      <ul>
-        <li><code><a href="coord_map.html">coord_map</a></code></li><li><code><a href="coord_map.html">coord_quickmap</a></code></li>
-      </ul>
-      
-      <p><a href="coord_munch.html">Munch coordinates data</a></p>
-      <ul>
-        <li><code><a href="coord_munch.html">coord_munch</a></code></li>
-      </ul>
-      <img src="icons/coord_polar.png" width="40" height="40" class="icon" />
-      <p><a href="coord_polar.html">Polar coordinates.</a></p>
-      <ul>
-        <li><code><a href="coord_polar.html">coord_polar</a></code></li>
-      </ul>
-      
-      <p><a href="coord_trans.html">Transformed cartesian coordinate system.</a></p>
-      <ul>
-        <li><code><a href="coord_trans.html">coord_trans</a></code></li>
-      </ul>
-          <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
-      <p class="section-desc"></p>
-
-      
-      <p><a href="diamonds.html">Prices of 50,000 round cut diamonds</a></p>
-      <ul>
-        <li><code><a href="diamonds.html">diamonds</a></code></li>
-      </ul>
-      
-      <p><a href="economics.html">US economic time series.</a></p>
-      <ul>
-        <li><code><a href="economics.html">economics</a></code></li><li><code><a href="economics.html">economics_long</a></code></li>
-      </ul>
-      
-      <p><a href="faithfuld.html">2d density estimate of Old Faithful data</a></p>
-      <ul>
-        <li><code><a href="faithfuld.html">faithfuld</a></code></li>
-      </ul>
-      
-      <p><a href="luv_colours.html">colors()</a></p>
-      <ul>
-        <li><code><a href="luv_colours.html">luv_colours</a></code></li>
-      </ul>
-      
-      <p><a href="midwest.html">Midwest demographics.</a></p>
-      <ul>
-        <li><code><a href="midwest.html">midwest</a></code></li>
-      </ul>
-      
-      <p><a href="mpg.html">Fuel economy data from 1999 and 2008 for 38 popular models of car</a></p>
-      <ul>
-        <li><code><a href="mpg.html">mpg</a></code></li>
-      </ul>
-      
-      <p><a href="msleep.html">An updated and expanded version of the mammals sleep dataset.</a></p>
-      <ul>
-        <li><code><a href="msleep.html">msleep</a></code></li>
-      </ul>
-      
-      <p><a href="presidential.html">Terms of 11 presidents from Eisenhower to Obama.</a></p>
-      <ul>
-        <li><code><a href="presidential.html">presidential</a></code></li>
-      </ul>
-      
-      <p><a href="seals.html">Vector field of seal movements.</a></p>
-      <ul>
-        <li><code><a href="seals.html">seals</a></code></li>
-      </ul>
-      
-      <p><a href="txhousing.html">Housing sales in TX.</a></p>
-      <ul>
-        <li><code><a href="txhousing.html">txhousing</a></code></li>
-      </ul>
-          <h2 id="section-annotations" class="hasAnchor"><a href="#section-annotations" class="anchor"></a>Annotations</h2>
-      <p class="section-desc"></p>
-
-      
-      <p><a href="annotate.html">Create an annotation layer.</a></p>
-      <ul>
-        <li><code><a href="annotate.html">annotate</a></code></li>
-      </ul>
-      
-      <p><a href="annotation_custom.html">Annotation: Custom grob.</a></p>
-      <ul>
-        <li><code><a href="annotation_custom.html">annotation_custom</a></code></li>
-      </ul>
-      
-      <p><a href="annotation_logticks.html">Annotation: log tick marks</a></p>
-      <ul>
-        <li><code><a href="annotation_logticks.html">annotation_logticks</a></code></li>
-      </ul>
-      
-      <p><a href="annotation_map.html">Annotation: maps.</a></p>
-      <ul>
-        <li><code><a href="annotation_map.html">annotation_map</a></code></li>
-      </ul>
-      
-      <p><a href="annotation_raster.html">Annotation: High-performance rectangular tiling.</a></p>
-      <ul>
-        <li><code><a href="annotation_raster.html">annotation_raster</a></code></li>
-      </ul>
           <h2 id="section-guides-axes-and-legends" class="hasAnchor"><a href="#section-guides-axes-and-legends" class="anchor"></a>Guides: axes and legends</h2>
-      <p class="section-desc"><p>The guides (the axes and legends) help readers interpret your plots. The guide functions give deep control over the details of the apperance. Override with using <code><a href="../reference/guides.html">guides()</a></code> or the <code>guide</code> argument to individual scales.</p></p>
+      <p class="section-desc"><p>The guides (the axes and legends) help readers interpret your plots. Guides are mostly controlled via the scale (e.g.&nbsp;with the <code>limits</code>, <code>breaks</code>, and <code>labels</code> arguments), but sometimes you will need additional cover over the guide apperance. Use <code><a href="../reference/guides.html">guides()</a></code> or the <code>guide</code> argument to individual scales along with <code><a href="../reference/guide_colourbar.html">guide_colourbar()</a></code> or <code><a href="../reference/guide_legend.html">guide_legend()</a></code>.</p></p>
 
-      
-      <p><a href="expand_limits.html">Expand the plot limits, using data</a></p>
-      <ul>
-        <li><code><a href="expand_limits.html">expand_limits</a></code></li>
-      </ul>
       
       <p><a href="guide_colourbar.html">Continuous colour bar guide</a></p>
       <ul>
         <li><code><a href="guide_colourbar.html">guide_colourbar</a></code></li><li><code><a href="guide_colourbar.html">guide_colorbar</a></code></li>
       </ul>
       
-      <p><a href="guide_legend.html">Legend guide.</a></p>
+      <p><a href="guide_legend.html">Legend guide</a></p>
       <ul>
         <li><code><a href="guide_legend.html">guide_legend</a></code></li>
       </ul>
       
-      <p><a href="guides.html">Set guides for each scale.</a></p>
+      <p><a href="guides.html">Set guides for each scale</a></p>
       <ul>
         <li><code><a href="guides.html">guides</a></code></li>
       </ul>
       
-      <p><a href="sec_axis.html">Secondary axes</a></p>
+      <p><a href="sec_axis.html">Specify a secondary axis</a></p>
       <ul>
         <li><code><a href="sec_axis.html">sec_axis</a></code></li><li><code><a href="sec_axis.html">dup_axis</a></code></li><li><code><a href="sec_axis.html">derive</a></code></li>
       </ul>
+          <h2 id="section-facetting" class="hasAnchor"><a href="#section-facetting" class="anchor"></a>Facetting</h2>
+      <p class="section-desc"><p>Facetting generates small multiples, each displaying a different subset of the data. Facets are an alternative to aesthetics for displaying additional discrete variables.</p></p>
+
+      <img src="icons/facet_grid.png" width="40" height="40" class="icon" />
+      <p><a href="facet_grid.html">Lay out panels in a grid</a></p>
+      <ul>
+        <li><code><a href="facet_grid.html">facet_grid</a></code></li>
+      </ul>
+      
+      <p><a href="facet_wrap.html">Wrap a 1d ribbon of panels into 2d</a></p>
+      <ul>
+        <li><code><a href="facet_wrap.html">facet_wrap</a></code></li>
+      </ul>
+          <h2 id="section-facetting-labels" class="hasAnchor"><a href="#section-facetting-labels" class="anchor"></a>Facetting: labels</h2>
+      <p class="section-desc"><p>These functions provide a flexible toolkit for controlling the display of the &ldquo;strip&rdquo; labels on facets.</p></p>
+
+      
+      <p><a href="label_bquote.html">Label with mathematical expressions</a></p>
+      <ul>
+        <li><code><a href="label_bquote.html">label_bquote</a></code></li>
+      </ul>
+      
+      <p><a href="labeller.html">Construct labelling specification</a></p>
+      <ul>
+        <li><code><a href="labeller.html">labeller</a></code></li>
+      </ul>
+      
+      <p><a href="labellers.html">Useful labeller functions</a></p>
+      <ul>
+        <li><code><a href="labellers.html">label_value</a></code></li><li><code><a href="labellers.html">label_both</a></code></li><li><code><a href="labellers.html">label_context</a></code></li><li><code><a href="labellers.html">label_parsed</a></code></li><li><code><a href="labellers.html">label_wrap_gen</a></code></li>
+      </ul>
+          <h2 id="section-coordinate-systems" class="hasAnchor"><a href="#section-coordinate-systems" class="anchor"></a>Coordinate systems</h2>
+      <p class="section-desc"><p>The coordinate system determines how the <code>x</code> and <code>y</code> aesthetics combine to position elements in the plot. The default coordinate system is Cartesian (<code><a href="../reference/coord_cartesian.html">coord_cartesian()</a></code>), which can be tweaked with <code><a href="../reference/coord_map.html">coord_map()</a></code>, <code><a href="../reference/coord_fixed.html">coord_fixed()</a></code>, <code><a href="../reference/coord_flip.html">coord_flip()</a></code>, and <code><a href="../reference/coord_trans.html">coord_trans()</a></code>, or completely replaced with <code><a href="../reference/coord_polar.html">coord_polar()</a></code>.</p></p>
+
+      <img src="icons/coord_cartesian.png" width="40" height="40" class="icon" />
+      <p><a href="coord_cartesian.html">Cartesian coordinates</a></p>
+      <ul>
+        <li><code><a href="coord_cartesian.html">coord_cartesian</a></code></li>
+      </ul>
+      <img src="icons/coord_fixed.png" width="40" height="40" class="icon" />
+      <p><a href="coord_fixed.html">Cartesian coordinates with fixed &quot;aspect ratio&quot;</a></p>
+      <ul>
+        <li><code><a href="coord_fixed.html">coord_fixed</a></code></li><li><code><a href="coord_fixed.html">coord_equal</a></code></li>
+      </ul>
+      <img src="icons/coord_flip.png" width="40" height="40" class="icon" />
+      <p><a href="coord_flip.html">Cartesian coordinates with x and y flipped</a></p>
+      <ul>
+        <li><code><a href="coord_flip.html">coord_flip</a></code></li>
+      </ul>
+      <img src="icons/coord_map.png" width="40" height="40" class="icon" />
+      <p><a href="coord_map.html">Map projections</a></p>
+      <ul>
+        <li><code><a href="coord_map.html">coord_map</a></code></li><li><code><a href="coord_map.html">coord_quickmap</a></code></li>
+      </ul>
+      <img src="icons/coord_polar.png" width="40" height="40" class="icon" />
+      <p><a href="coord_polar.html">Polar coordinates</a></p>
+      <ul>
+        <li><code><a href="coord_polar.html">coord_polar</a></code></li>
+      </ul>
+      
+      <p><a href="coord_trans.html">Transformed Cartesian coordinate system</a></p>
+      <ul>
+        <li><code><a href="coord_trans.html">coord_trans</a></code></li>
+      </ul>
           <h2 id="section-themes" class="hasAnchor"><a href="#section-themes" class="anchor"></a>Themes</h2>
-      <p class="section-desc"></p>
+      <p class="section-desc"><p>Themes control the display of all non-data elements of the plot. You can override all settings with a complete theme like <code><a href="../reference/ggtheme.html">theme_bw()</a></code>, or choose to tweak individual settings by using <code><a href="../reference/theme.html">theme()</a></code> and the <code>element_</code> functions.</p></p>
 
       
       <p><a href="element.html">Theme elements</a></p>
       <ul>
-        <li><code><a href="element.html">element</a></code></li><li><code><a href="element.html">element_blank</a></code></li><li><code><a href="element.html">element_rect</a></code></li><li><code><a href="element.html">element_line</a></code></li><li><code><a href="element.html">element_text</a></code></li>
+        <li><code><a href="element.html">margin</a></code></li><li><code><a href="element.html">element_blank</a></code></li><li><code><a href="element.html">element_rect</a></code></li><li><code><a href="element.html">element_line</a></code></li><li><code><a href="element.html">element_text</a></code></li><li><code><a href="element.html">rel</a></code></li>
       </ul>
       
-      <p><a href="ggtheme.html">ggplot2 themes</a></p>
+      <p><a href="ggtheme.html">Complete themes</a></p>
       <ul>
-        <li><code><a href="ggtheme.html">ggtheme</a></code></li><li><code><a href="ggtheme.html">theme_grey</a></code></li><li><code><a href="ggtheme.html">theme_gray</a></code></li><li><code><a href="ggtheme.html">theme_bw</a></code></li><li><code><a href="ggtheme.html">theme_linedraw</a></code></li><li><code><a href="ggtheme.html">theme_light</a></code></li><li><code><a href="ggtheme.html">theme_dark</a></code></li><li><code><a href="ggtheme.html">theme_minimal</a></code></li><li><code><a href="ggtheme.html">theme_classic</a></code></li><li><code><a href="ggtheme.html">theme_void</a></code></li>
+        <li><code><a href="ggtheme.html">theme_grey</a></code></li><li><code><a href="ggtheme.html">theme_gray</a></code></li><li><code><a href="ggtheme.html">theme_bw</a></code></li><li><code><a href="ggtheme.html">theme_linedraw</a></code></li><li><code><a href="ggtheme.html">theme_light</a></code></li><li><code><a href="ggtheme.html">theme_dark</a></code></li><li><code><a href="ggtheme.html">theme_minimal</a></code></li><li><code><a href="ggtheme.html">theme_classic</a></code></li><li><code><a href="ggtheme.html">theme_void</a></code></li>
       </ul>
       
-      <p><a href="is.rel.html">Reports whether x is a rel object</a></p>
-      <ul>
-        <li><code><a href="is.rel.html">is.rel</a></code></li>
-      </ul>
-      
-      <p><a href="is.theme.html">Reports whether x is a theme object</a></p>
-      <ul>
-        <li><code><a href="is.theme.html">is.theme</a></code></li>
-      </ul>
-      
-      <p><a href="rel.html">Relative sizing for theme elements</a></p>
-      <ul>
-        <li><code><a href="rel.html">rel</a></code></li>
-      </ul>
-      
-      <p><a href="theme_get.html">Get, set and update themes</a></p>
+      <p><a href="theme_get.html">Get, set, and modify the current theme</a></p>
       <ul>
         <li><code><a href="theme_get.html">theme_get</a></code></li><li><code><a href="theme_get.html">theme_set</a></code></li><li><code><a href="theme_get.html">theme_update</a></code></li><li><code><a href="theme_get.html">theme_replace</a></code></li><li><code><a href="theme_get.html">%+replace%</a></code></li>
       </ul>
       
-      <p><a href="theme.html">Set theme elements</a></p>
+      <p><a href="theme.html">Modify components of a theme</a></p>
       <ul>
         <li><code><a href="theme.html">theme</a></code></li>
       </ul>
@@ -638,7 +568,7 @@
       <ul>
         <li><code><a href="print.ggplot.html">print.ggplot</a></code></li><li><code><a href="print.ggplot.html">plot.ggplot</a></code></li>
       </ul>
-          <h2 id="section-ggproto" class="hasAnchor"><a href="#section-ggproto" class="anchor"></a>ggproto</h2>
+          <h2 id="section-extending-ggplot-with-ggproto" class="hasAnchor"><a href="#section-extending-ggplot-with-ggproto" class="anchor"></a>Extending ggplot2 with ggproto</h2>
       <p class="section-desc"></p>
 
       
@@ -699,6 +629,11 @@
       <ul>
         <li><code><a href="fortify.sp.html">fortify.sp</a></code></li><li><code><a href="fortify.sp.html">fortify.SpatialPolygonsDataFrame</a></code></li><li><code><a href="fortify.sp.html">fortify.SpatialPolygons</a></code></li><li><code><a href="fortify.sp.html">fortify.Polygons</a></code></li><li><code><a href="fortify.sp.html">fortify.Polygon</a></code></li><li><code><a href="fortify.sp.html">fortify.SpatialLinesDataFrame</a></code></li><li><code><a href="fortify.sp.html">fortify.Lines</a></code></li><li><code><a href="fortify.sp.html">fortify.Line</a></code></li>
       </ul>
+      
+      <p><a href="map_data.html">Create a data frame of map data.</a></p>
+      <ul>
+        <li><code><a href="map_data.html">map_data</a></code></li>
+      </ul>
           <h2 id="section-vector-helpers" class="hasAnchor"><a href="#section-vector-helpers" class="anchor"></a>Vector helpers</h2>
       <p class="section-desc"></p>
 
@@ -717,6 +652,11 @@
       <p><a href="mean_se.html">Calculate mean and standard errors on either side.</a></p>
       <ul>
         <li><code><a href="mean_se.html">mean_se</a></code></li>
+      </ul>
+      
+      <p><a href="resolution.html">Compute the &quot;resolution&quot; of a data vector.</a></p>
+      <ul>
+        <li><code><a href="resolution.html">resolution</a></code></li>
       </ul>
           <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
       <p class="section-desc"></p>
@@ -742,44 +682,9 @@
         <li><code><a href="aes_position.html">aes_position</a></code></li><li><code><a href="aes_position.html">x</a></code></li><li><code><a href="aes_position.html">y</a></code></li><li><code><a href="aes_position.html">xmin</a></code></li><li><code><a href="aes_position.html">xmax</a></code></li><li><code><a href="aes_position.html">ymin</a></code></li><li><code><a href="aes_position.html">ymax</a></code></li><li><code><a href="aes_position.html">xend</a></code></li><li><code><a href="aes_position.html">yend</a></code></li>
       </ul>
       
-      <p><a href="borders.html">Create a layer of map borders.</a></p>
-      <ul>
-        <li><code><a href="borders.html">borders</a></code></li>
-      </ul>
-      
-      <p><a href="ggplot2-package.html">ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</a></p>
-      <ul>
-        <li><code><a href="ggplot2-package.html">ggplot2</a></code></li><li><code><a href="ggplot2-package.html">ggplot2-package</a></code></li>
-      </ul>
-      
-      <p><a href="graphical-units.html">Graphical units</a></p>
-      <ul>
-        <li><code><a href="graphical-units.html">graphical-units</a></code></li><li><code><a href="graphical-units.html">.pt</a></code></li><li><code><a href="graphical-units.html">.stroke</a></code></li>
-      </ul>
-      
-      <p><a href="last_plot.html">Retrieve the last plot to be modified or created.</a></p>
-      <ul>
-        <li><code><a href="last_plot.html">last_plot</a></code></li>
-      </ul>
-      
-      <p><a href="map_data.html">Create a data frame of map data.</a></p>
-      <ul>
-        <li><code><a href="map_data.html">map_data</a></code></li>
-      </ul>
-      
-      <p><a href="margin.html">Define margins.</a></p>
-      <ul>
-        <li><code><a href="margin.html">margin</a></code></li>
-      </ul>
-      
       <p><a href="qplot.html">Quick plot</a></p>
       <ul>
         <li><code><a href="qplot.html">qplot</a></code></li><li><code><a href="qplot.html">quickplot</a></code></li>
-      </ul>
-      
-      <p><a href="resolution.html">Compute the &quot;resolution&quot; of a data vector.</a></p>
-      <ul>
-        <li><code><a href="resolution.html">resolution</a></code></li>
       </ul>
       
       <p><a href="translate_qplot_ggplot.html">Translating between qplot and ggplot</a></p>
@@ -790,6 +695,59 @@
       <p><a href="translate_qplot_lattice.html">Translating between qplot and lattice</a></p>
       <ul>
         <li><code><a href="translate_qplot_lattice.html">translate_qplot_lattice</a></code></li>
+      </ul>
+          <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
+      <p class="section-desc"><p>ggplot2 comes with a selection of built-in datasets that are used in examples to illustrate various visualisation challenges.</p></p>
+
+      
+      <p><a href="diamonds.html">Prices of 50,000 round cut diamonds</a></p>
+      <ul>
+        <li><code><a href="diamonds.html">diamonds</a></code></li>
+      </ul>
+      
+      <p><a href="economics.html">US economic time series</a></p>
+      <ul>
+        <li><code><a href="economics.html">economics</a></code></li><li><code><a href="economics.html">economics_long</a></code></li>
+      </ul>
+      
+      <p><a href="faithfuld.html">2d density estimate of Old Faithful data</a></p>
+      <ul>
+        <li><code><a href="faithfuld.html">faithfuld</a></code></li>
+      </ul>
+      
+      <p><a href="luv_colours.html">colors()</a></p>
+      <ul>
+        <li><code><a href="luv_colours.html">luv_colours</a></code></li>
+      </ul>
+      
+      <p><a href="midwest.html">Midwest demographics</a></p>
+      <ul>
+        <li><code><a href="midwest.html">midwest</a></code></li>
+      </ul>
+      
+      <p><a href="mpg.html">Fuel economy data from 1999 and 2008 for 38 popular models of car</a></p>
+      <ul>
+        <li><code><a href="mpg.html">mpg</a></code></li>
+      </ul>
+      
+      <p><a href="msleep.html">An updated and expanded version of the mammals sleep dataset</a></p>
+      <ul>
+        <li><code><a href="msleep.html">msleep</a></code></li>
+      </ul>
+      
+      <p><a href="presidential.html">Terms of 11 presidents from Eisenhower to Obama</a></p>
+      <ul>
+        <li><code><a href="presidential.html">presidential</a></code></li>
+      </ul>
+      
+      <p><a href="seals.html">Vector field of seal movements</a></p>
+      <ul>
+        <li><code><a href="seals.html">seals</a></code></li>
+      </ul>
+      
+      <p><a href="txhousing.html">Housing sales in TX</a></p>
+      <ul>
+        <li><code><a href="txhousing.html">txhousing</a></code></li>
       </ul>
     
     </div>
@@ -802,18 +760,19 @@
       <li><a href="#section-layer-geoms">Layer: geoms</a></li>
       <li><a href="#section-layer-stats">Layer: stats</a></li>
       <li><a href="#section-layer-position-adjustment">Layer: position adjustment</a></li>
+      <li><a href="#section-layer-annotations">Layer: annotations</a></li>
       <li><a href="#section-scales">Scales</a></li>
-      <li><a href="#section-facetting">Facetting</a></li>
-      <li><a href="#section-coordinate-systems">Coordinate systems</a></li>
-      <li><a href="#section-data">Data</a></li>
-      <li><a href="#section-annotations">Annotations</a></li>
       <li><a href="#section-guides-axes-and-legends">Guides: axes and legends</a></li>
+      <li><a href="#section-facetting">Facetting</a></li>
+      <li><a href="#section-facetting-labels">Facetting: labels</a></li>
+      <li><a href="#section-coordinate-systems">Coordinate systems</a></li>
       <li><a href="#section-themes">Themes</a></li>
       <li><a href="#section-programming-with-ggplot-">Programming with ggplot2</a></li>
-      <li><a href="#section-ggproto">ggproto</a></li>
+      <li><a href="#section-extending-ggplot-with-ggproto">Extending ggplot2 with ggproto</a></li>
       <li><a href="#section-autoplot-and-fortify">Autoplot and fortify</a></li>
       <li><a href="#section-vector-helpers">Vector helpers</a></li>
       <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-data">Data</a></li>
     </ul>
   </div>
 </div>

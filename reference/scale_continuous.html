@@ -202,61 +202,42 @@ scales, "top" or "bottom" for horizontal scales</p></dd>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>p1 <- ggplot(mpg, aes(displ, hwy)) +
-  geom_point()
-p1
-
-# Manipulating the default position scales lets you:
-#  * change the axis labels
-p1 +
-  scale_x_continuous("Engine displacement (L)") +
-  scale_y_continuous("Highway MPG")
-
-# You can also use the short-cut labs().
-# Use NULL to suppress axis labels
-p1 + labs(x = NULL, y = NULL)
-
-#  * modify the axis limits
-p1 + scale_x_continuous(limits = c(2, 6))
-p1 + scale_x_continuous(limits = c(0, 10))
-
-# you can also use the short hand functions `xlim()` and `ylim()`
-p1 + xlim(2, 6)
-
-#  * choose where the ticks appear
-p1 + scale_x_continuous(breaks = c(2, 4, 6))
-
-#  * add what labels they have
-p1 + scale_x_continuous(
-  breaks = c(2, 4, 6),
-  label = c("two", "four", "six")
+    <pre class="examples"><div class='input'><span class='no'>p1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
+<span class='no'>p1</span></div><img src='scale_continuous-2.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Manipulating the default position scales lets you:</span>
+<span class='co'>#  * change the axis labels</span>
+<span class='no'>p1</span> +
+  <span class='fu'>scale_x_continuous</span>(<span class='st'>"Engine displacement (L)"</span>) +
+  <span class='fu'>scale_y_continuous</span>(<span class='st'>"Highway MPG"</span>)</div><img src='scale_continuous-4.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># You can also use the short-cut labs().</span>
+<span class='co'># Use NULL to suppress axis labels</span>
+<span class='no'>p1</span> + <span class='fu'><a href='labs.html'>labs</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</div><img src='scale_continuous-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'>#  * modify the axis limits</span>
+<span class='no'>p1</span> + <span class='fu'>scale_x_continuous</span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>6</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 27 rows containing missing values (geom_point).</span></div><img src='scale_continuous-9.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>scale_x_continuous</span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>10</span>))</div><img src='scale_continuous-11.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># you can also use the short hand functions `xlim()` and `ylim()`</span>
+<span class='no'>p1</span> + <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='fl'>2</span>, <span class='fl'>6</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 27 rows containing missing values (geom_point).</span></div><img src='scale_continuous-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'>#  * choose where the ticks appear</span>
+<span class='no'>p1</span> + <span class='fu'>scale_x_continuous</span>(<span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>4</span>, <span class='fl'>6</span>))</div><img src='scale_continuous-16.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'>#  * add what labels they have</span>
+<span class='no'>p1</span> + <span class='fu'>scale_x_continuous</span>(
+  <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>4</span>, <span class='fl'>6</span>),
+  <span class='kw'>label</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"two"</span>, <span class='st'>"four"</span>, <span class='st'>"six"</span>)
+)</div><img src='scale_continuous-18.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Typically you'll pass a function to the `labels` argument.</span>
+<span class='co'># Some common formats are built into the scales package:</span>
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
+  <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>10</span>) * <span class='fl'>100000</span>,
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>10</span>)
 )
-
-# Typically you'll pass a function to the `labels` argument.
-Some common formats are built into the scales package:
-df <- data.frame(
-  x = rnorm(10) * 100000,
-  y = seq(0, 1, length.out = 10)
-)
-p2 <- ggplot(df, aes(x, y)) + geom_point()
-p2 + scale_y_continuous(labels = scales::percent)
-p2 + scale_y_continuous(labels = scales::dollar)
-p2 + scale_x_continuous(labels = scales::comma)
-
-# You can also override the default linear mapping by using a
-# transformation. There are three shortcuts:
-p1 + scale_y_log10()
-p1 + scale_y_sqrt()
-p1 + scale_y_reverse()
-
-# Or you can supply a transformation in the `trans` argument:
-p1 + scale_y_continuous(trans = scales::reciprocal_trans())
-
-# You can also create your own. See ?scales::trans_new
-</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:32:6: unexpected symbol</span>
-#&gt; <span class='error'>31: # Typically you'll pass a function to the `labels` argument.</span>
-#&gt; <span class='error'>32: Some common</span>
-#&gt; <span class='error'>         ^</span></div></pre>
+<span class='no'>p2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
+<span class='no'>p2</span> + <span class='fu'>scale_y_continuous</span>(<span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='no'>percent</span>)</div><img src='scale_continuous-20.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p2</span> + <span class='fu'>scale_y_continuous</span>(<span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='no'>dollar</span>)</div><img src='scale_continuous-22.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p2</span> + <span class='fu'>scale_x_continuous</span>(<span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='no'>comma</span>)</div><img src='scale_continuous-24.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># You can also override the default linear mapping by using a</span>
+<span class='co'># transformation. There are three shortcuts:</span>
+<span class='no'>p1</span> + <span class='fu'>scale_y_log10</span>()</div><img src='scale_continuous-26.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>scale_y_sqrt</span>()</div><img src='scale_continuous-28.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p1</span> + <span class='fu'>scale_y_reverse</span>()</div><img src='scale_continuous-30.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Or you can supply a transformation in the `trans` argument:</span>
+<span class='no'>p1</span> + <span class='fu'>scale_y_continuous</span>(<span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='fu'>reciprocal_trans</span>())</div><img src='scale_continuous-32.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># You can also create your own. See ?scales::trans_new</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
