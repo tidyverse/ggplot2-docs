@@ -54,8 +54,46 @@
         <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
+    </li>
+    <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.2.0.html">Version 2.2.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.1.0.html">Version 2.1.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.0.0.html">Version 2.0.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-1.0.0.html">Version 1.0.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -103,7 +141,7 @@ of aesthetics; colour, fill and alpha.</p>
 <span class='no'>k</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>()</div><img src='aes_colour_fill_alpha-10.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Fill aesthetic can also be used with a continuous variable</span>
 <span class='no'>m</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>faithfuld</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>waiting</span>, <span class='no'>eruptions</span>))
-<span class='no'>m</span> + <span class='fu'><a href='geom_raster.html'>geom_raster</a></span>()</div><img src='aes_colour_fill_alpha-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>m</span> + <span class='fu'><a href='geom_raster.html'>geom_raster</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>density</span>))</div><img src='aes_colour_fill_alpha-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>m</span> + <span class='fu'><a href='geom_tile.html'>geom_raster</a></span>()</div><img src='aes_colour_fill_alpha-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>m</span> + <span class='fu'><a href='geom_tile.html'>geom_raster</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>density</span>))</div><img src='aes_colour_fill_alpha-14.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Some geoms don't use both aesthetics (i.e. geom_point or geom_line)</span>
 <span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>economics</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>date</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>unemploy</span>))
 <span class='no'>b</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>()</div><img src='aes_colour_fill_alpha-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>b</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"green"</span>)</div><img src='aes_colour_fill_alpha-18.png' alt='' width='540' height='400' /><div class='input'><span class='no'>b</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><img src='aes_colour_fill_alpha-20.png' alt='' width='540' height='400' /><div class='input'><span class='no'>b</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><img src='aes_colour_fill_alpha-22.png' alt='' width='540' height='400' /><div class='input'>
@@ -115,7 +153,7 @@ of aesthetics; colour, fill and alpha.</p>
 <span class='co'># Alpha can also be used to add shading</span>
 <span class='no'>j</span> <span class='kw'>&lt;-</span> <span class='no'>b</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>()
 <span class='no'>j</span></div><img src='aes_colour_fill_alpha-30.png' alt='' width='540' height='400' /><div class='input'><span class='no'>yrng</span> <span class='kw'>&lt;-</span> <span class='fu'>range</span>(<span class='no'>economics</span>$<span class='no'>unemploy</span>)
-<span class='no'>j</span> <span class='kw'>&lt;-</span> <span class='no'>j</span> + <span class='fu'><a href='geom_raster.html'>geom_rect</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>NULL</span>, <span class='kw'>NULL</span>, <span class='kw'>xmin</span> <span class='kw'>=</span> <span class='no'>start</span>, <span class='kw'>xmax</span> <span class='kw'>=</span> <span class='no'>end</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>party</span>),
+<span class='no'>j</span> <span class='kw'>&lt;-</span> <span class='no'>j</span> + <span class='fu'><a href='geom_tile.html'>geom_rect</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>NULL</span>, <span class='kw'>NULL</span>, <span class='kw'>xmin</span> <span class='kw'>=</span> <span class='no'>start</span>, <span class='kw'>xmax</span> <span class='kw'>=</span> <span class='no'>end</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>party</span>),
 <span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>yrng</span>[<span class='fl'>1</span>], <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>yrng</span>[<span class='fl'>2</span>], <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>presidential</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown aesthetics: x, y</span></div><div class='input'><span class='no'>j</span></div><img src='aes_colour_fill_alpha-34.png' alt='' width='540' height='400' /><div class='input'><span class='no'>j</span> + <span class='fu'><a href='scale_manual.html'>scale_fill_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>alpha</a></span>(<span class='fu'>c</span>(<span class='st'>"blue"</span>, <span class='st'>"red"</span>), <span class='fl'>.3</span>))</div><img src='aes_colour_fill_alpha-36.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>

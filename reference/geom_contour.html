@@ -54,8 +54,46 @@
         <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
+    </li>
+    <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.2.0.html">Version 2.2.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.1.0.html">Version 2.1.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.0.0.html">Version 2.0.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-1.0.0.html">Version 1.0.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -82,7 +120,7 @@
 
     
     <p>ggplot2 can not draw true 3d surfaces, but you can use <code>geom_contour</code>
-and <code><a href='geom_raster.html'>geom_tile</a></code> to visualise 3d surfaces in 2d. To be a valid
+and <code><a href='geom_tile.html'>geom_tile</a></code> to visualise 3d surfaces in 2d. To be a valid
 surface, the data must contain only a single row for each unique combination
 of the variables mapped to the <code>x</code> and <code>y</code> aesthetics. Contouring
 tends to work best when <code>x</code> and <code>y</code> form a (roughly) evenly
@@ -189,7 +227,7 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
 <span class='co'># between contours</span>
 <span class='no'>v</span> + <span class='fu'>geom_contour</span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)</div><img src='geom_contour-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>v</span> + <span class='fu'>geom_contour</span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>0.001</span>)</div><img src='geom_contour-12.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Other parameters</span>
-<span class='no'>v</span> + <span class='fu'>geom_contour</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>..level..</span>))</div><img src='geom_contour-14.png' alt='' width='540' height='400' /><div class='input'><span class='no'>v</span> + <span class='fu'>geom_contour</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><img src='geom_contour-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>v</span> + <span class='fu'><a href='geom_raster.html'>geom_raster</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>density</span>)) +
+<span class='no'>v</span> + <span class='fu'>geom_contour</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>..level..</span>))</div><img src='geom_contour-14.png' alt='' width='540' height='400' /><div class='input'><span class='no'>v</span> + <span class='fu'>geom_contour</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><img src='geom_contour-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>v</span> + <span class='fu'><a href='geom_tile.html'>geom_raster</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>density</span>)) +
   <span class='fu'>geom_contour</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>)</div><img src='geom_contour-18.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>

@@ -54,8 +54,46 @@
         <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
+    </li>
+    <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.2.0.html">Version 2.2.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.1.0.html">Version 2.1.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.0.0.html">Version 2.0.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-1.0.0.html">Version 1.0.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -147,30 +185,34 @@ long tick marks. In base 10, these are the "1" (or "10") ticks.</p></dd>
  ) +
  <span class='fu'><a href='ggtheme.html'>theme_bw</a></span>()
 
-<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>()                <span class='co'># Default: log ticks on bottom and left</span></div><img src='annotation_logticks-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"lr"</span>)    <span class='co'># Log ticks for y, on left and right</span></div><img src='annotation_logticks-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>)  <span class='co'># All four sides</span></div><img src='annotation_logticks-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>()                <span class='co'># Default: log ticks on bottom and left</span></div><div class='output co'>#&gt; <span class='error'>Error in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x$y,     resolveHJust(x$just, x$hjust), resolveVJust(x$just, x$vjust),     x$rot, 0): polygon edge not found</span></div><img src='annotation_logticks-3.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"lr"</span>)    <span class='co'># Log ticks for y, on left and right</span>
+<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>)  <span class='co'># All four sides</span>
+
 <span class='co'># Hide the minor grid lines because they don't align with the ticks</span>
-<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>) + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_blank</a></span>())</div><img src='annotation_logticks-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>sides</span> <span class='kw'>=</span> <span class='st'>"trbl"</span>) + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())
+
 <span class='co'># Another way to get the same results as 'a' above: log-transform the data before</span>
 <span class='co'># plotting it. Also hide the minor grid lines.</span>
 <span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>msleep</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>log10</span>(<span class='no'>bodywt</span>), <span class='fu'>log10</span>(<span class='no'>brainwt</span>))) +
  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) +
  <span class='fu'><a href='scale_continuous.html'>scale_x_continuous</a></span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"body"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='fu'>math_format</span>(<span class='fl'>10</span>^<span class='no'>.x</span>)) +
  <span class='fu'><a href='scale_continuous.html'>scale_y_continuous</a></span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"brain"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='fu'>math_format</span>(<span class='fl'>10</span>^<span class='no'>.x</span>)) +
- <span class='fu'><a href='ggtheme.html'>theme_bw</a></span>() + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_blank</a></span>())
+ <span class='fu'><a href='ggtheme.html'>theme_bw</a></span>() + <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>panel.grid.minor</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())
 
-<span class='no'>b</span> + <span class='fu'>annotation_logticks</span>()</div><img src='annotation_logticks-10.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>b</span> + <span class='fu'>annotation_logticks</span>()
+
 <span class='co'># Using a coordinate transform requires scaled = FALSE</span>
 <span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>msleep</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>bodywt</span>, <span class='no'>brainwt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='coord_trans.html'>coord_trans</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"log10"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"log10"</span>) +
   <span class='fu'><a href='ggtheme.html'>theme_bw</a></span>()
-<span class='no'>t</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>scaled</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 27 rows containing missing values (geom_point).</span></div><img src='annotation_logticks-13.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>t</span> + <span class='fu'>annotation_logticks</span>(<span class='kw'>scaled</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 27 rows containing missing values (geom_point).</span></div><div class='input'>
 <span class='co'># Change the length of the ticks</span>
 <span class='no'>a</span> + <span class='fu'>annotation_logticks</span>(
   <span class='kw'>short</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>.5</span>,<span class='st'>"mm"</span>),
   <span class='kw'>mid</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>3</span>,<span class='st'>"mm"</span>),
   <span class='kw'>long</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>4</span>,<span class='st'>"mm"</span>)
-)</div><img src='annotation_logticks-15.png' alt='' width='540' height='400' /></pre>
+)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

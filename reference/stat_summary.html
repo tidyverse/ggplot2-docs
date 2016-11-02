@@ -54,8 +54,46 @@
         <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
+    </li>
+    <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.2.0.html">Version 2.2.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.1.0.html">Version 2.1.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.0.0.html">Version 2.0.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-1.0.0.html">Version 1.0.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -83,7 +121,7 @@
     
     <p><code>stat_summary</code> operates on unique <code>x</code>; <code>stat_summary_bin</code>
 operators on binned <code>x</code>. They are more flexible versions of
-<code><a href='geom_freqpoly.html'>stat_bin</a></code>: instead of just counting, they can compute any
+<code><a href='geom_histogram.html'>stat_bin</a></code>: instead of just counting, they can compute any
 aggregate.</p>
     
 
@@ -180,8 +218,8 @@ multiple values at once (e.g. ymin and ymax), use <code>fun.data</code>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='geom_crossbar.html'>geom_errorbar</a></code>, <code><a href='geom_crossbar.html'>geom_pointrange</a></code>,
- <code><a href='geom_crossbar.html'>geom_linerange</a></code>, <code><a href='geom_crossbar.html'>geom_crossbar</a></code> for geoms to
+    <p><code><a href='geom_linerange.html'>geom_errorbar</a></code>, <code><a href='geom_linerange.html'>geom_pointrange</a></code>,
+ <code><a href='geom_linerange.html'>geom_linerange</a></code>, <code><a href='geom_linerange.html'>geom_crossbar</a></code> for geoms to
  display summarised data</p>
     
 

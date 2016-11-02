@@ -54,8 +54,46 @@
         <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
+    </li>
+    <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.2.0.html">Version 2.2.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.1.0.html">Version 2.1.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.0.0.html">Version 2.0.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-1.0.0.html">Version 1.0.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -175,7 +213,7 @@ will be shown, regardless of whether or not they appear in the data.</p></dd>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>drv</span>, <span class='no'>model</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'>facet_grid</span>(<span class='no'>manufacturer</span> ~ <span class='no'>.</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='st'>"free"</span>) +
-  <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>strip.text.y</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_text</a></span>(<span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>0</span>))</div><img src='facet_grid-12.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>strip.text.y</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>0</span>))</div><img src='facet_grid-12.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Facet labels ------------------------------------------------------</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 <span class='no'>p</span></div><img src='facet_grid-14.png' alt='' width='540' height='400' /><div class='input'>
@@ -196,7 +234,7 @@ will be shown, regardless of whether or not they appear in the data.</p></dd>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>data</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>disp</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 <span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>switch</span> <span class='kw'>=</span> <span class='st'>"both"</span>)</div><img src='facet_grid-22.png' alt='' width='540' height='400' /><div class='input'><span class='co'># It looks better without boxes around the strips</span>
 <span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>switch</span> <span class='kw'>=</span> <span class='st'>"both"</span>) +
-  <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>strip.background</span> <span class='kw'>=</span> <span class='fu'><a href='margin.html'>element_blank</a></span>())</div><img src='facet_grid-24.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>strip.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())</div><img src='facet_grid-24.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Margins ----------------------------------------------------------</span>
 
 <span class='co'># Margins can be specified by logically (all yes or all no) or by specific</span>

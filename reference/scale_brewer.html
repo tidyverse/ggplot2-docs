@@ -54,8 +54,46 @@
         <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
+    </li>
+    <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.2.0.html">Version 2.2.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.1.0.html">Version 2.1.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-2.0.0.html">Version 2.0.0</a>
+    </li>
+    <li>
+      <a href="../articles/releases/ggplot2-1.0.0.html">Version 1.0.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -152,9 +190,9 @@ interpolate 6 colours from any palette to a continuous scale.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p>Other colour scales: <code><a href='scale_alpha.html'>scale_alpha</a></code>,
-  <code><a href='scale_colour_gradient.html'>scale_colour_gradient</a></code>,
-  <code><a href='scale_colour_grey.html'>scale_colour_grey</a></code>,
-  <code><a href='scale_colour_hue.html'>scale_colour_hue</a></code></p>
+  <code><a href='scale_gradient.html'>scale_colour_gradient</a></code>,
+  <code><a href='scale_grey.html'>scale_colour_grey</a></code>,
+  <code><a href='scale_hue.html'>scale_colour_hue</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -169,14 +207,14 @@ interpolate 6 colours from any palette to a continuous scale.</p>
 <span class='co'># scale_fill_brewer works just the same as</span>
 <span class='co'># scale_colour_brewer but for fill colours</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>price</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
-  <span class='fu'><a href='geom_freqpoly.html'>geom_histogram</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+  <span class='fu'><a href='geom_histogram.html'>geom_histogram</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
 <span class='no'>p</span> + <span class='fu'>scale_fill_brewer</span>()</div><img src='scale_colour_brewer-12.png' alt='' width='540' height='400' /><div class='input'><span class='co'># the order of colour can be reversed</span>
 <span class='no'>p</span> + <span class='fu'>scale_fill_brewer</span>(<span class='kw'>direction</span> <span class='kw'>=</span> -<span class='fl'>1</span>)</div><img src='scale_colour_brewer-14.png' alt='' width='540' height='400' /><div class='input'><span class='co'># the brewer scales look better on a darker background</span>
 <span class='no'>p</span> + <span class='fu'>scale_fill_brewer</span>(<span class='kw'>direction</span> <span class='kw'>=</span> -<span class='fl'>1</span>) + <span class='fu'><a href='ggtheme.html'>theme_dark</a></span>()</div><img src='scale_colour_brewer-16.png' alt='' width='540' height='400' /><div class='input'>
 
 <span class='co'># Use distiller variant with continous data</span>
 <span class='no'>v</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>faithfuld</span>) +
-  <span class='fu'><a href='geom_raster.html'>geom_tile</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>waiting</span>, <span class='no'>eruptions</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>density</span>))
+  <span class='fu'><a href='geom_tile.html'>geom_tile</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>waiting</span>, <span class='no'>eruptions</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>density</span>))
 <span class='no'>v</span></div><img src='scale_colour_brewer-18.png' alt='' width='540' height='400' /><div class='input'><span class='no'>v</span> + <span class='fu'>scale_fill_distiller</span>()</div><img src='scale_colour_brewer-20.png' alt='' width='540' height='400' /><div class='input'><span class='no'>v</span> + <span class='fu'>scale_fill_distiller</span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"Spectral"</span>)</div><img src='scale_colour_brewer-22.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
