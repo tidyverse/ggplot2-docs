@@ -83,22 +83,18 @@
     
     
 <div class="contents">
-<p>I&rsquo;m planning to release ggplot2 2.2.0 in early November. In preparation, I&rsquo;d like to announce that a release candidate is now available: version 2.1.0.9001. Please try it out, and file an <a href="https://github.com/tidyverse/ggplot2/issues">issue on GitHub</a> if you discover any problems. I hope we can find and fix any major issues before the official release.</p>
-<p>Install the pre-release version with:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
-devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggplot2"</span>)</code></pre></div>
-<p>If you discover a major bug that breaks your plots, please <a href="https://github.com/tidyverse/ggplot2/issues">file a minimal reprex</a>, and then roll back to the released version with:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"ggplot2"</span>)</code></pre></div>
-<p>ggplot2 2.2.0 will be a relatively major release including:</p>
+<p>I&rsquo;m very pleased to announce ggplot2 2.2.0. It includes four major new features:</p>
 <ul><li>Subtitles and captions.</li>
 <li>A large rewrite of the facetting system.</li>
 <li>Improved theme options.</li>
-<li>Better stacking</li>
-<li><a href="https://github.com/tidyverse/ggplot2/blob/master/NEWS.md">Numerous bug fixes and minor improvements</a>.</li>
-</ul><p>The majority of this work was carried out by <a href="https://github.com/thomasp85">Thomas Pederson</a>, who I was lucky to have as my &ldquo;ggplot2 intern&rdquo; this summer. Make sure to check out other visualisation packages: <a href="https://github.com/thomasp85/ggraph">ggraph</a>, <a href="https://github.com/thomasp85/ggforce">ggforce</a>, and <a href="https://github.com/thomasp85/tweenr">tweenr</a>.</p>
+<li>Better stacking.</li>
+</ul><p>As well as numerous bug fixes and minor improvements, as described in the <a href="http://github.com/hadley/ggplot2/releases/tag/v2.2.0">release notes</a>.</p>
+<p>The majority of this work was carried out by <a href="https://github.com/thomasp85">Thomas Pederson</a>, who I was lucky to have as my &ldquo;ggplot2 intern&rdquo; this summer. Make sure to check out his other visualisation packages: <a href="https://github.com/thomasp85/ggraph">ggraph</a>, <a href="https://github.com/thomasp85/ggforce">ggforce</a>, and <a href="https://github.com/thomasp85/tweenr">tweenr</a>.</p>
+<p>Install ggplot2 with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"ggplot2"</span>)</code></pre></div>
 <div id="subtitles-and-captions" class="section level2">
 <h2 class="hasAnchor"><html><body><a href="#subtitles-and-captions" class="anchor"> </a></body></html>Subtitles and captions</h2>
-<p>Thanks to <a href="https://rud.is">Bob Rudis</a>, you can now add subtitles and captions:</p>
+<p>Thanks to <a href="https://rud.is">Bob Rudis</a>, you can now add subtitles and captions to your plots:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">color =</span> class)) +
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_smooth.html">geom_smooth</a></span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">method =</span> <span class="st">"loess"</span>) +
@@ -107,37 +103,37 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggp
     <span class="dt">subtitle =</span> <span class="st">"Two seaters (sports cars) are an exception because of their light weight"</span>,
     <span class="dt">caption =</span> <span class="st">"Data from fueleconomy.gov"</span>
   )</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-3-1.png" width="75%"></p>
+<p><img src="ggplot2-2.2.0_files/figure-html/subtitle-1.png" width="75%"></p>
 <p>These are controlled by the theme settings <code>plot.subtitle</code> and <code>plot.caption</code>.</p>
-<p>The plot title is now aligned to the left by default. To return to the previous centering, use <code><a href="../../reference/theme.html">theme(plot.title = element_text(hjust = 0.5))</a></code>.</p>
+<p>The plot title is now aligned to the left by default. To return to the previous centered alignment, use <code><a href="../../reference/theme.html">theme(plot.title = element_text(hjust = 0.5))</a></code>.</p>
 </div>
 <div id="facets" class="section level2">
 <h2 class="hasAnchor"><html><body><a href="#facets" class="anchor"> </a></body></html>Facets</h2>
-<p>The facet and layout implementation has been moved to ggproto and received a large rewrite and refactoring. This will allow others to create their own facetting systems, as descrbied in the <em>Extending ggplot2</em> vignette. Along with the rewrite a number of features and improvements has been added, most notably:</p>
-<ul><li><p>Functions in facetting formulas, thanks to <a href="https://github.com/DanRuderman">Dan Ruderman</a>.</p>
+<p>The facet and layout implementation has been moved to ggproto and received a large rewrite and refactoring. This will allow others to create their own facetting systems, as descrbied in the <code><a href="../../articles/extending-ggplot2.html">vignette("extending-ggplot2")</a></code>. Along with the rewrite a number of features and improvements has been added, most notably:</p>
+<ul><li><p>ou can now use functions in facetting formulas, thanks to <a href="https://github.com/DanRuderman">Dan Ruderman</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(diamonds, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(carat, price)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_hex.html">geom_hex</a></span>(<span class="dt">bins =</span> <span class="dv">20</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(~<span class="kw"><a href="../../reference/cut_interval.html">cut_number</a></span>(depth, <span class="dv">6</span>))</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-4-1.png" width="75%"></p></li>
-<li><p>Axes were dropped when the panels in <code><a href="../../reference/facet_wrap.html">facet_wrap()</a></code> did not completely fill the rectangle. Now, an axis is drawn underneath the hanging panels:</p>
+<p><img src="ggplot2-2.2.0_files/figure-html/facet-1-1.png" width="75%"></p></li>
+<li><p>Axes are now drawn under the panels in <code><a href="../../reference/facet_wrap.html">facet_wrap()</a></code> when the rentangle is not completely filled.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(~class)</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-5-1.png" width="75%"></p></li>
-<li><p>It is now possible to set the position of the axes through the <code>position</code> argument in the scale constructor:</p>
+<p><img src="ggplot2-2.2.0_files/figure-html/facet-2-1.png" width="75%"></p></li>
+<li><p>You can set the position of the axes with the <code>position</code> argument.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/scale_continuous.html">scale_x_continuous</a></span>(<span class="dt">position =</span> <span class="st">"top"</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">position =</span> <span class="st">"right"</span>)</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-6-1.png" width="75%"></p></li>
-<li><p>You can display a secondary axis that is a one-to-one transformation of the primary axis with the <code>sec.axis</code> argument:</p>
+<p><img src="ggplot2-2.2.0_files/figure-html/facet-3-1.png" width="75%"></p></li>
+<li><p>You can display a secondary axis that is a one-to-one transformation of the primary axis with <code>sec.axis</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/scale_continuous.html">scale_y_continuous</a></span>(
     <span class="st">"mpg (US)"</span>, 
     <span class="dt">sec.axis =</span> <span class="kw"><a href="../../reference/sec_axis.html">sec_axis</a></span>(~<span class="st"> </span>. *<span class="st"> </span><span class="fl">1.20</span>, <span class="dt">name =</span> <span class="st">"mpg (UK)"</span>)
   )</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-7-1.png" width="75%"></p></li>
+<p><img src="ggplot2-2.2.0_files/figure-html/facet-4-1.png" width="75%"></p></li>
 <li><p>Strips can be placed on any side, and the placement with respect to axes can be controlled with the <code>strip.placement</code> theme option.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
@@ -148,7 +144,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggp
     <span class="dt">strip.text =</span> <span class="kw"><a href="../../reference/element.html">element_text</a></span>(<span class="dt">face =</span> <span class="st">"bold"</span>)
   ) +
 <span class="st">  </span><span class="kw"><a href="../../reference/labs.html">xlab</a></span>(<span class="ot">NULL</span>)</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-8-1.png" width="75%"></p></li>
+<p><img src="ggplot2-2.2.0_files/figure-html/facet-5-1.png" width="75%"></p></li>
 </ul></div>
 <div id="theming" class="section level2">
 <h2 class="hasAnchor"><html><body><a href="#theming" class="anchor"> </a></body></html>Theming</h2>
@@ -162,18 +158,20 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggp
 <span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(
     <span class="dt">axis.line =</span> <span class="kw"><a href="../../reference/element.html">element_line</a></span>(<span class="dt">arrow =</span> arrow)
   )</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-9-1.png" width="75%"></p></li>
+<p><img src="ggplot2-2.2.0_files/figure-html/theme-1-1.png" width="75%"></p></li>
 <li><p>Control of legend styling has been improved. The whole legend area can be aligned according to the plot area and a box can be drawn around all legends:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy, <span class="dt">shape =</span> drv, <span class="dt">colour =</span> fl)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(
     <span class="dt">legend.justification =</span> <span class="st">"top"</span>, 
+    <span class="dt">legend.box =</span> <span class="st">"horizontal"</span>,
     <span class="dt">legend.box.margin =</span> <span class="kw"><a href="../../reference/element.html">margin</a></span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="st">"mm"</span>), 
+    <span class="dt">legend.margin =</span> <span class="kw"><a href="../../reference/element.html">margin</a></span>(),
     <span class="dt">legend.box.background =</span> <span class="kw"><a href="../../reference/element.html">element_rect</a></span>(<span class="dt">colour =</span> <span class="st">"grey50"</span>)
   )</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-10-1.png" width="75%"></p></li>
-<li><p><code>panel.margin</code> and <code>legend.margin</code> have been renamed to <code>panel.spacing</code> and <code>legend.spacing</code> respectively as this better indicates their roles. A new <code>legend.margin</code> has been actually controls the margin around each legend.</p></li>
-<li><p>When computing the height of titles ggplot2, now inclues the height of the descenders (i.e.&nbsp;the bits <code>g</code> and <code>y</code> that hang underneath). This makes improves the margins around titles, particularly the y axis label. I have also very slightly increased the inner margins of axis titles, and removed the outer margins.</p></li>
+<p><img src="ggplot2-2.2.0_files/figure-html/theme-2-1.png" width="75%"></p></li>
+<li><p><code>panel.margin</code> and <code>legend.margin</code> have been renamed to <code>panel.spacing</code> and <code>legend.spacing</code> respectively, as this better indicates their roles. A new <code>legend.margin</code> actually controls the margin around each legend.</p></li>
+<li><p>When computing the height of titles, ggplot2 now inclues the height of the descenders (i.e.&nbsp;the bits <code>g</code> and <code>y</code> that hang underneath). This improves the margins around titles, particularly the y axis label. I have also very slightly increased the inner margins of axis titles, and removed the outer margins.</p></li>
 <li><p>The default themes has been tweaked by <a href="http://www.obs-vlfr.fr/~irisson/">Jean-Olivier Irisson</a> making them better match <code><a href="../../reference/ggtheme.html">theme_grey()</a></code>.</p></li>
 <li><p>Lastly, the <code><a href="../../reference/theme.html">theme()</a></code> function now has named arguments so autocomplete and documentation suggestions are vastly improved.</p></li>
 </ul></div>
@@ -188,17 +186,33 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggp
 
 <span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price, <span class="dt">fill =</span> color))</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-11-1.png" width="75%"></p>
+<p><img src="ggplot2-2.2.0_files/figure-html/stack-1-1.png" width="75%"></p>
 <p>(Note also the new <code><a href="../../reference/geom_bar.html">geom_col()</a></code> which is short-hand for <code><a href="../../reference/geom_bar.html">geom_bar(stat = "identity")</a></code>, contributed by Bob Rudis.)</p>
-<p>Additionally, you can now stack negative values:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price_rel, <span class="dt">fill =</span> color))</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-12-1.png" width="75%"></p>
-<p>The overall ordering cannot necessarily be matched in the presence of negative values, but the ordering on either side of the x-axis will match.</p>
 <p>If you want to stack in the opposite order, try <a href="http://forcats.tidyverse.org/reference/fct_rev.html"><code>forcats::fct_rev()</code></a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) +<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price, <span class="dt">fill =</span> <span class="kw">fct_rev</span>(color)))</code></pre></div>
-<p><img src="ggplot2-2.2.0_files/figure-html/unnamed-chunk-13-1.png" width="75%"></p>
+<p><img src="ggplot2-2.2.0_files/figure-html/stack-2-1.png" width="75%"></p>
+<p>Additionally, you can now stack negative values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) +<span class="st"> </span>
+<span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price_rel, <span class="dt">fill =</span> color))</code></pre></div>
+<p><img src="ggplot2-2.2.0_files/figure-html/stack-3-1.png" width="75%"></p>
+<p>The overall ordering cannot necessarily be matched in the presence of negative values, but the ordering on either side of the x-axis will match.</p>
+<p>Labels can also be stacked, but the default position is suboptimal:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">series &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">time =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>),<span class="kw">rep</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="dv">4</span>, <span class="dv">4</span>)),
+  <span class="dt">type =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>), <span class="dv">4</span>),
+  <span class="dt">value =</span> <span class="kw">rpois</span>(<span class="dv">16</span>, <span class="dv">10</span>)
+)
+
+<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(series, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(time, value, <span class="dt">group =</span> type)) +
+<span class="st">  </span><span class="kw"><a href="../../reference/geom_ribbon.html">geom_area</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> type)) +
+<span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">label =</span> type), <span class="dt">position =</span> <span class="st">"stack"</span>)</code></pre></div>
+<p><img src="ggplot2-2.2.0_files/figure-html/stack-4-1.png" width="75%"></p>
+<p>You can improve the position with the <code>vjust</code> parameter. A <code>vjust</code> of 0.5 will center the labels inside the corresponding area:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(series, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(time, value, <span class="dt">group =</span> type)) +
+<span class="st">  </span><span class="kw"><a href="../../reference/geom_ribbon.html">geom_area</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> type)) +
+<span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">label =</span> type), <span class="dt">position =</span> <span class="kw"><a href="../../reference/position_stack.html">position_stack</a></span>(<span class="dt">vjust =</span> <span class="fl">0.5</span>))</code></pre></div>
+<p><img src="ggplot2-2.2.0_files/figure-html/stack-5-1.png" width="75%"></p>
 </div>
 </div>
   </div>
