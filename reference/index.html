@@ -115,633 +115,854 @@
       <div class="row">
   <div class="col-md-9">
     <div class="page-header">
-      <h1>Function reference</h1>
-      <h4>version&nbsp;2.2.0</h4>
+      <h1>
+        Reference
+        <small>version&nbsp;2.2.1.9000</small>
+      </h1>
     </div>
 
     <div class="contents">
-      <h2 id="section-plot-basics" class="hasAnchor"><a href="#section-plot-basics" class="anchor"></a>Plot basics</h2>
-      <p class="section-desc"><p>All ggplot2 plots with a call to <code><a href="../reference/ggplot.html">ggplot()</a></code>, supplying default data and aesthethic mappings, specified by <code><a href="../reference/aes.html">aes()</a></code>. You then add layers, scales, coords and facets with <code>+</code>. To save a plot to disk, use <code><a href="../reference/ggsave.html">ggsave()</a></code>.</p></p>
+      <table class="ref-index">
 
-      
-      <p><a href="aes.html">Construct aesthetic mappings</a></p>
-      <ul>
-        <li><code><a href="aes.html">aes</a></code></li>
-      </ul>
-      
-      <p><a href="gg-add.html">Add components to a plot</a></p>
-      <ul>
-        <li><code><a href="gg-add.html">+.gg</a></code></li><li><code><a href="gg-add.html">%+%</a></code></li>
-      </ul>
-      
-      <p><a href="ggplot.html">Create a new ggplot</a></p>
-      <ul>
-        <li><code><a href="ggplot.html">ggplot</a></code></li>
-      </ul>
-      
-      <p><a href="ggsave.html">Save a ggplot (or other grid object) with sensible defaults</a></p>
-      <ul>
-        <li><code><a href="ggsave.html">ggsave</a></code></li>
-      </ul>
-      
-      <p><a href="qplot.html">Quick plot</a></p>
-      <ul>
-        <li><code><a href="qplot.html">qplot</a></code></li><li><code><a href="qplot.html">quickplot</a></code></li>
-      </ul>
-          <h2 id="section-layer-geoms" class="hasAnchor"><a href="#section-layer-geoms" class="anchor"></a>Layer: geoms</h2>
-      <p class="section-desc"><p>A layer combines data, aesthetic mapping, a geom (geometric object), a stat (statistical transformation), and a position adjustment. Typically, you will create layers using a <code>geom_</code> function, overriding the default position and stat if needed.</p></p>
+      <colgroup>
+        <col class="alias" />
+        <col class="title" />
+      </colgroup>
 
-      <img src="icons/geom_abline.png" width="40" height="40" class="icon" />
-      <p><a href="geom_abline.html">Reference lines: horizontal, vertical, and diagonal</a></p>
-      <ul>
-        <li><code><a href="geom_abline.html">geom_abline</a></code></li><li><code><a href="geom_abline.html">geom_hline</a></code></li><li><code><a href="geom_abline.html">geom_vline</a></code></li>
-      </ul>
-      <img src="icons/geom_bar.png" width="40" height="40" class="icon" />
-      <p><a href="geom_bar.html">Bars charts</a></p>
-      <ul>
-        <li><code><a href="geom_bar.html">geom_bar</a></code></li><li><code><a href="geom_bar.html">geom_col</a></code></li><li><code><a href="geom_bar.html">stat_count</a></code></li>
-      </ul>
-      
-      <p><a href="geom_bin2d.html">Heatmap of 2d bin counts</a></p>
-      <ul>
-        <li><code><a href="geom_bin2d.html">geom_bin2d</a></code></li><li><code><a href="geom_bin2d.html">stat_bin2d</a></code></li><li><code><a href="geom_bin2d.html">stat_bin_2d</a></code></li>
-      </ul>
-      
-      <p><a href="geom_blank.html">Draw nothing</a></p>
-      <ul>
-        <li><code><a href="geom_blank.html">geom_blank</a></code></li>
-      </ul>
-      <img src="icons/geom_boxplot.png" width="40" height="40" class="icon" />
-      <p><a href="geom_boxplot.html">A box and whiskers plot (in the style of Tukey)</a></p>
-      <ul>
-        <li><code><a href="geom_boxplot.html">geom_boxplot</a></code></li><li><code><a href="geom_boxplot.html">stat_boxplot</a></code></li>
-      </ul>
-      <img src="icons/geom_contour.png" width="40" height="40" class="icon" />
-      <p><a href="geom_contour.html">2d contours of a 3d surface</a></p>
-      <ul>
-        <li><code><a href="geom_contour.html">geom_contour</a></code></li><li><code><a href="geom_contour.html">stat_contour</a></code></li>
-      </ul>
-      <img src="icons/stat_sum.png" width="40" height="40" class="icon" />
-      <p><a href="geom_count.html">Count overlapping points</a></p>
-      <ul>
-        <li><code><a href="geom_count.html">geom_count</a></code></li><li><code><a href="geom_count.html">stat_sum</a></code></li>
-      </ul>
-      
-      <p><a href="geom_density_2d.html">Contours of a 2d density estimate</a></p>
-      <ul>
-        <li><code><a href="geom_density_2d.html">geom_density2d</a></code></li><li><code><a href="geom_density_2d.html">geom_density_2d</a></code></li><li><code><a href="geom_density_2d.html">stat_density2d</a></code></li><li><code><a href="geom_density_2d.html">stat_density_2d</a></code></li>
-      </ul>
-      <img src="icons/geom_density.png" width="40" height="40" class="icon" />
-      <p><a href="geom_density.html">Smoothed density estimates</a></p>
-      <ul>
-        <li><code><a href="geom_density.html">geom_density</a></code></li><li><code><a href="geom_density.html">stat_density</a></code></li>
-      </ul>
-      <img src="icons/geom_dotplot.png" width="40" height="40" class="icon" />
-      <p><a href="geom_dotplot.html">Dot plot</a></p>
-      <ul>
-        <li><code><a href="geom_dotplot.html">geom_dotplot</a></code></li>
-      </ul>
-      <img src="icons/geom_errorbarh.png" width="40" height="40" class="icon" />
-      <p><a href="geom_errorbarh.html">Horizontal error bars</a></p>
-      <ul>
-        <li><code><a href="geom_errorbarh.html">geom_errorbarh</a></code></li>
-      </ul>
-      
-      <p><a href="geom_hex.html">Hexagonal heatmap of 2d bin counts</a></p>
-      <ul>
-        <li><code><a href="geom_hex.html">geom_hex</a></code></li><li><code><a href="geom_hex.html">stat_bin_hex</a></code></li><li><code><a href="geom_hex.html">stat_binhex</a></code></li>
-      </ul>
-      <img src="icons/geom_freqpoly.png" width="40" height="40" class="icon" />
-      <p><a href="geom_histogram.html">Histograms and frequency polygons</a></p>
-      <ul>
-        <li><code><a href="geom_histogram.html">geom_freqpoly</a></code></li><li><code><a href="geom_histogram.html">geom_histogram</a></code></li><li><code><a href="geom_histogram.html">stat_bin</a></code></li>
-      </ul>
-      <img src="icons/geom_jitter.png" width="40" height="40" class="icon" />
-      <p><a href="geom_jitter.html">Jittered points</a></p>
-      <ul>
-        <li><code><a href="geom_jitter.html">geom_jitter</a></code></li>
-      </ul>
-      <img src="icons/geom_crossbar.png" width="40" height="40" class="icon" />
-      <p><a href="geom_linerange.html">Vertical intervals: lines, crossbars &amp; errorbars</a></p>
-      <ul>
-        <li><code><a href="geom_linerange.html">geom_crossbar</a></code></li><li><code><a href="geom_linerange.html">geom_errorbar</a></code></li><li><code><a href="geom_linerange.html">geom_linerange</a></code></li><li><code><a href="geom_linerange.html">geom_pointrange</a></code></li>
-      </ul>
-      
-      <p><a href="geom_map.html">Polygons from a reference map</a></p>
-      <ul>
-        <li><code><a href="geom_map.html">geom_map</a></code></li>
-      </ul>
-      <img src="icons/geom_line.png" width="40" height="40" class="icon" />
-      <p><a href="geom_path.html">Connect observations</a></p>
-      <ul>
-        <li><code><a href="geom_path.html">geom_line</a></code></li><li><code><a href="geom_path.html">geom_path</a></code></li><li><code><a href="geom_path.html">geom_step</a></code></li>
-      </ul>
-      <img src="icons/geom_point.png" width="40" height="40" class="icon" />
-      <p><a href="geom_point.html">Points</a></p>
-      <ul>
-        <li><code><a href="geom_point.html">geom_point</a></code></li>
-      </ul>
-      <img src="icons/geom_polygon.png" width="40" height="40" class="icon" />
-      <p><a href="geom_polygon.html">Polygons</a></p>
-      <ul>
-        <li><code><a href="geom_polygon.html">geom_polygon</a></code></li>
-      </ul>
-      
-      <p><a href="geom_qq.html">A quantile-quantile plot</a></p>
-      <ul>
-        <li><code><a href="geom_qq.html">geom_qq</a></code></li><li><code><a href="geom_qq.html">stat_qq</a></code></li>
-      </ul>
-      <img src="icons/geom_quantile.png" width="40" height="40" class="icon" />
-      <p><a href="geom_quantile.html">Quantile regression</a></p>
-      <ul>
-        <li><code><a href="geom_quantile.html">geom_quantile</a></code></li><li><code><a href="geom_quantile.html">stat_quantile</a></code></li>
-      </ul>
-      <img src="icons/geom_area.png" width="40" height="40" class="icon" />
-      <p><a href="geom_ribbon.html">Ribbons and area plots</a></p>
-      <ul>
-        <li><code><a href="geom_ribbon.html">geom_area</a></code></li><li><code><a href="geom_ribbon.html">geom_ribbon</a></code></li>
-      </ul>
-      
-      <p><a href="geom_rug.html">Rug plots in the margins</a></p>
-      <ul>
-        <li><code><a href="geom_rug.html">geom_rug</a></code></li>
-      </ul>
-      <img src="icons/geom_segment.png" width="40" height="40" class="icon" />
-      <p><a href="geom_segment.html">Line segments and curves</a></p>
-      <ul>
-        <li><code><a href="geom_segment.html">geom_curve</a></code></li><li><code><a href="geom_segment.html">geom_segment</a></code></li>
-      </ul>
-      <img src="icons/geom_smooth.png" width="40" height="40" class="icon" />
-      <p><a href="geom_smooth.html">Smoothed conditional means</a></p>
-      <ul>
-        <li><code><a href="geom_smooth.html">geom_smooth</a></code></li><li><code><a href="geom_smooth.html">stat_smooth</a></code></li>
-      </ul>
-      
-      <p><a href="geom_spoke.html">Line segments parameterised by location, direction and distance</a></p>
-      <ul>
-        <li><code><a href="geom_spoke.html">geom_spoke</a></code></li><li><code><a href="geom_spoke.html">stat_spoke</a></code></li>
-      </ul>
-      <img src="icons/geom_text.png" width="40" height="40" class="icon" />
-      <p><a href="geom_text.html">Text</a></p>
-      <ul>
-        <li><code><a href="geom_text.html">geom_label</a></code></li><li><code><a href="geom_text.html">geom_text</a></code></li>
-      </ul>
-      <img src="icons/geom_raster.png" width="40" height="40" class="icon" />
-      <p><a href="geom_tile.html">Rectangles</a></p>
-      <ul>
-        <li><code><a href="geom_tile.html">geom_raster</a></code></li><li><code><a href="geom_tile.html">geom_rect</a></code></li><li><code><a href="geom_tile.html">geom_tile</a></code></li>
-      </ul>
-      <img src="icons/geom_violin.png" width="40" height="40" class="icon" />
-      <p><a href="geom_violin.html">Violin plot</a></p>
-      <ul>
-        <li><code><a href="geom_violin.html">geom_violin</a></code></li><li><code><a href="geom_violin.html">stat_ydensity</a></code></li>
-      </ul>
-          <h2 id="section-layer-stats" class="hasAnchor"><a href="#section-layer-stats" class="anchor"></a>Layer: stats</h2>
-      <p class="section-desc"><p>A handful of layers are more easily specified with a <code>stat_</code> function, drawing attention to the statistical transformation rather than the visual appearance.</p></p>
-
-      
-      <p><a href="stat_ecdf.html">Compute empirical cumulative distribution</a></p>
-      <ul>
-        <li><code><a href="stat_ecdf.html">stat_ecdf</a></code></li>
-      </ul>
-      
-      <p><a href="stat_ellipse.html">Compute normal confidence ellipses</a></p>
-      <ul>
-        <li><code><a href="stat_ellipse.html">stat_ellipse</a></code></li>
-      </ul>
-      
-      <p><a href="stat_function.html">Compute function for each x value</a></p>
-      <ul>
-        <li><code><a href="stat_function.html">stat_function</a></code></li>
-      </ul>
-      <img src="icons/stat_identity.png" width="40" height="40" class="icon" />
-      <p><a href="stat_identity.html">Leave data as is</a></p>
-      <ul>
-        <li><code><a href="stat_identity.html">stat_identity</a></code></li>
-      </ul>
-      
-      <p><a href="stat_summary_2d.html">Bin and summarise in 2d (rectangle &amp; hexagons)</a></p>
-      <ul>
-        <li><code><a href="stat_summary_2d.html">stat_summary2d</a></code></li><li><code><a href="stat_summary_2d.html">stat_summary_2d</a></code></li><li><code><a href="stat_summary_2d.html">stat_summary_hex</a></code></li>
-      </ul>
-      
-      <p><a href="stat_summary.html">Summarise y values at unique/binned x</a></p>
-      <ul>
-        <li><code><a href="stat_summary.html">stat_summary</a></code></li><li><code><a href="stat_summary.html">stat_summary_bin</a></code></li>
-      </ul>
-      
-      <p><a href="stat_unique.html">Remove duplicates</a></p>
-      <ul>
-        <li><code><a href="stat_unique.html">stat_unique</a></code></li>
-      </ul>
-          <h2 id="section-layer-position-adjustment" class="hasAnchor"><a href="#section-layer-position-adjustment" class="anchor"></a>Layer: position adjustment</h2>
-      <p class="section-desc"><p>All layers have a position adjustment that resolves overlapping geoms. Override the default by using the <code>position</code> argument to the <code>geom_</code> or <code>stat_</code> function.</p></p>
-
-      <img src="icons/position_dodge.png" width="40" height="40" class="icon" />
-      <p><a href="position_dodge.html">Dodge overlapping objects side-to-side</a></p>
-      <ul>
-        <li><code><a href="position_dodge.html">position_dodge</a></code></li>
-      </ul>
-      <img src="icons/position_identity.png" width="40" height="40" class="icon" />
-      <p><a href="position_identity.html">Don't adjust position</a></p>
-      <ul>
-        <li><code><a href="position_identity.html">position_identity</a></code></li>
-      </ul>
-      <img src="icons/position_jitter.png" width="40" height="40" class="icon" />
-      <p><a href="position_jitter.html">Jitter points to avoid overplotting</a></p>
-      <ul>
-        <li><code><a href="position_jitter.html">position_jitter</a></code></li>
-      </ul>
-      
-      <p><a href="position_jitterdodge.html">Simultaneously dodge and jitter</a></p>
-      <ul>
-        <li><code><a href="position_jitterdodge.html">position_jitterdodge</a></code></li>
-      </ul>
-      
-      <p><a href="position_nudge.html">Nudge points a fixed distance</a></p>
-      <ul>
-        <li><code><a href="position_nudge.html">position_nudge</a></code></li>
-      </ul>
-      <img src="icons/position_fill.png" width="40" height="40" class="icon" />
-      <p><a href="position_stack.html">Stack overlapping objects on top of each another</a></p>
-      <ul>
-        <li><code><a href="position_stack.html">position_fill</a></code></li><li><code><a href="position_stack.html">position_stack</a></code></li>
-      </ul>
-          <h2 id="section-layer-annotations" class="hasAnchor"><a href="#section-layer-annotations" class="anchor"></a>Layer: annotations</h2>
-      <p class="section-desc"><p>Annotation are special types of layer than don&rsquo;t inherit global settings from the plot. Rhey are used to add fixed reference data to plot.</p></p>
-
-      
-      <p><a href="annotate.html">Create an annotation layer</a></p>
-      <ul>
-        <li><code><a href="annotate.html">annotate</a></code></li>
-      </ul>
-      
-      <p><a href="annotation_custom.html">Annotation: Custom grob</a></p>
-      <ul>
-        <li><code><a href="annotation_custom.html">annotation_custom</a></code></li>
-      </ul>
-      
-      <p><a href="annotation_logticks.html">Annotation: log tick marks</a></p>
-      <ul>
-        <li><code><a href="annotation_logticks.html">annotation_logticks</a></code></li>
-      </ul>
-      
-      <p><a href="annotation_map.html">Annotation: a maps</a></p>
-      <ul>
-        <li><code><a href="annotation_map.html">annotation_map</a></code></li>
-      </ul>
-      
-      <p><a href="annotation_raster.html">Annotation: high-performance rectangular tiling</a></p>
-      <ul>
-        <li><code><a href="annotation_raster.html">annotation_raster</a></code></li>
-      </ul>
-      
-      <p><a href="borders.html">Create a layer of map borders</a></p>
-      <ul>
-        <li><code><a href="borders.html">borders</a></code></li>
-      </ul>
-      <img src="icons/geom_abline.png" width="40" height="40" class="icon" />
-      <p><a href="geom_abline.html">Reference lines: horizontal, vertical, and diagonal</a></p>
-      <ul>
-        <li><code><a href="geom_abline.html">geom_abline</a></code></li><li><code><a href="geom_abline.html">geom_hline</a></code></li><li><code><a href="geom_abline.html">geom_vline</a></code></li>
-      </ul>
-          <h2 id="section-aesthetics" class="hasAnchor"><a href="#section-aesthetics" class="anchor"></a>Aesthetics</h2>
-      <p class="section-desc"><p>The following help topics give a broad overview of some of the ways you can use each aesthetic</p></p>
-
-      
-      <p><a href="aes_colour_fill_alpha.html">Colour related aesthetics: colour, fill and alpha</a></p>
-      <ul>
-        <li><code><a href="aes_colour_fill_alpha.html">aes_colour_fill_alpha</a></code></li><li><code><a href="aes_colour_fill_alpha.html">color</a></code></li><li><code><a href="aes_colour_fill_alpha.html">colour</a></code></li><li><code><a href="aes_colour_fill_alpha.html">fill</a></code></li>
-      </ul>
-      
-      <p><a href="aes_group_order.html">Aesthetics: grouping</a></p>
-      <ul>
-        <li><code><a href="aes_group_order.html">aes_group_order</a></code></li><li><code><a href="aes_group_order.html">group</a></code></li>
-      </ul>
-      
-      <p><a href="aes_linetype_size_shape.html">Differentiation related aesthetics: linetype, size, shape</a></p>
-      <ul>
-        <li><code><a href="aes_linetype_size_shape.html">aes_linetype_size_shape</a></code></li><li><code><a href="aes_linetype_size_shape.html">linetype</a></code></li><li><code><a href="aes_linetype_size_shape.html">shape</a></code></li><li><code><a href="aes_linetype_size_shape.html">size</a></code></li>
-      </ul>
-      
-      <p><a href="aes_position.html">Position related aesthetics: x, y, xmin, xmax, ymin, ymax, xend, yend</a></p>
-      <ul>
-        <li><code><a href="aes_position.html">aes_position</a></code></li><li><code><a href="aes_position.html">x</a></code></li><li><code><a href="aes_position.html">xend</a></code></li><li><code><a href="aes_position.html">xmax</a></code></li><li><code><a href="aes_position.html">xmin</a></code></li><li><code><a href="aes_position.html">y</a></code></li><li><code><a href="aes_position.html">yend</a></code></li><li><code><a href="aes_position.html">ymax</a></code></li><li><code><a href="aes_position.html">ymin</a></code></li>
-      </ul>
-          <h2 id="section-scales" class="hasAnchor"><a href="#section-scales" class="anchor"></a>Scales</h2>
-      <p class="section-desc"><p>Scales control the details of how data values are translated to visual properties. Override the default scales to tweak details like the axis labels or legend keys, or to use a completely different translation from data to aesthetic. <code><a href="../reference/labs.html">labs()</a></code> and <code><a href="../reference/lims.html">lims()</a></code> are convenient helpers for the most common adjustments to the labels and limits.</p></p>
-
-      
-      <p><a href="expand_limits.html">Expand the plot limits, using data</a></p>
-      <ul>
-        <li><code><a href="expand_limits.html">expand_limits</a></code></li>
-      </ul>
-      
-      <p><a href="labs.html">Modify axis, legend, and plot labels</a></p>
-      <ul>
-        <li><code><a href="labs.html">ggtitle</a></code></li><li><code><a href="labs.html">labs</a></code></li><li><code><a href="labs.html">xlab</a></code></li><li><code><a href="labs.html">ylab</a></code></li>
-      </ul>
-      
-      <p><a href="lims.html">Set scale limits</a></p>
-      <ul>
-        <li><code><a href="lims.html">lims</a></code></li><li><code><a href="lims.html">xlim</a></code></li><li><code><a href="lims.html">ylim</a></code></li>
-      </ul>
-      <img src="icons/scale_alpha.png" width="40" height="40" class="icon" />
-      <p><a href="scale_alpha.html">Alpha transparency scales</a></p>
-      <ul>
-        <li><code><a href="scale_alpha.html">scale_alpha</a></code></li><li><code><a href="scale_alpha.html">scale_alpha_continuous</a></code></li><li><code><a href="scale_alpha.html">scale_alpha_discrete</a></code></li>
-      </ul>
-      <img src="icons/scale_colour_brewer.png" width="40" height="40" class="icon" />
-      <p><a href="scale_brewer.html">Sequential, diverging and qualitative colour scales from colorbrewer.org</a></p>
-      <ul>
-        <li><code><a href="scale_brewer.html">scale_color_brewer</a></code></li><li><code><a href="scale_brewer.html">scale_color_distiller</a></code></li><li><code><a href="scale_brewer.html">scale_colour_brewer</a></code></li><li><code><a href="scale_brewer.html">scale_colour_distiller</a></code></li><li><code><a href="scale_brewer.html">scale_fill_brewer</a></code></li><li><code><a href="scale_brewer.html">scale_fill_distiller</a></code></li>
-      </ul>
-      
-      <p><a href="scale_continuous.html">Position scales for continuous data (x &amp; y)</a></p>
-      <ul>
-        <li><code><a href="scale_continuous.html">scale_x_continuous</a></code></li><li><code><a href="scale_continuous.html">scale_x_log10</a></code></li><li><code><a href="scale_continuous.html">scale_x_reverse</a></code></li><li><code><a href="scale_continuous.html">scale_x_sqrt</a></code></li><li><code><a href="scale_continuous.html">scale_y_continuous</a></code></li><li><code><a href="scale_continuous.html">scale_y_log10</a></code></li><li><code><a href="scale_continuous.html">scale_y_reverse</a></code></li><li><code><a href="scale_continuous.html">scale_y_sqrt</a></code></li>
-      </ul>
-      <img src="icons/scale_x_date.png" width="40" height="40" class="icon" />
-      <p><a href="scale_date.html">Position scales for date/time data</a></p>
-      <ul>
-        <li><code><a href="scale_date.html">scale_x_date</a></code></li><li><code><a href="scale_date.html">scale_x_datetime</a></code></li><li><code><a href="scale_date.html">scale_x_time</a></code></li><li><code><a href="scale_date.html">scale_y_date</a></code></li><li><code><a href="scale_date.html">scale_y_datetime</a></code></li><li><code><a href="scale_date.html">scale_y_time</a></code></li>
-      </ul>
-      
-      <p><a href="scale_discrete.html">Position scales for discrete data</a></p>
-      <ul>
-        <li><code><a href="scale_discrete.html">scale_x_discrete</a></code></li><li><code><a href="scale_discrete.html">scale_y_discrete</a></code></li>
-      </ul>
-      <img src="icons/scale_colour_gradient.png" width="40" height="40" class="icon" />
-      <p><a href="scale_gradient.html">Gradient colour scales</a></p>
-      <ul>
-        <li><code><a href="scale_gradient.html">scale_color_continuous</a></code></li><li><code><a href="scale_gradient.html">scale_color_gradient</a></code></li><li><code><a href="scale_gradient.html">scale_color_gradient2</a></code></li><li><code><a href="scale_gradient.html">scale_color_gradientn</a></code></li><li><code><a href="scale_gradient.html">scale_colour_continuous</a></code></li><li><code><a href="scale_gradient.html">scale_colour_date</a></code></li><li><code><a href="scale_gradient.html">scale_colour_datetime</a></code></li><li><code><a href="scale_gradient.html">scale_colour_gradient</a></code></li><li><code><a href="scale_gradient.html">scale_colour_gradient2</a></code></li><li><code><a href="scale_gradient.html">scale_colour_gradientn</a></code></li><li><code><a href="scale_gradient.html">scale_fill_continuous</a></code></li><li><code><a href="scale_gradient.html">scale_fill_date</a></code></li><li><code><a href="scale_gradient.html">scale_fill_datetime</a></code></li><li><code><a href="scale_gradient.html">scale_fill_gradient</a></code></li><li><code><a href="scale_gradient.html">scale_fill_gradient2</a></code></li><li><code><a href="scale_gradient.html">scale_fill_gradientn</a></code></li>
-      </ul>
-      <img src="icons/scale_colour_grey.png" width="40" height="40" class="icon" />
-      <p><a href="scale_grey.html">Sequential grey colour scales</a></p>
-      <ul>
-        <li><code><a href="scale_grey.html">scale_color_grey</a></code></li><li><code><a href="scale_grey.html">scale_colour_grey</a></code></li><li><code><a href="scale_grey.html">scale_fill_grey</a></code></li>
-      </ul>
-      <img src="icons/scale_colour_hue.png" width="40" height="40" class="icon" />
-      <p><a href="scale_hue.html">Evenly spaced colours for discrete data</a></p>
-      <ul>
-        <li><code><a href="scale_hue.html">scale_color_discrete</a></code></li><li><code><a href="scale_hue.html">scale_color_hue</a></code></li><li><code><a href="scale_hue.html">scale_colour_discrete</a></code></li><li><code><a href="scale_hue.html">scale_colour_hue</a></code></li><li><code><a href="scale_hue.html">scale_fill_discrete</a></code></li><li><code><a href="scale_hue.html">scale_fill_hue</a></code></li>
-      </ul>
-      <img src="icons/scale_colour_identity.png" width="40" height="40" class="icon" />
-      <p><a href="scale_identity.html">Use values without scaling</a></p>
-      <ul>
-        <li><code><a href="scale_identity.html">scale_alpha_identity</a></code></li><li><code><a href="scale_identity.html">scale_color_identity</a></code></li><li><code><a href="scale_identity.html">scale_colour_identity</a></code></li><li><code><a href="scale_identity.html">scale_fill_identity</a></code></li><li><code><a href="scale_identity.html">scale_linetype_identity</a></code></li><li><code><a href="scale_identity.html">scale_shape_identity</a></code></li><li><code><a href="scale_identity.html">scale_size_identity</a></code></li>
-      </ul>
-      <img src="icons/scale_linetype.png" width="40" height="40" class="icon" />
-      <p><a href="scale_linetype.html">Scale for line patterns</a></p>
-      <ul>
-        <li><code><a href="scale_linetype.html">scale_linetype</a></code></li><li><code><a href="scale_linetype.html">scale_linetype_continuous</a></code></li><li><code><a href="scale_linetype.html">scale_linetype_discrete</a></code></li>
-      </ul>
-      <img src="icons/scale_colour_manual.png" width="40" height="40" class="icon" />
-      <p><a href="scale_manual.html">Create your own discrete scale</a></p>
-      <ul>
-        <li><code><a href="scale_manual.html">scale_alpha_manual</a></code></li><li><code><a href="scale_manual.html">scale_color_manual</a></code></li><li><code><a href="scale_manual.html">scale_colour_manual</a></code></li><li><code><a href="scale_manual.html">scale_fill_manual</a></code></li><li><code><a href="scale_manual.html">scale_linetype_manual</a></code></li><li><code><a href="scale_manual.html">scale_shape_manual</a></code></li><li><code><a href="scale_manual.html">scale_size_manual</a></code></li>
-      </ul>
-      <img src="icons/scale_shape.png" width="40" height="40" class="icon" />
-      <p><a href="scale_shape.html">Scales for shapes, aka glyphs</a></p>
-      <ul>
-        <li><code><a href="scale_shape.html">scale_shape</a></code></li><li><code><a href="scale_shape.html">scale_shape_continuous</a></code></li><li><code><a href="scale_shape.html">scale_shape_discrete</a></code></li>
-      </ul>
-      <img src="icons/scale_size.png" width="40" height="40" class="icon" />
-      <p><a href="scale_size.html">Scales for area or radius</a></p>
-      <ul>
-        <li><code><a href="scale_size.html">scale_radius</a></code></li><li><code><a href="scale_size.html">scale_size</a></code></li><li><code><a href="scale_size.html">scale_size_area</a></code></li><li><code><a href="scale_size.html">scale_size_continuous</a></code></li><li><code><a href="scale_size.html">scale_size_date</a></code></li><li><code><a href="scale_size.html">scale_size_datetime</a></code></li><li><code><a href="scale_size.html">scale_size_discrete</a></code></li>
-      </ul>
-          <h2 id="section-guides-axes-and-legends" class="hasAnchor"><a href="#section-guides-axes-and-legends" class="anchor"></a>Guides: axes and legends</h2>
-      <p class="section-desc"><p>The guides (the axes and legends) help readers interpret your plots. Guides are mostly controlled via the scale (e.g.&nbsp;with the <code>limits</code>, <code>breaks</code>, and <code>labels</code> arguments), but sometimes you will need additional cover over the guide apperance. Use <code><a href="../reference/guides.html">guides()</a></code> or the <code>guide</code> argument to individual scales along with <code><a href="../reference/guide_colourbar.html">guide_colourbar()</a></code> or <code><a href="../reference/guide_legend.html">guide_legend()</a></code>.</p></p>
-
-      
-      <p><a href="guide_colourbar.html">Continuous colour bar guide</a></p>
-      <ul>
-        <li><code><a href="guide_colourbar.html">guide_colorbar</a></code></li><li><code><a href="guide_colourbar.html">guide_colourbar</a></code></li>
-      </ul>
-      
-      <p><a href="guide_legend.html">Legend guide</a></p>
-      <ul>
-        <li><code><a href="guide_legend.html">guide_legend</a></code></li>
-      </ul>
-      
-      <p><a href="guides.html">Set guides for each scale</a></p>
-      <ul>
-        <li><code><a href="guides.html">guides</a></code></li>
-      </ul>
-      
-      <p><a href="sec_axis.html">Specify a secondary axis</a></p>
-      <ul>
-        <li><code><a href="sec_axis.html">derive</a></code></li><li><code><a href="sec_axis.html">dup_axis</a></code></li><li><code><a href="sec_axis.html">sec_axis</a></code></li>
-      </ul>
-          <h2 id="section-facetting" class="hasAnchor"><a href="#section-facetting" class="anchor"></a>Facetting</h2>
-      <p class="section-desc"><p>Facetting generates small multiples, each displaying a different subset of the data. Facets are an alternative to aesthetics for displaying additional discrete variables.</p></p>
-
-      <img src="icons/facet_grid.png" width="40" height="40" class="icon" />
-      <p><a href="facet_grid.html">Lay out panels in a grid</a></p>
-      <ul>
-        <li><code><a href="facet_grid.html">facet_grid</a></code></li>
-      </ul>
-      
-      <p><a href="facet_wrap.html">Wrap a 1d ribbon of panels into 2d</a></p>
-      <ul>
-        <li><code><a href="facet_wrap.html">facet_wrap</a></code></li>
-      </ul>
-          <h2 id="section-facetting-labels" class="hasAnchor"><a href="#section-facetting-labels" class="anchor"></a>Facetting: labels</h2>
-      <p class="section-desc"><p>These functions provide a flexible toolkit for controlling the display of the &ldquo;strip&rdquo; labels on facets.</p></p>
-
-      
-      <p><a href="label_bquote.html">Label with mathematical expressions</a></p>
-      <ul>
-        <li><code><a href="label_bquote.html">label_bquote</a></code></li>
-      </ul>
-      
-      <p><a href="labeller.html">Construct labelling specification</a></p>
-      <ul>
-        <li><code><a href="labeller.html">labeller</a></code></li>
-      </ul>
-      
-      <p><a href="labellers.html">Useful labeller functions</a></p>
-      <ul>
-        <li><code><a href="labellers.html">label_both</a></code></li><li><code><a href="labellers.html">label_context</a></code></li><li><code><a href="labellers.html">label_parsed</a></code></li><li><code><a href="labellers.html">label_value</a></code></li><li><code><a href="labellers.html">label_wrap_gen</a></code></li><li><code><a href="labellers.html">labellers</a></code></li>
-      </ul>
-          <h2 id="section-coordinate-systems" class="hasAnchor"><a href="#section-coordinate-systems" class="anchor"></a>Coordinate systems</h2>
-      <p class="section-desc"><p>The coordinate system determines how the <code>x</code> and <code>y</code> aesthetics combine to position elements in the plot. The default coordinate system is Cartesian (<code><a href="../reference/coord_cartesian.html">coord_cartesian()</a></code>), which can be tweaked with <code><a href="../reference/coord_map.html">coord_map()</a></code>, <code><a href="../reference/coord_fixed.html">coord_fixed()</a></code>, <code><a href="../reference/coord_flip.html">coord_flip()</a></code>, and <code><a href="../reference/coord_trans.html">coord_trans()</a></code>, or completely replaced with <code><a href="../reference/coord_polar.html">coord_polar()</a></code>.</p></p>
-
-      <img src="icons/coord_cartesian.png" width="40" height="40" class="icon" />
-      <p><a href="coord_cartesian.html">Cartesian coordinates</a></p>
-      <ul>
-        <li><code><a href="coord_cartesian.html">coord_cartesian</a></code></li>
-      </ul>
-      <img src="icons/coord_fixed.png" width="40" height="40" class="icon" />
-      <p><a href="coord_fixed.html">Cartesian coordinates with fixed &quot;aspect ratio&quot;</a></p>
-      <ul>
-        <li><code><a href="coord_fixed.html">coord_equal</a></code></li><li><code><a href="coord_fixed.html">coord_fixed</a></code></li>
-      </ul>
-      <img src="icons/coord_flip.png" width="40" height="40" class="icon" />
-      <p><a href="coord_flip.html">Cartesian coordinates with x and y flipped</a></p>
-      <ul>
-        <li><code><a href="coord_flip.html">coord_flip</a></code></li>
-      </ul>
-      <img src="icons/coord_map.png" width="40" height="40" class="icon" />
-      <p><a href="coord_map.html">Map projections</a></p>
-      <ul>
-        <li><code><a href="coord_map.html">coord_map</a></code></li><li><code><a href="coord_map.html">coord_quickmap</a></code></li>
-      </ul>
-      <img src="icons/coord_polar.png" width="40" height="40" class="icon" />
-      <p><a href="coord_polar.html">Polar coordinates</a></p>
-      <ul>
-        <li><code><a href="coord_polar.html">coord_polar</a></code></li>
-      </ul>
-      
-      <p><a href="coord_trans.html">Transformed Cartesian coordinate system</a></p>
-      <ul>
-        <li><code><a href="coord_trans.html">coord_trans</a></code></li>
-      </ul>
-          <h2 id="section-themes" class="hasAnchor"><a href="#section-themes" class="anchor"></a>Themes</h2>
-      <p class="section-desc"><p>Themes control the display of all non-data elements of the plot. You can override all settings with a complete theme like <code><a href="../reference/ggtheme.html">theme_bw()</a></code>, or choose to tweak individual settings by using <code><a href="../reference/theme.html">theme()</a></code> and the <code>element_</code> functions. Use <code><a href="../reference/theme_get.html">theme_set()</a></code> to modify the active theme, affecting all future plots.</p></p>
-
-      
-      <p><a href="element.html">Theme elements</a></p>
-      <ul>
-        <li><code><a href="element.html">element_blank</a></code></li><li><code><a href="element.html">element_line</a></code></li><li><code><a href="element.html">element_rect</a></code></li><li><code><a href="element.html">element_text</a></code></li><li><code><a href="element.html">margin</a></code></li><li><code><a href="element.html">rel</a></code></li>
-      </ul>
-      
-      <p><a href="ggtheme.html">Complete themes</a></p>
-      <ul>
-        <li><code><a href="ggtheme.html">theme_bw</a></code></li><li><code><a href="ggtheme.html">theme_classic</a></code></li><li><code><a href="ggtheme.html">theme_dark</a></code></li><li><code><a href="ggtheme.html">theme_gray</a></code></li><li><code><a href="ggtheme.html">theme_grey</a></code></li><li><code><a href="ggtheme.html">theme_light</a></code></li><li><code><a href="ggtheme.html">theme_linedraw</a></code></li><li><code><a href="ggtheme.html">theme_minimal</a></code></li><li><code><a href="ggtheme.html">theme_void</a></code></li>
-      </ul>
-      
-      <p><a href="theme_get.html">Get, set, and modify the active theme</a></p>
-      <ul>
-        <li><code><a href="theme_get.html">%+replace%</a></code></li><li><code><a href="theme_get.html">theme_get</a></code></li><li><code><a href="theme_get.html">theme_replace</a></code></li><li><code><a href="theme_get.html">theme_set</a></code></li><li><code><a href="theme_get.html">theme_update</a></code></li>
-      </ul>
-      
-      <p><a href="theme.html">Modify components of a theme</a></p>
-      <ul>
-        <li><code><a href="theme.html">theme</a></code></li>
-      </ul>
-          <h2 id="section-programming-with-ggplot-" class="hasAnchor"><a href="#section-programming-with-ggplot-" class="anchor"></a>Programming with ggplot2</h2>
-      <p class="section-desc"><p>These functions provides tools to help you program with ggplot2, creating functions and for-loops that generate plots for you.</p></p>
-
-      
-      <p><a href="aes_.html">Define aesthetic mappings programatically</a></p>
-      <ul>
-        <li><code><a href="aes_.html">aes_</a></code></li><li><code><a href="aes_.html">aes_q</a></code></li><li><code><a href="aes_.html">aes_string</a></code></li>
-      </ul>
-      
-      <p><a href="print.ggplot.html">Explicitly draw plot</a></p>
-      <ul>
-        <li><code><a href="print.ggplot.html">plot.ggplot</a></code></li><li><code><a href="print.ggplot.html">print.ggplot</a></code></li>
-      </ul>
-          <h2 id="section-extending-ggplot-" class="hasAnchor"><a href="#section-extending-ggplot-" class="anchor"></a>Extending ggplot2</h2>
-      <p class="section-desc"><p>To create your own geoms, stats, scales, and facets, you&rsquo;ll need to learn a bit about the object oriented system that ggplot2 uses. Start by reading <code><a href="../articles/extending-ggplot2.html">vignette("extending-ggplot2")</a></code> then consult these functions for more details.</p></p>
-
-      
-      <p><a href="ggproto.html">Create a new ggproto object</a></p>
-      <ul>
-        <li><code><a href="ggproto.html">ggproto</a></code></li><li><code><a href="ggproto.html">ggproto_parent</a></code></li><li><code><a href="ggproto.html">is.ggproto</a></code></li>
-      </ul>
-      
-      <p><a href="print.ggproto.html">Format or print a ggproto object</a></p>
-      <ul>
-        <li><code><a href="print.ggproto.html">format.ggproto</a></code></li><li><code><a href="print.ggproto.html">print.ggproto</a></code></li>
-      </ul>
-          <h2 id="section-vector-helpers" class="hasAnchor"><a href="#section-vector-helpers" class="anchor"></a>Vector helpers</h2>
-      <p class="section-desc"><p>ggplot2 also provides a handful of helpers that are useful for creating visualisations.</p></p>
-
-      
-      <p><a href="cut_interval.html">Discretise numeric data into categorical</a></p>
-      <ul>
-        <li><code><a href="cut_interval.html">cut_interval</a></code></li><li><code><a href="cut_interval.html">cut_number</a></code></li><li><code><a href="cut_interval.html">cut_width</a></code></li>
-      </ul>
-      
-      <p><a href="hmisc.html">A selection of summary functions from Hmisc</a></p>
-      <ul>
-        <li><code><a href="hmisc.html">hmisc</a></code></li><li><code><a href="hmisc.html">mean_cl_boot</a></code></li><li><code><a href="hmisc.html">mean_cl_normal</a></code></li><li><code><a href="hmisc.html">mean_sdl</a></code></li><li><code><a href="hmisc.html">median_hilow</a></code></li>
-      </ul>
-      
-      <p><a href="mean_se.html">Calculate mean and standard error</a></p>
-      <ul>
-        <li><code><a href="mean_se.html">mean_se</a></code></li>
-      </ul>
-      
-      <p><a href="resolution.html">Compute the &quot;resolution&quot; of a numeric vector</a></p>
-      <ul>
-        <li><code><a href="resolution.html">resolution</a></code></li>
-      </ul>
-          <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
-      <p class="section-desc"><p>ggplot2 comes with a selection of built-in datasets that are used in examples to illustrate various visualisation challenges.</p></p>
-
-      
-      <p><a href="diamonds.html">Prices of 50,000 round cut diamonds</a></p>
-      <ul>
-        <li><code><a href="diamonds.html">diamonds</a></code></li>
-      </ul>
-      
-      <p><a href="economics.html">US economic time series</a></p>
-      <ul>
-        <li><code><a href="economics.html">economics</a></code></li><li><code><a href="economics.html">economics_long</a></code></li>
-      </ul>
-      
-      <p><a href="faithfuld.html">2d density estimate of Old Faithful data</a></p>
-      <ul>
-        <li><code><a href="faithfuld.html">faithfuld</a></code></li>
-      </ul>
-      
-      <p><a href="luv_colours.html">colors()</a></p>
-      <ul>
-        <li><code><a href="luv_colours.html">luv_colours</a></code></li>
-      </ul>
-      
-      <p><a href="midwest.html">Midwest demographics</a></p>
-      <ul>
-        <li><code><a href="midwest.html">midwest</a></code></li>
-      </ul>
-      
-      <p><a href="mpg.html">Fuel economy data from 1999 and 2008 for 38 popular models of car</a></p>
-      <ul>
-        <li><code><a href="mpg.html">mpg</a></code></li>
-      </ul>
-      
-      <p><a href="msleep.html">An updated and expanded version of the mammals sleep dataset</a></p>
-      <ul>
-        <li><code><a href="msleep.html">msleep</a></code></li>
-      </ul>
-      
-      <p><a href="presidential.html">Terms of 11 presidents from Eisenhower to Obama</a></p>
-      <ul>
-        <li><code><a href="presidential.html">presidential</a></code></li>
-      </ul>
-      
-      <p><a href="seals.html">Vector field of seal movements</a></p>
-      <ul>
-        <li><code><a href="seals.html">seals</a></code></li>
-      </ul>
-      
-      <p><a href="txhousing.html">Housing sales in TX</a></p>
-      <ul>
-        <li><code><a href="txhousing.html">txhousing</a></code></li>
-      </ul>
-          <h2 id="section-autoplot-and-fortify" class="hasAnchor"><a href="#section-autoplot-and-fortify" class="anchor"></a>Autoplot and fortify</h2>
-      <p class="section-desc"><p><code><a href="../reference/autoplot.html">autoplot()</a></code> is an extension mechansim for ggplot2 it provides a way for package authors to add methods that work like the base <code>plot()</code> function, generating useful default plots with little user interaction. <code><a href="../reference/fortify.html">fortify()</a></code> turns objects into tidy data frames: it has largely been superceded by the <a href="https://github.com/dgrtwo/broom">broom package</a>.</p></p>
-
-      
-      <p><a href="autoplot.html">Create a complete ggplot appropriate to a particular data type</a></p>
-      <ul>
-        <li><code><a href="autoplot.html">autoplot</a></code></li>
-      </ul>
-      
-      <p><a href="fortify.html">Fortify a model with data.</a></p>
-      <ul>
-        <li><code><a href="fortify.html">fortify</a></code></li>
-      </ul>
-      
-      <p><a href="map_data.html">Create a data frame of map data</a></p>
-      <ul>
-        <li><code><a href="map_data.html">map_data</a></code></li>
-      </ul>
-    
+      <tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-plot-basics" class="hasAnchor"><a href="#section-plot-basics" class="anchor"></a>Plot basics</h2>
+            <p class="section-desc"><p>All ggplot2 plots with a call to <code><a href="../reference/ggplot.html">ggplot()</a></code>, supplying default data and aesthethic mappings, specified by <code><a href="../reference/aes.html">aes()</a></code>. You then add layers, scales, coords and facets with <code>+</code>. To save a plot to disk, use <code><a href="../reference/ggsave.html">ggsave()</a></code>.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="ggplot.html">ggplot</a></code> </p>
+          </td>
+          <td><p>Create a new ggplot</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="aes.html">aes</a></code> </p>
+          </td>
+          <td><p>Construct aesthetic mappings</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="gg-add.html">+.gg</a></code> </p>
+          </td>
+          <td><p>Add components to a plot</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="ggsave.html">ggsave</a></code> </p>
+          </td>
+          <td><p>Save a ggplot (or other grid object) with sensible defaults</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="qplot.html">qplot</a></code> <code><a href="qplot.html">quickplot</a></code> </p>
+          </td>
+          <td><p>Quick plot</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-layer-geoms" class="hasAnchor"><a href="#section-layer-geoms" class="anchor"></a>Layer: geoms</h2>
+            <p class="section-desc"><p>A layer combines data, aesthetic mapping, a geom (geometric object), a stat (statistical transformation), and a position adjustment. Typically, you will create layers using a <code>geom_</code> function, overriding the default position and stat if needed.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!-- <img src="icons/geom_abline.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_abline.html">geom_abline</a></code> <code><a href="geom_abline.html">geom_hline</a></code> <code><a href="geom_abline.html">geom_vline</a></code> </p>
+          </td>
+          <td><p>Reference lines: horizontal, vertical, and diagonal</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_bar.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_bar.html">geom_bar</a></code> <code><a href="geom_bar.html">geom_col</a></code> <code><a href="geom_bar.html">stat_count</a></code> </p>
+          </td>
+          <td><p>Bars charts</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="geom_bin2d.html">geom_bin2d</a></code> <code><a href="geom_bin2d.html">stat_bin_2d</a></code> </p>
+          </td>
+          <td><p>Heatmap of 2d bin counts</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="geom_blank.html">geom_blank</a></code> </p>
+          </td>
+          <td><p>Draw nothing</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_boxplot.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_boxplot.html">geom_boxplot</a></code> <code><a href="geom_boxplot.html">stat_boxplot</a></code> </p>
+          </td>
+          <td><p>A box and whiskers plot (in the style of Tukey)</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_contour.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_contour.html">geom_contour</a></code> <code><a href="geom_contour.html">stat_contour</a></code> </p>
+          </td>
+          <td><p>2d contours of a 3d surface</p></td>
+        </tr><tr>
+          <!-- <img src="icons/stat_sum.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_count.html">geom_count</a></code> <code><a href="geom_count.html">stat_sum</a></code> </p>
+          </td>
+          <td><p>Count overlapping points</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="geom_density_2d.html">geom_density_2d</a></code> <code><a href="geom_density_2d.html">stat_density_2d</a></code> </p>
+          </td>
+          <td><p>Contours of a 2d density estimate</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_density.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_density.html">geom_density</a></code> <code><a href="geom_density.html">stat_density</a></code> </p>
+          </td>
+          <td><p>Smoothed density estimates</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_dotplot.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_dotplot.html">geom_dotplot</a></code> </p>
+          </td>
+          <td><p>Dot plot</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_errorbarh.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_errorbarh.html">geom_errorbarh</a></code> </p>
+          </td>
+          <td><p>Horizontal error bars</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="geom_hex.html">geom_hex</a></code> <code><a href="geom_hex.html">stat_bin_hex</a></code> </p>
+          </td>
+          <td><p>Hexagonal heatmap of 2d bin counts</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_freqpoly.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_histogram.html">geom_freqpoly</a></code> <code><a href="geom_histogram.html">geom_histogram</a></code> <code><a href="geom_histogram.html">stat_bin</a></code> </p>
+          </td>
+          <td><p>Histograms and frequency polygons</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_jitter.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_jitter.html">geom_jitter</a></code> </p>
+          </td>
+          <td><p>Jittered points</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_crossbar.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_linerange.html">geom_crossbar</a></code> <code><a href="geom_linerange.html">geom_errorbar</a></code> <code><a href="geom_linerange.html">geom_linerange</a></code> <code><a href="geom_linerange.html">geom_pointrange</a></code> </p>
+          </td>
+          <td><p>Vertical intervals: lines, crossbars &amp; errorbars</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="geom_map.html">geom_map</a></code> </p>
+          </td>
+          <td><p>Polygons from a reference map</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_path.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_path.html">geom_path</a></code> <code><a href="geom_path.html">geom_line</a></code> <code><a href="geom_path.html">geom_step</a></code> </p>
+          </td>
+          <td><p>Connect observations</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_point.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_point.html">geom_point</a></code> </p>
+          </td>
+          <td><p>Points</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_polygon.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_polygon.html">geom_polygon</a></code> </p>
+          </td>
+          <td><p>Polygons</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="geom_qq.html">geom_qq</a></code> <code><a href="geom_qq.html">stat_qq</a></code> </p>
+          </td>
+          <td><p>A quantile-quantile plot</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_quantile.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_quantile.html">geom_quantile</a></code> <code><a href="geom_quantile.html">stat_quantile</a></code> </p>
+          </td>
+          <td><p>Quantile regression</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_ribbon.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_ribbon.html">geom_ribbon</a></code> <code><a href="geom_ribbon.html">geom_area</a></code> </p>
+          </td>
+          <td><p>Ribbons and area plots</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="geom_rug.html">geom_rug</a></code> </p>
+          </td>
+          <td><p>Rug plots in the margins</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_segment.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_segment.html">geom_segment</a></code> <code><a href="geom_segment.html">geom_curve</a></code> </p>
+          </td>
+          <td><p>Line segments and curves</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_smooth.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_smooth.html">geom_smooth</a></code> <code><a href="geom_smooth.html">stat_smooth</a></code> </p>
+          </td>
+          <td><p>Smoothed conditional means</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="geom_spoke.html">geom_spoke</a></code> </p>
+          </td>
+          <td><p>Line segments parameterised by location, direction and distance</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_text.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_text.html">geom_label</a></code> <code><a href="geom_text.html">geom_text</a></code> </p>
+          </td>
+          <td><p>Text</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_raster.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_tile.html">geom_raster</a></code> <code><a href="geom_tile.html">geom_rect</a></code> <code><a href="geom_tile.html">geom_tile</a></code> </p>
+          </td>
+          <td><p>Rectangles</p></td>
+        </tr><tr>
+          <!-- <img src="icons/geom_violin.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_violin.html">geom_violin</a></code> <code><a href="geom_violin.html">stat_ydensity</a></code> </p>
+          </td>
+          <td><p>Violin plot</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="ggsf.html">stat_sf</a></code> <code><a href="ggsf.html">geom_sf</a></code> <code><a href="ggsf.html">coord_sf</a></code> </p>
+          </td>
+          <td><p>Visualise sf objects</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-layer-stats" class="hasAnchor"><a href="#section-layer-stats" class="anchor"></a>Layer: stats</h2>
+            <p class="section-desc"><p>A handful of layers are more easily specified with a <code>stat_</code> function, drawing attention to the statistical transformation rather than the visual appearance.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="stat_ecdf.html">stat_ecdf</a></code> </p>
+          </td>
+          <td><p>Compute empirical cumulative distribution</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="stat_ellipse.html">stat_ellipse</a></code> </p>
+          </td>
+          <td><p>Compute normal confidence ellipses</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="stat_function.html">stat_function</a></code> </p>
+          </td>
+          <td><p>Compute function for each x value</p></td>
+        </tr><tr>
+          <!-- <img src="icons/stat_identity.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="stat_identity.html">stat_identity</a></code> </p>
+          </td>
+          <td><p>Leave data as is</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="stat_summary_2d.html">stat_summary_2d</a></code> <code><a href="stat_summary_2d.html">stat_summary_hex</a></code> </p>
+          </td>
+          <td><p>Bin and summarise in 2d (rectangle &amp; hexagons)</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="stat_summary.html">stat_summary_bin</a></code> <code><a href="stat_summary.html">stat_summary</a></code> </p>
+          </td>
+          <td><p>Summarise y values at unique/binned x</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="stat_unique.html">stat_unique</a></code> </p>
+          </td>
+          <td><p>Remove duplicates</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-layer-position-adjustment" class="hasAnchor"><a href="#section-layer-position-adjustment" class="anchor"></a>Layer: position adjustment</h2>
+            <p class="section-desc"><p>All layers have a position adjustment that resolves overlapping geoms. Override the default by using the <code>position</code> argument to the <code>geom_</code> or <code>stat_</code> function.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!-- <img src="icons/position_dodge.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="position_dodge.html">position_dodge</a></code> </p>
+          </td>
+          <td><p>Dodge overlapping objects side-to-side</p></td>
+        </tr><tr>
+          <!-- <img src="icons/position_identity.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="position_identity.html">position_identity</a></code> </p>
+          </td>
+          <td><p>Don't adjust position</p></td>
+        </tr><tr>
+          <!-- <img src="icons/position_jitter.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="position_jitter.html">position_jitter</a></code> </p>
+          </td>
+          <td><p>Jitter points to avoid overplotting</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="position_jitterdodge.html">position_jitterdodge</a></code> </p>
+          </td>
+          <td><p>Simultaneously dodge and jitter</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="position_nudge.html">position_nudge</a></code> </p>
+          </td>
+          <td><p>Nudge points a fixed distance</p></td>
+        </tr><tr>
+          <!-- <img src="icons/position_stack.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="position_stack.html">position_stack</a></code> <code><a href="position_stack.html">position_fill</a></code> </p>
+          </td>
+          <td><p>Stack overlapping objects on top of each another</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-layer-annotations" class="hasAnchor"><a href="#section-layer-annotations" class="anchor"></a>Layer: annotations</h2>
+            <p class="section-desc"><p>Annotation are special types of layer than don’t inherit global settings from the plot. Rhey are used to add fixed reference data to plot.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!-- <img src="icons/geom_abline.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="geom_abline.html">geom_abline</a></code> <code><a href="geom_abline.html">geom_hline</a></code> <code><a href="geom_abline.html">geom_vline</a></code> </p>
+          </td>
+          <td><p>Reference lines: horizontal, vertical, and diagonal</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="annotate.html">annotate</a></code> </p>
+          </td>
+          <td><p>Create an annotation layer</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="annotation_custom.html">annotation_custom</a></code> </p>
+          </td>
+          <td><p>Annotation: Custom grob</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="annotation_logticks.html">annotation_logticks</a></code> </p>
+          </td>
+          <td><p>Annotation: log tick marks</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="annotation_map.html">annotation_map</a></code> </p>
+          </td>
+          <td><p>Annotation: a maps</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="annotation_raster.html">annotation_raster</a></code> </p>
+          </td>
+          <td><p>Annotation: high-performance rectangular tiling</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="borders.html">borders</a></code> </p>
+          </td>
+          <td><p>Create a layer of map borders</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-aesthetics" class="hasAnchor"><a href="#section-aesthetics" class="anchor"></a>Aesthetics</h2>
+            <p class="section-desc"><p>The following help topics give a broad overview of some of the ways you can use each aesthetic</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="aes_colour_fill_alpha.html">aes_colour_fill_alpha</a></code> </p>
+          </td>
+          <td><p>Colour related aesthetics: colour, fill and alpha</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="aes_group_order.html">aes_group_order</a></code> </p>
+          </td>
+          <td><p>Aesthetics: grouping</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="aes_linetype_size_shape.html">aes_linetype_size_shape</a></code> </p>
+          </td>
+          <td><p>Differentiation related aesthetics: linetype, size, shape</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="aes_position.html">aes_position</a></code> </p>
+          </td>
+          <td><p>Position related aesthetics: x, y, xmin, xmax, ymin, ymax, xend, yend</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-scales" class="hasAnchor"><a href="#section-scales" class="anchor"></a>Scales</h2>
+            <p class="section-desc"><p>Scales control the details of how data values are translated to visual properties. Override the default scales to tweak details like the axis labels or legend keys, or to use a completely different translation from data to aesthetic. <code><a href="../reference/labs.html">labs()</a></code> and <code><a href="../reference/lims.html">lims()</a></code> are convenient helpers for the most common adjustments to the labels and limits.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="labs.html">labs</a></code> <code><a href="labs.html">xlab</a></code> <code><a href="labs.html">ylab</a></code> <code><a href="labs.html">ggtitle</a></code> </p>
+          </td>
+          <td><p>Modify axis, legend, and plot labels</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="lims.html">lims</a></code> <code><a href="lims.html">xlim</a></code> <code><a href="lims.html">ylim</a></code> </p>
+          </td>
+          <td><p>Set scale limits</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="expand_limits.html">expand_limits</a></code> </p>
+          </td>
+          <td><p>Expand the plot limits, using data</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_alpha.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_alpha.html">scale_alpha</a></code> <code><a href="scale_alpha.html">scale_alpha_continuous</a></code> <code><a href="scale_alpha.html">scale_alpha_discrete</a></code> </p>
+          </td>
+          <td><p>Alpha transparency scales</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_colour_brewer.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_brewer.html">scale_colour_brewer</a></code> <code><a href="scale_brewer.html">scale_fill_brewer</a></code> <code><a href="scale_brewer.html">scale_colour_distiller</a></code> <code><a href="scale_brewer.html">scale_fill_distiller</a></code> </p>
+          </td>
+          <td><p>Sequential, diverging and qualitative colour scales from colorbrewer.org</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="scale_continuous.html">scale_x_continuous</a></code> <code><a href="scale_continuous.html">scale_y_continuous</a></code> <code><a href="scale_continuous.html">scale_x_log10</a></code> <code><a href="scale_continuous.html">scale_y_log10</a></code> <code><a href="scale_continuous.html">scale_x_reverse</a></code> <code><a href="scale_continuous.html">scale_y_reverse</a></code> <code><a href="scale_continuous.html">scale_x_sqrt</a></code> <code><a href="scale_continuous.html">scale_y_sqrt</a></code> </p>
+          </td>
+          <td><p>Position scales for continuous data (x &amp; y)</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_x_date.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_date.html">scale_x_date</a></code> <code><a href="scale_date.html">scale_y_date</a></code> <code><a href="scale_date.html">scale_x_datetime</a></code> <code><a href="scale_date.html">scale_y_datetime</a></code> <code><a href="scale_date.html">scale_x_time</a></code> <code><a href="scale_date.html">scale_y_time</a></code> </p>
+          </td>
+          <td><p>Position scales for date/time data</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="scale_discrete.html">scale_x_discrete</a></code> <code><a href="scale_discrete.html">scale_y_discrete</a></code> </p>
+          </td>
+          <td><p>Position scales for discrete data</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_colour_gradient.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_gradient.html">scale_colour_gradient</a></code> <code><a href="scale_gradient.html">scale_fill_gradient</a></code> <code><a href="scale_gradient.html">scale_colour_gradient2</a></code> <code><a href="scale_gradient.html">scale_fill_gradient2</a></code> <code><a href="scale_gradient.html">scale_colour_gradientn</a></code> <code><a href="scale_gradient.html">scale_fill_gradientn</a></code> </p>
+          </td>
+          <td><p>Gradient colour scales</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_colour_grey.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_grey.html">scale_colour_grey</a></code> <code><a href="scale_grey.html">scale_fill_grey</a></code> </p>
+          </td>
+          <td><p>Sequential grey colour scales</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_colour_hue.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_hue.html">scale_colour_hue</a></code> <code><a href="scale_hue.html">scale_fill_hue</a></code> </p>
+          </td>
+          <td><p>Evenly spaced colours for discrete data</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_colour_identity.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_identity.html">scale_colour_identity</a></code> <code><a href="scale_identity.html">scale_fill_identity</a></code> <code><a href="scale_identity.html">scale_shape_identity</a></code> <code><a href="scale_identity.html">scale_linetype_identity</a></code> <code><a href="scale_identity.html">scale_alpha_identity</a></code> <code><a href="scale_identity.html">scale_size_identity</a></code> </p>
+          </td>
+          <td><p>Use values without scaling</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_linetype.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_linetype.html">scale_linetype</a></code> <code><a href="scale_linetype.html">scale_linetype_continuous</a></code> <code><a href="scale_linetype.html">scale_linetype_discrete</a></code> </p>
+          </td>
+          <td><p>Scale for line patterns</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_colour_manual.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_manual.html">scale_colour_manual</a></code> <code><a href="scale_manual.html">scale_fill_manual</a></code> <code><a href="scale_manual.html">scale_size_manual</a></code> <code><a href="scale_manual.html">scale_shape_manual</a></code> <code><a href="scale_manual.html">scale_linetype_manual</a></code> <code><a href="scale_manual.html">scale_alpha_manual</a></code> </p>
+          </td>
+          <td><p>Create your own discrete scale</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_shape.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_shape.html">scale_shape</a></code> </p>
+          </td>
+          <td><p>Scales for shapes, aka glyphs</p></td>
+        </tr><tr>
+          <!-- <img src="icons/scale_size.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="scale_size.html">scale_radius</a></code> <code><a href="scale_size.html">scale_size</a></code> <code><a href="scale_size.html">scale_size_area</a></code> </p>
+          </td>
+          <td><p>Scales for area or radius</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-guides-axes-and-legends" class="hasAnchor"><a href="#section-guides-axes-and-legends" class="anchor"></a>Guides: axes and legends</h2>
+            <p class="section-desc"><p>The guides (the axes and legends) help readers interpret your plots. Guides are mostly controlled via the scale (e.g. with the <code>limits</code>, <code>breaks</code>, and <code>labels</code> arguments), but sometimes you will need additional cover over the guide apperance. Use <code><a href="../reference/guides.html">guides()</a></code> or the <code>guide</code> argument to individual scales along with <code><a href="../reference/guide_colourbar.html">guide_colourbar()</a></code> or <code><a href="../reference/guide_legend.html">guide_legend()</a></code>.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="guide_colourbar.html">guide_colourbar</a></code> <code><a href="guide_colourbar.html">guide_colorbar</a></code> </p>
+          </td>
+          <td><p>Continuous colour bar guide</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="guide_legend.html">guide_legend</a></code> </p>
+          </td>
+          <td><p>Legend guide</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="guides.html">guides</a></code> </p>
+          </td>
+          <td><p>Set guides for each scale</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="sec_axis.html">sec_axis</a></code> <code><a href="sec_axis.html">dup_axis</a></code> <code><a href="sec_axis.html">derive</a></code> </p>
+          </td>
+          <td><p>Specify a secondary axis</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-facetting" class="hasAnchor"><a href="#section-facetting" class="anchor"></a>Facetting</h2>
+            <p class="section-desc"><p>Facetting generates small multiples, each displaying a different subset of the data. Facets are an alternative to aesthetics for displaying additional discrete variables.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!-- <img src="icons/facet_grid.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="facet_grid.html">facet_grid</a></code> </p>
+          </td>
+          <td><p>Lay out panels in a grid</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="facet_wrap.html">facet_wrap</a></code> </p>
+          </td>
+          <td><p>Wrap a 1d ribbon of panels into 2d</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-facetting-labels" class="hasAnchor"><a href="#section-facetting-labels" class="anchor"></a>Facetting: labels</h2>
+            <p class="section-desc"><p>These functions provide a flexible toolkit for controlling the display of the “strip” labels on facets.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="labeller.html">labeller</a></code> </p>
+          </td>
+          <td><p>Construct labelling specification</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="labellers.html">label_value</a></code> <code><a href="labellers.html">label_both</a></code> <code><a href="labellers.html">label_context</a></code> <code><a href="labellers.html">label_parsed</a></code> <code><a href="labellers.html">label_wrap_gen</a></code> </p>
+          </td>
+          <td><p>Useful labeller functions</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="label_bquote.html">label_bquote</a></code> </p>
+          </td>
+          <td><p>Label with mathematical expressions</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-coordinate-systems" class="hasAnchor"><a href="#section-coordinate-systems" class="anchor"></a>Coordinate systems</h2>
+            <p class="section-desc"><p>The coordinate system determines how the <code>x</code> and <code>y</code> aesthetics combine to position elements in the plot. The default coordinate system is Cartesian (<code><a href="../reference/coord_cartesian.html">coord_cartesian()</a></code>), which can be tweaked with <code><a href="../reference/coord_map.html">coord_map()</a></code>, <code><a href="../reference/coord_fixed.html">coord_fixed()</a></code>, <code><a href="../reference/coord_flip.html">coord_flip()</a></code>, and <code><a href="../reference/coord_trans.html">coord_trans()</a></code>, or completely replaced with <code><a href="../reference/coord_polar.html">coord_polar()</a></code>.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!-- <img src="icons/coord_cartesian.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="coord_cartesian.html">coord_cartesian</a></code> </p>
+          </td>
+          <td><p>Cartesian coordinates</p></td>
+        </tr><tr>
+          <!-- <img src="icons/coord_fixed.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="coord_fixed.html">coord_fixed</a></code> </p>
+          </td>
+          <td><p>Cartesian coordinates with fixed "aspect ratio"</p></td>
+        </tr><tr>
+          <!-- <img src="icons/coord_flip.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="coord_flip.html">coord_flip</a></code> </p>
+          </td>
+          <td><p>Cartesian coordinates with x and y flipped</p></td>
+        </tr><tr>
+          <!-- <img src="icons/coord_map.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="coord_map.html">coord_map</a></code> <code><a href="coord_map.html">coord_quickmap</a></code> </p>
+          </td>
+          <td><p>Map projections</p></td>
+        </tr><tr>
+          <!-- <img src="icons/coord_polar.png" width="40" height="40" class="icon" /> -->
+          <td>
+            <p><code><a href="coord_polar.html">coord_polar</a></code> </p>
+          </td>
+          <td><p>Polar coordinates</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="coord_trans.html">coord_trans</a></code> </p>
+          </td>
+          <td><p>Transformed Cartesian coordinate system</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-themes" class="hasAnchor"><a href="#section-themes" class="anchor"></a>Themes</h2>
+            <p class="section-desc"><p>Themes control the display of all non-data elements of the plot. You can override all settings with a complete theme like <code><a href="../reference/ggtheme.html">theme_bw()</a></code>, or choose to tweak individual settings by using <code><a href="../reference/theme.html">theme()</a></code> and the <code>element_</code> functions. Use <code><a href="../reference/theme_get.html">theme_set()</a></code> to modify the active theme, affecting all future plots.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="theme.html">theme</a></code> </p>
+          </td>
+          <td><p>Modify components of a theme</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="ggtheme.html">theme_grey</a></code> <code><a href="ggtheme.html">theme_gray</a></code> <code><a href="ggtheme.html">theme_bw</a></code> <code><a href="ggtheme.html">theme_linedraw</a></code> <code><a href="ggtheme.html">theme_light</a></code> <code><a href="ggtheme.html">theme_dark</a></code> <code><a href="ggtheme.html">theme_minimal</a></code> <code><a href="ggtheme.html">theme_classic</a></code> <code><a href="ggtheme.html">theme_void</a></code> <code><a href="ggtheme.html">theme_test</a></code> </p>
+          </td>
+          <td><p>Complete themes</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="theme_get.html">theme_get</a></code> <code><a href="theme_get.html">theme_set</a></code> <code><a href="theme_get.html">theme_update</a></code> <code><a href="theme_get.html">theme_replace</a></code> <code><a href="theme_get.html">%+replace%</a></code> </p>
+          </td>
+          <td><p>Get, set, and modify the active theme</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="element.html">margin</a></code> <code><a href="element.html">element_blank</a></code> <code><a href="element.html">element_rect</a></code> <code><a href="element.html">element_line</a></code> <code><a href="element.html">element_text</a></code> <code><a href="element.html">rel</a></code> </p>
+          </td>
+          <td><p>Theme elements</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-programming-with-ggplot-" class="hasAnchor"><a href="#section-programming-with-ggplot-" class="anchor"></a>Programming with ggplot2</h2>
+            <p class="section-desc"><p>These functions provides tools to help you program with ggplot2, creating functions and for-loops that generate plots for you.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="aes_.html">aes_</a></code> <code><a href="aes_.html">aes_string</a></code> <code><a href="aes_.html">aes_q</a></code> </p>
+          </td>
+          <td><p>Define aesthetic mappings programatically</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="print.ggplot.html">print</a></code> <code><a href="print.ggplot.html">plot</a></code> </p>
+          </td>
+          <td><p>Explicitly draw plot</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-extending-ggplot-" class="hasAnchor"><a href="#section-extending-ggplot-" class="anchor"></a>Extending ggplot2</h2>
+            <p class="section-desc"><p>To create your own geoms, stats, scales, and facets, you’ll need to learn a bit about the object oriented system that ggplot2 uses. Start by reading <code><a href="../articles/extending-ggplot2.html">vignette("extending-ggplot2")</a></code> then consult these functions for more details.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="ggproto.html">ggproto</a></code> <code><a href="ggproto.html">ggproto_parent</a></code> <code><a href="ggproto.html">is.ggproto</a></code> </p>
+          </td>
+          <td><p>Create a new ggproto object</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="print.ggproto.html">print</a></code> <code><a href="print.ggproto.html">format</a></code> </p>
+          </td>
+          <td><p>Format or print a ggproto object</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-vector-helpers" class="hasAnchor"><a href="#section-vector-helpers" class="anchor"></a>Vector helpers</h2>
+            <p class="section-desc"><p>ggplot2 also provides a handful of helpers that are useful for creating visualisations.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="cut_interval.html">cut_interval</a></code> <code><a href="cut_interval.html">cut_number</a></code> <code><a href="cut_interval.html">cut_width</a></code> </p>
+          </td>
+          <td><p>Discretise numeric data into categorical</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="hmisc.html">mean_cl_boot</a></code> <code><a href="hmisc.html">mean_cl_normal</a></code> <code><a href="hmisc.html">mean_sdl</a></code> <code><a href="hmisc.html">median_hilow</a></code> </p>
+          </td>
+          <td><p>A selection of summary functions from Hmisc</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="mean_se.html">mean_se</a></code> </p>
+          </td>
+          <td><p>Calculate mean and standard error</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="resolution.html">resolution</a></code> </p>
+          </td>
+          <td><p>Compute the "resolution" of a numeric vector</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
+            <p class="section-desc"><p>ggplot2 comes with a selection of built-in datasets that are used in examples to illustrate various visualisation challenges.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="diamonds.html">diamonds</a></code> </p>
+          </td>
+          <td><p>Prices of 50,000 round cut diamonds</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="economics.html">economics</a></code> </p>
+          </td>
+          <td><p>US economic time series</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="faithfuld.html">faithfuld</a></code> </p>
+          </td>
+          <td><p>2d density estimate of Old Faithful data</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="midwest.html">midwest</a></code> </p>
+          </td>
+          <td><p>Midwest demographics</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="mpg.html">mpg</a></code> </p>
+          </td>
+          <td><p>Fuel economy data from 1999 and 2008 for 38 popular models of car</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="msleep.html">msleep</a></code> </p>
+          </td>
+          <td><p>An updated and expanded version of the mammals sleep dataset</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="presidential.html">presidential</a></code> </p>
+          </td>
+          <td><p>Terms of 11 presidents from Eisenhower to Obama</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="seals.html">seals</a></code> </p>
+          </td>
+          <td><p>Vector field of seal movements</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="txhousing.html">txhousing</a></code> </p>
+          </td>
+          <td><p>Housing sales in TX</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="luv_colours.html">luv_colours</a></code> </p>
+          </td>
+          <td><p><code>colors()</code> in Luv space</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-autoplot-and-fortify" class="hasAnchor"><a href="#section-autoplot-and-fortify" class="anchor"></a>Autoplot and fortify</h2>
+            <p class="section-desc"><p><code><a href="../reference/autoplot.html">autoplot()</a></code> is an extension mechansim for ggplot2 it provides a way for package authors to add methods that work like the base <code>plot()</code> function, generating useful default plots with little user interaction. <code><a href="../reference/fortify.html">fortify()</a></code> turns objects into tidy data frames: it has largely been superceded by the <a href="https://github.com/dgrtwo/broom">broom package</a>.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="autoplot.html">autoplot</a></code> </p>
+          </td>
+          <td><p>Create a complete ggplot appropriate to a particular data type</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="autolayer.html">autolayer</a></code> </p>
+          </td>
+          <td><p>Create a ggplot layer appropriate to a particular data type</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="fortify.html">fortify</a></code> </p>
+          </td>
+          <td><p>Fortify a model with data.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="map_data.html">map_data</a></code> </p>
+          </td>
+          <td><p>Create a data frame of map data</p></td>
+        </tr>
+      </tbody>
+      </table>
     </div>
   </div>
 
@@ -775,7 +996,7 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

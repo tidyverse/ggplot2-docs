@@ -128,14 +128,19 @@ change the underlying data like setting limits on a scale will.</p>
     <pre><span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>xlim, ylim</dt>
-      <dd><p>Limits for the x and y axes.</p></dd>
-      <dt>expand</dt>
-      <dd><p>If <code>TRUE</code>, the default, adds a small expansion factor to
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>xlim, ylim</th>
+      <td><p>Limits for the x and y axes.</p></td>
+    </tr>
+    <tr>
+      <th>expand</th>
+      <td><p>If <code>TRUE</code>, the default, adds a small expansion factor to
 the limits to ensure that data and axes don't overlap. If <code>FALSE</code>,
-limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</p></dd>
-    </dl>
+limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</p></td>
+    </tr>
+    </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -145,19 +150,19 @@ limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>disp</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>()
-<span class='no'>p</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess'</span></div><img src='coord_cartesian-3.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='coord_cartesian-3.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Setting the limits on a scale converts all values outside the range to NA.</span>
-<span class='no'>p</span> + <span class='fu'><a href='scale_continuous.html'>scale_x_continuous</a></span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 24 rows containing non-finite values (stat_smooth).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 24 rows containing missing values (geom_point).</span></div><img src='coord_cartesian-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'><a href='scale_continuous.html'>scale_x_continuous</a></span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 24 rows containing non-finite values (stat_smooth).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 24 rows containing missing values (geom_point).</span></div><img src='coord_cartesian-8.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Setting the limits on the coordinate system performs a visual zoom.</span>
 <span class='co'># The data is unchanged, and we just view a small portion of the original</span>
 <span class='co'># plot. Note how smooth continues past the points visible on this plot.</span>
-<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess'</span></div><img src='coord_cartesian-11.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='coord_cartesian-11.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># By default, the same expansion factor is applied as when setting scale</span>
 <span class='co'># limits. You can set the limits precisely by setting expand = FALSE</span>
-<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>), <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess'</span></div><img src='coord_cartesian-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>), <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='coord_cartesian-14.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Simiarly, we can use expand = FALSE to turn off expansion with the</span>
 <span class='co'># default limits</span>
-<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess'</span></div><img src='coord_cartesian-17.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='coord_cartesian-17.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># You can see the same thing with this 2d histogram</span>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
   <span class='fu'><a href='geom_bin2d.html'>stat_bin2d</a></span>(<span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>25</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>)
@@ -186,7 +191,7 @@ limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

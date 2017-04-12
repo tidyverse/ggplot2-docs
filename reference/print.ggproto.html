@@ -131,16 +131,23 @@ members of the inherited objects.</p>
 <span class='fu'>format</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>flat</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>x</dt>
-      <dd><p>A ggproto object to print.</p></dd>
-      <dt>...</dt>
-      <dd><p>If the ggproto object has a <code>print</code> method, further arguments
-will be passed to it. Otherwise, these arguments are unused.</p></dd>
-      <dt>flat</dt>
-      <dd><p>If <code>TRUE</code> (the default), show a flattened list of all local
-and inherited members. If <code>FALSE</code>, show the inheritance hierarchy.</p></dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A ggproto object to print.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>If the ggproto object has a <code>print</code> method, further arguments
+will be passed to it. Otherwise, these arguments are unused.</p></td>
+    </tr>
+    <tr>
+      <th>flat</th>
+      <td><p>If <code>TRUE</code> (the default), show a flattened list of all local
+and inherited members. If <code>FALSE</code>, show the inheritance hierarchy.</p></td>
+    </tr>
+    </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -169,7 +176,7 @@ and inherited members. If <code>FALSE</code>, show the inheritance hierarchy.</p
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

@@ -129,22 +129,32 @@ displays are roughly rectangular.</p>
   <span class='kw'>switch</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>drop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>"h"</span>, <span class='kw'>strip.position</span> <span class='kw'>=</span> <span class='st'>"top"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>facets</dt>
-      <dd><p>Either a formula or character vector. Use either a
-one sided formula, <code>~a + b</code>, or a character vector, <code>c("a", "b")</code>.</p></dd>
-      <dt>nrow, ncol</dt>
-      <dd><p>Number of rows and columns.</p></dd>
-      <dt>scales</dt>
-      <dd><p>should Scales be fixed (<code>"fixed"</code>, the default),
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>facets</th>
+      <td><p>Either a formula or character vector. Use either a
+one sided formula, <code>~a + b</code>, or a character vector, <code>c("a", "b")</code>.</p></td>
+    </tr>
+    <tr>
+      <th>nrow, ncol</th>
+      <td><p>Number of rows and columns.</p></td>
+    </tr>
+    <tr>
+      <th>scales</th>
+      <td><p>should Scales be fixed (<code>"fixed"</code>, the default),
 free (<code>"free"</code>), or free in one dimension (<code>"free_x"</code>,
-<code>"free_y"</code>).</p></dd>
-      <dt>shrink</dt>
-      <dd><p>If <code>TRUE</code>, will shrink scales to fit output of
+<code>"free_y"</code>).</p></td>
+    </tr>
+    <tr>
+      <th>shrink</th>
+      <td><p>If <code>TRUE</code>, will shrink scales to fit output of
 statistics, not raw data. If <code>FALSE</code>, will be range of raw data
-before statistical summary.</p></dd>
-      <dt>labeller</dt>
-      <dd><p>A function that takes one data frame of labels and
+before statistical summary.</p></td>
+    </tr>
+    <tr>
+      <th>labeller</th>
+      <td><p>A function that takes one data frame of labels and
 returns a list or data frame of character vectors. Each input
 column corresponds to one factor. Thus there will be more than
 one with formulae of the type <code>~cyl + am</code>. Each output
@@ -152,30 +162,41 @@ column gets displayed as one separate line in the strip
 label. This function should inherit from the "labeller" S3 class
 for compatibility with <code><a href='labeller.html'>labeller</a>()</code>. See
 <code><a href='labellers.html'>label_value</a></code> for more details and pointers to other
-options.</p></dd>
-      <dt>as.table</dt>
-      <dd><p>If <code>TRUE</code>, the default, the facets are laid out like
+options.</p></td>
+    </tr>
+    <tr>
+      <th>as.table</th>
+      <td><p>If <code>TRUE</code>, the default, the facets are laid out like
 a table with highest values at the bottom-right. If <code>FALSE</code>, the
-facets are laid out like a plot with the highest value at the top-right.</p></dd>
-      <dt>switch</dt>
-      <dd><p>By default, the labels are displayed on the top and
+facets are laid out like a plot with the highest value at the top-right.</p></td>
+    </tr>
+    <tr>
+      <th>switch</th>
+      <td><p>By default, the labels are displayed on the top and
 right of the plot. If <code>"x"</code>, the top labels will be
 displayed to the bottom. If <code>"y"</code>, the right-hand side
 labels will be displayed to the left. Can also be set to
-<code>"both"</code>.</p></dd>
-      <dt>drop</dt>
-      <dd><p>If <code>TRUE</code>, the default, all factor levels not used in the
+<code>"both"</code>.</p></td>
+    </tr>
+    <tr>
+      <th>drop</th>
+      <td><p>If <code>TRUE</code>, the default, all factor levels not used in the
 data will automatically be dropped. If <code>FALSE</code>, all factor levels
-will be shown, regardless of whether or not they appear in the data.</p></dd>
-      <dt>dir</dt>
-      <dd><p>Direction: either "h" for horizontal, the default, or "v", for
-vertical.</p></dd>
-      <dt>strip.position</dt>
-      <dd><p>By default, the labels are displayed on the top of
+will be shown, regardless of whether or not they appear in the data.</p></td>
+    </tr>
+    <tr>
+      <th>dir</th>
+      <td><p>Direction: either "h" for horizontal, the default, or "v", for
+vertical.</p></td>
+    </tr>
+    <tr>
+      <th>strip.position</th>
+      <td><p>By default, the labels are displayed on the top of
 the plot. Using <code>strip.position</code> it is possible to place the labels on
 either of the four sides by setting <code>strip.position = c("top",
-"bottom", "left", "right")</code></p></dd>
-    </dl>
+"bottom", "left", "right")</code></p></td>
+    </tr>
+    </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -244,7 +265,7 @@ either of the four sides by setting <code>strip.position = c("top",
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

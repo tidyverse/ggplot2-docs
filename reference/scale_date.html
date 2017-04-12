@@ -155,70 +155,97 @@ usually be added automatically. To override manually, use
   <span class='kw'>na.value</span> <span class='kw'>=</span> <span class='fl'>NA_real_</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"left"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>name</dt>
-      <dd><p>The name of the scale. Used as axis or legend title. If
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>name</th>
+      <td><p>The name of the scale. Used as axis or legend title. If
 <code>NULL</code>, the default, the name of the scale is taken from the first
-mapping used for that aesthetic.</p></dd>
-      <dt>breaks</dt>
-      <dd><p>One of:</p><ul>
+mapping used for that aesthetic.</p></td>
+    </tr>
+    <tr>
+      <th>breaks</th>
+      <td><p>One of:</p><ul>
 <li><p><code>NULL</code> for no breaks</p></li>
 <li><p><code>waiver()</code> for the default breaks computed by the
     transformation object</p></li>
 <li><p>A numeric vector of positions</p></li>
 <li><p>A function that takes the limits as input and returns breaks
     as output</p></li>
-</ul></dd>
-      <dt>date_breaks</dt>
-      <dd><p>A string giving the distance between breaks like "2
+</ul></td>
+    </tr>
+    <tr>
+      <th>date_breaks</th>
+      <td><p>A string giving the distance between breaks like "2
 weeks", or "10 years". If both <code>breaks</code> and <code>date_breaks</code> are
-specified, <code>date_breaks</code> wins.</p></dd>
-      <dt>labels</dt>
-      <dd><p>One of:</p><ul>
+specified, <code>date_breaks</code> wins.</p></td>
+    </tr>
+    <tr>
+      <th>labels</th>
+      <td><p>One of:</p><ul>
 <li><p><code>NULL</code> for no labels</p></li>
 <li><p><code>waiver()</code> for the default labels computed by the
     transformation object</p></li>
 <li><p>A character vector giving labels (must be same length as <code>breaks</code>)</p></li>
 <li><p>A function that takes the breaks as input and returns labels
     as output</p></li>
-</ul></dd>
-      <dt>date_labels</dt>
-      <dd><p>A string giving the formatting specification for the
+</ul></td>
+    </tr>
+    <tr>
+      <th>date_labels</th>
+      <td><p>A string giving the formatting specification for the
 labels. Codes are defined in <code>strftime</code>. If both <code>labels</code>
-and <code>date_labels</code> are specified, <code>date_labels</code> wins.</p></dd>
-      <dt>minor_breaks</dt>
-      <dd><p>One of:</p><ul>
+and <code>date_labels</code> are specified, <code>date_labels</code> wins.</p></td>
+    </tr>
+    <tr>
+      <th>minor_breaks</th>
+      <td><p>One of:</p><ul>
 <li><p><code>NULL</code> for no minor breaks</p></li>
 <li><p><code>waiver()</code> for the default breaks (one minor break between
     each major break)</p></li>
 <li><p>A numeric vector of positions</p></li>
 <li><p>A function that given the limits returns a vector of minor breaks.</p></li>
-</ul></dd>
-      <dt>date_minor_breaks</dt>
-      <dd><p>A string giving the distance between minor breaks
+</ul></td>
+    </tr>
+    <tr>
+      <th>date_minor_breaks</th>
+      <td><p>A string giving the distance between minor breaks
 like "2 weeks", or "10 years". If both <code>minor_breaks</code> and
-<code>date_minor_breaks</code> are specified, <code>date_minor_breaks</code> wins.</p></dd>
-      <dt>limits</dt>
-      <dd><p>A numeric vector of length two providing limits of the scale.
-Use <code>NA</code> to refer to the existing minimum or maximum.</p></dd>
-      <dt>expand</dt>
-      <dd><p>A numeric vector of length two giving multiplicative and
+<code>date_minor_breaks</code> are specified, <code>date_minor_breaks</code> wins.</p></td>
+    </tr>
+    <tr>
+      <th>limits</th>
+      <td><p>A numeric vector of length two providing limits of the scale.
+Use <code>NA</code> to refer to the existing minimum or maximum.</p></td>
+    </tr>
+    <tr>
+      <th>expand</th>
+      <td><p>A numeric vector of length two giving multiplicative and
 additive expansion constants. These constants ensure that the data is
 placed some distance away from the axes. The defaults are
 <code>c(0.05, 0)</code> for continuous variables, and <code>c(0, 0.6)</code> for
-discrete variables.</p></dd>
-      <dt>position</dt>
-      <dd><p>The position of the axis. "left" or "right" for vertical
-scales, "top" or "bottom" for horizontal scales</p></dd>
-      <dt>timezone</dt>
-      <dd><p>The timezone to use for display on the axes. The default
-(<code>NULL</code>) uses the timezone encoded in the data.</p></dd>
-      <dt>oob</dt>
-      <dd><p>Function that handles limits outside of the scale limits
-(out of bounds). The default replaces out of bounds values with NA.</p></dd>
-      <dt>na.value</dt>
-      <dd><p>Missing values will be replaced with this value.</p></dd>
-    </dl>
+discrete variables.</p></td>
+    </tr>
+    <tr>
+      <th>position</th>
+      <td><p>The position of the axis. "left" or "right" for vertical
+scales, "top" or "bottom" for horizontal scales</p></td>
+    </tr>
+    <tr>
+      <th>timezone</th>
+      <td><p>The timezone to use for display on the axes. The default
+(<code>NULL</code>) uses the timezone encoded in the data.</p></td>
+    </tr>
+    <tr>
+      <th>oob</th>
+      <td><p>Function that handles limits outside of the scale limits
+(out of bounds). The default replaces out of bounds values with NA.</p></td>
+    </tr>
+    <tr>
+      <th>na.value</th>
+      <td><p>Missing values will be replaced with this value.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -261,7 +288,7 @@ scales, "top" or "bottom" for horizontal scales</p></dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

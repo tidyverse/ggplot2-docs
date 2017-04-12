@@ -128,29 +128,40 @@ named character vectors that will serve as a lookup table.</p>
   <span class='kw'>.multi_line</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>.default</span> <span class='kw'>=</span> <span class='no'>label_value</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>...</dt>
-      <dd><p>Named arguments of the form <code>variable =
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Named arguments of the form <code>variable =
 labeller</code>. Each labeller is passed to <code><a href='as_labeller.html'>as_labeller</a>()</code>
 and can be a lookup table, a function taking and returning
-character vectors, or simply a labeller function.</p></dd>
-      <dt>.rows, .cols</dt>
-      <dd><p>Labeller for a whole margin (either the rows or
+character vectors, or simply a labeller function.</p></td>
+    </tr>
+    <tr>
+      <th>.rows, .cols</th>
+      <td><p>Labeller for a whole margin (either the rows or
 the columns). It is passed to <code><a href='as_labeller.html'>as_labeller</a>()</code>. When a
 margin-wide labeller is set, make sure you don't mention in
-<code>...</code> any variable belonging to the margin.</p></dd>
-      <dt>keep.as.numeric</dt>
-      <dd><p>Deprecated. All supplied labellers and
+<code>...</code> any variable belonging to the margin.</p></td>
+    </tr>
+    <tr>
+      <th>keep.as.numeric</th>
+      <td><p>Deprecated. All supplied labellers and
 on-labeller functions should be able to work with character
-labels.</p></dd>
-      <dt>.multi_line</dt>
-      <dd><p>Whether to display the labels of multiple
+labels.</p></td>
+    </tr>
+    <tr>
+      <th>.multi_line</th>
+      <td><p>Whether to display the labels of multiple
 factors on separate lines. This is passed to the labeller
-function.</p></dd>
-      <dt>.default</dt>
-      <dd><p>Default labeller for variables not specified. Also
-used with lookup tables or non-labeller functions.</p></dd>
-    </dl>
+function.</p></td>
+    </tr>
+    <tr>
+      <th>.default</th>
+      <td><p>Default labeller for variables not specified. Also
+used with lookup tables or non-labeller functions.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -250,7 +261,7 @@ functions taking a character vector such as
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

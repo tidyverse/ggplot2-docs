@@ -154,7 +154,8 @@ of aesthetics; colour, fill and alpha.</p>
 <span class='no'>j</span> <span class='kw'>&lt;-</span> <span class='no'>b</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>()
 <span class='no'>j</span></div><img src='aes_colour_fill_alpha-30.png' alt='' width='540' height='400' /><div class='input'><span class='no'>yrng</span> <span class='kw'>&lt;-</span> <span class='fu'>range</span>(<span class='no'>economics</span>$<span class='no'>unemploy</span>)
 <span class='no'>j</span> <span class='kw'>&lt;-</span> <span class='no'>j</span> + <span class='fu'><a href='geom_tile.html'>geom_rect</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>NULL</span>, <span class='kw'>NULL</span>, <span class='kw'>xmin</span> <span class='kw'>=</span> <span class='no'>start</span>, <span class='kw'>xmax</span> <span class='kw'>=</span> <span class='no'>end</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>party</span>),
-<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>yrng</span>[<span class='fl'>1</span>], <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>yrng</span>[<span class='fl'>2</span>], <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>presidential</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown aesthetics: x, y</span></div><div class='input'><span class='no'>j</span></div><img src='aes_colour_fill_alpha-34.png' alt='' width='540' height='400' /><div class='input'><span class='no'>j</span> + <span class='fu'><a href='scale_manual.html'>scale_fill_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>alpha</a></span>(<span class='fu'>c</span>(<span class='st'>"blue"</span>, <span class='st'>"red"</span>), <span class='fl'>.3</span>))</div><img src='aes_colour_fill_alpha-36.png' alt='' width='540' height='400' /><div class='input'>
+<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>yrng</span>[<span class='fl'>1</span>], <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>yrng</span>[<span class='fl'>2</span>], <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>presidential</span>)
+<span class='no'>j</span></div><img src='aes_colour_fill_alpha-32.png' alt='' width='540' height='400' /><div class='input'><span class='no'>j</span> + <span class='fu'><a href='scale_manual.html'>scale_fill_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>alpha</a></span>(<span class='fu'>c</span>(<span class='st'>"blue"</span>, <span class='st'>"red"</span>), <span class='fl'>.3</span>))</div><img src='aes_colour_fill_alpha-34.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -173,7 +174,7 @@ of aesthetics; colour, fill and alpha.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

@@ -138,23 +138,25 @@ implement one or more of the following:</p>
 <p>Compared to <code>Stat</code> and <code>Position</code>, <code>Geom</code> is a little
 different because the execution of the setup and compute functions is
 split up. <code>setup_data</code> runs before position adjustments, and
-<code>draw_layer</code> is not run until render time,  much later. This
+<code>draw_layer</code> is not run until render time, much later. This
 means there is no <code>setup_params</code> because it's hard to communicate
 the changes.</p><ul>
-<li><p>Override either <code>draw_panel(self, data, panel_scales, coord)</code> or
-    <code>draw_group(self, data, panel_scales, coord)</code>. <code>draw_panel</code> is
+<li><p>Override either <code>draw_panel(self, data, panel_params, coord)</code> or
+    <code>draw_group(self, data, panel_params, coord)</code>. <code>draw_panel</code> is
     called once per panel, <code>draw_group</code> is called once per group.</p>
 <p>Use <code>draw_panel</code> if each row in the data represents a
     single element. Use <code>draw_group</code> if each group represents
     an element (e.g. a smooth, a violin).</p>
-<p><code>data</code> is a data frame of scaled aesthetics. <code>panel_scales</code>
-    is a list containing information about the scales in the current
-    panel. <code>coord</code> is a coordinate specification. You'll
-    need to call <code>coord$transform(data, panel_scales)</code> to work
-    with non-Cartesian coords. To work with non-linear coordinate systems,
-    you typically need to convert into a primitive geom (e.g. point, path
-    or polygon), and then pass on to the corresponding draw method
-    for munching.</p>
+<p><code>data</code> is a data frame of scaled aesthetics.</p>
+<p><code>panel_params</code> is a set of per-panel parameters for the
+    <code>coord</code>. Generally, you should consider <code>panel_params</code>
+    to be an opaque data structure that you pass along whenever you call
+    a coord method.</p>
+<p>You must always call <code>coord$transform(data, panel_params)</code> to
+    get the (position) scaled data for plotting. convert. To work with
+    non-linear coordinate systems, you typically need to convert into a
+    primitive geom (e.g. point, path or polygon), and then pass on to the
+    corresponding draw method for munching.</p>
 <p>Must return a grob. Use <code><a href='zeroGrob.html'>zeroGrob</a></code> if there's nothing to
     draw.</p></li>
 <li><p><code>draw_key</code>: Renders a single legend key.</p></li>
@@ -191,6 +193,15 @@ object, you typically will want to implement one or more of the following:</p><u
 <li><p><code>distance</code>: Calculates distance.</p></li>
 <li><p><code>is_linear</code>: Returns <code>TRUE</code> if the coordinate system is
     linear; <code>FALSE</code> otherwise.</p></li>
+<li><p><code>setup_params(data)</code>: Allows the coordinate system to inspect
+    all layers and return a list of additional parameters that vary based on
+    the data. These parameters are currently only passed to the other
+    setup functions and <code>train()</code>.</p></li>
+<li><p><code>setup_data(data, params)</code>: Allows the coordinate system to
+    manipulate the plot data. Should return list of data frames.</p></li>
+<li><p><code>setup_layout(layout, params)</code>: Allows the coordinate
+    system to manipulate the <code>layout</code> data frame which assigns
+    data to panels and scales.</p></li>
 </ul>
     
     <h2 class="hasAnchor" id="facets"><a class="anchor" href="#facets"></a>Facets</h2>
@@ -379,7 +390,7 @@ descended from the top-level <code>Scale</code>.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

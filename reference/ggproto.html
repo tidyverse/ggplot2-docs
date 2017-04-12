@@ -130,21 +130,32 @@ and access parent methods/fields with <code>ggproto_parent</code>.</p>
 <span class='fu'>is.ggproto</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>_class</dt>
-      <dd><p>Class name to assign to the object. This is stored as the class
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>_class</th>
+      <td><p>Class name to assign to the object. This is stored as the class
 attribute of the object. This is optional: if <code>NULL</code> (the default),
-no class name will be added to the object.</p></dd>
-      <dt>_inherit</dt>
-      <dd><p>ggproto object to inherit from. If <code>NULL</code>, don't
-inherit from any object.</p></dd>
-      <dt>...</dt>
-      <dd><p>A list of members in the ggproto object.</p></dd>
-      <dt>parent, self</dt>
-      <dd><p>Access parent class <code>parent</code> of object <code>self</code>.</p></dd>
-      <dt>x</dt>
-      <dd><p>An object to test.</p></dd>
-    </dl>
+no class name will be added to the object.</p></td>
+    </tr>
+    <tr>
+      <th>_inherit</th>
+      <td><p>ggproto object to inherit from. If <code>NULL</code>, don't
+inherit from any object.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>A list of members in the ggproto object.</p></td>
+    </tr>
+    <tr>
+      <th>parent, self</th>
+      <td><p>Access parent class <code>parent</code> of object <code>self</code>.</p></td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td><p>An object to test.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -215,7 +226,7 @@ in the function signature, although customarily it comes first.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

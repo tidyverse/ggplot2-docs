@@ -133,28 +133,39 @@ smaller areas closer to the equator.</p>
 <span class='fu'>coord_quickmap</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>projection</dt>
-      <dd><p>projection to use, see
-<code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for list</p></dd>
-      <dt>..., parameters</dt>
-      <dd><p>Other arguments passed on to
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>projection</th>
+      <td><p>projection to use, see
+<code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for list</p></td>
+    </tr>
+    <tr>
+      <th>..., parameters</th>
+      <td><p>Other arguments passed on to
 <code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code>. Use <code>...</code> for named parameters to
 the projection, and <code>parameters</code> for unnamed parameters.
-<code>...</code> is ignored if the <code>parameters</code> argument is present.</p></dd>
-      <dt>orientation</dt>
-      <dd><p>projection orientation, which defaults to
+<code>...</code> is ignored if the <code>parameters</code> argument is present.</p></td>
+    </tr>
+    <tr>
+      <th>orientation</th>
+      <td><p>projection orientation, which defaults to
 <code>c(90, 0, mean(range(x)))</code>.  This is not optimal for many
 projections, so you will have to supply your own. See
-<code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for more information.</p></dd>
-      <dt>xlim, ylim</dt>
-      <dd><p>Manually specific x/y limits (in degrees of
-longitude/latitude)</p></dd>
-      <dt>expand</dt>
-      <dd><p>If <code>TRUE</code>, the default, adds a small expansion factor to
+<code><a href='http://www.rdocumentation.org/packages/mapproj/topics/mapproject'>mapproject</a></code> for more information.</p></td>
+    </tr>
+    <tr>
+      <th>xlim, ylim</th>
+      <td><p>Manually specific x/y limits (in degrees of
+longitude/latitude)</p></td>
+    </tr>
+    <tr>
+      <th>expand</th>
+      <td><p>If <code>TRUE</code>, the default, adds a small expansion factor to
 the limits to ensure that data and axes don't overlap. If <code>FALSE</code>,
-limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</p></dd>
-    </dl>
+limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -244,7 +255,7 @@ plots like <code><a href='geom_tile.html'>geom_tile</a></code>) at the expense o
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

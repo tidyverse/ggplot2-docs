@@ -123,15 +123,23 @@
 horizontal position.</p>
     
 
-    <pre><span class='fu'>position_dodge</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre><span class='fu'>position_dodge</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>preserve</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"total"</span>, <span class='st'>"single"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>width</dt>
-      <dd><p>Dodging width, when different to the width of the individual
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>width</th>
+      <td><p>Dodging width, when different to the width of the individual
 elements. This is useful when you want to align narrow geoms with wider
-geoms. See the examples.</p></dd>
-    </dl>
+geoms. See the examples.</p></td>
+    </tr>
+    <tr>
+      <th>preserve</th>
+      <td><p>Should dodging preserve the total width of all elements
+at a position, or the width of a single element?</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -145,37 +153,42 @@ geoms. See the examples.</p></dd>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>))) +
   <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><img src='position_dodge-2.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># By default, dodging preserves the total width. You can choose</span>
+<span class='co'># to preserve the width of each element:</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>))) +
+  <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_dodge</span>(<span class='kw'>preserve</span> <span class='kw'>=</span> <span class='st'>"single"</span>))</div><img src='position_dodge-4.png' alt='' width='540' height='400' /><div class='input'>
+
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>price</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
-  <span class='fu'><a href='geom_histogram.html'>geom_histogram</a></span>(<span class='kw'>position</span><span class='kw'>=</span><span class='st'>"dodge"</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='position_dodge-5.png' alt='' width='540' height='400' /><div class='input'><span class='co'># see ?geom_boxplot and ?geom_bar for more examples</span>
+  <span class='fu'><a href='geom_histogram.html'>geom_histogram</a></span>(<span class='kw'>position</span><span class='kw'>=</span><span class='st'>"dodge"</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='position_dodge-7.png' alt='' width='540' height='400' /><div class='input'><span class='co'># see ?geom_boxplot and ?geom_bar for more examples</span>
 
 <span class='co'># In this case a frequency polygon is probably a better choice</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>price</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
-  <span class='fu'><a href='geom_histogram.html'>geom_freqpoly</a></span>()</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='position_dodge-8.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_histogram.html'>geom_freqpoly</a></span>()</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><img src='position_dodge-10.png' alt='' width='540' height='400' /><div class='input'>
 
 <span class='co'># Dodging with various widths -------------------------------------</span>
 <span class='co'># To dodge items with different widths, you need to be explicit</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"a"</span>,<span class='st'>"a"</span>,<span class='st'>"b"</span>,<span class='st'>"b"</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>2</span>:<span class='fl'>5</span>, <span class='kw'>g</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>1</span>:<span class='fl'>2</span>, <span class='fl'>2</span>))
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>g</span>)) +
   <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>)
-<span class='no'>p</span></div><img src='position_dodge-10.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span></div><img src='position_dodge-12.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># A line range has no width:</span>
-<span class='no'>p</span> + <span class='fu'><a href='geom_linerange.html'>geom_linerange</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span> - <span class='fl'>1</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Width not defined. Set with `position_dodge(width = ?)`</span></div><img src='position_dodge-13.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'><a href='geom_linerange.html'>geom_linerange</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span> - <span class='fl'>1</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Width not defined. Set with `position_dodge(width = ?)`</span></div><img src='position_dodge-15.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># So you must explicitly specify the width</span>
 <span class='no'>p</span> + <span class='fu'><a href='geom_linerange.html'>geom_linerange</a></span>(
   <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span> - <span class='fl'>1</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>),
   <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_dodge</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
-)</div><img src='position_dodge-15.png' alt='' width='540' height='400' /><div class='input'>
+)</div><img src='position_dodge-17.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># The same principle applies to error bars, which are usually</span>
 <span class='co'># narrower than the bars</span>
 <span class='no'>p</span> + <span class='fu'><a href='geom_linerange.html'>geom_errorbar</a></span>(
   <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span> - <span class='fl'>1</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>),
   <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
   <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>
-)</div><img src='position_dodge-17.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='geom_linerange.html'>geom_errorbar</a></span>(
+)</div><img src='position_dodge-19.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='geom_linerange.html'>geom_errorbar</a></span>(
   <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y</span> - <span class='fl'>1</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>1</span>),
   <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
   <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_dodge</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.9</span>)
-)</div><img src='position_dodge-19.png' alt='' width='540' height='400' /></pre>
+)</div><img src='position_dodge-21.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -196,7 +209,7 @@ geoms. See the examples.</p></dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

@@ -131,21 +131,30 @@ reason don't want to put them in a data frame.</p>
   <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>geom</dt>
-      <dd><p>name of geom to use for annotation</p></dd>
-      <dt>x, y, xmin, ymin, xmax, ymax, xend, yend</dt>
-      <dd><p>positioning aesthetics -
-you must specify at least one of these.</p></dd>
-      <dt>...</dt>
-      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>geom</th>
+      <td><p>name of geom to use for annotation</p></td>
+    </tr>
+    <tr>
+      <th>x, y, xmin, ymin, xmax, ymax, xend, yend</th>
+      <td><p>positioning aesthetics -
+you must specify at least one of these.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 <code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</p></dd>
-      <dt>na.rm</dt>
-      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
-    </dl>
+to the paired geom/stat.</p></td>
+    </tr>
+    <tr>
+      <th>na.rm</th>
+      <td><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -185,7 +194,7 @@ affect the legend.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

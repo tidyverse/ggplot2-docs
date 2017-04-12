@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Take input data and define a mapping between facetting variables and ROW,
- — combine_vars • ggplot2</title>
+COL and PANEL keys — combine_vars • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -117,7 +117,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Take input data and define a mapping between facetting variables and ROW,
-</h1>
+COL and PANEL keys</h1>
     </div>
 
     
@@ -128,17 +128,26 @@ COL and PANEL keys</p>
     <pre><span class='fu'>combine_vars</span>(<span class='no'>data</span>, <span class='kw'>env</span> <span class='kw'>=</span> <span class='fu'>emptyenv</span>(), <span class='kw'>vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>drop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>data</dt>
-      <dd><p>A list of data.frames, the first being the plot data and the
-subsequent individual layer data</p></dd>
-      <dt>env</dt>
-      <dd><p>The environment the vars should be evaluated in</p></dd>
-      <dt>vars</dt>
-      <dd><p>A list of quoted symbols matching columns in data</p></dd>
-      <dt>drop</dt>
-      <dd><p>should missing combinations/levels be dropped</p></dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A list of data.frames, the first being the plot data and the
+subsequent individual layer data</p></td>
+    </tr>
+    <tr>
+      <th>env</th>
+      <td><p>The environment the vars should be evaluated in</p></td>
+    </tr>
+    <tr>
+      <th>vars</th>
+      <td><p>A list of quoted symbols matching columns in data</p></td>
+    </tr>
+    <tr>
+      <th>drop</th>
+      <td><p>should missing combinations/levels be dropped</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -163,7 +172,7 @@ subsequent individual layer data</p></dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

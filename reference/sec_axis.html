@@ -133,26 +133,35 @@ axes must be based on a one-to-one transformation of the primary axes.</p>
 <span class='fu'>derive</span>()</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>trans</dt>
-      <dd><p>A transformation formula</p></dd>
-      <dt>name</dt>
-      <dd><p>The name of the secondary axis</p></dd>
-      <dt>breaks</dt>
-      <dd><p>One of:</p><ul>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>trans</th>
+      <td><p>A transformation formula</p></td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td><p>The name of the secondary axis</p></td>
+    </tr>
+    <tr>
+      <th>breaks</th>
+      <td><p>One of:</p><ul>
 <li><p><code>NULL</code> for no breaks</p></li>
 <li><p><code>waiver()</code> for the default breaks computed by the transformation object</p></li>
 <li><p>A numeric vector of positions</p></li>
 <li><p>A function that takes the limits as input and returns breaks as output</p></li>
-</ul></dd>
-      <dt>labels</dt>
-      <dd><p>One of:</p><ul>
+</ul></td>
+    </tr>
+    <tr>
+      <th>labels</th>
+      <td><p>One of:</p><ul>
 <li><p><code>NULL</code> for no labels</p></li>
 <li><p><code>waiver()</code> for the default labels computed by the transformation object</p></li>
 <li><p>A character vector giving labels (must be same length as <code>breaks</code>)</p></li>
 <li><p>A function that takes the breaks as input and returns labels as output</p></li>
-</ul></dd>
-    </dl>
+</ul></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -197,7 +206,7 @@ is a duplication of the primary axis, effectively mirroring the primary axis.</p
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

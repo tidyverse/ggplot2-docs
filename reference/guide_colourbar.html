@@ -122,7 +122,7 @@
     <p>Colour bar guide shows continuous color scales mapped onto values.
 Colour bar is available with <code>scale_fill</code> and <code>scale_colour</code>.
 For more information, see the inspiration for this function:
-<a href = 'Matlab's colorbar function'>http://www.mathworks.com/help/techdoc/ref/colorbar.html</a>.</p>
+<a href = 'http://www.mathworks.com/help/techdoc/ref/colorbar.html'>Matlab's colorbar function</a>.</p>
     
 
     <pre><span class='fu'>guide_colourbar</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>title.position</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -142,85 +142,130 @@ For more information, see the inspiration for this function:
   <span class='kw'>default.unit</span> <span class='kw'>=</span> <span class='st'>"line"</span>, <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>title</dt>
-      <dd><p>A character string or expression indicating a title of guide.
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>title</th>
+      <td><p>A character string or expression indicating a title of guide.
 If <code>NULL</code>, the title is not shown. By default
 (<code><a href='waiver.html'>waiver</a></code>), the name of the scale object or the name
-specified in <code><a href='labs.html'>labs</a></code> is used for the title.</p></dd>
-      <dt>title.position</dt>
-      <dd><p>A character string indicating the position of a
+specified in <code><a href='labs.html'>labs</a></code> is used for the title.</p></td>
+    </tr>
+    <tr>
+      <th>title.position</th>
+      <td><p>A character string indicating the position of a
  title. One of "top" (default for a vertical guide), "bottom", "left"
-(default for a horizontal guide), or "right."</p></dd>
-      <dt>title.theme</dt>
-      <dd><p>A theme object for rendering the title text. Usually the
+(default for a horizontal guide), or "right."</p></td>
+    </tr>
+    <tr>
+      <th>title.theme</th>
+      <td><p>A theme object for rendering the title text. Usually the
 object of <code><a href='element.html'>element_text</a></code> is expected. By default, the theme is
-specified by <code>legend.title</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></dd>
-      <dt>title.hjust</dt>
-      <dd><p>A number specifying horizontal justification of the
-title text.</p></dd>
-      <dt>title.vjust</dt>
-      <dd><p>A number specifying vertical justification of the title
-text.</p></dd>
-      <dt>label</dt>
-      <dd><p>logical. If <code>TRUE</code> then the labels are drawn. If
-<code>FALSE</code> then the labels are invisible.</p></dd>
-      <dt>label.position</dt>
-      <dd><p>A character string indicating the position of a
+specified by <code>legend.title</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></td>
+    </tr>
+    <tr>
+      <th>title.hjust</th>
+      <td><p>A number specifying horizontal justification of the
+title text.</p></td>
+    </tr>
+    <tr>
+      <th>title.vjust</th>
+      <td><p>A number specifying vertical justification of the title
+text.</p></td>
+    </tr>
+    <tr>
+      <th>label</th>
+      <td><p>logical. If <code>TRUE</code> then the labels are drawn. If
+<code>FALSE</code> then the labels are invisible.</p></td>
+    </tr>
+    <tr>
+      <th>label.position</th>
+      <td><p>A character string indicating the position of a
 label. One of "top", "bottom" (default for horizontal guide), "left", or
-"right" (default for vertical guide).</p></dd>
-      <dt>label.theme</dt>
-      <dd><p>A theme object for rendering the label text. Usually the
+"right" (default for vertical guide).</p></td>
+    </tr>
+    <tr>
+      <th>label.theme</th>
+      <td><p>A theme object for rendering the label text. Usually the
 object of <code><a href='element.html'>element_text</a></code> is expected. By default, the theme is
-specified by <code>legend.text</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></dd>
-      <dt>label.hjust</dt>
-      <dd><p>A numeric specifying horizontal justification of the
-label text.</p></dd>
-      <dt>label.vjust</dt>
-      <dd><p>A numeric specifying vertical justification of the label
-text.</p></dd>
-      <dt>barwidth</dt>
-      <dd><p>A numeric or a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying
+specified by <code>legend.text</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></td>
+    </tr>
+    <tr>
+      <th>label.hjust</th>
+      <td><p>A numeric specifying horizontal justification of the
+label text.</p></td>
+    </tr>
+    <tr>
+      <th>label.vjust</th>
+      <td><p>A numeric specifying vertical justification of the label
+text.</p></td>
+    </tr>
+    <tr>
+      <th>barwidth</th>
+      <td><p>A numeric or a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying
 the width of the colorbar. Default value is <code>legend.key.width</code> or
-<code>legend.key.size</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></dd>
-      <dt>barheight</dt>
-      <dd><p>A numeric or a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying
+<code>legend.key.size</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></td>
+    </tr>
+    <tr>
+      <th>barheight</th>
+      <td><p>A numeric or a <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code> object specifying
 the height of the colorbar. Default value is <code>legend.key.height</code> or
-<code>legend.key.size</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></dd>
-      <dt>nbin</dt>
-      <dd><p>A numeric specifying the number of bins for drawing colorbar. A
-smoother colorbar for a larger value.</p></dd>
-      <dt>raster</dt>
-      <dd><p>A logical. If <code>TRUE</code> then the colorbar is rendered as a
+<code>legend.key.size</code> in <code><a href='theme.html'>theme</a></code> or theme.</p></td>
+    </tr>
+    <tr>
+      <th>nbin</th>
+      <td><p>A numeric specifying the number of bins for drawing colorbar. A
+smoother colorbar for a larger value.</p></td>
+    </tr>
+    <tr>
+      <th>raster</th>
+      <td><p>A logical. If <code>TRUE</code> then the colorbar is rendered as a
 raster object. If <code>FALSE</code> then the colorbar is rendered as a set of
 rectangles. Note that not all graphics devices are capable of rendering
-raster image.</p></dd>
-      <dt>ticks</dt>
-      <dd><p>A logical specifying if tick marks on colorbar should be
-visible.</p></dd>
-      <dt>draw.ulim</dt>
-      <dd><p>A logical specifying if the upper limit tick marks should
-be visible.</p></dd>
-      <dt>draw.llim</dt>
-      <dd><p>A logical specifying if the lower limit tick marks should
-be visible.</p></dd>
-      <dt>direction</dt>
-      <dd><p>A character string indicating the direction of the guide.
-One of "horizontal" or "vertical."</p></dd>
-      <dt>default.unit</dt>
-      <dd><p>A character string indicating <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code>
-for <code>barwidth</code> and <code>barheight</code>.</p></dd>
-      <dt>reverse</dt>
-      <dd><p>logical. If <code>TRUE</code> the colorbar is reversed. By default,
-the highest value is on the top and the lowest value is on the bottom</p></dd>
-      <dt>order</dt>
-      <dd><p>positive integer less that 99 that specifies the order of
+raster image.</p></td>
+    </tr>
+    <tr>
+      <th>ticks</th>
+      <td><p>A logical specifying if tick marks on colorbar should be
+visible.</p></td>
+    </tr>
+    <tr>
+      <th>draw.ulim</th>
+      <td><p>A logical specifying if the upper limit tick marks should
+be visible.</p></td>
+    </tr>
+    <tr>
+      <th>draw.llim</th>
+      <td><p>A logical specifying if the lower limit tick marks should
+be visible.</p></td>
+    </tr>
+    <tr>
+      <th>direction</th>
+      <td><p>A character string indicating the direction of the guide.
+One of "horizontal" or "vertical."</p></td>
+    </tr>
+    <tr>
+      <th>default.unit</th>
+      <td><p>A character string indicating <code><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></code>
+for <code>barwidth</code> and <code>barheight</code>.</p></td>
+    </tr>
+    <tr>
+      <th>reverse</th>
+      <td><p>logical. If <code>TRUE</code> the colorbar is reversed. By default,
+the highest value is on the top and the lowest value is on the bottom</p></td>
+    </tr>
+    <tr>
+      <th>order</th>
+      <td><p>positive integer less that 99 that specifies the order of
 this guide among multiple guides. This controls the order in which
 multiple guides are displayed, not the contents of the guide itself.
-If 0 (default), the order is determined by a secret algorithm.</p></dd>
-      <dt>...</dt>
-      <dd><p>ignored.</p></dd>
-    </dl>
+If 0 (default), the order is determined by a secret algorithm.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>ignored.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -298,7 +343,7 @@ see <code><a href='guides.html'>guides</a></code>.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

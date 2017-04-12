@@ -128,20 +128,30 @@
   <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"legend"</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"left"</span>, <span class='kw'>super</span> <span class='kw'>=</span> <span class='no'>ScaleDiscrete</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>aesthetics</dt>
-      <dd><p>the names of the aesthetics that this scale works with</p></dd>
-      <dt>scale_name</dt>
-      <dd><p>the name of the scale</p></dd>
-      <dt>palette</dt>
-      <dd><p>a palette function that when called with a single integer
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>aesthetics</th>
+      <td><p>the names of the aesthetics that this scale works with</p></td>
+    </tr>
+    <tr>
+      <th>scale_name</th>
+      <td><p>the name of the scale</p></td>
+    </tr>
+    <tr>
+      <th>palette</th>
+      <td><p>a palette function that when called with a single integer
 argument (the number of levels in the scale) returns the values that
-they should take</p></dd>
-      <dt>name</dt>
-      <dd><p>the name of the scale - used as the axis label or the legend
-title</p></dd>
-      <dt>breaks</dt>
-      <dd><p>control the breaks in the guide.  There are four possible
+they should take</p></td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td><p>the name of the scale - used as the axis label or the legend
+title</p></td>
+    </tr>
+    <tr>
+      <th>breaks</th>
+      <td><p>control the breaks in the guide.  There are four possible
 types of input:</p><ul>
 <li><p><code>NULL</code>: don't display any breaks</p></li>
 <li><p>a character vector giving the breaks as they should appear on the
@@ -151,41 +161,60 @@ types of input:</p><ul>
     vector giving the limits of the scale, returns a character vector
     specifying which breaks to display.</p></li>
 </ul><p>This parameter does not affect in any way how the data is scaled - it
-only affects the appearance of the legend.</p></dd>
-      <dt>labels</dt>
-      <dd><p><code>NULL</code> for no labels, <code>waiver()</code> for default
+only affects the appearance of the legend.</p></td>
+    </tr>
+    <tr>
+      <th>labels</th>
+      <td><p><code>NULL</code> for no labels, <code>waiver()</code> for default
 labels (labels the same as breaks), a character vector the same length
 as breaks, or a named character vector whose names are used to match
-replacement the labels for matching breaks.</p></dd>
-      <dt>limits</dt>
-      <dd><p>A character vector specifying the data range for the scale.
-and the default order of their display in guides.</p></dd>
-      <dt>expand</dt>
-      <dd><p>a numeric vector of length two, giving a multiplicative and
+replacement the labels for matching breaks.</p></td>
+    </tr>
+    <tr>
+      <th>limits</th>
+      <td><p>A character vector specifying the data range for the scale.
+and the default order of their display in guides.</p></td>
+    </tr>
+    <tr>
+      <th>expand</th>
+      <td><p>a numeric vector of length two, giving a multiplicative and
 additive constant used to expand the range of the scales so that there
 is a small gap between the data and the axes. The defaults are (0,0.6)
-for discrete scales and (0.05,0) for continuous scales.</p></dd>
-      <dt>na.translate</dt>
-      <dd><p>Unlike continuous scales, discrete scales can easily show
+for discrete scales and (0.05,0) for continuous scales.</p></td>
+    </tr>
+    <tr>
+      <th>na.translate</th>
+      <td><p>Unlike continuous scales, discrete scales can easily show
 missing values, and do so by default. If you want to remove missing values
-from a discrete scale, specify <code>na.translate = FALSE</code>.</p></dd>
-      <dt>na.value</dt>
-      <dd><p>If <code>na.translate = TRUE</code>, what value aesthetic
+from a discrete scale, specify <code>na.translate = FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>na.value</th>
+      <td><p>If <code>na.translate = TRUE</code>, what value aesthetic
 value should missing be displayed as? Does not apply to position scales
-where <code>NA</code> is always placed at the far right.</p></dd>
-      <dt>drop</dt>
-      <dd><p>Should unused factor levels be omitted from the scale?
+where <code>NA</code> is always placed at the far right.</p></td>
+    </tr>
+    <tr>
+      <th>drop</th>
+      <td><p>Should unused factor levels be omitted from the scale?
 The default, <code>TRUE</code>, uses the levels that appear in the data;
-<code>FALSE</code> uses all the levels in the factor.</p></dd>
-      <dt>guide</dt>
-      <dd><p>the name of, or actual function, used to create the
-guide. See <code><a href='guides.html'>guides</a></code> for more info.</p></dd>
-      <dt>position</dt>
-      <dd><p>The position of the axis. "left" or "right" for vertical
-scales, "top" or "bottom" for horizontal scales</p></dd>
-      <dt>super</dt>
-      <dd><p>The super class to use for the constructed scale</p></dd>
-    </dl>
+<code>FALSE</code> uses all the levels in the factor.</p></td>
+    </tr>
+    <tr>
+      <th>guide</th>
+      <td><p>the name of, or actual function, used to create the
+guide. See <code><a href='guides.html'>guides</a></code> for more info.</p></td>
+    </tr>
+    <tr>
+      <th>position</th>
+      <td><p>The position of the axis. "left" or "right" for vertical
+scales, "top" or "bottom" for horizontal scales</p></td>
+    </tr>
+    <tr>
+      <th>super</th>
+      <td><p>The super class to use for the constructed scale</p></td>
+    </tr>
+    </table>
     
 
   </div>
@@ -204,7 +233,7 @@ scales, "top" or "bottom" for horizontal scales</p></dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

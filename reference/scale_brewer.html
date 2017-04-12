@@ -138,33 +138,50 @@ more information.</p>
   <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"colourbar"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>...</dt>
-      <dd><p>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code>
-to control name, limits, breaks, labels and so forth.</p></dd>
-      <dt>type</dt>
-      <dd><p>One of seq (sequential), div (diverging) or qual (qualitative)</p></dd>
-      <dt>palette</dt>
-      <dd><p>If a string, will use that named palette.  If a number, will
-index into the list of palettes of appropriate <code>type</code></p></dd>
-      <dt>direction</dt>
-      <dd><p>Sets the order of colors in the scale. If 1, the default,
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code>
+to control name, limits, breaks, labels and so forth.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>One of seq (sequential), div (diverging) or qual (qualitative)</p></td>
+    </tr>
+    <tr>
+      <th>palette</th>
+      <td><p>If a string, will use that named palette.  If a number, will
+index into the list of palettes of appropriate <code>type</code></p></td>
+    </tr>
+    <tr>
+      <th>direction</th>
+      <td><p>Sets the order of colors in the scale. If 1, the default,
 colors are as output by <code><a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>brewer.pal</a></code>. If -1, the
-order of colors is reversed.</p></dd>
-      <dt>values</dt>
-      <dd><p>if colours should not be evenly positioned along the gradient
+order of colors is reversed.</p></td>
+    </tr>
+    <tr>
+      <th>values</th>
+      <td><p>if colours should not be evenly positioned along the gradient
 this vector gives the position (between 0 and 1) for each colour in the
 <code>colours</code> vector. See <code>rescale</code> for a convience function
-to map an arbitrary range to between 0 and 1.</p></dd>
-      <dt>space</dt>
-      <dd><p>colour space in which to calculate gradient. Must be "Lab" -
-other values are deprecated.</p></dd>
-      <dt>na.value</dt>
-      <dd><p>Colour to use for missing values</p></dd>
-      <dt>guide</dt>
-      <dd><p>Type of legend. Use <code>"colourbar"</code> for continuous
-colour bar, or <code>"legend"</code> for discrete colour legend.</p></dd>
-    </dl>
+to map an arbitrary range to between 0 and 1.</p></td>
+    </tr>
+    <tr>
+      <th>space</th>
+      <td><p>colour space in which to calculate gradient. Must be "Lab" -
+other values are deprecated.</p></td>
+    </tr>
+    <tr>
+      <th>na.value</th>
+      <td><p>Colour to use for missing values</p></td>
+    </tr>
+    <tr>
+      <th>guide</th>
+      <td><p>Type of legend. Use <code>"colourbar"</code> for continuous
+colour bar, or <code>"legend"</code> for discrete colour legend.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -242,7 +259,7 @@ interpolate 6 colours from any palette to a continuous scale.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

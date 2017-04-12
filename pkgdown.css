@@ -21,6 +21,17 @@ body {
   margin-top: 0;
 }
 
+/* Static header placement on mobile devices */
+@media (max-width: 767px) {
+  .navbar-fixed-top {
+    position: fixed;
+  }
+}
+.navbar-toggle {
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
 /* Table of contents --------------------------*/
 
 #sidebar {
@@ -60,6 +71,10 @@ body {
 .slot {font-style:italic;}
 .symbol {color:black ;}
 .prompt {color:black ;}
+
+pre {
+  word-wrap: normal;
+}
 
 pre a {
   font-weight: bolder;
@@ -101,25 +116,22 @@ pre img {
 */
 
 
-/* For reference topics listing ------- */
+/* Reference index & topics ----------------------------------------------- */
 
-.section {
-  margin-bottom: 24px;
-}
+.ref-index th {font-weight: normal;}
+.ref-index h2 {font-size: 20px;}
 
-.topic p {
-  font-size: 16px;
-  margin-bottom: 0;
-}
+.ref-index td {vertical-align: top;}
+.ref-index .alias {width: 40%;}
+.ref-index .title {width: 60%;}
 
-.topic ul {
-  padding-top: 0;
-  list-style-type: square;
-}
+.ref-index .alias {width: 40%;}
+.ref-index .title {width: 60%;}
 
-.topic li a {
-  color: inherit;
-}
+.ref-arguments th {text-align: right; padding-right: 10px;}
+.ref-arguments th, .ref-arguments td {vertical-align: top;}
+.ref-arguments .name {width: 20%;}
+.ref-arguments .desc {width: 80%;}
 
 /* For the rstudio footer ------- */
 

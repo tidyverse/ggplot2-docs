@@ -126,20 +126,27 @@
     <pre><span class='fu'>as_labeller</span>(<span class='no'>x</span>, <span class='kw'>default</span> <span class='kw'>=</span> <span class='no'>label_value</span>, <span class='kw'>multi_line</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>x</dt>
-      <dd><p>Object to coerce to a labeller function. If a named
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>Object to coerce to a labeller function. If a named
 character vector, it is used as a lookup table before being
 passed on to <code>default</code>. If a non-labeller function, it is
 assumed it takes and returns character vectors and is applied to
-the labels. If a labeller, it is simply applied to the labels.</p></dd>
-      <dt>default</dt>
-      <dd><p>Default labeller to process the labels produced by
-lookup tables or modified by non-labeller functions.</p></dd>
-      <dt>multi_line</dt>
-      <dd><p>Whether to display the labels of multiple factors
-on separate lines. This is passed to the labeller function.</p></dd>
-    </dl>
+the labels. If a labeller, it is simply applied to the labels.</p></td>
+    </tr>
+    <tr>
+      <th>default</th>
+      <td><p>Default labeller to process the labels produced by
+lookup tables or modified by non-labeller functions.</p></td>
+    </tr>
+    <tr>
+      <th>multi_line</th>
+      <td><p>Whether to display the labels of multiple factors
+on separate lines. This is passed to the labeller function.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -179,7 +186,7 @@ on separate lines. This is passed to the labeller function.</p></dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

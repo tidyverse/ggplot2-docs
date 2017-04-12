@@ -128,21 +128,30 @@ subsequent layers unless specifically overridden.</p>
     <pre><span class='fu'>ggplot</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(), <span class='no'>...</span>, <span class='kw'>environment</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>data</dt>
-      <dd><p>Default dataset to use for plot. If not already a data.frame,
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>Default dataset to use for plot. If not already a data.frame,
 will be converted to one by <code><a href='fortify.html'>fortify</a></code>. If not specified,
-must be suppled in each layer added to the plot.</p></dd>
-      <dt>mapping</dt>
-      <dd><p>Default list of aesthetic mappings to use for plot.
-If not specified, must be suppled in each layer added to the plot.</p></dd>
-      <dt>...</dt>
-      <dd><p>Other arguments passed on to methods. Not currently used.</p></dd>
-      <dt>environment</dt>
-      <dd><p>If an variable defined in the aesthetic mapping is not
+must be supplied in each layer added to the plot.</p></td>
+    </tr>
+    <tr>
+      <th>mapping</th>
+      <td><p>Default list of aesthetic mappings to use for plot.
+If not specified, must be supplied in each layer added to the plot.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Other arguments passed on to methods. Not currently used.</p></td>
+    </tr>
+    <tr>
+      <th>environment</th>
+      <td><p>If a variable defined in the aesthetic mapping is not
 found in the data, ggplot will look for it in this environment. It defaults
-to using the environment in which <code>ggplot()</code> is called.</p></dd>
-    </dl>
+to using the environment in which <code>ggplot()</code> is called.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -220,7 +229,7 @@ is often the case in complex graphics.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

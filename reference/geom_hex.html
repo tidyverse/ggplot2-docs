@@ -134,14 +134,18 @@ the very regular alignment of <code><a href='geom_bin2d.html'>geom_bin2d</a></co
   <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>mapping</dt>
-      <dd><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>mapping</th>
+      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
 <code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
-      <dt>data</dt>
-      <dd><p>The data to be displayed in this layer. There are three
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td><p>The data to be displayed in this layer. There are three
    options:</p>
 <p>If <code>NULL</code>, the default, the data is inherited from the plot
    data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
@@ -150,37 +154,54 @@ plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
    <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
 <p>A <code>function</code> will be called with a single argument,
    the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</p></dd>
-      <dt>position</dt>
-      <dd><p>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</p></dd>
-      <dt>...</dt>
-      <dd><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+   will be used as the layer data.</p></td>
+    </tr>
+    <tr>
+      <th>position</th>
+      <td><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 <code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</p></dd>
-      <dt>na.rm</dt>
-      <dd><p>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
-      <dt>show.legend</dt>
-      <dd><p>logical. Should this layer be included in the legends?
+to the paired geom/stat.</p></td>
+    </tr>
+    <tr>
+      <th>na.rm</th>
+      <td><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
+    </tr>
+    <tr>
+      <th>show.legend</th>
+      <td><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></dd>
-      <dt>inherit.aes</dt>
-      <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></td>
+    </tr>
+    <tr>
+      <th>inherit.aes</th>
+      <td><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></dd>
-      <dt>geom, stat</dt>
-      <dd><p>Override the default connection between <code>geom_hex</code> and
-<code>stat_binhex.</code></p></dd>
-      <dt>bins</dt>
-      <dd><p>numeric vector giving number of bins in both vertical and
-horizontal directions. Set to 30 by default.</p></dd>
-      <dt>binwidth</dt>
-      <dd><p>Numeric vector giving bin width in both vertical and
-horizontal directions. Overrides <code>bins</code> if both set.</p></dd>
-    </dl>
+the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>geom, stat</th>
+      <td><p>Override the default connection between <code>geom_hex</code> and
+<code>stat_binhex.</code></p></td>
+    </tr>
+    <tr>
+      <th>bins</th>
+      <td><p>numeric vector giving number of bins in both vertical and
+horizontal directions. Set to 30 by default.</p></td>
+    </tr>
+    <tr>
+      <th>binwidth</th>
+      <td><p>Numeric vector giving bin width in both vertical and
+horizontal directions. Overrides <code>bins</code> if both set.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
@@ -232,7 +253,7 @@ horizontal directions. Overrides <code>bins</code> if both set.</p></dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

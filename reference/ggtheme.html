@@ -140,15 +140,22 @@ theme.</p>
 
 <span class='fu'>theme_classic</span>(<span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>""</span>)
 
-<span class='fu'>theme_void</span>(<span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
+<span class='fu'>theme_void</span>(<span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>""</span>)
+
+<span class='fu'>theme_test</span>(<span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>base_size</dt>
-      <dd><p>base font size</p></dd>
-      <dt>base_family</dt>
-      <dd><p>base font family</p></dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>base_size</th>
+      <td><p>base font size</p></td>
+    </tr>
+    <tr>
+      <th>base_family</th>
+      <td><p>base font family</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -167,6 +174,8 @@ to direct more attention towards the data.</p></dd>
     <dt><code>theme_minimal</code></dt><dd><p>A minimalistic theme with no background annotations.</p></dd>
     <dt><code>theme_classic</code></dt><dd><p>A classic-looking theme, with x and y axis lines and no gridlines.</p></dd>
     <dt><code>theme_void</code></dt><dd><p>A completely empty theme.</p></dd>
+    <dt><code>theme_test</code></dt><dd><p>A theme for visual unit tests. It should ideally never change except
+for new features.</p></dd>
     </dl>
     
 
@@ -194,7 +203,7 @@ to direct more attention towards the data.</p></dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 

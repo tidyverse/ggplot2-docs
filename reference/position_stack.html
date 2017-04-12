@@ -129,16 +129,21 @@ constant height.</p>
 <span class='fu'>position_fill</span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>vjust</dt>
-      <dd><p>Vertical adjustment for geoms that have a position
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>vjust</th>
+      <td><p>Vertical adjustment for geoms that have a position
 (like points or lines), not a dimension (like bars or areas). Set to
 <code>0</code> to align with the bottom, <code>0.5</code> for the middle,
-and <code>1</code> (the default) for the top.</p></dd>
-      <dt>reverse</dt>
-      <dd><p>If <code>TRUE</code>, will reverse the default stacking order.
-This is useful if you're rotating both the plot and legend.</p></dd>
-    </dl>
+and <code>1</code> (the default) for the top.</p></td>
+    </tr>
+    <tr>
+      <th>reverse</th>
+      <td><p>If <code>TRUE</code>, will reverse the default stacking order.
+This is useful if you're rotating both the plot and legend.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -190,6 +195,8 @@ downward.</p>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>series</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>time</span>, <span class='no'>value</span>)) +
   <span class='fu'><a href='geom_ribbon.html'>geom_area</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>type</span>))</div><img src='position_stack-10.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Stacking order ------------------------------------------------------------</span>
+<span class='co'># The stacking order is carefully designed so that the plot matches</span>
+<span class='co'># the legend.</span>
 
 <span class='co'># You control the stacking order by setting the levels of the underlying</span>
 <span class='co'># factor. See the forcats package for convenient helpers.</span>
@@ -200,26 +207,32 @@ downward.</p>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>series</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>time</span>, <span class='no'>value</span>)) +
   <span class='fu'><a href='geom_ribbon.html'>geom_area</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>type</span>)) +
   <span class='fu'><a href='scale_hue.html'>scale_fill_discrete</a></span>(<span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>'a'</span>, <span class='st'>'b'</span>, <span class='st'>'c'</span>, <span class='st'>'d'</span>))</div><img src='position_stack-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># If you've flipped the plot, use reveres = TRUE so the levels</span>
+<span class='co'># continue to match</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>series</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>time</span>, <span class='no'>value</span>)) +
+  <span class='fu'><a href='geom_ribbon.html'>geom_area</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>type2</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_stack</span>(<span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)) +
+  <span class='fu'><a href='coord_flip.html'>coord_flip</a></span>() +
+  <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>legend.position</span> <span class='kw'>=</span> <span class='st'>"top"</span>)</div><img src='position_stack-16.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Non-area plots ------------------------------------------------------------</span>
 
 <span class='co'># When stacking across multiple layers it's a good idea to always set</span>
-<span class='co'># the `group` aethetic in the ggplot() call. This ensures that all layers</span>
+<span class='co'># the `group` aesthetic in the ggplot() call. This ensures that all layers</span>
 <span class='co'># are stacked in the same way.</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>series</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>time</span>, <span class='no'>value</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>type</span>)) +
   <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>type</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>type</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><img src='position_stack-16.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>type</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><img src='position_stack-18.png' alt='' width='540' height='400' /><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>series</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>time</span>, <span class='no'>value</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>type</span>)) +
   <span class='fu'><a href='geom_ribbon.html'>geom_area</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>type</span>)) +
-  <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>type</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><img src='position_stack-18.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>type</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><img src='position_stack-20.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># You can also stack labels, but the default position is suboptimal.</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>series</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>time</span>, <span class='no'>value</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>type</span>)) +
   <span class='fu'><a href='geom_ribbon.html'>geom_area</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>type</span>)) +
-  <span class='fu'><a href='geom_text.html'>geom_text</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>type</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><img src='position_stack-20.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_text.html'>geom_text</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>type</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><img src='position_stack-22.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># You can override this with the vjust parameter. A vjust of 0.5</span>
 <span class='co'># will center the labels inside the corresponding area</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>series</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>time</span>, <span class='no'>value</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>type</span>)) +
   <span class='fu'><a href='geom_ribbon.html'>geom_area</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>type</span>)) +
-  <span class='fu'><a href='geom_text.html'>geom_text</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>type</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_stack</span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>))</div><img src='position_stack-22.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_text.html'>geom_text</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>type</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_stack</span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>))</div><img src='position_stack-24.png' alt='' width='540' height='400' /><div class='input'>
 <span class='co'># Negative values -----------------------------------------------------------</span>
 
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='kw'>tibble</span><span class='kw'>::</span><span class='fu'>tribble</span>(
@@ -232,11 +245,11 @@ downward.</p>
 )
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
   <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_stack</span>(<span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)) +
-  <span class='fu'><a href='geom_abline.html'>geom_hline</a></span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><img src='position_stack-24.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_abline.html'>geom_hline</a></span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><img src='position_stack-26.png' alt='' width='540' height='400' /><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
   <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
   <span class='fu'><a href='geom_abline.html'>geom_hline</a></span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='fl'>0</span>) +
-  <span class='fu'><a href='geom_text.html'>geom_text</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>grp</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_stack</span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>))</div><img src='position_stack-26.png' alt='' width='540' height='400' /></pre>
+  <span class='fu'><a href='geom_text.html'>geom_text</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>grp</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_stack</span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>))</div><img src='position_stack-28.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -259,7 +272,7 @@ downward.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
 
