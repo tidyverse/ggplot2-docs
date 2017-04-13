@@ -96,9 +96,6 @@ Broken down into construct, build, render and draw times. — benchplot • ggpl
     </li>
   </ul>
 </li>
-<li>
-  <a href="../news/index.html">News</a>
-</li>
         <li>
   <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
@@ -139,16 +136,16 @@ Broken down into construct, build, render and draw times.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>())</div><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.002    0.000   0.002
-#&gt; 2     build     0.021    0.001   0.021
-#&gt; 3    render     0.078    0.009   0.087
-#&gt; 4      draw     0.376    0.080   0.434
-#&gt; 5     TOTAL     0.477    0.090   0.544</div><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>))</div><img src='benchplot-4.png' alt='' width='540' height='400' /><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.014    0.000   0.004
-#&gt; 2     build     0.032    0.001   0.033
-#&gt; 3    render     0.111    0.004   0.120
-#&gt; 4      draw     0.894    0.189   0.997
-#&gt; 5     TOTAL     1.051    0.194   1.154</div></pre>
+#&gt; 1 construct     0.011    0.027   0.023
+#&gt; 2     build     0.013    0.000   0.014
+#&gt; 3    render     0.052    0.005   0.057
+#&gt; 4      draw     0.321    0.057   0.357
+#&gt; 5     TOTAL     0.397    0.089   0.451</div><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>))</div><img src='benchplot-4.png' alt='' width='540' height='400' /><div class='output co'>#&gt;        step user.self sys.self elapsed
+#&gt; 1 construct     0.011    0.000   0.005
+#&gt; 2     build     0.027    0.000   0.027
+#&gt; 3    render     0.096    0.003   0.102
+#&gt; 4      draw     0.789    0.138   0.866
+#&gt; 5     TOTAL     0.923    0.141   1.000</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
