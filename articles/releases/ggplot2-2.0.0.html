@@ -15,7 +15,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -92,15 +92,18 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>ggplot2 2.0.0</h1>
             
-          </div>
+      
+      <small class="dont-index">Source: <a href="https://github.com/tidyverse/ggplot2/blob/master/vignettes/releases/ggplot2-2.0.0.Rmd"><code>vignettes/releases/ggplot2-2.0.0.Rmd</code></a></small>
+      <div class="hidden name"><code>ggplot2-2.0.0.Rmd</code></div>
+
+    </div>
 
     
     
-<div class="contents">
 <p>I’m very pleased to announce the release of ggplot2 2.0.0. I know I promised <a href="http://blog.rstudio.org/2015/01/09/ggplot2-updates/">that there wouldn’t be any more updates</a>, but while working on the 2nd edition of the ggplot2 book, I just couldn’t stop myself from fixing some long standing problems.</p>
 <p>On the scale of ggplot2 releases, this one is huge with over one hundred fixes and improvements. This might break some of your existing code (although I’ve tried to minimise breakage as much as possible), but I hope the new features make up for any short term hassle. This blog post documents the most important changes:</p>
 <ul>
@@ -124,65 +127,65 @@
 <ul>
 <li>
 <p>ggplot no longer throws an error if you your plot has no layers. Instead it automatically adds <code><a href="../../reference/geom_blank.html">geom_blank()</a></code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cyl, hwy))</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cyl, hwy))</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-2-1.png" width="50%"></p>
 </li>
 <li>
 <p><code><a href="../../reference/geom_count.html">geom_count()</a></code> (a new alias for the old <code><a href="../../reference/geom_count.html">stat_sum()</a></code>) counts the number of points at unique locations on a scatterplot, and maps the size of the point to the count:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cty, hwy)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>()
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cty, hwy)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_count.html">geom_count</a></span>()</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cty, hwy)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>()</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cty, hwy)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../../reference/geom_count.html">geom_count</a></span>()</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-3-1.png" width="50%"><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-3-2.png" width="50%"></p>
 </li>
 <li>
 <p><code><a href="../../reference/geom_segment.html">geom_curve()</a></code> draws curved lines in the same way that <code><a href="../../reference/geom_segment.html">geom_segment()</a></code> draws straight lines:</p>
-<pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">x =</span> <span class="dv">1</span>:<span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">1</span>:<span class="dv">2</span>)
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(df, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(x, y, <span class="dt">xend =</span> x +<span class="st"> </span><span class="fl">0.5</span>, <span class="dt">yend =</span> y +<span class="st"> </span><span class="fl">0.5</span>)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_segment.html">geom_curve</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">colour =</span> <span class="st">"curve"</span>)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_segment.html">geom_segment</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">colour =</span> <span class="st">"segment"</span>))</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(df, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(x, y, <span class="dt">xend =</span> x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span>, <span class="dt">yend =</span> y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/geom_segment.html">geom_curve</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">colour =</span> <span class="st">"curve"</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../../reference/geom_segment.html">geom_segment</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">colour =</span> <span class="st">"segment"</span>))</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-4-1.png" width="50%"></p>
 </li>
 <li>
 <p><code><a href="../../reference/geom_bar.html">geom_bar()</a></code> now behaves differently from <code><a href="../../reference/geom_histogram.html">geom_histogram()</a></code>. Instead of binning the data, it counts the number of unique observations at each location:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cyl)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_bar</a></span>()
-
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cyl)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_histogram.html">geom_histogram</a></span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cyl)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_bar</a></span>()</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(cyl)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../../reference/geom_histogram.html">geom_histogram</a></span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-5-1.png" width="50%"><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-5-2.png" width="50%"></p>
 <p>If you got into the (bad) habit of using <code><a href="../../reference/geom_histogram.html">geom_histogram()</a></code> to create bar charts, or <code><a href="../../reference/geom_bar.html">geom_bar()</a></code> to create histograms, you’ll need to switch.</p>
 </li>
 <li><p>Layers are now much stricter about their arguments - you will get an error if you’ve supplied an argument that isn’t an aesthetic or a parameter. This breaks the handful of geoms/stats that used <code>...</code> to pass additional arguments on to the underlying computation. Now <code><a href="../../reference/geom_smooth.html">geom_smooth()</a></code>/<code><a href="../../reference/geom_smooth.html">stat_smooth()</a></code> and <code><a href="../../reference/geom_quantile.html">geom_quantile()</a></code>/<code><a href="../../reference/geom_quantile.html">stat_quantile()</a></code> use <code>method.args</code> instead; and <code><a href="../../reference/stat_summary.html">stat_summary()</a></code>, <code><a href="../../reference/stat_summary_2d.html">stat_summary_hex()</a></code>, and <code><a href="../../reference/stat_summary_2d.html">stat_summary2d()</a></code> use <code>fun.args</code>. This is likely to cause some short-term pain but in the long-term it will make it much easier to spot spelling mistakes and other errors.</p></li>
 <li>
 <p><code><a href="../../reference/geom_text.html">geom_text()</a></code> has been overhauled to make labelling your data a little easier. You can use <code>nudge_x</code> and <code>nudge_y</code> arguments to offset labels from their corresponding points. <code>check_overlap = TRUE</code> provides a simple way to avoid overplotting of labels: labels that would otherwise overlap are omitted.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mtcars, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(wt, mpg, <span class="dt">label =</span> <span class="kw">rownames</span>(mtcars))) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_text</a></span>(<span class="dt">nudge_y =</span> <span class="fl">0.5</span>, <span class="dt">check_overlap =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mtcars, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(wt, mpg, <span class="dt">label =</span> <span class="kw">rownames</span>(mtcars))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_text</a></span>(<span class="dt">nudge_y =</span> <span class="fl">0.5</span>, <span class="dt">check_overlap =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-6-1.png" width="50%"></p>
 <p>(Labelling points well is still a huge pain, but at least these new features make life a lit better.)</p>
 </li>
 <li>
 <p><code><a href="../../reference/geom_text.html">geom_label()</a></code> works like <code><a href="../../reference/geom_text.html">geom_text()</a></code> but draws a rounded rectangle underneath each label:</p>
-<pre class="sourceCode r"><code class="sourceCode r">grid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(
-  <span class="dt">x =</span> <span class="kw">seq</span>(-pi, pi, <span class="dt">length =</span> <span class="dv">50</span>),
-  <span class="dt">y =</span> <span class="kw">seq</span>(-pi, pi, <span class="dt">length =</span> <span class="dv">50</span>)
-) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">r =</span> x ^<span class="st"> </span><span class="dv">2</span> +<span class="st"> </span>y ^<span class="st"> </span><span class="dv">2</span>, <span class="dt">z =</span> <span class="kw">cos</span>(r ^<span class="st"> </span><span class="dv">2</span>) *<span class="st"> </span><span class="kw">exp</span>(-r /<span class="st"> </span><span class="dv">6</span>))
-
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(grid, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(x, y)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_tile.html">geom_raster</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> z)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_label</a></span>(<span class="dt">data =</span> <span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>), <span class="dt">label =</span> <span class="st">"Center"</span>) +
-<span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>) +
-<span class="st">  </span><span class="kw"><a href="../../reference/coord_fixed.html">coord_fixed</a></span>()</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">grid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="dt">x =</span> <span class="kw">seq</span>(<span class="op">-</span>pi, pi, <span class="dt">length =</span> <span class="dv">50</span>),</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="dt">y =</span> <span class="kw">seq</span>(<span class="op">-</span>pi, pi, <span class="dt">length =</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">r =</span> x <span class="op">^</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>y <span class="op">^</span><span class="st"> </span><span class="dv">2</span>, <span class="dt">z =</span> <span class="kw">cos</span>(r <span class="op">^</span><span class="st"> </span><span class="dv">2</span>) <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>r <span class="op">/</span><span class="st"> </span><span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(grid, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(x, y)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="../../reference/geom_tile.html">geom_raster</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> z)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_label</a></span>(<span class="dt">data =</span> <span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>), <span class="dt">label =</span> <span class="st">"Center"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="../../reference/coord_fixed.html">coord_fixed</a></span>()</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-7-1.png" width="50%"></p>
 </li>
 <li>
 <p><code><a href="../../reference/aes_.html">aes_()</a></code> replaces <code><a href="../../reference/aes_.html">aes_q()</a></code>, and works like the SE functions in dplyr and my other recent packages. It supports formulas, so the most concise SE version of <code><a href="../../reference/aes.html">aes(carat, price)</a></code> is now <code><a href="../../reference/aes_.html">aes_(~carat, ~price)</a></code>. You may want to use this form in packages, as it will avoid spurious <code>R CMD check</code> warnings about undefined global variables.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes_.html">aes_</a></span>(~displ, ~cty)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>()
-<span class="co"># Same as</span>
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, cty)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>()</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes_.html">aes_</a></span>(<span class="op">~</span>displ, <span class="op">~</span>cty)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>()</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># Same as</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, cty)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>()</a></code></pre></div>
 </li>
 </ul>
 </div>
@@ -197,20 +200,20 @@
 <li><p><code><a href="../../reference/scale_size.html">scale_size()</a></code> now maps values to <em>area</em>, not radius. Use <code><a href="../../reference/scale_size.html">scale_radius()</a></code> if you want the old behaviour (not recommended, except perhaps for lines). Continue to use <code><a href="../../reference/scale_size.html">scale_size_area()</a></code> if you want 0 values to have 0 area.</p></li>
 <li>
 <p>Bar and rectangle legends no longer get a diagonal line. Instead, the border has been tweaked to make it visible, and more closely match the size of line drawn on the plot.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="kw">factor</span>(cyl), <span class="dt">fill =</span> drv)) +<span class="st">  </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_bar</a></span>(<span class="dt">colour =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">1</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/coord_flip.html">coord_flip</a></span>()</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="kw">factor</span>(cyl), <span class="dt">fill =</span> drv)) <span class="op">+</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_bar</a></span>(<span class="dt">colour =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/coord_flip.html">coord_flip</a></span>()</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-9-1.png" width="50%"></p>
 </li>
 <li><p><code><a href="../../reference/geom_point.html">geom_point()</a></code> now uses shape 19 instead of 16. This looks much better on the default Linux graphics device. (It’s very slightly smaller than the old point, but it shouldn’t affect any graphics significantly). You can now control the width of the outline on shapes 21-25 with the <code>stroke</code> parameter.</p></li>
 <li>
 <p>The default legend will now allocate multiple rows (if vertical) or columns (if horizontal) in order to make a legend that is more likely to fit on the screen. You can override with the <code>nrow</code>/<code>ncol</code> arguments to <code><a href="../../reference/guide_legend.html">guide_legend()</a></code></p>
-<pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ,hwy, <span class="dt">colour =</span> manufacturer)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)
-p
-<span class="co"># Revert back to previous behaviour</span>
-p +<span class="st"> </span><span class="kw"><a href="../../reference/guides.html">guides</a></span>(<span class="dt">colour =</span> <span class="kw"><a href="../../reference/guide_legend.html">guide_legend</a></span>(<span class="dt">nrow =</span> <span class="dv">1</span>))</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ,hwy, <span class="dt">colour =</span> manufacturer)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">p</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co"># Revert back to previous behaviour</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="../../reference/guides.html">guides</a></span>(<span class="dt">colour =</span> <span class="kw"><a href="../../reference/guide_legend.html">guide_legend</a></span>(<span class="dt">nrow =</span> <span class="dv">1</span>))</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-10-1.png" width="50%"><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-10-2.png" width="50%"></p>
 </li>
 <li><p>Two new themes were contributed by <a href="http://github.com/jiho">Jean-Olivier Irisson</a>: <code><a href="../../reference/ggtheme.html">theme_void()</a></code> is completely empty and <code><a href="../../reference/ggtheme.html">theme_dark()</a></code> has a dark background designed to make colours pop out.</p></li>
@@ -223,46 +226,46 @@ p +<span class="st"> </span><span class="kw"><a href="../../reference/guides.htm
 <ol style="list-style-type: decimal">
 <li><p>You can switch the position of facet labels so they’re next to the axes.</p></li>
 <li><p><code><a href="../../reference/facet_wrap.html">facet_wrap()</a></code> now supports custom labellers.</p></li>
-<li><p>You can create combined labels when facetting by multiple variables.</p></li>
+<li><p>You can create combined labels when faceting by multiple variables.</p></li>
 </ol>
 <div id="switching-the-labels" class="section level3">
 <h3 class="hasAnchor">
 <a href="#switching-the-labels" class="anchor"></a>Switching the labels</h3>
 <p>The new <code>switch</code> argument allows you to switch the labels to display near the axes:</p>
-<pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="kw">transform</span>(mtcars,
-  <span class="dt">am =</span> <span class="kw">factor</span>(am, <span class="dt">levels =</span> <span class="dv">0</span>:<span class="dv">1</span>, <span class="kw">c</span>(<span class="st">"Automatic"</span>, <span class="st">"Manual"</span>)),
-  <span class="dt">gear =</span> <span class="kw">factor</span>(gear, <span class="dt">levels =</span> <span class="dv">3</span>:<span class="dv">5</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Three"</span>, <span class="st">"Four"</span>, <span class="st">"Five"</span>))
-)
-
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(data, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(mpg, disp)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +
-<span class="st">  </span><span class="kw"><a href="../../reference/facet_grid.html">facet_grid</a></span>(am ~<span class="st"> </span>gear, <span class="dt">switch =</span> <span class="st">"both"</span>)</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">transform</span>(mtcars,</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">am =</span> <span class="kw">factor</span>(am, <span class="dt">levels =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="kw">c</span>(<span class="st">"Automatic"</span>, <span class="st">"Manual"</span>)),</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">gear =</span> <span class="kw">factor</span>(gear, <span class="dt">levels =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Three"</span>, <span class="st">"Four"</span>, <span class="st">"Five"</span>))</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(data, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(mpg, disp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="../../reference/facet_grid.html">facet_grid</a></span>(am <span class="op">~</span><span class="st"> </span>gear, <span class="dt">switch =</span> <span class="st">"both"</span>)</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-11-1.png" width="50%"></p>
 <p>This is especially useful when the labels directly characterise the axes. In that situation, switching the labels can make the plot clearer and more readable. You may also want to use a neutral label background by setting <code>strip.background</code> to <code><a href="../../reference/element.html">element_blank()</a></code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>mtcars %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(
-    <span class="dt">Logarithmic =</span> <span class="kw">log</span>(mpg),
-    <span class="dt">Inverse =</span> <span class="dv">1</span> /<span class="st"> </span>mpg,
-    <span class="dt">Cubic =</span> mpg ^<span class="st"> </span><span class="dv">3</span>,
-    <span class="dt">Original =</span> mpg
-) %&gt;%<span class="st"> </span>tidyr::<span class="kw">gather</span>(transformation, mpg2, Logarithmic:Original)
-
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(data, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(mpg2, disp)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +
-<span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(~transformation, <span class="dt">scales =</span> <span class="st">"free"</span>, <span class="dt">switch =</span> <span class="st">"x"</span>) +
-<span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(<span class="dt">strip.background =</span> <span class="kw"><a href="../../reference/element.html">element_blank</a></span>())
-<span class="co">#&gt; Warning: 'switch' is deprecated.</span>
-<span class="co">#&gt; Use 'strip.position' instead.</span>
-<span class="co">#&gt; See help("Deprecated")</span></code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">data &lt;-<span class="st"> </span>mtcars <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="dt">Logarithmic =</span> <span class="kw">log</span>(mpg),</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">    <span class="dt">Inverse =</span> <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>mpg,</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">    <span class="dt">Cubic =</span> mpg <span class="op">^</span><span class="st"> </span><span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">    <span class="dt">Original =</span> mpg</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">) <span class="op">%&gt;%</span><span class="st"> </span>tidyr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/tidyr/topics/gather">gather</a></span>(transformation, mpg2, Logarithmic<span class="op">:</span>Original)</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(data, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(mpg2, disp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>transformation, <span class="dt">scales =</span> <span class="st">"free"</span>, <span class="dt">switch =</span> <span class="st">"x"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(<span class="dt">strip.background =</span> <span class="kw"><a href="../../reference/element.html">element_blank</a></span>())</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13"><span class="co">#&gt; Warning: 'switch' is deprecated.</span></a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="co">#&gt; Use 'strip.position' instead.</span></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="co">#&gt; See help("Deprecated")</span></a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-12-1.png" width="50%"></p>
 </div>
 <div id="wrap-labeller" class="section level3">
 <h3 class="hasAnchor">
 <a href="#wrap-labeller" class="anchor"></a>Wrap labeller</h3>
 <p>A longstanding issue in ggplot was that <code><a href="../../reference/facet_wrap.html">facet_wrap()</a></code> did not support custom labellers. Labellers are small functions that make it easy to customise the labels. You can now supply labellers to both wrap and grid facets:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(data, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(mpg2, disp)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +
-<span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(~transformation, <span class="dt">scales =</span> <span class="st">"free"</span>, <span class="dt">labeller =</span> <span class="st">"label_both"</span>)</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(data, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(mpg2, disp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>transformation, <span class="dt">scales =</span> <span class="st">"free"</span>, <span class="dt">labeller =</span> <span class="st">"label_both"</span>)</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-13-1.png" width="50%"></p>
 </div>
 <div id="composite-margins" class="section level3">
@@ -270,14 +273,14 @@ p +<span class="st"> </span><span class="kw"><a href="../../reference/guides.htm
 <a href="#composite-margins" class="anchor"></a>Composite margins</h3>
 <p>Labellers have now better support for composite margins when you facet over multiple variable with <code>+</code>. All labellers gain a <code>multi_line</code> argument to control whether labels should be displayed as a single line or over multiple lines, one for each factor.</p>
 <p>The labellers still work the same way except for <code><a href="../../reference/label_bquote.html">label_bquote()</a></code>. That labeller makes it easy to write mathematical expression involving the values of facetted factors. Historically, <code><a href="../../reference/label_bquote.html">label_bquote()</a></code> could only specify a single expression for all margins and factor. The factor value was referred to via the backquoted placeholder <code>.(x)</code>. Now that it supports expressions combining multiple factors, you must backquote the variable names themselves. In addition, you can provide different expressions for each margin:</p>
-<pre class="sourceCode r"><code class="sourceCode r">my_labeller &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/label_bquote.html">label_bquote</a></span>(
-  <span class="dt">rows =</span> .(am) /<span class="st"> </span>alpha,
-  <span class="dt">cols =</span> .(vs) ^<span class="st"> </span>.(cyl)
-)
-
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mtcars, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(wt, mpg)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +
-<span class="st">  </span><span class="kw"><a href="../../reference/facet_grid.html">facet_grid</a></span>(am ~<span class="st"> </span>vs +<span class="st"> </span>cyl, <span class="dt">labeller =</span> my_labeller)</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">my_labeller &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/label_bquote.html">label_bquote</a></span>(</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="dt">rows =</span> .(am) <span class="op">/</span><span class="st"> </span>alpha,</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="dt">cols =</span> .(vs) <span class="op">^</span><span class="st"> </span>.(cyl)</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">)</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mtcars, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(wt, mpg)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="../../reference/facet_grid.html">facet_grid</a></span>(am <span class="op">~</span><span class="st"> </span>vs <span class="op">+</span><span class="st"> </span>cyl, <span class="dt">labeller =</span> my_labeller)</a></code></pre></div>
 <p><img src="ggplot2-2.0.0_files/figure-html/unnamed-chunk-14-1.png" width="50%"></p>
 </div>
 </div>
@@ -309,12 +312,12 @@ p +<span class="st"> </span><span class="kw"><a href="../../reference/guides.htm
 </ul>
 <p>All defunct functions have been removed.</p>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
         <div id="tocnav">
-      <h2>Contents</h2>
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#extensibility">Extensibility</a></li>
       <li><a href="#new-and-updated-geoms">New and updated geoms</a></li>
@@ -334,20 +337,20 @@ p +<span class="st"> </span><span class="kw"><a href="../../reference/guides.htm
 </div>
 
 <div class="author">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script><script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script></footer>
 </div>
+
+  
 
   </body>
 </html>

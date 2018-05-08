@@ -15,7 +15,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -93,12 +93,11 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     
 
     
     
-<div class="contents">
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <div id="ggplot2" class="section level1">
 
@@ -111,26 +110,32 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The easiest way to get ggplot2 is to install the whole tidyverse:</span>
-<span class="kw">install.packages</span>(<span class="st">"tidyverse"</span>)
-
-<span class="co"># Alternatively, install just ggplot2:</span>
-<span class="kw">install.packages</span>(<span class="st">"ggplot2"</span>)
-
-<span class="co"># Or the the development version from GitHub:</span>
-<span class="co"># install.packages("devtools")</span>
-devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggplot2"</span>)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># The easiest way to get ggplot2 is to install the whole tidyverse:</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">"tidyverse"</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Alternatively, install just ggplot2:</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">install.packages</span>(<span class="st">"ggplot2"</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># Or the the development version from GitHub:</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"tidyverse/ggplot2"</span>)</a></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>It’s hard to succinctly describe how ggplot2 works because it embodies a deep philosophy of visualisation. However, in most cases you start with <code><a href="reference/ggplot.html">ggplot()</a></code>, supply a dataset and aesthetic mapping (with <code><a href="reference/aes.html">aes()</a></code>). You then add on layers (like <code><a href="reference/geom_point.html">geom_point()</a></code> or <code><a href="reference/geom_histogram.html">geom_histogram()</a></code>), scales (like <code><a href="reference/scale_brewer.html">scale_colour_brewer()</a></code>), faceting specifications (like <code><a href="reference/facet_wrap.html">facet_wrap()</a></code>) and coordinate systems (like <code><a href="reference/coord_flip.html">coord_flip()</a></code>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-
-<span class="kw"><a href="reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="reference/aes.html">aes</a></span>(displ, hwy, <span class="dt">colour =</span> class)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="reference/geom_point.html">geom_point</a></span>()</code></pre>
-<p><img src="README-example-1.png" width="672"></p>
-<p>As well as the components built-in to ggplot2, there are many packages that provide extensions. See a comphrensive list at <a href="https://www.ggplot2-exts.org" class="uri">https://www.ggplot2-exts.org</a>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="reference/aes.html">aes</a></span>(displ, hwy, <span class="dt">colour =</span> class)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/geom_point.html">geom_point</a></span>()</a></code></pre></div>
+<p><img src="reference/figures/README-example-1.png" width="700"></p>
+</div>
+<div id="lifecycle" class="section level2">
+<h2 class="hasAnchor">
+<a href="#lifecycle" class="anchor"></a>Lifecycle</h2>
+<p><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="lifecycle"></a></p>
+<p>ggplot2 is now over 10 years old and is used by hundreds of thousands of people to make millions of plots. That means, by-and-large, ggplot2 itself changes relatively little. When we do make changes, they will be generally to add new functions or arguments rather than changing the behaviour of existing functions, and if we do make changes to existing behaviour we will do them for compelling reasons.</p>
+<p>If you are looking for innovation, look to ggplot2’s rich ecosystem of extensions. See a community maintained list at <a href="http://www.ggplot2-exts.org/gallery/" class="uri">http://www.ggplot2-exts.org/gallery/</a>.</p>
 </div>
 <div id="learning-ggplot2" class="section level2">
 <h2 class="hasAnchor">
@@ -148,18 +153,18 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggp
 <a href="#getting-help" class="anchor"></a>Getting help</h2>
 <p>There are two main places to get help with ggplot2:</p>
 <ol style="list-style-type: decimal">
-<li><p>The <a href="https://groups.google.com/forum/?fromgroups#!forum/ggplot2">ggplot2 mailing list</a> is a friendly place to ask any questions about ggplot2. You must be a member to post messages, but anyone can read the archived discussions.</p></li>
-<li><p><a href="so">stackoverflow</a> is a great source of answers to common ggplot2 questions. It is also a great place to get help, once you have created a reproducible example that illustrates your problem.</p></li>
+<li><p>The <a href="https://community.rstudio.com/">RStudio community</a> is a friendly place to ask any questions about ggplot2.</p></li>
+<li><p><a href="http://stackoverflow.com/questions/tagged/ggplot2?sort=frequent&amp;pageSize=50">Stack Overflow</a> is a great source of answers to common ggplot2 questions. It is also a great place to get help, once you have created a reproducible example that illustrates your problem.</p></li>
 </ol>
-</div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Links</h2>
+    <div class="links">
+<h2>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cran.r-project.org/package=ggplot2">https://​cran.r-project.org/​package=ggplot2</a>
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=ggplot2">https://​cloud.r-project.org/​package=ggplot2</a>
 </li>
 <li>Browse source code at <br><a href="https://github.com/tidyverse/ggplot2">https://​github.com/​tidyverse/​ggplot2</a>
 </li>
@@ -167,16 +172,39 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggp
 </li>
 <li>Learn more at <br><a href="http://r4ds.had.co.nz/data-visualisation.html">http://​r4ds.had.co.nz/​data-visualisation.html</a>
 </li>
+<li>Extensions at <br><a href="http://www.ggplot2-exts.org/gallery/">http://​www.ggplot2-exts.org/​gallery/​</a>
+</li>
 </ul>
+</div>
+<div class="license">
 <h2>License</h2>
-<p><a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a> | file <a href="LICENSE">LICENSE</a></p>
+<ul class="list-unstyled">
+<li>
+<a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a> | file <a href="LICENSE-text.html">LICENSE</a>
+</li>
+</ul>
+</div>
+<div class="citation">
+<h2>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html">Citing ggplot2</a></li>
+</ul>
+</div>
+<div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="http://hadley.nz">Hadley Wickham</a> <br><small class="roles"> Author, maintainer </small> </li>
-<li>Winston Chang <br><small class="roles"> Author </small> </li>
+<a href="http://hadley.nz">Hadley Wickham</a> <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Winston Chang <br><small class="roles"> Author </small>  </li>
+<li>Kara Woo <br><small class="roles"> Author </small>  </li>
+<li>Thomas Lin Pedersen <br><small class="roles"> Author </small>  </li>
+<li>Claus Wilke <br><small class="roles"> Author </small>  </li>
+<li>Kohske Takahashi <br><small class="roles"> Author </small>  </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
+</div>
+
+      <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/tidyverse/ggplot2"><img src="https://travis-ci.org/tidyverse/ggplot2.svg?branch=master" alt="Travis Build Status"></a></li>
@@ -184,6 +212,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggp
 <li><a href="https://codecov.io/github/tidyverse/ggplot2?branch=master"><img src="https://img.shields.io/codecov/c/github/tidyverse/ggplot2/master.svg" alt="Coverage Status"></a></li>
 <li><a href="https://cran.r-project.org/package=ggplot2"><img src="http://www.r-pkg.org/badges/version/ggplot2" alt="CRAN_Status_Badge"></a></li>
 </ul>
+</div>
 </div>
 
 </div>
@@ -194,20 +223,20 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/ggp
 </div>
 
 <div class="author">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script><script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script></footer>
 </div>
+
+  
 
   </body>
 </html>

@@ -109,20 +109,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Use values without scaling</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/scale-identity.r'><code>R/scale-identity.r</code></a>, <a href='https://github.com/tidyverse/ggplot2/blob/master/R/zxx.r'><code>R/zxx.r</code></a></small>
+    <div class="hidden name"><code>scale_identity.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Use this set of scales when your data has already been scaled, i.e. it
 already represents aesthetic values that ggplot2 can handle directly
 This will not produce a legend unless you also supply the <code>breaks</code>
 and <code>labels</code>.</p>
     
+    </div>
 
-    <pre><span class='fu'>scale_colour_identity</span>(<span class='no'>...</span>, <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"none"</span>)
+    <pre class="usage"><span class='fu'>scale_colour_identity</span>(<span class='no'>...</span>, <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"none"</span>)
 
 <span class='fu'>scale_fill_identity</span>(<span class='no'>...</span>, <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"none"</span>)
 
@@ -134,13 +138,13 @@ and <code>labels</code>.</p>
 
 <span class='fu'>scale_size_identity</span>(<span class='no'>...</span>, <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"none"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale</a></code> or
-<code><a href='continuous_scale.html'>continuous_scale</a></code></p></td>
+      <td><p>Other arguments passed on to <code><a href='discrete_scale.html'>discrete_scale()</a></code> or
+<code><a href='continuous_scale.html'>continuous_scale()</a></code></p></td>
     </tr>
     <tr>
       <th>guide</th>
@@ -153,30 +157,30 @@ and <code>labels</code>.</p>
     <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>luv_colours</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>u</span>, <span class='no'>v</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>col</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>) +
   <span class='fu'>scale_color_identity</span>() +
-  <span class='fu'><a href='coord_fixed.html'>coord_equal</a></span>()</div><img src='scale_identity-2.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='coord_fixed.html'>coord_equal</a></span>()</div><div class='img'><img src='scale_identity-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
   <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>,
   <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>,
   <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"red"</span>, <span class='st'>"green"</span>, <span class='st'>"blue"</span>, <span class='st'>"yellow"</span>)
 )
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) + <span class='fu'><a href='geom_tile.html'>geom_tile</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>colour</span>))</div><img src='scale_identity-4.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) + <span class='fu'><a href='geom_tile.html'>geom_tile</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>colour</span>))</div><div class='img'><img src='scale_identity-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
   <span class='fu'><a href='geom_tile.html'>geom_tile</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>colour</span>)) +
-  <span class='fu'>scale_fill_identity</span>()</div><img src='scale_identity-6.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>scale_fill_identity</span>()</div><div class='img'><img src='scale_identity-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># To get a legend guide, specify guide = "legend"</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
   <span class='fu'><a href='geom_tile.html'>geom_tile</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>colour</span>)) +
-  <span class='fu'>scale_fill_identity</span>(<span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"legend"</span>)</div><img src='scale_identity-8.png' alt='' width='540' height='400' /><div class='input'><span class='co'># But you'll typically also need to supply breaks and labels:</span>
+  <span class='fu'>scale_fill_identity</span>(<span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"legend"</span>)</div><div class='img'><img src='scale_identity-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># But you'll typically also need to supply breaks and labels:</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
   <span class='fu'><a href='geom_tile.html'>geom_tile</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>colour</span>)) +
   <span class='fu'>scale_fill_identity</span>(<span class='st'>"trt"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>4</span>], <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='no'>df</span>$<span class='no'>colour</span>,
-  <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"legend"</span>)</div><img src='scale_identity-10.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='kw'>guide</span> <span class='kw'>=</span> <span class='st'>"legend"</span>)</div><div class='img'><img src='scale_identity-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># cyl scaled to appropriate size</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><img src='scale_identity-12.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><div class='img'><img src='scale_identity-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># cyl used as point size</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>cyl</span>)) +
-  <span class='fu'>scale_size_identity</span>()</div><img src='scale_identity-14.png' alt='' width='540' height='400' /></pre>
+  <span class='fu'>scale_size_identity</span>()</div><div class='img'><img src='scale_identity-7.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -195,21 +199,23 @@ and <code>labels</code>.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

@@ -109,20 +109,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Polar coordinates</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/coord-polar.r'><code>R/coord-polar.r</code></a></small>
+    <div class="hidden name"><code>coord_polar.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>The polar coordinate system is most commonly used for pie charts, which
 are a stacked bar chart in polar coordinates.</p>
     
+    </div>
 
-    <pre><span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>clip</span> <span class='kw'>=</span> <span class='st'>"on"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -137,6 +141,12 @@ are a stacked bar chart in polar coordinates.</p>
       <th>direction</th>
       <td><p>1, clockwise; -1, anticlockwise</p></td>
     </tr>
+    <tr>
+      <th>clip</th>
+      <td><p>Should drawing be clipped to the extent of the plot panel? A
+setting of <code>"on"</code> (the default) means yes, and a setting of <code>"off"</code>
+means no. For details, please see <code><a href='coord_cartesian.html'>coord_cartesian()</a></code>.</p></td>
+    </tr>
     </table>
     
 
@@ -149,16 +159,15 @@ are a stacked bar chart in polar coordinates.</p>
 <span class='co'>#' # A pie chart = stacked bar chart + polar coordinates</span>
 <span class='no'>pie</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='fl'>1</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
  <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='no'>pie</span> + <span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"y"</span>)</div><img src='coord_polar-2.png' alt='' width='540' height='400' /><div class='input'>
-
-
+<span class='no'>pie</span> + <span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"y"</span>)</div><div class='img'><img src='coord_polar-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='input'>
 <span class='co'># A coxcomb plot = bar chart + polar coordinates</span>
 <span class='no'>cxc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
   <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>)
-<span class='no'>cxc</span> + <span class='fu'>coord_polar</span>()</div><img src='coord_polar-4.png' alt='' width='540' height='400' /><div class='input'><span class='co'># A new type of plot?</span>
-<span class='no'>cxc</span> + <span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"y"</span>)</div><img src='coord_polar-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>cxc</span> + <span class='fu'>coord_polar</span>()</div><div class='img'><img src='coord_polar-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># A new type of plot?</span>
+<span class='no'>cxc</span> + <span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"y"</span>)</div><div class='img'><img src='coord_polar-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># The bullseye chart</span>
-<span class='no'>pie</span> + <span class='fu'>coord_polar</span>()</div><img src='coord_polar-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>pie</span> + <span class='fu'>coord_polar</span>()</div><div class='img'><img src='coord_polar-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Hadley's favourite pie chart</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
   <span class='kw'>variable</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"does not resemble"</span>, <span class='st'>"resembles"</span>),
@@ -168,7 +177,7 @@ are a stacked bar chart in polar coordinates.</p>
   <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>) +
   <span class='fu'><a href='scale_manual.html'>scale_fill_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"red"</span>, <span class='st'>"yellow"</span>)) +
   <span class='fu'>coord_polar</span>(<span class='st'>"y"</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='no'>pi</span> / <span class='fl'>3</span>) +
-  <span class='fu'><a href='labs.html'>labs</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Pac man"</span>)</div><img src='coord_polar-10.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='labs.html'>labs</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Pac man"</span>)</div><div class='img'><img src='coord_polar-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Windrose + doughnut plot</span>
 <span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"ggplot2movies"</span>)) {
 <span class='no'>movies</span>$<span class='no'>rrating</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='cut_interval.html'>cut_interval</a></span>(<span class='no'>movies</span>$<span class='no'>rating</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>1</span>)
@@ -180,8 +189,7 @@ are a stacked bar chart in polar coordinates.</p>
 <span class='no'>doh</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1</span>) + <span class='fu'>coord_polar</span>()
 <span class='co'># Race track plot</span>
 <span class='no'>doh</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"fill"</span>) + <span class='fu'>coord_polar</span>(<span class='kw'>theta</span> <span class='kw'>=</span> <span class='st'>"y"</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: ggplot2movies</span></div><img src='coord_polar-13.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+}</div><div class='img'><img src='coord_polar-6.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -200,21 +208,23 @@ are a stacked bar chart in polar coordinates.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

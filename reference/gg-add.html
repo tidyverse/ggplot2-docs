@@ -109,29 +109,33 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Add components to a plot</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/plot-construction.r'><code>R/plot-construction.r</code></a></small>
+    <div class="hidden name"><code>gg-add.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p><code>+</code> is the key to constructing sophisticated ggplot2 graphics. It
 allows you to start simple, then get more and more complex, checking your
 work at each step.</p>
     
+    </div>
 
-    <pre># S3 method for gg
+    <pre class="usage"># S3 method for gg
 +(e1, e2)
 
 e1 %+% e2</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>e1</th>
-      <td><p>An object of class <code><a href='ggplot.html'>ggplot</a></code> or a <code><a href='theme.html'>theme</a></code>.</p></td>
+      <td><p>An object of class <code><a href='ggplot.html'>ggplot()</a></code> or a <code><a href='theme.html'>theme()</a></code>.</p></td>
     </tr>
     <tr>
       <th>e2</th>
@@ -143,13 +147,13 @@ e1 %+% e2</pre>
 
     
     <p>You can add any of the following types of objects:</p><ul>
-<li><p>A <code><a href='aes.html'>aes</a>()</code> objects replaces the default aesthetics.</p></li>
-<li><p>A layer created by a <code>geom_</code> or <code>stat_</code> function adds
-    new layer.</p></li>
+<li><p>An <code><a href='aes.html'>aes()</a></code> object replaces the default aesthetics.</p></li>
+<li><p>A layer created by a <code>geom_</code> or <code>stat_</code> function adds a
+new layer.</p></li>
 <li><p>A <code>scale</code> overrides the existing scale.</p></li>
-<li><p>A <code><a href='theme.html'>theme</a></code> modifies the current theme.</p></li>
-<li><p>A <code>coord</code> overrides current coordinate system.</p></li>
-<li><p>A <code>facet</code> specificatio override current faceting.</p></li>
+<li><p>A <code><a href='theme.html'>theme()</a></code> modifies the current theme.</p></li>
+<li><p>A <code>coord</code> overrides the current coordinate system.</p></li>
+<li><p>A <code>facet</code> specification overrides the current faceting.</p></li>
 </ul>
     <p>To replace the current default data frame, you must use <code>%+%</code>,
 due to S3 method precedence issues.</p>
@@ -158,17 +162,17 @@ be added in turn.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='theme.html'>theme</a></code></p>
+    <div class='dont-index'><p><code><a href='theme.html'>theme()</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>base</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
-<span class='no'>base</span> + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>()</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='+.gg-3.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>base</span> + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>()</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='gg-add-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># To override the data, you must use %+%</span>
-<span class='no'>base</span> <span class='kw'>%+%</span> <span class='fu'>subset</span>(<span class='no'>mpg</span>, <span class='no'>fl</span> <span class='kw'>==</span> <span class='st'>"p"</span>)</div><img src='+.gg-5.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>base</span> <span class='kw'>%+%</span> <span class='fu'>subset</span>(<span class='no'>mpg</span>, <span class='no'>fl</span> <span class='kw'>==</span> <span class='st'>"p"</span>)</div><div class='img'><img src='gg-add-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Alternatively, you can add multiple components with a list.</span>
 <span class='co'># This can be useful to return from a function.</span>
-<span class='no'>base</span> + <span class='fu'>list</span>(<span class='fu'>subset</span>(<span class='no'>mpg</span>, <span class='no'>fl</span> <span class='kw'>==</span> <span class='st'>"p"</span>), <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>())</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='+.gg-8.png' alt='' width='540' height='400' /></pre>
+<span class='no'>base</span> + <span class='fu'>list</span>(<span class='fu'>subset</span>(<span class='no'>mpg</span>, <span class='no'>fl</span> <span class='kw'>==</span> <span class='st'>"p"</span>), <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>())</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='gg-add-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -191,21 +195,23 @@ be added in turn.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

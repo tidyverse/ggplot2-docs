@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A quantile-quantile plot — geom_qq • ggplot2</title>
+<title>A quantile-quantile plot — geom_qq_line • ggplot2</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -109,46 +109,62 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>A quantile-quantile plot</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/stat-qq-line.R'><code>R/stat-qq-line.R</code></a>, <a href='https://github.com/tidyverse/ggplot2/blob/master/R/stat-qq.r'><code>R/stat-qq.r</code></a></small>
+    <div class="hidden name"><code>geom_qq.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
-    <p>A quantile-quantile plot</p>
+    <p><code>geom_qq</code> and <code>stat_qq</code> produce quantile-quantile plots. <code>geom_qq_line</code> and
+<code>stat_qq_line</code> compute the slope and intercept of the line connecting the
+points at specified quartiles of the theoretical and sample distributions.</p>
     
+    </div>
 
-    <pre><span class='fu'>geom_qq</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"point"</span>,
-  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='kw'>stats</span><span class='kw'>::</span><span class='no'>qnorm</span>,
+    <pre class="usage"><span class='fu'>geom_qq_line</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"path"</span>,
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/Normal'>qnorm</a></span>,
+  <span class='kw'>dparams</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>line.p</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.25</span>, <span class='fl'>0.75</span>), <span class='kw'>fullrange</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>stat_qq_line</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"path"</span>,
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/Normal'>qnorm</a></span>,
+  <span class='kw'>dparams</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>line.p</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.25</span>, <span class='fl'>0.75</span>), <span class='kw'>fullrange</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>geom_qq</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"point"</span>,
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/Normal'>qnorm</a></span>,
   <span class='kw'>dparams</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>stat_qq</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"point"</span>,
-  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='kw'>stats</span><span class='kw'>::</span><span class='no'>qnorm</span>,
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/Normal'>qnorm</a></span>,
   <span class='kw'>dparams</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>mapping</th>
-      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
-<code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
+      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes()</a></code> or
+<code><a href='aes_.html'>aes_()</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
 plot. You must supply <code>mapping</code> if there is no plot mapping.</p></td>
     </tr>
     <tr>
       <th>data</th>
       <td><p>The data to be displayed in this layer. There are three
-   options:</p>
+options:</p>
 <p>If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+data as specified in the call to <code><a href='ggplot.html'>ggplot()</a></code>.</p>
 <p>A <code>data.frame</code>, or other object, will override the plot
-   data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+data. All objects will be fortified to produce a data frame. See
+<code><a href='fortify.html'>fortify()</a></code> for which variables will be created.</p>
 <p>A <code>function</code> will be called with a single argument,
-   the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</p></td>
+the plot data. The return value must be a <code>data.frame.</code>, and
+will be used as the layer data.</p></td>
     </tr>
     <tr>
       <th>geom</th>
@@ -161,7 +177,7 @@ a call to a position adjustment function.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <td><p>Other arguments passed on to <code><a href='layer.html'>layer()</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 <code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
 to the paired geom/stat.</p></td>
@@ -176,6 +192,16 @@ to the paired geom/stat.</p></td>
 function.</p></td>
     </tr>
     <tr>
+      <th>line.p</th>
+      <td><p>Vector of quantiles to use when fitting the Q-Q line, defaults
+defaults to <code>c(.25, .75)</code>.</p></td>
+    </tr>
+    <tr>
+      <th>fullrange</th>
+      <td><p>Should the q-q line span the full range of the plot, or just
+the data</p></td>
+    </tr>
+    <tr>
       <th>na.rm</th>
       <td><p>If <code>FALSE</code>, the default, missing values are removed with
 a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
@@ -184,49 +210,63 @@ a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
       <th>show.legend</th>
       <td><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></td>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.
+It can also be a named logical vector to finely select the aesthetics to
+display.</p></td>
     </tr>
     <tr>
       <th>inherit.aes</th>
       <td><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></td>
+the default plot specification, e.g. <code><a href='borders.html'>borders()</a></code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p><code>stat_qq</code> understands the following aesthetics (required aesthetics are in bold):
-    <ul>
-<li><p><code><strong>sample</strong></code></p></li>
+    
+    <p><code>stat_qq</code> understands the following aesthetics (required aesthetics are in bold):</p><ul>
+<li><p><strong><code>sample</code></strong></p></li>
 <li><p><code>group</code></p></li>
 <li><p><code>x</code></p></li>
 <li><p><code>y</code></p></li>
-</ul></p>
+</ul><p>Learn more about setting these aesthetics in <code><a href='../articles/ggplot2-specs.html'>vignette("ggplot2-specs")</a></code></p>
+    <p><code>stat_qq_line</code> understands the following aesthetics (required aesthetics are in bold):</p><ul>
+<li><p><strong><code>sample</code></strong></p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>x</code></p></li>
+<li><p><code>y</code></p></li>
+</ul><p>Learn more about setting these aesthetics in <code><a href='../articles/ggplot2-specs.html'>vignette("ggplot2-specs")</a></code></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
     
-    <dl class='dl-horizontal'>
-  <dt>sample</dt><dd><p>sample quantiles</p></dd>
-  <dt>theoretical</dt><dd><p>theoretical quantiles</p></dd>
+    <p>Variables computed by <code>stat_qq</code>:</p><dl class='dl-horizontal'>
+<dt>sample</dt><dd><p>sample quantiles</p></dd>
+<dt>theoretical</dt><dd><p>theoretical quantiles</p></dd>
+</dl><p>Variables computed by <code>stat_qq_line</code>:</p><dl class='dl-horizontal'>
+<dt>x</dt><dd><p>x-coordinates of the endpoints of the line segment connecting the
+points at the chosen quantiles of the theoretical and the sample
+distributions</p></dd>
+<dt>y</dt><dd><p>y-coordinates of the endpoints</p></dd>
 </dl>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>rt</span>(<span class='fl'>200</span>, <span class='kw'>df</span> <span class='kw'>=</span> <span class='fl'>5</span>))
+    <pre class="examples"><div class='input'><span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>rt</span>(<span class='fl'>200</span>, <span class='kw'>df</span> <span class='kw'>=</span> <span class='fl'>5</span>))
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>y</span>))
-<span class='no'>p</span> + <span class='fu'>stat_qq</span>()</div><img src='geom_qq-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"qq"</span>)</div><img src='geom_qq-4.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>stat_qq</span>() + <span class='fu'>stat_qq_line</span>()</div><div class='img'><img src='geom_qq-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Use fitdistr from MASS to estimate distribution params</span>
-<span class='no'>params</span> <span class='kw'>&lt;-</span> <span class='fu'>as.list</span>(<span class='kw'>MASS</span><span class='kw'>::</span><span class='fu'>fitdistr</span>(<span class='no'>df</span>$<span class='no'>y</span>, <span class='st'>"t"</span>)$<span class='no'>estimate</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: NaNs produced</span></div><div class='output co'>#&gt; <span class='warning'>Warning: NaNs produced</span></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>y</span>)) +
-  <span class='fu'>stat_qq</span>(<span class='kw'>distribution</span> <span class='kw'>=</span> <span class='no'>qt</span>, <span class='kw'>dparams</span> <span class='kw'>=</span> <span class='no'>params</span>[<span class='st'>"df"</span>])</div><img src='geom_qq-9.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>params</span> <span class='kw'>&lt;-</span> <span class='fu'>as.list</span>(<span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/MASS/topics/fitdistr'>fitdistr</a></span>(<span class='no'>df</span>$<span class='no'>y</span>, <span class='st'>"t"</span>)$<span class='no'>estimate</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: NaNs produced</span></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>y</span>)) +
+  <span class='fu'>stat_qq</span>(<span class='kw'>distribution</span> <span class='kw'>=</span> <span class='no'>qt</span>, <span class='kw'>dparams</span> <span class='kw'>=</span> <span class='no'>params</span>[<span class='st'>"df"</span>]) +
+  <span class='fu'>stat_qq_line</span>(<span class='kw'>distribution</span> <span class='kw'>=</span> <span class='no'>qt</span>, <span class='kw'>dparams</span> <span class='kw'>=</span> <span class='no'>params</span>[<span class='st'>"df"</span>])</div><div class='img'><img src='geom_qq-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Using to explore the distribution of a variable</span>
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>) +
-  <span class='fu'>stat_qq</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>mpg</span>))</div><img src='geom_qq-11.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>) +
-  <span class='fu'>stat_qq</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><img src='geom_qq-13.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>mpg</span>)) +
+  <span class='fu'>stat_qq</span>() +
+  <span class='fu'>stat_qq_line</span>()</div><div class='img'><img src='geom_qq-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
+  <span class='fu'>stat_qq</span>() +
+  <span class='fu'>stat_qq_line</span>()</div><div class='img'><img src='geom_qq-4.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -249,21 +289,23 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

@@ -109,12 +109,15 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Useful labeller functions</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/labeller.r'><code>R/labeller.r</code></a></small>
+    <div class="hidden name"><code>labellers.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Labeller functions are in charge of formatting the strip labels of
 facet grids and wraps. Most of them accept a <code>multi_line</code>
@@ -122,8 +125,9 @@ argument to control whether multiple factors (defined in formulae
 such as <code>~first + second</code>) should be displayed on a single
 line separated with commas, or each on their own line.</p>
     
+    </div>
 
-    <pre><span class='fu'>label_value</span>(<span class='no'>labels</span>, <span class='kw'>multi_line</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>label_value</span>(<span class='no'>labels</span>, <span class='kw'>multi_line</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>label_both</span>(<span class='no'>labels</span>, <span class='kw'>multi_line</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>": "</span>)
 
@@ -133,13 +137,13 @@ line separated with commas, or each on their own line.</p>
 
 <span class='fu'>label_wrap_gen</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>25</span>, <span class='kw'>multi_line</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>labels</th>
       <td><p>Data frame of labels. Usually contains only one
-element, but facetting over multiple factors entails multiple
+element, but faceting over multiple factors entails multiple
 label variables.</p></td>
     </tr>
     <tr>
@@ -162,12 +166,12 @@ on separate lines.</p></td>
     <p><code>label_value()</code> only displays the value of a factor while
 <code>label_both()</code> displays both the variable name and the factor
 value. <code>label_context()</code> is context-dependent and uses
-<code>label_value()</code> for single factor facetting and
+<code>label_value()</code> for single factor faceting and
 <code>label_both()</code> when multiple factors are
-involved. <code>label_wrap_gen()</code> uses <code><a href='http://www.rdocumentation.org/packages/base/topics/strwrap'>strwrap</a>()</code>
-for line wrapping.
-    <code>label_parsed()</code> interprets the labels as plotmath
-expressions. <code><a href='label_bquote.html'>label_bquote</a>()</code> offers a more flexible
+involved. <code>label_wrap_gen()</code> uses <code><a href='http://www.rdocumentation.org/packages/base/topics/strwrap'>base::strwrap()</a></code>
+for line wrapping.</p>
+<p><code>label_parsed()</code> interprets the labels as plotmath
+expressions. <code><a href='label_bquote.html'>label_bquote()</a></code> offers a more flexible
 way of constructing plotmath expressions. See examples and
 <code>bquote()</code> for details on the syntax of the
 argument.</p>
@@ -176,37 +180,37 @@ argument.</p>
 
     
     <p>Note that an easy way to write a labeller function is to
-  transform a function operating on character vectors with
-  <code><a href='as_labeller.html'>as_labeller</a>()</code>.</p>
+transform a function operating on character vectors with
+<code><a href='as_labeller.html'>as_labeller()</a></code>.</p>
 <p>A labeller function accepts a data frame of labels (character
-  vectors) containing one column for each factor. Multiple factors
-  occur with formula of the type <code>~first + second</code>.</p>
+vectors) containing one column for each factor. Multiple factors
+occur with formula of the type <code>~first + second</code>.</p>
 <p>The return value must be a rectangular list where each 'row'
-  characterises a single facet. The list elements can be either
-  character vectors or lists of plotmath expressions. When multiple
-  elements are returned, they get displayed on their own new lines
-  (i.e., each facet gets a multi-line strip of labels).</p>
+characterises a single facet. The list elements can be either
+character vectors or lists of plotmath expressions. When multiple
+elements are returned, they get displayed on their own new lines
+(i.e., each facet gets a multi-line strip of labels).</p>
 <p>To illustrate, let's say your labeller returns a list of two
-  character vectors of length 3. This is a rectangular list because
-  all elements have the same length. The first facet will get the
-  first elements of each vector and display each of them on their
-  own line. Then the second facet gets the second elements of each
-  vector, and so on.</p>
+character vectors of length 3. This is a rectangular list because
+all elements have the same length. The first facet will get the
+first elements of each vector and display each of them on their
+own line. Then the second facet gets the second elements of each
+vector, and so on.</p>
 <p>If it's useful to your labeller, you can retrieve the <code>type</code>
-  attribute of the incoming data frame of labels. The value of this
-  attribute reflects the kind of strips your labeller is dealing
-  with: <code>"cols"</code> for columns and <code>"rows"</code> for rows. Note
-  that <code><a href='facet_wrap.html'>facet_wrap</a>()</code> has columns by default and rows
-  when the strips are switched with the <code>switch</code> option. The
-  <code>facet</code> attribute also provides metadata on the labels. It
-  takes the values <code>"grid"</code> or <code>"wrap"</code>.</p>
-<p>For compatibility with <code><a href='labeller.html'>labeller</a>()</code>, each labeller
-  function must have the <code>labeller</code> S3 class.</p>
+attribute of the incoming data frame of labels. The value of this
+attribute reflects the kind of strips your labeller is dealing
+with: <code>"cols"</code> for columns and <code>"rows"</code> for rows. Note
+that <code><a href='facet_wrap.html'>facet_wrap()</a></code> has columns by default and rows
+when the strips are switched with the <code>switch</code> option. The
+<code>facet</code> attribute also provides metadata on the labels. It
+takes the values <code>"grid"</code> or <code>"wrap"</code>.</p>
+<p>For compatibility with <code><a href='labeller.html'>labeller()</a></code>, each labeller
+function must have the <code>labeller</code> S3 class.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='labeller.html'>labeller</a>()</code>, <code><a href='as_labeller.html'>as_labeller</a>()</code>,
-  <code><a href='label_bquote.html'>label_bquote</a>()</code></p>
+    <div class='dont-index'><p><code><a href='labeller.html'>labeller()</a></code>, <code><a href='as_labeller.html'>as_labeller()</a></code>,
+<code><a href='label_bquote.html'>label_bquote()</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -214,16 +218,14 @@ argument.</p>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 
 <span class='co'># Displaying only the values</span>
-<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>)</div><img src='labellers-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_value</span>)</div><img src='labellers-4.png' alt='' width='540' height='400' /><div class='input'>
-
-<span class='co'># Displaying both the values and the variables</span>
-<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_both</span>)</div><img src='labellers-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>)</div><div class='img'><img src='labellers-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_value</span>)</div><div class='img'><img src='labellers-2.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='input'><span class='co'># Displaying both the values and the variables</span>
+<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_both</span>)</div><div class='img'><img src='labellers-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Displaying only the values or both the values and variables</span>
 <span class='co'># depending on whether multiple factors are facetted over</span>
-<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>am</span> ~ <span class='no'>vs</span>+<span class='no'>cyl</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_context</span>)</div><img src='labellers-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>am</span> ~ <span class='no'>vs</span>+<span class='no'>cyl</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_context</span>)</div><div class='img'><img src='labellers-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Interpreting the labels as plotmath expressions</span>
-<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl2</span>)</div><img src='labellers-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl2</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_parsed</span>)</div><img src='labellers-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>vs</span> + <span class='no'>cyl2</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_parsed</span>)</div><img src='labellers-14.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl2</span>)</div><div class='img'><img src='labellers-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl2</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_parsed</span>)</div><div class='img'><img src='labellers-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>vs</span> + <span class='no'>cyl2</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_parsed</span>)</div><div class='img'><img src='labellers-7.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -248,21 +250,23 @@ argument.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

@@ -109,21 +109,25 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Construct aesthetic mappings</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/aes.r'><code>R/aes.r</code></a></small>
+    <div class="hidden name"><code>aes.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Aesthetic mappings describe how variables in the data are mapped to visual
 properties (aesthetics) of geoms. Aesthetic mappings can be set in
-<code><a href='ggplot2-package.html'>ggplot2</a></code> and in individual layers.</p>
+<code><a href='ggplot2-package.html'>ggplot2()</a></code> and in individual layers.</p>
     
+    </div>
 
-    <pre><span class='fu'>aes</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>aes</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -136,29 +140,66 @@ they are so common; all other aesthetics must be named.</p></td>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function also standardise aesthetic names by performing partial
+    <p>This function also standardises aesthetic names by performing partial
 matching, converting color to colour, and translating old style R names to
-ggplot names (eg. pch to shape, cex to size)</p>
+ggplot names (eg. pch to shape, cex to size).</p>
+    
+    <h2 class="hasAnchor" id="quasiquotation"><a class="anchor" href="#quasiquotation"></a>Quasiquotation</h2>
+
+    
+    <p><code>aes()</code> is a <a href='http://www.rdocumentation.org/packages/rlang/topics/quotation'>quoting function</a>. This means that
+its inputs are quoted to be evaluated in the context of the
+data. This makes it easy to work with variables from the data frame
+because you can name those directly. The flip side is that you have
+to use <a href='http://www.rdocumentation.org/packages/rlang/topics/quasiquotation'>quasiquotation</a> to program with
+<code>aes()</code>. See a tidy evaluation tutorial such as the <a href='http://dplyr.tidyverse.org/articles/programming.html'>dplyr programming vignette</a>
+to learn more about these techniques.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>See <code><a href='aes_.html'>aes_</a></code> for a version of <code>aes</code> that is
-  more suitable for programming with.</p>
+    <div class='dont-index'><p><code><a href='vars.html'>vars()</a></code> for another quoting function designed for
+faceting specifications.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>wt</span>)</div><div class='output co'>#&gt; * x -&gt; mpg
-#&gt; * y -&gt; wt</div><div class='input'><span class='fu'>aes</span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)</div><div class='output co'>#&gt; * x -&gt; mpg
-#&gt; * y -&gt; wt</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>wt</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `x` -&gt; `mpg`
+#&gt; * `y` -&gt; `wt`</div><div class='input'><span class='fu'>aes</span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `x` -&gt; `mpg`
+#&gt; * `y` -&gt; `wt`</div><div class='input'>
 <span class='co'># You can also map aesthetics to functions of variables</span>
-<span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span> ^ <span class='fl'>2</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>wt</span> / <span class='no'>cyl</span>)</div><div class='output co'>#&gt; * x -&gt; mpg^2
-#&gt; * y -&gt; wt/cyl</div><div class='input'>
+<span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span> ^ <span class='fl'>2</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>wt</span> / <span class='no'>cyl</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `x` -&gt; `mpg^2`
+#&gt; * `y` -&gt; `wt/cyl`</div><div class='input'>
 <span class='co'># Aesthetic names are automatically standardised</span>
-<span class='fu'>aes</span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; * colour -&gt; x</div><div class='input'><span class='fu'>aes</span>(<span class='kw'>fg</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; * colour -&gt; x</div><div class='input'><span class='fu'>aes</span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; * colour -&gt; x</div><div class='input'><span class='fu'>aes</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; * colour -&gt; x</div><div class='input'>
+<span class='fu'>aes</span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `colour` -&gt; `x`</div><div class='input'><span class='fu'>aes</span>(<span class='kw'>fg</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `colour` -&gt; `x`</div><div class='input'><span class='fu'>aes</span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `colour` -&gt; `x`</div><div class='input'><span class='fu'>aes</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `colour` -&gt; `x`</div><div class='input'>
 <span class='co'># aes is almost always used with ggplot() or a layer</span>
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'>aes</span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><img src='aes-16.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'>aes</span>(<span class='no'>displ</span>, <span class='no'>hwy</span>))</div><img src='aes-18.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'>aes</span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><div class='img'><img src='aes-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'>aes</span>(<span class='no'>displ</span>, <span class='no'>hwy</span>))</div><div class='img'><img src='aes-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Aesthetics supplied to ggplot() are used as defaults for every layer</span>
-<span class='co'># you can override them, or supply different aesthetics for each layer</span></div></pre>
+<span class='co'># you can override them, or supply different aesthetics for each layer</span>
+
+
+<span class='co'># aes() is a quoting function, so you need to use tidy evaluation</span>
+<span class='co'># techniques to create wrappers around ggplot2 pipelines. The</span>
+<span class='co'># simplest case occurs when your wrapper takes dots:</span>
+<span class='no'>scatter_by</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>data</span>, <span class='no'>...</span>) {
+  <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>data</span>) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'>aes</span>(<span class='no'>...</span>))
+}
+<span class='fu'>scatter_by</span>(<span class='no'>mtcars</span>, <span class='no'>disp</span>, <span class='no'>drat</span>)</div><div class='img'><img src='aes-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># If your wrapper has a more specific interface with named arguments,</span>
+<span class='co'># you need to use the "enquote and unquote" technique:</span>
+<span class='no'>scatter_by</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>data</span>, <span class='no'>x</span>, <span class='no'>y</span>) {
+  <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>data</span>) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'>aes</span>(!!<span class='fu'><a href='tidyeval.html'>enquo</a></span>(<span class='no'>x</span>), !!<span class='fu'><a href='tidyeval.html'>enquo</a></span>(<span class='no'>y</span>)))
+}
+<span class='fu'>scatter_by</span>(<span class='no'>mtcars</span>, <span class='no'>disp</span>, <span class='no'>drat</span>)</div><div class='img'><img src='aes-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># Note that users of your wrapper can use their own functions in the</span>
+<span class='co'># quoted expressions and all will resolve as it should!</span>
+<span class='no'>cut3</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='cut_interval.html'>cut_number</a></span>(<span class='no'>x</span>, <span class='fl'>3</span>)
+<span class='fu'>scatter_by</span>(<span class='no'>mtcars</span>, <span class='fu'>cut3</span>(<span class='no'>disp</span>), <span class='no'>drat</span>)</div><div class='img'><img src='aes-5.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -166,6 +207,8 @@ ggplot names (eg. pch to shape, cex to size)</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#quasiquotation">Quasiquotation</a></li>
 
       <li><a href="#see-also">See also</a></li>
       
@@ -181,21 +224,23 @@ ggplot names (eg. pch to shape, cex to size)</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

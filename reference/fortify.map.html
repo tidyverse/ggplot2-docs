@@ -109,21 +109,25 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Fortify method for map objects</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/fortify-map.r'><code>R/fortify-map.r</code></a></small>
+    <div class="hidden name"><code>fortify.map.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>This function turns a map into a data frame that can more easily be
 plotted with ggplot2.</p>
     
+    </div>
 
-    <pre><span class='co'># S3 method for map</span>
+    <pre class="usage"><span class='co'># S3 method for map</span>
 <span class='fu'><a href='fortify.html'>fortify</a></span>(<span class='no'>model</span>, <span class='no'>data</span>, <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -142,21 +146,21 @@ plotted with ggplot2.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='map_data.html'>map_data</a></code> and <code><a href='borders.html'>borders</a></code></p>
+    <div class='dont-index'><p><code><a href='map_data.html'>map_data()</a></code> and <code><a href='borders.html'>borders()</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"maps"</span>)) {
-<span class='no'>ca</span> <span class='kw'>&lt;-</span> <span class='fu'>map</span>(<span class='st'>"county"</span>, <span class='st'>"ca"</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='no'>ca</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/maps/topics/map'>map</a></span>(<span class='st'>"county"</span>, <span class='st'>"ca"</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='fu'>head</span>(<span class='fu'><a href='fortify.html'>fortify</a></span>(<span class='no'>ca</span>))
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>ca</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>long</span>, <span class='no'>lat</span>)) +
   <span class='fu'><a href='geom_polygon.html'>geom_polygon</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>group</span>))
 
-<span class='no'>tx</span> <span class='kw'>&lt;-</span> <span class='fu'>map</span>(<span class='st'>"county"</span>, <span class='st'>"texas"</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='no'>tx</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/maps/topics/map'>map</a></span>(<span class='st'>"county"</span>, <span class='st'>"texas"</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='fu'>head</span>(<span class='fu'><a href='fortify.html'>fortify</a></span>(<span class='no'>tx</span>))
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>tx</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>long</span>, <span class='no'>lat</span>)) +
   <span class='fu'><a href='geom_polygon.html'>geom_polygon</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>group</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>)
-}</div><img src='fortify.map-2.png' alt='' width='540' height='400' /></pre>
+}</div><div class='img'><img src='fortify.map-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -177,21 +181,23 @@ plotted with ggplot2.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

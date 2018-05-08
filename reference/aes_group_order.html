@@ -109,21 +109,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Aesthetics: grouping</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/aes-group-order.r'><code>R/aes-group-order.r</code></a></small>
+    <div class="hidden name"><code>aes_group_order.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Aesthetics: grouping</p>
     
+    </div>
 
         
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-
 <span class='co'># By default, the group is set to the interaction of all discrete variables in the</span>
 <span class='co'># plot. This often partitions the data correctly, but when it does not, or when</span>
 <span class='co'># no discrete variable is used in the plot, you will need to explicitly define the</span>
@@ -135,23 +138,23 @@
 
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>))
 <span class='co'># A basic scatter plot</span>
-<span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><img src='aes_group_order-2.png' alt='' width='540' height='400' /><div class='input'><span class='co'># The colour aesthetic</span>
-<span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><img src='aes_group_order-4.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Or you can use shape to distinguish the data</span>
-<span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>shape</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><img src='aes_group_order-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><div class='img'><img src='aes_group_order-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># The colour aesthetic</span>
+<span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><div class='img'><img src='aes_group_order-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Or you can use shape to distinguish the data</span>
+<span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>shape</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><div class='img'><img src='aes_group_order-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Using fill</span>
 <span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>factor</span>(<span class='no'>cyl</span>)))
-<span class='no'>a</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>()</div><img src='aes_group_order-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><img src='aes_group_order-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>a</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>)))</div><img src='aes_group_order-12.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>a</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>()</div><div class='img'><img src='aes_group_order-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>a</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><div class='img'><img src='aes_group_order-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>a</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>)))</div><div class='img'><img src='aes_group_order-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Using linetypes</span>
 <span class='no'>rescale01</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) (<span class='no'>x</span> - <span class='fu'>min</span>(<span class='no'>x</span>)) / <span class='fu'>diff</span>(<span class='fu'>range</span>(<span class='no'>x</span>))
 <span class='no'>ec_scaled</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
   <span class='kw'>date</span> <span class='kw'>=</span> <span class='no'>economics</span>$<span class='no'>date</span>,
-  <span class='kw'>plyr</span><span class='kw'>::</span><span class='fu'>colwise</span>(<span class='no'>rescale01</span>)(<span class='no'>economics</span>[, -(<span class='fl'>1</span>:<span class='fl'>2</span>)]))
-<span class='no'>ecm</span> <span class='kw'>&lt;-</span> <span class='kw'>reshape2</span><span class='kw'>::</span><span class='fu'>melt</span>(<span class='no'>ec_scaled</span>, <span class='kw'>id.vars</span> <span class='kw'>=</span> <span class='st'>"date"</span>)
+  <span class='kw pkg'>plyr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/plyr/topics/colwise'>colwise</a></span>(<span class='no'>rescale01</span>)(<span class='no'>economics</span>[, -(<span class='fl'>1</span>:<span class='fl'>2</span>)]))
+<span class='no'>ecm</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>reshape2</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/reshape2/topics/melt'>melt</a></span>(<span class='no'>ec_scaled</span>, <span class='kw'>id.vars</span> <span class='kw'>=</span> <span class='st'>"date"</span>)
 <span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>ecm</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>date</span>, <span class='no'>value</span>))
-<span class='no'>f</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>linetype</span> <span class='kw'>=</span> <span class='no'>variable</span>))</div><img src='aes_group_order-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>f</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>linetype</span> <span class='kw'>=</span> <span class='no'>variable</span>))</div><div class='img'><img src='aes_group_order-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Using facets</span>
-<span class='no'>k</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>..density..</span>)) + <span class='fu'><a href='geom_histogram.html'>geom_histogram</a></span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>0.2</span>)
-<span class='no'>k</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cut</span>)</div><img src='aes_group_order-16.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>k</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='fu'><a href='calc.html'>calc</a></span>(<span class='no'>density</span>))) + <span class='fu'><a href='geom_histogram.html'>geom_histogram</a></span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>0.2</span>)
+<span class='no'>k</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cut</span>)</div><div class='img'><img src='aes_group_order-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># There are three common cases where the default is not enough, and we</span>
 <span class='co'># will consider each one below. In the following examples, we will use a simple</span>
 <span class='co'># longitudinal dataset, Oxboys, from the nlme package. It records the heights</span>
@@ -159,29 +162,28 @@
 <span class='co'># occasions (Occasion).</span>
 
 <span class='co'># Multiple groups with one aesthetic</span>
-<span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>nlme</span><span class='kw'>::</span><span class='no'>Oxboys</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>age</span>, <span class='no'>height</span>))
+<span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw pkg'>nlme</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/nlme/topics/Oxboys'>Oxboys</a></span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>age</span>, <span class='no'>height</span>))
 <span class='co'># A single line tries to connect all the observations</span>
-<span class='no'>h</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>()</div><img src='aes_group_order-18.png' alt='' width='540' height='400' /><div class='input'><span class='co'># The group aesthetic maps a different line for each subject</span>
-<span class='no'>h</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>Subject</span>))</div><img src='aes_group_order-20.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>h</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>()</div><div class='img'><img src='aes_group_order-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># The group aesthetic maps a different line for each subject</span>
+<span class='no'>h</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>Subject</span>))</div><div class='img'><img src='aes_group_order-10.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Different groups on different layers</span>
 <span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='no'>h</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>Subject</span>))
 <span class='co'># Using the group aesthetic with both geom_line() and geom_smooth()</span>
 <span class='co'># groups the data the same way for both layers</span>
-<span class='no'>h</span> + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>Subject</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>, <span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><img src='aes_group_order-22.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Changing the group aesthetic for the smoother layer</span>
+<span class='no'>h</span> + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>Subject</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>, <span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='img'><img src='aes_group_order-11.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Changing the group aesthetic for the smoother layer</span>
 <span class='co'># fits a single line of best fit across all boys</span>
-<span class='no'>h</span> + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>, <span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><img src='aes_group_order-24.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>h</span> + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>, <span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='img'><img src='aes_group_order-12.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Overriding the default grouping</span>
 <span class='co'># The plot has a discrete scale but you want to draw lines that connect across</span>
 <span class='co'># groups. This is the strategy used in interaction plots, profile plots, and parallel</span>
 <span class='co'># coordinate plots, among others. For example, we draw boxplots of height at</span>
 <span class='co'># each measurement occasion</span>
-<span class='no'>boysbox</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>nlme</span><span class='kw'>::</span><span class='no'>Oxboys</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>Occasion</span>, <span class='no'>height</span>))
-<span class='no'>boysbox</span> + <span class='fu'><a href='geom_boxplot.html'>geom_boxplot</a></span>()</div><img src='aes_group_order-26.png' alt='' width='540' height='400' /><div class='input'><span class='co'># There is no need to specify the group aesthetic here; the default grouping</span>
+<span class='no'>boysbox</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw pkg'>nlme</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/nlme/topics/Oxboys'>Oxboys</a></span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>Occasion</span>, <span class='no'>height</span>))
+<span class='no'>boysbox</span> + <span class='fu'><a href='geom_boxplot.html'>geom_boxplot</a></span>()</div><div class='img'><img src='aes_group_order-13.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># There is no need to specify the group aesthetic here; the default grouping</span>
 <span class='co'># works because occasion is a discrete variable. To overlay individual trajectories</span>
 <span class='co'># we again need to override the default grouping for that layer with aes(group = Subject)</span>
 <span class='no'>boysbox</span> <span class='kw'>&lt;-</span> <span class='no'>boysbox</span> + <span class='fu'><a href='geom_boxplot.html'>geom_boxplot</a></span>()
-<span class='no'>boysbox</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>Subject</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)</div><img src='aes_group_order-28.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+<span class='no'>boysbox</span> + <span class='fu'><a href='geom_path.html'>geom_line</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>Subject</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)</div><div class='img'><img src='aes_group_order-14.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -199,21 +201,23 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

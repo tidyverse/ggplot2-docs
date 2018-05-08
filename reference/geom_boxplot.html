@@ -109,51 +109,55 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>A box and whiskers plot (in the style of Tukey)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/geom-boxplot.r'><code>R/geom-boxplot.r</code></a>, <a href='https://github.com/tidyverse/ggplot2/blob/master/R/stat-boxplot.r'><code>R/stat-boxplot.r</code></a></small>
+    <div class="hidden name"><code>geom_boxplot.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>The boxplot compactly displays the distribution of a continuous variable.
 It visualises five summary statistics (the median, two hinges
 and two whiskers), and all "outlying" points individually.</p>
     
+    </div>
 
-    <pre><span class='fu'>geom_boxplot</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"boxplot"</span>,
-  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>, <span class='no'>...</span>, <span class='kw'>outlier.colour</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>outlier.color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>geom_boxplot</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"boxplot"</span>,
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge2"</span>, <span class='no'>...</span>, <span class='kw'>outlier.colour</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>outlier.color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>outlier.fill</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>outlier.shape</span> <span class='kw'>=</span> <span class='fl'>19</span>, <span class='kw'>outlier.size</span> <span class='kw'>=</span> <span class='fl'>1.5</span>,
   <span class='kw'>outlier.stroke</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>outlier.alpha</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>notch</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>notchwidth</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>varwidth</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>stat_boxplot</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"boxplot"</span>,
-  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>, <span class='no'>...</span>, <span class='kw'>coef</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge2"</span>, <span class='no'>...</span>, <span class='kw'>coef</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>mapping</th>
-      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
-<code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
+      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes()</a></code> or
+<code><a href='aes_.html'>aes_()</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
 plot. You must supply <code>mapping</code> if there is no plot mapping.</p></td>
     </tr>
     <tr>
       <th>data</th>
       <td><p>The data to be displayed in this layer. There are three
-   options:</p>
+options:</p>
 <p>If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+data as specified in the call to <code><a href='ggplot.html'>ggplot()</a></code>.</p>
 <p>A <code>data.frame</code>, or other object, will override the plot
-   data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+data. All objects will be fortified to produce a data frame. See
+<code><a href='fortify.html'>fortify()</a></code> for which variables will be created.</p>
 <p>A <code>function</code> will be called with a single argument,
-   the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</p></td>
+the plot data. The return value must be a <code>data.frame.</code>, and
+will be used as the layer data.</p></td>
     </tr>
     <tr>
       <th>position</th>
@@ -162,7 +166,7 @@ a call to a position adjustment function.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <td><p>Other arguments passed on to <code><a href='layer.html'>layer()</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 <code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
 to the paired geom/stat.</p></td>
@@ -170,25 +174,25 @@ to the paired geom/stat.</p></td>
     <tr>
       <th>outlier.colour, outlier.color, outlier.fill, outlier.shape, outlier.size, outlier.stroke, outlier.alpha</th>
       <td><p>Default aesthetics for outliers. Set to <code>NULL</code> to inherit from the
-  aesthetics used for the box.</p>
+aesthetics used for the box.</p>
 <p>In the unlikely event you specify both US and UK spellings of colour, the
-  US spelling will take precedence.</p></td>
+US spelling will take precedence.</p></td>
     </tr>
     <tr>
       <th>notch</th>
-      <td><p>if <code>FALSE</code> (default) make a standard box plot. If
+      <td><p>If <code>FALSE</code> (default) make a standard box plot. If
 <code>TRUE</code>, make a notched box plot. Notches are used to compare groups;
 if the notches of two boxes do not overlap, this suggests that the medians
 are significantly different.</p></td>
     </tr>
     <tr>
       <th>notchwidth</th>
-      <td><p>for a notched box plot, width of the notch relative to
+      <td><p>For a notched box plot, width of the notch relative to
 the body (default 0.5)</p></td>
     </tr>
     <tr>
       <th>varwidth</th>
-      <td><p>if <code>FALSE</code> (default) make a standard box plot. If
+      <td><p>If <code>FALSE</code> (default) make a standard box plot. If
 <code>TRUE</code>, boxes are drawn with widths proportional to the
 square-roots of the number of observations in the groups (possibly
 weighted, using the <code>weight</code> aesthetic).</p></td>
@@ -202,14 +206,16 @@ a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
       <th>show.legend</th>
       <td><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></td>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.
+It can also be a named logical vector to finely select the aesthetics to
+display.</p></td>
     </tr>
     <tr>
       <th>inherit.aes</th>
       <td><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></td>
+the default plot specification, e.g. <code><a href='borders.html'>borders()</a></code>.</p></td>
     </tr>
     <tr>
       <th>geom, stat</th>
@@ -218,7 +224,7 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
     </tr>
     <tr>
       <th>coef</th>
-      <td><p>length of the whiskers as multiple of IQR.  Defaults to 1.5</p></td>
+      <td><p>Length of the whiskers as multiple of IQR. Defaults to 1.5.</p></td>
     </tr>
     </table>
     
@@ -228,7 +234,7 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
     <p>The lower and upper hinges correspond to the first and third quartiles
 (the 25th and 75th percentiles). This differs slightly from the method used
 by the <code>boxplot</code> function, and may be apparent with small samples.
-See <code>boxplot.stats</code> for for more information on how hinge
+See <code>boxplot.stats()</code> for for more information on how hinge
 positions are calculated for <code>boxplot</code>.</p>
 <p>The upper whisker extends from the hinge to the largest value no further than
 1.5 * IQR from the hinge (where IQR is the inter-quartile range, or distance
@@ -242,14 +248,14 @@ See McGill et al. (1978) for more details.</p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p><code>geom_boxplot</code> understands the following aesthetics (required aesthetics are in bold):
-    <ul>
-<li><p><code><strong>x</strong></code></p></li>
-<li><p><code><strong>lower</strong></code></p></li>
-<li><p><code><strong>upper</strong></code></p></li>
-<li><p><code><strong>middle</strong></code></p></li>
-<li><p><code><strong>ymin</strong></code></p></li>
-<li><p><code><strong>ymax</strong></code></p></li>
+    
+    <p><code>geom_boxplot</code> understands the following aesthetics (required aesthetics are in bold):</p><ul>
+<li><p><strong><code>x</code></strong></p></li>
+<li><p><strong><code>lower</code></strong></p></li>
+<li><p><strong><code>upper</code></strong></p></li>
+<li><p><strong><code>middle</code></strong></p></li>
+<li><p><strong><code>ymin</code></strong></p></li>
+<li><p><strong><code>ymax</code></strong></p></li>
 <li><p><code>alpha</code></p></li>
 <li><p><code>colour</code></p></li>
 <li><p><code>fill</code></p></li>
@@ -258,50 +264,49 @@ See McGill et al. (1978) for more details.</p>
 <li><p><code>shape</code></p></li>
 <li><p><code>size</code></p></li>
 <li><p><code>weight</code></p></li>
-</ul></p>
+</ul><p>Learn more about setting these aesthetics in <code><a href='../articles/ggplot2-specs.html'>vignette("ggplot2-specs")</a></code></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
     
     <dl class='dl-horizontal'>
-  <dt>width</dt><dd><p>width of boxplot</p></dd>
-  <dt>ymin</dt><dd><p>lower whisker = smallest observation greater than or equal to lower hinge - 1.5 * IQR</p></dd>
-  <dt>lower</dt><dd><p>lower hinge, 25% quantile</p></dd>
-  <dt>notchlower</dt><dd><p>lower edge of notch = median - 1.58 * IQR / sqrt(n)</p></dd>
-  <dt>middle</dt><dd><p>median, 50% quantile</p></dd>
-  <dt>notchupper</dt><dd><p>upper edge of notch = median + 1.58 * IQR / sqrt(n)</p></dd>
-  <dt>upper</dt><dd><p>upper hinge, 75% quantile</p></dd>
-  <dt>ymax</dt><dd><p>upper whisker = largest observation less than or equal to upper hinge + 1.5 * IQR</p></dd>
+<dt>width</dt><dd><p>width of boxplot</p></dd>
+<dt>ymin</dt><dd><p>lower whisker = smallest observation greater than or equal to lower hinge - 1.5 * IQR</p></dd>
+<dt>lower</dt><dd><p>lower hinge, 25% quantile</p></dd>
+<dt>notchlower</dt><dd><p>lower edge of notch = median - 1.58 * IQR / sqrt(n)</p></dd>
+<dt>middle</dt><dd><p>median, 50% quantile</p></dd>
+<dt>notchupper</dt><dd><p>upper edge of notch = median + 1.58 * IQR / sqrt(n)</p></dd>
+<dt>upper</dt><dd><p>upper hinge, 75% quantile</p></dd>
+<dt>ymax</dt><dd><p>upper whisker = largest observation less than or equal to upper hinge + 1.5 * IQR</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>McGill, R., Tukey, J. W. and Larsen, W. A. (1978) Variations of
-    box plots. The American Statistician 32, 12-16.</p>
+box plots. The American Statistician 32, 12-16.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='geom_quantile.html'>geom_quantile</a></code> for continuous x,
-  <code><a href='geom_violin.html'>geom_violin</a></code> for a richer display of the distribution, and
-  <code><a href='geom_jitter.html'>geom_jitter</a></code> for a useful technique for small data.</p>
+    <div class='dont-index'><p><code><a href='geom_quantile.html'>geom_quantile()</a></code> for continuous x,
+<code><a href='geom_violin.html'>geom_violin()</a></code> for a richer display of the distribution, and
+<code><a href='geom_jitter.html'>geom_jitter()</a></code> for a useful technique for small data.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>class</span>, <span class='no'>hwy</span>))
-<span class='no'>p</span> + <span class='fu'>geom_boxplot</span>()</div><img src='geom_boxplot-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_boxplot</span>() + <span class='fu'><a href='geom_jitter.html'>geom_jitter</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.2</span>)</div><img src='geom_boxplot-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_boxplot</span>() + <span class='fu'><a href='coord_flip.html'>coord_flip</a></span>()</div><img src='geom_boxplot-6.png' alt='' width='540' height='400' /><div class='input'>
-<span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='kw'>notch</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='message'>notch went outside hinges. Try setting notch=FALSE.</span></div><div class='output co'>#&gt; <span class='message'>notch went outside hinges. Try setting notch=FALSE.</span></div><img src='geom_boxplot-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='kw'>varwidth</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><img src='geom_boxplot-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"#3366FF"</span>)</div><img src='geom_boxplot-14.png' alt='' width='540' height='400' /><div class='input'><span class='co'># By default, outlier points match the colour of the box. Use</span>
+<span class='no'>p</span> + <span class='fu'>geom_boxplot</span>()</div><div class='img'><img src='geom_boxplot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_boxplot</span>() + <span class='fu'><a href='geom_jitter.html'>geom_jitter</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.2</span>)</div><div class='img'><img src='geom_boxplot-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_boxplot</span>() + <span class='fu'><a href='coord_flip.html'>coord_flip</a></span>()</div><div class='img'><img src='geom_boxplot-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='kw'>notch</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='message'>notch went outside hinges. Try setting notch=FALSE.</span></div><div class='output co'>#&gt; <span class='message'>notch went outside hinges. Try setting notch=FALSE.</span></div><div class='img'><img src='geom_boxplot-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='kw'>varwidth</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='geom_boxplot-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"#3366FF"</span>)</div><div class='img'><img src='geom_boxplot-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># By default, outlier points match the colour of the box. Use</span>
 <span class='co'># outlier.colour to override</span>
-<span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='kw'>outlier.colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>outlier.shape</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><img src='geom_boxplot-16.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='kw'>outlier.colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>outlier.shape</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='img'><img src='geom_boxplot-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Boxplots are automatically dodged when any aesthetic is a factor</span>
-<span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>drv</span>))</div><img src='geom_boxplot-18.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_boxplot</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>drv</span>))</div><div class='img'><img src='geom_boxplot-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># You can also use boxplots with continuous x, as long as you supply</span>
 <span class='co'># a grouping variable. cut_width is particularly useful</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
-  <span class='fu'>geom_boxplot</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Continuous x aesthetic -- did you forget aes(group=...)?</span></div><img src='geom_boxplot-21.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
-  <span class='fu'>geom_boxplot</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'><a href='cut_interval.html'>cut_width</a></span>(<span class='no'>carat</span>, <span class='fl'>0.25</span>)))</div><img src='geom_boxplot-23.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
-  <span class='fu'>geom_boxplot</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'><a href='cut_interval.html'>cut_width</a></span>(<span class='no'>carat</span>, <span class='fl'>0.25</span>)), <span class='kw'>outlier.alpha</span> <span class='kw'>=</span> <span class='fl'>0.1</span>)</div><img src='geom_boxplot-25.png' alt='' width='540' height='400' /><div class='input'>
-
-<span class='co'># It's possible to draw a boxplot with your own computations if you</span>
+  <span class='fu'>geom_boxplot</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Continuous x aesthetic -- did you forget aes(group=...)?</span></div><div class='img'><img src='geom_boxplot-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
+  <span class='fu'>geom_boxplot</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'><a href='cut_interval.html'>cut_width</a></span>(<span class='no'>carat</span>, <span class='fl'>0.25</span>)))</div><div class='img'><img src='geom_boxplot-10.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
+  <span class='fu'>geom_boxplot</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'><a href='cut_interval.html'>cut_width</a></span>(<span class='no'>carat</span>, <span class='fl'>0.25</span>)), <span class='kw'>outlier.alpha</span> <span class='kw'>=</span> <span class='fl'>0.1</span>)</div><div class='img'><img src='geom_boxplot-11.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='input'><span class='co'># It's possible to draw a boxplot with your own computations if you</span>
 <span class='co'># use stat = "identity":</span>
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>rnorm</span>(<span class='fl'>100</span>)
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
@@ -316,8 +321,7 @@ See McGill et al. (1978) for more details.</p>
   <span class='fu'>geom_boxplot</span>(
    <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>y0</span>, <span class='kw'>lower</span> <span class='kw'>=</span> <span class='no'>y25</span>, <span class='kw'>middle</span> <span class='kw'>=</span> <span class='no'>y50</span>, <span class='kw'>upper</span> <span class='kw'>=</span> <span class='no'>y75</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>y100</span>),
    <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"identity"</span>
- )</div><img src='geom_boxplot-27.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+ )</div><div class='img'><img src='geom_boxplot-12.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -346,21 +350,23 @@ See McGill et al. (1978) for more details.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

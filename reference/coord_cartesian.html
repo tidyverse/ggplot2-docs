@@ -109,22 +109,27 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Cartesian coordinates</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/coord-cartesian-.r'><code>R/coord-cartesian-.r</code></a></small>
+    <div class="hidden name"><code>coord_cartesian.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>The Cartesian coordinate system is the most familiar, and common, type of
 coordinate system. Setting limits on the coordinate system will zoom the
 plot (like you're looking at it with a magnifying glass), and will not
 change the underlying data like setting limits on a scale will.</p>
     
+    </div>
 
-    <pre><span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>default</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>clip</span> <span class='kw'>=</span> <span class='st'>"on"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -137,6 +142,21 @@ change the underlying data like setting limits on a scale will.</p>
 the limits to ensure that data and axes don't overlap. If <code>FALSE</code>,
 limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</p></td>
     </tr>
+    <tr>
+      <th>default</th>
+      <td><p>Is this the default coordinate system? If <code>FALSE</code></p></td>
+    </tr>
+    <tr>
+      <th>clip</th>
+      <td><p>Should drawing be clipped to the extent of the plot panel? A
+setting of <code>"on"</code> (the default) means yes, and a setting of <code>"off"</code>
+means no. In most cases, the default of <code>"on"</code> should not be changed,
+as setting <code>clip = "off"</code> can cause unexpected results. It allows
+drawing of data points anywhere on the plot, including in the plot margins. If
+limits are set via <code>xlim</code> and <code>ylim</code> and some data points fall outside those
+limits, then those data points may show up in places such as the axes, the
+legend, the plot title, or the plot margins.</p></td>
+    </tr>
     </table>
     
 
@@ -147,29 +167,29 @@ limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>disp</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>()
-<span class='no'>p</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='coord_cartesian-3.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='coord_cartesian-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Setting the limits on a scale converts all values outside the range to NA.</span>
-<span class='no'>p</span> + <span class='fu'><a href='scale_continuous.html'>scale_x_continuous</a></span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 24 rows containing non-finite values (stat_smooth).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 24 rows containing missing values (geom_point).</span></div><img src='coord_cartesian-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'><a href='scale_continuous.html'>scale_x_continuous</a></span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 24 rows containing non-finite values (stat_smooth).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 24 rows containing missing values (geom_point).</span></div><div class='img'><img src='coord_cartesian-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Setting the limits on the coordinate system performs a visual zoom.</span>
 <span class='co'># The data is unchanged, and we just view a small portion of the original</span>
 <span class='co'># plot. Note how smooth continues past the points visible on this plot.</span>
-<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='coord_cartesian-11.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='coord_cartesian-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># By default, the same expansion factor is applied as when setting scale</span>
 <span class='co'># limits. You can set the limits precisely by setting expand = FALSE</span>
-<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>), <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='coord_cartesian-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>325</span>, <span class='fl'>500</span>), <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='coord_cartesian-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Simiarly, we can use expand = FALSE to turn off expansion with the</span>
 <span class='co'># default limits</span>
-<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='coord_cartesian-17.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='coord_cartesian-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># You can see the same thing with this 2d histogram</span>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
   <span class='fu'><a href='geom_bin2d.html'>stat_bin2d</a></span>(<span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>25</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>)
-<span class='no'>d</span></div><img src='coord_cartesian-19.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>d</span></div><div class='img'><img src='coord_cartesian-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># When zooming the scale, the we get 25 new bins that are the same</span>
 <span class='co'># size on the plot, but represent smaller regions of the data space</span>
-<span class='no'>d</span> + <span class='fu'><a href='scale_continuous.html'>scale_x_continuous</a></span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 17502 rows containing non-finite values (stat_bin2d).</span></div><img src='coord_cartesian-22.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>d</span> + <span class='fu'><a href='scale_continuous.html'>scale_x_continuous</a></span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 17502 rows containing non-finite values (stat_bin2d).</span></div><div class='img'><img src='coord_cartesian-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># When zooming the coordinate system, we see a subset of original 50 bins,</span>
 <span class='co'># displayed bigger</span>
-<span class='no'>d</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>1</span>))</div><img src='coord_cartesian-24.png' alt='' width='540' height='400' /></pre>
+<span class='no'>d</span> + <span class='fu'>coord_cartesian</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>1</span>))</div><div class='img'><img src='coord_cartesian-8.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -188,21 +208,23 @@ limits are taken exactly from the data or <code>xlim</code>/<code>ylim</code>.</
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

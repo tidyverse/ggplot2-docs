@@ -109,51 +109,56 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Summarise y values at unique/binned x</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/stat-summary-bin.R'><code>R/stat-summary-bin.R</code></a>, <a href='https://github.com/tidyverse/ggplot2/blob/master/R/stat-summary.r'><code>R/stat-summary.r</code></a></small>
+    <div class="hidden name"><code>stat_summary.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p><code>stat_summary</code> operates on unique <code>x</code>; <code>stat_summary_bin</code>
-operators on binned <code>x</code>. They are more flexible versions of
-<code><a href='geom_histogram.html'>stat_bin</a></code>: instead of just counting, they can compute any
+operates on binned <code>x</code>. They are more flexible versions of
+<code><a href='geom_histogram.html'>stat_bin()</a></code>: instead of just counting, they can compute any
 aggregate.</p>
     
+    </div>
 
-    <pre><span class='fu'>stat_summary_bin</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"pointrange"</span>,
+    <pre class="usage"><span class='fu'>stat_summary_bin</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"pointrange"</span>,
   <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>fun.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>fun.ymax</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fun.ymin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fun.args</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+  <span class='kw'>fun.ymax</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fun.ymin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fun.args</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>30</span>,
+  <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
+  <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>stat_summary</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"pointrange"</span>,
   <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>fun.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>fun.ymax</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fun.ymin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fun.args</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>mapping</th>
-      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
-<code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
+      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes()</a></code> or
+<code><a href='aes_.html'>aes_()</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
 plot. You must supply <code>mapping</code> if there is no plot mapping.</p></td>
     </tr>
     <tr>
       <th>data</th>
       <td><p>The data to be displayed in this layer. There are three
-   options:</p>
+options:</p>
 <p>If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+data as specified in the call to <code><a href='ggplot.html'>ggplot()</a></code>.</p>
 <p>A <code>data.frame</code>, or other object, will override the plot
-   data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+data. All objects will be fortified to produce a data frame. See
+<code><a href='fortify.html'>fortify()</a></code> for which variables will be created.</p>
 <p>A <code>function</code> will be called with a single argument,
-   the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</p></td>
+the plot data. The return value must be a <code>data.frame.</code>, and
+will be used as the layer data.</p></td>
     </tr>
     <tr>
       <th>geom</th>
@@ -167,7 +172,7 @@ a call to a position adjustment function.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <td><p>Other arguments passed on to <code><a href='layer.html'>layer()</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 <code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
 to the paired geom/stat.</p></td>
@@ -188,6 +193,27 @@ single number.</p></td>
       <td><p>Optional additional arguments passed on to the functions.</p></td>
     </tr>
     <tr>
+      <th>bins</th>
+      <td><p>Number of bins. Overridden by <code>binwidth</code>. Defaults to 30.</p></td>
+    </tr>
+    <tr>
+      <th>binwidth</th>
+      <td><p>The width of the bins. Can be specified as a numeric value,
+or a function that calculates width from x.
+The default is to use <code>bins</code>
+bins that cover the range of the data. You should always override
+this value, exploring multiple widths to find the best to illustrate the
+stories in your data.</p>
+<p>The bin width of a date variable is the number of days in each time; the
+bin width of a time variable is the number of seconds.</p></td>
+    </tr>
+    <tr>
+      <th>breaks</th>
+      <td><p>Alternatively, you can supply a numeric vector giving
+the bin boundaries. Overrides <code>binwidth</code>, <code>bins</code>, <code>center</code>,
+and <code>boundary</code>.</p></td>
+    </tr>
+    <tr>
       <th>na.rm</th>
       <td><p>If <code>FALSE</code>, the default, missing values are removed with
 a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
@@ -196,70 +222,72 @@ a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
       <th>show.legend</th>
       <td><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></td>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.
+It can also be a named logical vector to finely select the aesthetics to
+display.</p></td>
     </tr>
     <tr>
       <th>inherit.aes</th>
       <td><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></td>
+the default plot specification, e.g. <code><a href='borders.html'>borders()</a></code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p><code>stat_summary</code> understands the following aesthetics (required aesthetics are in bold):
-    <ul>
-<li><p><code><strong>x</strong></code></p></li>
-<li><p><code><strong>y</strong></code></p></li>
+    
+    <p><code>stat_summary</code> understands the following aesthetics (required aesthetics are in bold):</p><ul>
+<li><p><strong><code>x</code></strong></p></li>
+<li><p><strong><code>y</code></strong></p></li>
 <li><p><code>group</code></p></li>
-</ul></p>
+</ul><p>Learn more about setting these aesthetics in <code><a href='../articles/ggplot2-specs.html'>vignette("ggplot2-specs")</a></code></p>
     
     <h2 class="hasAnchor" id="summary-functions"><a class="anchor" href="#summary-functions"></a>Summary functions</h2>
 
     
     <p>You can either supply summary functions individually (<code>fun.y</code>,
-<code>fun.ymax</code>, <code>fun.ymin</code>), or as a single function (<code>fun.data</code>):</p><dl class='dl-horizontal'>
-  <dt>fun.data</dt><dd><p>Complete summary function. Should take numeric vector as
-     input and return data frame as output</p></dd>
-  <dt>fun.ymin</dt><dd><p>ymin summary function (should take numeric vector and
-    return single number)</p></dd>
-  <dt>fun.y</dt><dd><p>y summary function (should take numeric vector and return
-    single number)</p></dd>
-  <dt>fun.ymax</dt><dd><p>ymax summary function (should take numeric vector and
-    return single number)</p></dd>
+<code>fun.ymax</code>, <code>fun.ymin</code>), or as a single function (<code>fun.data</code>):</p>
+<dl class='dl-horizontal'>
+<dt>fun.data</dt><dd><p>Complete summary function. Should take numeric vector as
+input and return data frame as output</p></dd>
+<dt>fun.ymin</dt><dd><p>ymin summary function (should take numeric vector and
+return single number)</p></dd>
+<dt>fun.y</dt><dd><p>y summary function (should take numeric vector and return
+single number)</p></dd>
+<dt>fun.ymax</dt><dd><p>ymax summary function (should take numeric vector and
+return single number)</p></dd>
 </dl>
     <p>A simple vector function is easiest to work with as you can return a single
 number, but is somewhat less flexible. If your summary function computes
 multiple values at once (e.g. ymin and ymax), use <code>fun.data</code>.</p>
 <p>If no aggregation functions are suppled, will default to
-<code><a href='mean_se.html'>mean_se</a></code>.</p>
+<code><a href='mean_se.html'>mean_se()</a></code>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='geom_linerange.html'>geom_errorbar</a></code>, <code><a href='geom_linerange.html'>geom_pointrange</a></code>,
- <code><a href='geom_linerange.html'>geom_linerange</a></code>, <code><a href='geom_linerange.html'>geom_crossbar</a></code> for geoms to
- display summarised data</p>
+    <div class='dont-index'><p><code><a href='geom_linerange.html'>geom_errorbar()</a></code>, <code><a href='geom_linerange.html'>geom_pointrange()</a></code>,
+<code><a href='geom_linerange.html'>geom_linerange()</a></code>, <code><a href='geom_linerange.html'>geom_crossbar()</a></code> for geoms to
+display summarised data</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>cyl</span>, <span class='no'>mpg</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
-<span class='no'>d</span> + <span class='fu'>stat_summary</span>(<span class='kw'>fun.data</span> <span class='kw'>=</span> <span class='st'>"mean_cl_boot"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><img src='stat_summary_bin-2.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>d</span> + <span class='fu'>stat_summary</span>(<span class='kw'>fun.data</span> <span class='kw'>=</span> <span class='st'>"mean_cl_boot"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='stat_summary-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># You can supply individual functions to summarise the value at</span>
 <span class='co'># each x:</span>
-<span class='no'>d</span> + <span class='fu'>stat_summary</span>(<span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='st'>"median"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"point"</span>)</div><img src='stat_summary_bin-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>stat_summary</span>(<span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"point"</span>)</div><img src='stat_summary_bin-6.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>)) + <span class='fu'>stat_summary</span>(<span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>geom</span><span class='kw'>=</span><span class='st'>"line"</span>)</div><img src='stat_summary_bin-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>d</span> + <span class='fu'>stat_summary</span>(<span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='st'>"median"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"point"</span>)</div><div class='img'><img src='stat_summary-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>d</span> + <span class='fu'>stat_summary</span>(<span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"point"</span>)</div><div class='img'><img src='stat_summary-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>d</span> + <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>vs</span>)) + <span class='fu'>stat_summary</span>(<span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>geom</span><span class='kw'>=</span><span class='st'>"line"</span>)</div><div class='img'><img src='stat_summary-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='no'>d</span> + <span class='fu'>stat_summary</span>(<span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>fun.ymin</span> <span class='kw'>=</span> <span class='no'>min</span>, <span class='kw'>fun.ymax</span> <span class='kw'>=</span> <span class='no'>max</span>,
-  <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><img src='stat_summary_bin-10.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><div class='img'><img src='stat_summary-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>cut</span>))
-<span class='no'>d</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>()</div><img src='stat_summary_bin-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>stat_summary_bin</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>price</span>), <span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"bar"</span>)</div><img src='stat_summary_bin-14.png' alt='' width='540' height='400' /><div class='input'>
-
-<span class='co'># Don't use ylim to zoom into a summary plot - this throws the</span>
+<span class='no'>d</span> + <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>()</div><div class='img'><img src='stat_summary-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>d</span> + <span class='fu'>stat_summary_bin</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>price</span>), <span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"bar"</span>)</div><div class='img'><img src='stat_summary-7.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='input'><span class='co'># Don't use ylim to zoom into a summary plot - this throws the</span>
 <span class='co'># data away</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>cyl</span>, <span class='no'>mpg</span>)) +
   <span class='fu'>stat_summary</span>(<span class='kw'>fun.y</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"point"</span>)
-<span class='no'>p</span></div><img src='stat_summary_bin-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='lims.html'>ylim</a></span>(<span class='fl'>15</span>, <span class='fl'>30</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 9 rows containing non-finite values (stat_summary).</span></div><img src='stat_summary_bin-19.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Instead use coord_cartesian</span>
-<span class='no'>p</span> + <span class='fu'><a href='coord_cartesian.html'>coord_cartesian</a></span>(<span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>15</span>, <span class='fl'>30</span>))</div><img src='stat_summary_bin-21.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span></div><div class='img'><img src='stat_summary-8.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'><a href='lims.html'>ylim</a></span>(<span class='fl'>15</span>, <span class='fl'>30</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 9 rows containing non-finite values (stat_summary).</span></div><div class='img'><img src='stat_summary-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Instead use coord_cartesian</span>
+<span class='no'>p</span> + <span class='fu'><a href='coord_cartesian.html'>coord_cartesian</a></span>(<span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>15</span>, <span class='fl'>30</span>))</div><div class='img'><img src='stat_summary-10.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># A set of useful summary functions is provided from the Hmisc package:</span>
 <span class='no'>stat_sum_df</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>fun</span>, <span class='no'>geom</span><span class='kw'>=</span><span class='st'>"crossbar"</span>, <span class='no'>...</span>) {
   <span class='fu'>stat_summary</span>(<span class='kw'>fun.data</span> <span class='kw'>=</span> <span class='no'>fun</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='no'>geom</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='no'>...</span>)
@@ -267,7 +295,7 @@ multiple values at once (e.g. ymin and ymax), use <code>fun.data</code>.</p>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>cyl</span>, <span class='no'>mpg</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 <span class='co'># The crossbar geom needs grouping to be specified when used with</span>
 <span class='co'># a continuous x axis.</span>
-<span class='no'>d</span> + <span class='fu'>stat_sum_df</span>(<span class='st'>"mean_cl_boot"</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><img src='stat_summary_bin-23.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>stat_sum_df</span>(<span class='st'>"mean_sdl"</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><img src='stat_summary_bin-25.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>stat_sum_df</span>(<span class='st'>"mean_sdl"</span>, <span class='kw'>fun.args</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><img src='stat_summary_bin-27.png' alt='' width='540' height='400' /><div class='input'><span class='no'>d</span> + <span class='fu'>stat_sum_df</span>(<span class='st'>"median_hilow"</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><img src='stat_summary_bin-29.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>d</span> + <span class='fu'>stat_sum_df</span>(<span class='st'>"mean_cl_boot"</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><div class='img'><img src='stat_summary-11.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>d</span> + <span class='fu'>stat_sum_df</span>(<span class='st'>"mean_sdl"</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><div class='img'><img src='stat_summary-12.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>d</span> + <span class='fu'>stat_sum_df</span>(<span class='st'>"mean_sdl"</span>, <span class='kw'>fun.args</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><div class='img'><img src='stat_summary-13.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>d</span> + <span class='fu'>stat_sum_df</span>(<span class='st'>"median_hilow"</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>))</div><div class='img'><img src='stat_summary-14.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># An example with highly skewed distributions:</span>
 <span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"ggplot2movies"</span>)) {
 <span class='fu'>set.seed</span>(<span class='fl'>596</span>)
@@ -289,8 +317,7 @@ multiple values at once (e.g. ymin and ymax), use <code>fun.data</code>.</p>
 <span class='co'># and stretching the geoms onto the log scale.  Compare the widths of the</span>
 <span class='co'># standard errors.</span>
 <span class='no'>m2</span> + <span class='fu'><a href='coord_trans.html'>coord_trans</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='st'>"log10"</span>)
-}</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_crossbar).</span></div><img src='stat_summary_bin-32.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+}</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_crossbar).</span></div><div class='img'><img src='stat_summary-15.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -315,21 +342,23 @@ multiple values at once (e.g. ymin and ymax), use <code>fun.data</code>.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

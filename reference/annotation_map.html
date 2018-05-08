@@ -109,25 +109,29 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Annotation: a maps</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/annotation-map.r'><code>R/annotation-map.r</code></a></small>
+    <div class="hidden name"><code>annotation_map.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Display a fixed map on a plot.</p>
     
+    </div>
 
-    <pre><span class='fu'>annotation_map</span>(<span class='no'>map</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>annotation_map</span>(<span class='no'>map</span>, <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>map</th>
       <td><p>data frame representing a map.  Most map objects can be
-converted into the right format by using <code><a href='fortify.html'>fortify</a></code></p></td>
+converted into the right format by using <code><a href='fortify.html'>fortify()</a></code></p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -153,7 +157,7 @@ converted into the right format by using <code><a href='fortify.html'>fortify</a
   <span class='fu'>annotation_map</span>(<span class='no'>usamap</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"NA"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>) +
   <span class='fu'><a href='geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>xend</span> <span class='kw'>=</span> <span class='no'>long</span> + <span class='no'>delta_long</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='no'>lat</span> + <span class='no'>delta_lat</span>)) +
   <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>latr</span> ~ <span class='no'>longr</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='st'>"free"</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: maps</span></div><img src='annotation_map-3.png' alt='' width='540' height='400' /></pre>
+}</div><div class='img'><img src='annotation_map-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -172,21 +176,23 @@ converted into the right format by using <code><a href='fortify.html'>fortify</a
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

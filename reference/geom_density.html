@@ -109,19 +109,23 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Smoothed density estimates</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/geom-density.r'><code>R/geom-density.r</code></a>, <a href='https://github.com/tidyverse/ggplot2/blob/master/R/stat-density.r'><code>R/stat-density.r</code></a></small>
+    <div class="hidden name"><code>geom_density.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Computes and draws kernel density estimate, which is a smoothed version of
-the histogram. This is a useful alternative to the histogram if for continuous
+the histogram. This is a useful alternative to the histogram for continuous
 data that comes from an underlying smooth distribution.</p>
     
+    </div>
 
-    <pre><span class='fu'>geom_density</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"density"</span>,
+    <pre class="usage"><span class='fu'>geom_density</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"density"</span>,
   <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
@@ -130,28 +134,28 @@ data that comes from an underlying smooth distribution.</p>
   <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>512</span>, <span class='kw'>trim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>mapping</th>
-      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
-<code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
+      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes()</a></code> or
+<code><a href='aes_.html'>aes_()</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
 plot. You must supply <code>mapping</code> if there is no plot mapping.</p></td>
     </tr>
     <tr>
       <th>data</th>
       <td><p>The data to be displayed in this layer. There are three
-   options:</p>
+options:</p>
 <p>If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+data as specified in the call to <code><a href='ggplot.html'>ggplot()</a></code>.</p>
 <p>A <code>data.frame</code>, or other object, will override the plot
-   data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+data. All objects will be fortified to produce a data frame. See
+<code><a href='fortify.html'>fortify()</a></code> for which variables will be created.</p>
 <p>A <code>function</code> will be called with a single argument,
-   the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</p></td>
+the plot data. The return value must be a <code>data.frame.</code>, and
+will be used as the layer data.</p></td>
     </tr>
     <tr>
       <th>position</th>
@@ -160,7 +164,7 @@ a call to a position adjustment function.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <td><p>Other arguments passed on to <code><a href='layer.html'>layer()</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 <code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
 to the paired geom/stat.</p></td>
@@ -174,14 +178,16 @@ a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
       <th>show.legend</th>
       <td><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></td>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.
+It can also be a named logical vector to finely select the aesthetics to
+display.</p></td>
     </tr>
     <tr>
       <th>inherit.aes</th>
       <td><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></td>
+the default plot specification, e.g. <code><a href='borders.html'>borders()</a></code>.</p></td>
     </tr>
     <tr>
       <th>geom, stat</th>
@@ -193,22 +199,22 @@ the default plot specification, e.g. <code><a href='borders.html'>borders</a></c
       <td><p>The smoothing bandwidth to be used.
 If numeric, the standard deviation of the smoothing kernel.
 If character, a rule to choose the bandwidth, as listed in
-<code><a href='http://www.rdocumentation.org/packages/stats/topics/bandwidth'>bw.nrd</a></code>.</p></td>
+<code><a href='http://www.rdocumentation.org/packages/stats/topics/bandwidth'>stats::bw.nrd()</a></code>.</p></td>
     </tr>
     <tr>
       <th>adjust</th>
       <td><p>A multiplicate bandwidth adjustment. This makes it possible
 to adjust the bandwidth while still using the a bandwidth estimator.
-For exampe, <code>adjust = 1/2</code> means use half of the default bandwidth.</p></td>
+For example, <code>adjust = 1/2</code> means use half of the default bandwidth.</p></td>
     </tr>
     <tr>
       <th>kernel</th>
-      <td><p>Kernel. See list of available kernels in <code>density</code>.</p></td>
+      <td><p>Kernel. See list of available kernels in <code>density()</code>.</p></td>
     </tr>
     <tr>
       <th>n</th>
       <td><p>number of equally spaced points at which the density is to be
-estimated, should be a power of two, see <code>density</code> for
+estimated, should be a power of two, see <code>density()</code> for
 details</p></td>
     </tr>
     <tr>
@@ -224,10 +230,10 @@ stack density values.</p></td>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p><code>geom_density</code> understands the following aesthetics (required aesthetics are in bold):
-    <ul>
-<li><p><code><strong>x</strong></code></p></li>
-<li><p><code><strong>y</strong></code></p></li>
+    
+    <p><code>geom_density</code> understands the following aesthetics (required aesthetics are in bold):</p><ul>
+<li><p><strong><code>x</code></strong></p></li>
+<li><p><strong><code>y</code></strong></p></li>
 <li><p><code>alpha</code></p></li>
 <li><p><code>colour</code></p></li>
 <li><p><code>fill</code></p></li>
@@ -235,50 +241,48 @@ stack density values.</p></td>
 <li><p><code>linetype</code></p></li>
 <li><p><code>size</code></p></li>
 <li><p><code>weight</code></p></li>
-</ul></p>
+</ul><p>Learn more about setting these aesthetics in <code><a href='../articles/ggplot2-specs.html'>vignette("ggplot2-specs")</a></code></p>
     
     <h2 class="hasAnchor" id="computed-variables"><a class="anchor" href="#computed-variables"></a>Computed variables</h2>
 
     
     <dl class='dl-horizontal'>
-  <dt>density</dt><dd><p>density estimate</p></dd>
-  <dt>count</dt><dd><p>density * number of points - useful for stacked density
-     plots</p></dd>
-  <dt>scaled</dt><dd><p>density estimate, scaled to maximum of 1</p></dd>
+<dt>density</dt><dd><p>density estimate</p></dd>
+<dt>count</dt><dd><p>density * number of points - useful for stacked density
+plots</p></dd>
+<dt>scaled</dt><dd><p>density estimate, scaled to maximum of 1</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>See <code><a href='geom_histogram.html'>geom_histogram</a></code>, <code><a href='geom_histogram.html'>geom_freqpoly</a></code> for
-  other methods of displaying continuous distribution.
-  See <code><a href='geom_violin.html'>geom_violin</a></code> for a compact density display.</p>
+    <div class='dont-index'><p>See <code><a href='geom_histogram.html'>geom_histogram()</a></code>, <code><a href='geom_histogram.html'>geom_freqpoly()</a></code> for
+other methods of displaying continuous distribution.
+See <code><a href='geom_violin.html'>geom_violin()</a></code> for a compact density display.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>)) +
-  <span class='fu'>geom_density</span>()</div><img src='geom_density-2.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>geom_density</span>()</div><div class='img'><img src='geom_density-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>)) +
-  <span class='fu'>geom_density</span>(<span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>5</span>)</div><img src='geom_density-4.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>)) +
-  <span class='fu'>geom_density</span>(<span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><img src='geom_density-6.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>geom_density</span>(<span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>5</span>)</div><div class='img'><img src='geom_density-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>)) +
+  <span class='fu'>geom_density</span>(<span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='img'><img src='geom_density-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>depth</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
   <span class='fu'>geom_density</span>() +
-  <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='fl'>55</span>, <span class='fl'>70</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 45 rows containing non-finite values (stat_density).</span></div><img src='geom_density-9.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>depth</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
+  <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='fl'>55</span>, <span class='fl'>70</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 45 rows containing non-finite values (stat_density).</span></div><div class='img'><img src='geom_density-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>depth</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
   <span class='fu'>geom_density</span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.1</span>) +
-  <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='fl'>55</span>, <span class='fl'>70</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 45 rows containing non-finite values (stat_density).</span></div><img src='geom_density-12.png' alt='' width='540' height='400' /><div class='input'>
-
-<span class='co'># Stacked density plots: if you want to create a stacked density plot, you</span>
+  <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='fl'>55</span>, <span class='fl'>70</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 45 rows containing non-finite values (stat_density).</span></div><div class='img'><img src='geom_density-5.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='input'><span class='co'># Stacked density plots: if you want to create a stacked density plot, you</span>
 <span class='co'># probably want to 'count' (density * n) variable instead of the default</span>
 <span class='co'># density</span>
 
 <span class='co'># Loses marginal densities</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
-  <span class='fu'>geom_density</span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><img src='geom_density-14.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Preserves marginal densities</span>
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>..count..</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
-  <span class='fu'>geom_density</span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><img src='geom_density-16.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>geom_density</span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><div class='img'><img src='geom_density-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Preserves marginal densities</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='fu'><a href='calc.html'>calc</a></span>(<span class='no'>count</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
+  <span class='fu'>geom_density</span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><div class='img'><img src='geom_density-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># You can use position="fill" to produce a conditional density estimate</span>
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>..count..</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
-  <span class='fu'>geom_density</span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"fill"</span>)</div><img src='geom_density-18.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='fu'><a href='calc.html'>calc</a></span>(<span class='no'>count</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
+  <span class='fu'>geom_density</span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"fill"</span>)</div><div class='img'><img src='geom_density-8.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -303,21 +307,23 @@ stack density values.</p></td>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

@@ -109,19 +109,23 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Reference lines: horizontal, vertical, and diagonal</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/geom-abline.r'><code>R/geom-abline.r</code></a>, <a href='https://github.com/tidyverse/ggplot2/blob/master/R/geom-hline.r'><code>R/geom-hline.r</code></a>, <a href='https://github.com/tidyverse/ggplot2/blob/master/R/geom-vline.r'><code>R/geom-vline.r</code></a></small>
+    <div class="hidden name"><code>geom_abline.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>These geoms add reference lines (sometimes called rules) to a plot, either
 horizontal, vertical, or diagonal (specified by slope and intercept).
 These are useful for annotating plots.</p>
     
+    </div>
 
-    <pre><span class='fu'>geom_abline</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='no'>slope</span>, <span class='no'>intercept</span>,
+    <pre class="usage"><span class='fu'>geom_abline</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='no'>slope</span>, <span class='no'>intercept</span>,
   <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>)
 
 <span class='fu'>geom_hline</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='no'>yintercept</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -130,32 +134,32 @@ These are useful for annotating plots.</p>
 <span class='fu'>geom_vline</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='no'>xintercept</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>mapping</th>
-      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
-<code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
+      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes()</a></code> or
+<code><a href='aes_.html'>aes_()</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
 plot. You must supply <code>mapping</code> if there is no plot mapping.</p></td>
     </tr>
     <tr>
       <th>data</th>
       <td><p>The data to be displayed in this layer. There are three
-   options:</p>
+options:</p>
 <p>If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+data as specified in the call to <code><a href='ggplot.html'>ggplot()</a></code>.</p>
 <p>A <code>data.frame</code>, or other object, will override the plot
-   data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+data. All objects will be fortified to produce a data frame. See
+<code><a href='fortify.html'>fortify()</a></code> for which variables will be created.</p>
 <p>A <code>function</code> will be called with a single argument,
-   the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</p></td>
+the plot data. The return value must be a <code>data.frame.</code>, and
+will be used as the layer data.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <td><p>Other arguments passed on to <code><a href='layer.html'>layer()</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 <code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
 to the paired geom/stat.</p></td>
@@ -169,19 +173,21 @@ a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
       <th>show.legend</th>
       <td><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></td>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.
+It can also be a named logical vector to finely select the aesthetics to
+display.</p></td>
     </tr>
     <tr>
       <th>xintercept, yintercept, slope, intercept</th>
       <td><p>Parameters that control the
 position of the line. If these are set, <code>data</code>, <code>mapping</code> and
-<code>show.legend</code> are overridden</p></td>
+<code>show.legend</code> are overridden.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>These geoms act slightly different to other geoms. You can supply the
+    <p>These geoms act slightly differently from other geoms. You can supply the
 parameters in two ways: either as arguments to the layer function,
 or via aesthetics. If you use arguments, e.g.
 <code>geom_abline(intercept = 0, slope = 1)</code>, then behind the scenes
@@ -195,7 +201,7 @@ commonly set in the plot. They also do not affect the x and y scales.</p>
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
     
-    <p>These geoms are drawn using with <code><a href='geom_path.html'>geom_line</a></code> so support the
+    <p>These geoms are drawn using with <code><a href='geom_path.html'>geom_line()</a></code> so support the
 same aesthetics: <code>alpha</code>, <code>colour</code>, <code>linetype</code> and
 <code>size</code>. They also each have aesthetics that control the position of
 the line:</p><ul>
@@ -206,32 +212,32 @@ the line:</p><ul>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>See <code><a href='geom_segment.html'>geom_segment</a></code> for a more general approach to
-  adding straight line segments to a plot.</p>
+    <div class='dont-index'><p>See <code><a href='geom_segment.html'>geom_segment()</a></code> for a more general approach to
+adding straight line segments to a plot.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 
 <span class='co'># Fixed values</span>
-<span class='no'>p</span> + <span class='fu'>geom_vline</span>(<span class='kw'>xintercept</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><img src='geom_abline-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_vline</span>(<span class='kw'>xintercept</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>5</span>)</div><img src='geom_abline-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_hline</span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='fl'>20</span>)</div><img src='geom_abline-6.png' alt='' width='540' height='400' /><div class='input'>
-<span class='no'>p</span> + <span class='fu'>geom_abline</span>() <span class='co'># Can't see it - outside the range of the data</span></div><img src='geom_abline-8.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_abline</span>(<span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>20</span>)</div><img src='geom_abline-10.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_vline</span>(<span class='kw'>xintercept</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='img'><img src='geom_abline-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_vline</span>(<span class='kw'>xintercept</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>5</span>)</div><div class='img'><img src='geom_abline-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_hline</span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='fl'>20</span>)</div><div class='img'><img src='geom_abline-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_abline</span>() <span class='co'># Can't see it - outside the range of the data</span></div><div class='img'><img src='geom_abline-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_abline</span>(<span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>20</span>)</div><div class='img'><img src='geom_abline-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Calculate slope and intercept of line of best fit</span>
 <span class='fu'>coef</span>(<span class='fu'>lm</span>(<span class='no'>mpg</span> ~ <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>))</div><div class='output co'>#&gt; (Intercept)          wt 
-#&gt;   37.285126   -5.344472 </div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_abline</span>(<span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>37</span>, <span class='kw'>slope</span> <span class='kw'>=</span> -<span class='fl'>5</span>)</div><img src='geom_abline-14.png' alt='' width='540' height='400' /><div class='input'><span class='co'># But this is easier to do with geom_smooth:</span>
-<span class='no'>p</span> + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>, <span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><img src='geom_abline-16.png' alt='' width='540' height='400' /><div class='input'>
+#&gt;   37.285126   -5.344472 </div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_abline</span>(<span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>37</span>, <span class='kw'>slope</span> <span class='kw'>=</span> -<span class='fl'>5</span>)</div><div class='img'><img src='geom_abline-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># But this is easier to do with geom_smooth:</span>
+<span class='no'>p</span> + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>, <span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='img'><img src='geom_abline-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># To show different lines in different facets, use aesthetics</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~ <span class='no'>cyl</span>)
 
 <span class='no'>mean_wt</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>cyl</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>4</span>, <span class='fl'>6</span>, <span class='fl'>8</span>), <span class='kw'>wt</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2.28</span>, <span class='fl'>3.11</span>, <span class='fl'>4.00</span>))
-<span class='no'>p</span> + <span class='fu'>geom_hline</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='no'>wt</span>), <span class='no'>mean_wt</span>)</div><img src='geom_abline-18.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_hline</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='no'>wt</span>), <span class='no'>mean_wt</span>)</div><div class='img'><img src='geom_abline-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># You can also control other aesthetics</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>wt</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'>geom_hline</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='no'>wt</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>wt</span>), <span class='no'>mean_wt</span>) +
-  <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~ <span class='no'>cyl</span>)</div><img src='geom_abline-20.png' alt='' width='540' height='400' /></pre>
+  <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~ <span class='no'>cyl</span>)</div><div class='img'><img src='geom_abline-9.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -256,21 +262,23 @@ the line:</p><ul>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

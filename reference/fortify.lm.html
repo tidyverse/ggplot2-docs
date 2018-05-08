@@ -109,21 +109,25 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Supplement the data fitted to a linear model with model fit statistics.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/fortify-lm.r'><code>R/fortify-lm.r</code></a></small>
+    <div class="hidden name"><code>fortify.lm.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>If you have missing values in your model data, you may need to refit
 the model with <code>na.action = na.exclude</code>.</p>
     
+    </div>
 
-    <pre><span class='co'># S3 method for lm</span>
+    <pre class="usage"><span class='co'># S3 method for lm</span>
 <span class='fu'><a href='fortify.html'>fortify</a></span>(<span class='no'>model</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>model</span>$<span class='no'>model</span>, <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -144,12 +148,12 @@ the model with <code>na.action = na.exclude</code>.</p>
 
     <p>The original data with extra columns:</p>
 <dt>.hat</dt><dd><p>Diagonal of the hat matrix</p></dd>
-  <dt>.sigma</dt><dd><p>Estimate of residual standard deviation when
-    corresponding observation is dropped from model</p></dd>
-  <dt>.cooksd</dt><dd><p>Cooks distance, <code>cooks.distance</code></p></dd>
-  <dt>.fitted</dt><dd><p>Fitted values of model</p></dd>
-  <dt>.resid</dt><dd><p>Residuals</p></dd>
-  <dt>.stdresid</dt><dd><p>Standardised residuals</p></dd>
+<dt>.sigma</dt><dd><p>Estimate of residual standard deviation when
+corresponding observation is dropped from model</p></dd>
+<dt>.cooksd</dt><dd><p>Cooks distance, <code>cooks.distance()</code></p></dd>
+<dt>.fitted</dt><dd><p>Fitted values of model</p></dd>
+<dt>.resid</dt><dd><p>Residuals</p></dd>
+<dt>.stdresid</dt><dd><p>Standardised residuals</p></dd>
 
     
 
@@ -182,42 +186,42 @@ the model with <code>na.action = na.exclude</code>.</p>
 #&gt; Hornet 4 Drive    3.088268 3.020558e-03 20.10265  1.2973499  0.43275114
 #&gt; Hornet Sportabout 3.097722 7.599578e-05 18.90014 -0.2001440 -0.06681879
 #&gt; Valiant           3.095184 9.210650e-04 18.79325 -0.6932545 -0.23148309</div><div class='input'>
-<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><img src='fortify.lm-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='img'><img src='fortify.lm-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.fitted</span>, <span class='no'>.resid</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='geom_abline.html'>geom_hline</a></span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='fl'>0</span>) +
-  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='fortify.lm-9.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='fortify.lm-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.fitted</span>, <span class='no'>.stdresid</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='geom_abline.html'>geom_hline</a></span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='fl'>0</span>) +
-  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='fortify.lm-12.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='fortify.lm-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='fu'><a href='fortify.html'>fortify</a></span>(<span class='no'>mod</span>, <span class='no'>mtcars</span>), <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.fitted</span>, <span class='no'>.stdresid</span>)) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><img src='fortify.lm-14.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><div class='img'><img src='fortify.lm-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='fu'><a href='fortify.html'>fortify</a></span>(<span class='no'>mod</span>, <span class='no'>mtcars</span>), <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>.stdresid</span>)) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><img src='fortify.lm-16.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><img src='fortify.lm-18.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><div class='img'><img src='fortify.lm-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='fortify.lm-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>) +
   <span class='fu'><a href='geom_qq.html'>stat_qq</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>.stdresid</span>)) +
-  <span class='fu'><a href='geom_abline.html'>geom_abline</a></span>()</div><img src='fortify.lm-20.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><img src='fortify.lm-22.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.fitted</span>, <span class='fu'>sqrt</span>(<span class='fu'>abs</span>(<span class='no'>.stdresid</span>)))) +
+  <span class='fu'><a href='geom_abline.html'>geom_abline</a></span>()</div><div class='img'><img src='fortify.lm-7.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='img'><img src='fortify.lm-8.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.fitted</span>, <span class='fu'>sqrt</span>(<span class='fu'>abs</span>(<span class='no'>.stdresid</span>)))) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='fortify.lm-25.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><img src='fortify.lm-27.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>seq_along</span>(<span class='no'>.cooksd</span>), <span class='no'>.cooksd</span>)) +
-  <span class='fu'><a href='geom_bar.html'>geom_col</a></span>()</div><img src='fortify.lm-29.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><img src='fortify.lm-31.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.hat</span>, <span class='no'>.stdresid</span>)) +
+  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='fortify.lm-9.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><div class='img'><img src='fortify.lm-10.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>seq_along</span>(<span class='no'>.cooksd</span>), <span class='no'>.cooksd</span>)) +
+  <span class='fu'><a href='geom_bar.html'>geom_col</a></span>()</div><div class='img'><img src='fortify.lm-11.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='img'><img src='fortify.lm-12.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.hat</span>, <span class='no'>.stdresid</span>)) +
   <span class='fu'><a href='geom_abline.html'>geom_vline</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>xintercept</span> <span class='kw'>=</span> <span class='fl'>0</span>) +
   <span class='fu'><a href='geom_abline.html'>geom_hline</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='fl'>0</span>) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='fortify.lm-34.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='fortify.lm-13.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.hat</span>, <span class='no'>.stdresid</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>.cooksd</span>)) +
-  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='fortify.lm-37.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>6</span>)</div><img src='fortify.lm-39.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.hat</span>, <span class='no'>.cooksd</span>)) +
+  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='fortify.lm-14.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>mod</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>6</span>)</div><div class='img'><img src='fortify.lm-15.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.hat</span>, <span class='no'>.cooksd</span>)) +
   <span class='fu'><a href='geom_abline.html'>geom_vline</a></span>(<span class='kw'>xintercept</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fl'>NA</span>) +
   <span class='fu'><a href='geom_abline.html'>geom_abline</a></span>(<span class='kw'>slope</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>3</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fl'>0.5</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>) +
   <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='fortify.lm-42.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='fortify.lm-16.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mod</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>.hat</span>, <span class='no'>.cooksd</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>.cooksd</span> / <span class='no'>.hat</span>)) +
-  <span class='fu'><a href='scale_size.html'>scale_size_area</a></span>()</div><img src='fortify.lm-44.png' alt='' width='540' height='400' /></pre>
+  <span class='fu'><a href='scale_size.html'>scale_size_area</a></span>()</div><div class='img'><img src='fortify.lm-17.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -238,21 +242,23 @@ the model with <code>na.action = na.exclude</code>.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

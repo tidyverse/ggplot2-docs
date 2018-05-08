@@ -109,12 +109,15 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Position scales for date/time data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/scale-date.r'><code>R/scale-date.r</code></a></small>
+    <div class="hidden name"><code>scale_date.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>These are the default scales for the three date/time class. These will
 usually be added automatically. To override manually, use
@@ -122,8 +125,9 @@ usually be added automatically. To override manually, use
 <code>scale_*_datetime</code> for datetimes (class <code>POSIXct</code>), and
 <code>scale_*_time</code> for times (class <code>hms</code>).</p>
     
+    </div>
 
-    <pre><span class='fu'>scale_x_date</span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>date_breaks</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(),
+    <pre class="usage"><span class='fu'>scale_x_date</span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>date_breaks</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(),
   <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>date_labels</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>minor_breaks</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(),
   <span class='kw'>date_minor_breaks</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>limits</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(),
   <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"bottom"</span>)
@@ -151,24 +155,23 @@ usually be added automatically. To override manually, use
   <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>limits</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>oob</span> <span class='kw'>=</span> <span class='no'>censor</span>,
   <span class='kw'>na.value</span> <span class='kw'>=</span> <span class='fl'>NA_real_</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"left"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>name</th>
       <td><p>The name of the scale. Used as axis or legend title. If
-<code>NULL</code>, the default, the name of the scale is taken from the first
-mapping used for that aesthetic.</p></td>
+<code><a href='waiver.html'>waiver()</a></code>, the default, the name of the scale is taken from the first
+mapping used for that aesthetic. If <code>NULL</code>, the legend title will be
+omitted.</p></td>
     </tr>
     <tr>
       <th>breaks</th>
       <td><p>One of:</p><ul>
 <li><p><code>NULL</code> for no breaks</p></li>
-<li><p><code>waiver()</code> for the default breaks computed by the
-    transformation object</p></li>
-<li><p>A numeric vector of positions</p></li>
-<li><p>A function that takes the limits as input and returns breaks
-    as output</p></li>
+<li><p><code><a href='waiver.html'>waiver()</a></code> for the breaks specified by <code>date_breaks</code></p></li>
+<li><p>A <code>Date</code>/<code>POSIXct</code> vector giving positions of breaks</p></li>
+<li><p>A function that takes the limits as input and returns breaks as output</p></li>
 </ul></td>
     </tr>
     <tr>
@@ -181,27 +184,27 @@ specified, <code>date_breaks</code> wins.</p></td>
       <th>labels</th>
       <td><p>One of:</p><ul>
 <li><p><code>NULL</code> for no labels</p></li>
-<li><p><code>waiver()</code> for the default labels computed by the
-    transformation object</p></li>
+<li><p><code><a href='waiver.html'>waiver()</a></code> for the default labels computed by the
+transformation object</p></li>
 <li><p>A character vector giving labels (must be same length as <code>breaks</code>)</p></li>
 <li><p>A function that takes the breaks as input and returns labels
-    as output</p></li>
+as output</p></li>
 </ul></td>
     </tr>
     <tr>
       <th>date_labels</th>
       <td><p>A string giving the formatting specification for the
-labels. Codes are defined in <code>strftime</code>. If both <code>labels</code>
+labels. Codes are defined in <code>strftime()</code>. If both <code>labels</code>
 and <code>date_labels</code> are specified, <code>date_labels</code> wins.</p></td>
     </tr>
     <tr>
       <th>minor_breaks</th>
       <td><p>One of:</p><ul>
-<li><p><code>NULL</code> for no minor breaks</p></li>
-<li><p><code>waiver()</code> for the default breaks (one minor break between
-    each major break)</p></li>
-<li><p>A numeric vector of positions</p></li>
-<li><p>A function that given the limits returns a vector of minor breaks.</p></li>
+<li><p><code>NULL</code> for no breaks</p></li>
+<li><p><code><a href='waiver.html'>waiver()</a></code> for the breaks specified by <code>date_minor_breaks</code></p></li>
+<li><p>A <code>Date</code>/<code>POSIXct</code> vector giving positions of minor breaks</p></li>
+<li><p>A function that takes the limits as input and returns minor breaks as
+output</p></li>
 </ul></td>
     </tr>
     <tr>
@@ -217,11 +220,12 @@ Use <code>NA</code> to refer to the existing minimum or maximum.</p></td>
     </tr>
     <tr>
       <th>expand</th>
-      <td><p>A numeric vector of length two giving multiplicative and
-additive expansion constants. These constants ensure that the data is
-placed some distance away from the axes. The defaults are
-<code>c(0.05, 0)</code> for continuous variables, and <code>c(0, 0.6)</code> for
-discrete variables.</p></td>
+      <td><p>Vector of range expansion constants used to add some
+padding around the data, to ensure that they are placed some distance
+away from the axes. Use the convenience function <code><a href='expand_scale.html'>expand_scale()</a></code>
+to generate the values for the <code>expand</code> argument. The defaults are to
+expand the scale by 5% on each side for continuous variables, and by
+0.6 units on each side for discrete variables.</p></td>
     </tr>
     <tr>
       <th>position</th>
@@ -246,8 +250,8 @@ scales, "top" or "bottom" for horizontal scales</p></td>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other position scales: <code><a href='scale_continuous.html'>scale_x_continuous</a></code>,
-  <code><a href='scale_discrete.html'>scale_x_discrete</a></code></p>
+    <div class='dont-index'><p>Other position scales: <code><a href='scale_continuous.html'>scale_x_continuous</a></code>,
+  <code><a href='scale_discrete.html'>scale_x_discrete</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -262,9 +266,9 @@ scales, "top" or "bottom" for horizontal scales</p></td>
 <span class='co'># The date scale will attempt to pick sensible defaults for</span>
 <span class='co'># major and minor tick marks. Override with date_breaks, date_labels</span>
 <span class='co'># date_minor_breaks arguments.</span>
-<span class='no'>base</span> + <span class='fu'>scale_x_date</span>(<span class='kw'>date_labels</span> <span class='kw'>=</span> <span class='st'>"%b %d"</span>)</div><img src='scale_date-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>base</span> + <span class='fu'>scale_x_date</span>(<span class='kw'>date_breaks</span> <span class='kw'>=</span> <span class='st'>"1 week"</span>, <span class='kw'>date_labels</span> <span class='kw'>=</span> <span class='st'>"%W"</span>)</div><img src='scale_date-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>base</span> + <span class='fu'>scale_x_date</span>(<span class='kw'>date_minor_breaks</span> <span class='kw'>=</span> <span class='st'>"1 day"</span>)</div><img src='scale_date-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>base</span> + <span class='fu'>scale_x_date</span>(<span class='kw'>date_labels</span> <span class='kw'>=</span> <span class='st'>"%b %d"</span>)</div><div class='img'><img src='scale_date-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>base</span> + <span class='fu'>scale_x_date</span>(<span class='kw'>date_breaks</span> <span class='kw'>=</span> <span class='st'>"1 week"</span>, <span class='kw'>date_labels</span> <span class='kw'>=</span> <span class='st'>"%W"</span>)</div><div class='img'><img src='scale_date-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>base</span> + <span class='fu'>scale_x_date</span>(<span class='kw'>date_minor_breaks</span> <span class='kw'>=</span> <span class='st'>"1 day"</span>)</div><div class='img'><img src='scale_date-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Set limits</span>
-<span class='no'>base</span> + <span class='fu'>scale_x_date</span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>Sys.Date</span>() - <span class='fl'>7</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing missing values (geom_path).</span></div><img src='scale_date-9.png' alt='' width='540' height='400' /></pre>
+<span class='no'>base</span> + <span class='fu'>scale_x_date</span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>Sys.Date</span>() - <span class='fl'>7</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing missing values (geom_path).</span></div><div class='img'><img src='scale_date-4.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -285,21 +289,23 @@ scales, "top" or "bottom" for horizontal scales</p></td>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

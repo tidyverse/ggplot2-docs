@@ -109,29 +109,32 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Translating between qplot and lattice</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/translate-qplot-lattice.r'><code>R/translate-qplot-lattice.r</code></a></small>
+    <div class="hidden name"><code>translate_qplot_lattice.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>The major difference between lattice and ggplot2 is that lattice uses a
 formula based interface. ggplot2 does not because the formula does not
 generalise well to more complicated situations.</p>
     
+    </div>
 
         
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>library</span>(<span class='no'>lattice</span>)
+    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>lattice</span>)
 
 <span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"ggplot2movies"</span>)) {
-<span class='fu'>xyplot</span>(<span class='no'>rating</span> ~ <span class='no'>year</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>movies</span>)
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>rating</span> ~ <span class='no'>year</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>movies</span>)
 <span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>year</span>, <span class='no'>rating</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>movies</span>)
 
-<span class='fu'>xyplot</span>(<span class='no'>rating</span> ~ <span class='no'>year</span> <span class='kw'>|</span> <span class='no'>Comedy</span> + <span class='no'>Action</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>)
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>rating</span> ~ <span class='no'>year</span> <span class='kw'>|</span> <span class='no'>Comedy</span> + <span class='no'>Action</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>)
 <span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>year</span>, <span class='no'>rating</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>, <span class='kw'>facets</span> <span class='kw'>=</span> ~ <span class='no'>Comedy</span> + <span class='no'>Action</span>)
 <span class='co'># Or maybe</span>
 <span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>year</span>, <span class='no'>rating</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>, <span class='kw'>facets</span> <span class='kw'>=</span> <span class='no'>Comedy</span> ~ <span class='no'>Action</span>)
@@ -140,41 +143,42 @@ generalise well to more complicated situations.</p>
 <span class='co'># graphics (which are all basically equivalent to setting the panel argument),</span>
 <span class='co'># ggplot2 has qplot().</span>
 
-<span class='fu'>stripplot</span>(~ <span class='no'>rating</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>, <span class='kw'>jitter.data</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>stripplot</a></span>(~ <span class='no'>rating</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>, <span class='kw'>jitter.data</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>rating</span>, <span class='fl'>1</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"jitter"</span>)
 
-<span class='fu'>histogram</span>(~ <span class='no'>rating</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>)
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/histogram'>histogram</a></span>(~ <span class='no'>rating</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>)
 <span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>rating</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"histogram"</span>)
 
-<span class='fu'>bwplot</span>(<span class='no'>Comedy</span> ~ <span class='no'>rating</span> ,<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>)
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>bwplot</a></span>(<span class='no'>Comedy</span> ~ <span class='no'>rating</span> ,<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>)
 <span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='fu'>factor</span>(<span class='no'>Comedy</span>), <span class='no'>rating</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>movies</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"boxplot"</span>)
 
-<span class='fu'>xyplot</span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"p"</span>,<span class='st'>"smooth"</span>))
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"p"</span>,<span class='st'>"smooth"</span>))
 <span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>geom</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"point"</span>,<span class='st'>"smooth"</span>))
-}</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><img src='translate_qplot_lattice-3.png' alt='' width='540' height='400' /><div class='input'>
+}</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='translate_qplot_lattice-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># The capabilities for scale manipulations are similar in both ggplot2 and</span>
 <span class='co'># lattice, although the syntax is a little different.</span>
 
-<span class='fu'>xyplot</span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span> <span class='kw'>|</span> <span class='no'>cyl</span>, <span class='no'>mtcars</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>relation</span> <span class='kw'>=</span> <span class='st'>"free"</span>)))</div><img src='translate_qplot_lattice-5.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>) + <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~ <span class='no'>cyl</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>)</div><img src='translate_qplot_lattice-7.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>xyplot</span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span> <span class='kw'>|</span> <span class='no'>cyl</span>, <span class='no'>mtcars</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>log</span> <span class='kw'>=</span> <span class='fl'>10</span>))</div><img src='translate_qplot_lattice-9.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='st'>"xy"</span>)</div><img src='translate_qplot_lattice-11.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>xyplot</span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span> <span class='kw'>|</span> <span class='no'>cyl</span>, <span class='no'>mtcars</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>log</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><img src='translate_qplot_lattice-13.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>) +
-  <span class='fu'><a href='scale_continuous.html'>scale_x_continuous</a></span>(<span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='fu'>log2_trans</span>()) +
-  <span class='fu'><a href='scale_continuous.html'>scale_y_continuous</a></span>(<span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='fu'>log2_trans</span>())</div><img src='translate_qplot_lattice-15.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>xyplot</span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>, <span class='kw'>auto.key</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><img src='translate_qplot_lattice-17.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Map directly to an aesthetic like colour, size, or shape.</span>
-<span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cyl</span>)</div><img src='translate_qplot_lattice-19.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>xyplot</span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>20</span>,<span class='fl'>30</span>))</div><img src='translate_qplot_lattice-21.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Works like lattice, except you can't specify a different limit</span>
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span> <span class='kw'>|</span> <span class='no'>cyl</span>, <span class='no'>mtcars</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>relation</span> <span class='kw'>=</span> <span class='st'>"free"</span>)))</div><div class='img'><img src='translate_qplot_lattice-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>) + <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~ <span class='no'>cyl</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>)</div><div class='img'><img src='translate_qplot_lattice-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span> <span class='kw'>|</span> <span class='no'>cyl</span>, <span class='no'>mtcars</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>log</span> <span class='kw'>=</span> <span class='fl'>10</span>))</div><div class='img'><img src='translate_qplot_lattice-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='st'>"xy"</span>)</div><div class='img'><img src='translate_qplot_lattice-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span> <span class='kw'>|</span> <span class='no'>cyl</span>, <span class='no'>mtcars</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>log</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='img'><img src='translate_qplot_lattice-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>) +
+  <span class='fu'><a href='scale_continuous.html'>scale_x_continuous</a></span>(<span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw pkg'>scales</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/scales/topics/log_trans'>log2_trans</a></span>()) +
+  <span class='fu'><a href='scale_continuous.html'>scale_y_continuous</a></span>(<span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw pkg'>scales</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/scales/topics/log_trans'>log2_trans</a></span>())</div><div class='img'><img src='translate_qplot_lattice-7.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>cyl</span>, <span class='kw'>auto.key</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='translate_qplot_lattice-8.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Map directly to an aesthetic like colour, size, or shape.</span>
+<span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cyl</span>)</div><div class='img'><img src='translate_qplot_lattice-9.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>20</span>,<span class='fl'>30</span>))</div><div class='img'><img src='translate_qplot_lattice-10.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Works like lattice, except you can't specify a different limit</span>
 <span class='co'># for each panel/facet</span>
-<span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>20</span>,<span class='fl'>30</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing missing values (geom_point).</span></div><img src='translate_qplot_lattice-24.png' alt='' width='540' height='400' /><div class='input'>
+<span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>20</span>,<span class='fl'>30</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing missing values (geom_point).</span></div><div class='img'><img src='translate_qplot_lattice-11.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Both lattice and ggplot2 have similar options for controlling labels on the plot.</span>
 
-<span class='fu'>xyplot</span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"Miles per gallon"</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"Weight"</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Weight-efficiency tradeoff"</span>)</div><img src='translate_qplot_lattice-26.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"Miles per gallon"</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"Weight"</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Weight-efficiency tradeoff"</span>)</div><img src='translate_qplot_lattice-28.png' alt='' width='540' height='400' /><div class='input'>
-<span class='fu'>xyplot</span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>aspect</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><img src='translate_qplot_lattice-30.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><img src='translate_qplot_lattice-32.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># par.settings() is equivalent to + theme() and trellis.options.set()</span>
-<span class='co'># and trellis.par.get() to theme_set() and theme_get().</span>
-<span class='co'># More complicated lattice formulas are equivalent to rearranging the data</span>
-<span class='co'># before using ggplot2.</span></div></pre>
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"Miles per gallon"</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"Weight"</span>,
+  <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Weight-efficiency tradeoff"</span>)</div><div class='img'><img src='translate_qplot_lattice-12.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"Miles per gallon"</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"Weight"</span>,
+  <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Weight-efficiency tradeoff"</span>)</div><div class='img'><img src='translate_qplot_lattice-13.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='http://www.rdocumentation.org/packages/lattice/topics/xyplot'>xyplot</a></span>(<span class='no'>wt</span> ~ <span class='no'>mpg</span>, <span class='no'>mtcars</span>, <span class='kw'>aspect</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='img'><img src='translate_qplot_lattice-14.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='qplot.html'>qplot</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='img'><img src='translate_qplot_lattice-15.png' alt='' width='700' height='433' /></div><div class='input'>
+# par.settings() is equivalent to + theme() and trellis.options.set()
+# and trellis.par.get() to theme_set() and theme_get().
+# More complicated lattice formulas are equivalent to rearranging the data
+# before using ggplot2.
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -192,21 +196,23 @@ generalise well to more complicated situations.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

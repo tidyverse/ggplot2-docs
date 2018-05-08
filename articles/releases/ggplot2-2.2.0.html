@@ -15,7 +15,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -92,39 +92,42 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>ggplot2 2.2.0</h1>
             
-          </div>
+      
+      <small class="dont-index">Source: <a href="https://github.com/tidyverse/ggplot2/blob/master/vignettes/releases/ggplot2-2.2.0.Rmd"><code>vignettes/releases/ggplot2-2.2.0.Rmd</code></a></small>
+      <div class="hidden name"><code>ggplot2-2.2.0.Rmd</code></div>
+
+    </div>
 
     
     
-<div class="contents">
-<p><meta charset="utf-8"></p>
+<meta charset="utf-8">
 <p>I’m very pleased to announce ggplot2 2.2.0. It includes four major new features:</p>
 <ul>
 <li>Subtitles and captions.</li>
-<li>A large rewrite of the facetting system.</li>
+<li>A large rewrite of the faceting system.</li>
 <li>Improved theme options.</li>
 <li>Better stacking.</li>
 </ul>
 <p>It also includes as numerous bug fixes and minor improvements, as described in the <a href="http://github.com/hadley/ggplot2/releases/tag/v2.2.0">release notes</a>.</p>
 <p>The majority of this work was carried out by <a href="https://github.com/thomasp85">Thomas Pederson</a>, who I was lucky to have as my “ggplot2 intern” this summer. Make sure to check out his other visualisation packages: <a href="https://github.com/thomasp85/ggraph">ggraph</a>, <a href="https://github.com/thomasp85/ggforce">ggforce</a>, and <a href="https://github.com/thomasp85/tweenr">tweenr</a>.</p>
 <p>Install ggplot2 with:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"ggplot2"</span>)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"ggplot2"</span>)</a></code></pre></div>
 <div id="subtitles-and-captions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#subtitles-and-captions" class="anchor"></a>Subtitles and captions</h2>
 <p>Thanks to <a href="https://rud.is">Bob Rudis</a>, you can now add subtitles and captions to your plots:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">color =</span> class)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_smooth.html">geom_smooth</a></span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">method =</span> <span class="st">"loess"</span>) +
-<span class="st">  </span><span class="kw"><a href="../../reference/labs.html">labs</a></span>(
-    <span class="dt">title =</span> <span class="st">"Fuel efficiency generally decreases with engine size"</span>,
-    <span class="dt">subtitle =</span> <span class="st">"Two seaters (sports cars) are an exception because of their light weight"</span>,
-    <span class="dt">caption =</span> <span class="st">"Data from fueleconomy.gov"</span>
-  )</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">color =</span> class)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/geom_smooth.html">geom_smooth</a></span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">method =</span> <span class="st">"loess"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../../reference/labs.html">labs</a></span>(</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="dt">title =</span> <span class="st">"Fuel efficiency generally decreases with engine size"</span>,</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="dt">subtitle =</span> <span class="st">"Two seaters (sports cars) are an exception because of their light weight"</span>,</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    <span class="dt">caption =</span> <span class="st">"Data from fueleconomy.gov"</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">  )</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/subtitle-1.png" width="75%"></p>
 <p>These are controlled by the theme settings <code>plot.subtitle</code> and <code>plot.caption</code>.</p>
 <p>The plot title is now aligned to the left by default. To return to the previous centered alignment, use <code><a href="../../reference/theme.html">theme(plot.title = element_text(hjust = 0.5))</a></code>.</p>
@@ -132,51 +135,51 @@
 <div id="facets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#facets" class="anchor"></a>Facets</h2>
-<p>The facet and layout implementation has been moved to ggproto and received a large rewrite and refactoring. This will allow others to create their own facetting systems, as descrbied in the <code><a href="../../articles/extending-ggplot2.html">vignette("extending-ggplot2")</a></code>. Along with the rewrite a number of features and improvements has been added, most notably:</p>
+<p>The facet and layout implementation has been moved to ggproto and received a large rewrite and refactoring. This will allow others to create their own facetting systems, as described in the <code><a href="../../articles/extending-ggplot2.html">vignette("extending-ggplot2")</a></code>. Along with the rewrite a number of features and improvements has been added, most notably:</p>
 <ul>
 <li>
-<p>ou can now use functions in facetting formulas, thanks to <a href="https://github.com/DanRuderman">Dan Ruderman</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(diamonds, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(carat, price)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_hex.html">geom_hex</a></span>(<span class="dt">bins =</span> <span class="dv">20</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(~<span class="kw"><a href="../../reference/cut_interval.html">cut_number</a></span>(depth, <span class="dv">6</span>))</code></pre>
+<p>You can now use functions in facetting formulas, thanks to <a href="https://github.com/DanRuderman">Dan Ruderman</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(diamonds, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(carat, price)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_hex.html">geom_hex</a></span>(<span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span><span class="kw"><a href="../../reference/cut_interval.html">cut_number</a></span>(depth, <span class="dv">6</span>))</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/facet-1-1.png" width="75%"></p>
 </li>
 <li>
 <p>Axes are now drawn under the panels in <code><a href="../../reference/facet_wrap.html">facet_wrap()</a></code> when the rentangle is not completely filled.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(~class)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>class)</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/facet-2-1.png" width="75%"></p>
 </li>
 <li>
 <p>You can set the position of the axes with the <code>position</code> argument.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/scale_continuous.html">scale_x_continuous</a></span>(<span class="dt">position =</span> <span class="st">"top"</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">position =</span> <span class="st">"right"</span>)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/scale_continuous.html">scale_x_continuous</a></span>(<span class="dt">position =</span> <span class="st">"top"</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../../reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">position =</span> <span class="st">"right"</span>)</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/facet-3-1.png" width="75%"></p>
 </li>
 <li>
 <p>You can display a secondary axis that is a one-to-one transformation of the primary axis with <code>sec.axis</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/scale_continuous.html">scale_y_continuous</a></span>(
-    <span class="st">"mpg (US)"</span>, 
-    <span class="dt">sec.axis =</span> <span class="kw"><a href="../../reference/sec_axis.html">sec_axis</a></span>(~<span class="st"> </span>. *<span class="st"> </span><span class="fl">1.20</span>, <span class="dt">name =</span> <span class="st">"mpg (UK)"</span>)
-  )</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/scale_continuous.html">scale_y_continuous</a></span>(</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="st">"mpg (US)"</span>, </a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="dt">sec.axis =</span> <span class="kw"><a href="../../reference/sec_axis.html">sec_axis</a></span>(<span class="op">~</span><span class="st"> </span>. <span class="op">*</span><span class="st"> </span><span class="fl">1.20</span>, <span class="dt">name =</span> <span class="st">"mpg (UK)"</span>)</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  )</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/facet-4-1.png" width="75%"></p>
 </li>
 <li>
 <p>Strips can be placed on any side, and the placement with respect to axes can be controlled with the <code>strip.placement</code> theme option.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(~<span class="st"> </span>drv, <span class="dt">strip.position =</span> <span class="st">"bottom"</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(
-    <span class="dt">strip.placement =</span> <span class="st">"outside"</span>,
-    <span class="dt">strip.background =</span> <span class="kw"><a href="../../reference/element.html">element_blank</a></span>(),
-    <span class="dt">strip.text =</span> <span class="kw"><a href="../../reference/element.html">element_text</a></span>(<span class="dt">face =</span> <span class="st">"bold"</span>)
-  ) +
-<span class="st">  </span><span class="kw"><a href="../../reference/labs.html">xlab</a></span>(<span class="ot">NULL</span>)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span><span class="st"> </span>drv, <span class="dt">strip.position =</span> <span class="st">"bottom"</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="dt">strip.placement =</span> <span class="st">"outside"</span>,</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="dt">strip.background =</span> <span class="kw"><a href="../../reference/element.html">element_blank</a></span>(),</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">    <span class="dt">strip.text =</span> <span class="kw"><a href="../../reference/element.html">element_text</a></span>(<span class="dt">face =</span> <span class="st">"bold"</span>)</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../../reference/labs.html">xlab</a></span>(<span class="ot">NULL</span>)</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/facet-5-1.png" width="75%"></p>
 </li>
 </ul>
@@ -189,27 +192,27 @@
 <li><p>Blank elements can now be overridden again so you get the expected behavior when setting e.g. <code>axis.line.x</code>.</p></li>
 <li>
 <p><code><a href="../../reference/element.html">element_line()</a></code> gets an <code>arrow</code> argument that lets you put arrows on axes.</p>
-<pre class="sourceCode r"><code class="sourceCode r">arrow &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/reexports.html">arrow</a></span>(<span class="dt">length =</span> <span class="kw"><a href="../../reference/reexports.html">unit</a></span>(<span class="fl">0.4</span>, <span class="st">"cm"</span>), <span class="dt">type =</span> <span class="st">"closed"</span>)
-
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/ggtheme.html">theme_minimal</a></span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(
-    <span class="dt">axis.line =</span> <span class="kw"><a href="../../reference/element.html">element_line</a></span>(<span class="dt">arrow =</span> arrow)
-  )</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">arrow &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/grid/topics/arrow">arrow</a></span>(<span class="dt">length =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="fl">0.4</span>, <span class="st">"cm"</span>), <span class="dt">type =</span> <span class="st">"closed"</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../../reference/ggtheme.html">theme_minimal</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="dt">axis.line =</span> <span class="kw"><a href="../../reference/element.html">element_line</a></span>(<span class="dt">arrow =</span> arrow)</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">  )</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/theme-1-1.png" width="75%"></p>
 </li>
 <li>
 <p>Control of legend styling has been improved. The whole legend area can be aligned with the plot area and a box can be drawn around all legends:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy, <span class="dt">shape =</span> drv, <span class="dt">colour =</span> fl)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(
-    <span class="dt">legend.justification =</span> <span class="st">"top"</span>, 
-    <span class="dt">legend.box =</span> <span class="st">"horizontal"</span>,
-    <span class="dt">legend.box.margin =</span> <span class="kw"><a href="../../reference/element.html">margin</a></span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="st">"mm"</span>), 
-    <span class="dt">legend.margin =</span> <span class="kw"><a href="../../reference/element.html">margin</a></span>(),
-    <span class="dt">legend.box.background =</span> <span class="kw"><a href="../../reference/element.html">element_rect</a></span>(<span class="dt">colour =</span> <span class="st">"grey50"</span>)
-  )</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(displ, hwy, <span class="dt">shape =</span> drv, <span class="dt">colour =</span> fl)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">    <span class="dt">legend.justification =</span> <span class="st">"top"</span>, </a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">    <span class="dt">legend.box =</span> <span class="st">"horizontal"</span>,</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="dt">legend.box.margin =</span> <span class="kw"><a href="../../reference/element.html">margin</a></span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="st">"mm"</span>), </a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="dt">legend.margin =</span> <span class="kw"><a href="../../reference/element.html">margin</a></span>(),</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">    <span class="dt">legend.box.background =</span> <span class="kw"><a href="../../reference/element.html">element_rect</a></span>(<span class="dt">colour =</span> <span class="st">"grey50"</span>)</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">  )</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/theme-2-1.png" width="75%"></p>
 </li>
 <li><p><code>panel.margin</code> and <code>legend.margin</code> have been renamed to <code>panel.spacing</code> and <code>legend.spacing</code> respectively, as this better indicates their roles. A new <code>legend.margin</code> actually controls the margin around each legend.</p></li>
@@ -221,48 +224,48 @@
 <h2 class="hasAnchor">
 <a href="#stacking-bars" class="anchor"></a>Stacking bars</h2>
 <p><code><a href="../../reference/position_stack.html">position_stack()</a></code> and <code><a href="../../reference/position_stack.html">position_fill()</a></code> now stack values in the reverse order of the grouping, which makes the default stack order match the legend.</p>
-<pre class="sourceCode r"><code class="sourceCode r">avg_price &lt;-<span class="st"> </span>diamonds %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(cut, color) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">price =</span> <span class="kw">mean</span>(price)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">price_rel =</span> price -<span class="st"> </span><span class="kw">mean</span>(price))
-
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price, <span class="dt">fill =</span> color))</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">avg_price &lt;-<span class="st"> </span>diamonds <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(cut, color) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">price =</span> <span class="kw">mean</span>(price)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">price_rel =</span> price <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(price))</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price, <span class="dt">fill =</span> color))</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/stack-1-1.png" width="75%"></p>
 <p>(Note also the new <code><a href="../../reference/geom_bar.html">geom_col()</a></code> which is short-hand for <code><a href="../../reference/geom_bar.html">geom_bar(stat = "identity")</a></code>, contributed by Bob Rudis.)</p>
-<p>If you want to stack in the opposite order, try <a href="http://forcats.tidyverse.org/reference/fct_rev.html"><code>forcats::fct_rev()</code></a>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price, <span class="dt">fill =</span> <span class="kw">fct_rev</span>(color)))</code></pre>
+<p>If you want to stack in the opposite order, try <a href="http://forcats.tidyverse.org/reference/fct_rev.html"><code><a href="http://www.rdocumentation.org/packages/forcats/topics/fct_rev">forcats::fct_rev()</a></code></a>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price, <span class="dt">fill =</span> <span class="kw">fct_rev</span>(color)))</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/stack-2-1.png" width="75%"></p>
 <p>Additionally, you can now stack negative values:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) +<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price_rel, <span class="dt">fill =</span> color))</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(avg_price) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_bar.html">geom_col</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> price_rel, <span class="dt">fill =</span> color))</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/stack-3-1.png" width="75%"></p>
 <p>The overall ordering cannot necessarily be matched in the presence of negative values, but the ordering on either side of the x-axis will match.</p>
 <p>Labels can also be stacked, but the default position is suboptimal:</p>
-<pre class="sourceCode r"><code class="sourceCode r">series &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">time =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>),<span class="kw">rep</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="dv">4</span>, <span class="dv">4</span>)),
-  <span class="dt">type =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>), <span class="dv">4</span>),
-  <span class="dt">value =</span> <span class="kw">rpois</span>(<span class="dv">16</span>, <span class="dv">10</span>)
-)
-
-<span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(series, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(time, value, <span class="dt">group =</span> type)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_ribbon.html">geom_area</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> type)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">label =</span> type), <span class="dt">position =</span> <span class="st">"stack"</span>)</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">series &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="dt">time =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>),<span class="kw">rep</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="dv">4</span>, <span class="dv">4</span>)),</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="dt">type =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>), <span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="dt">value =</span> <span class="kw">rpois</span>(<span class="dv">16</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(series, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(time, value, <span class="dt">group =</span> type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="../../reference/geom_ribbon.html">geom_area</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">label =</span> type), <span class="dt">position =</span> <span class="st">"stack"</span>)</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/stack-4-1.png" width="75%"></p>
 <p>You can improve the position with the <code>vjust</code> parameter. A <code>vjust</code> of 0.5 will center the labels inside the corresponding area:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(series, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(time, value, <span class="dt">group =</span> type)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_ribbon.html">geom_area</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> type)) +
-<span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">label =</span> type), <span class="dt">position =</span> <span class="kw"><a href="../../reference/position_stack.html">position_stack</a></span>(<span class="dt">vjust =</span> <span class="fl">0.5</span>))</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="../../reference/ggplot.html">ggplot</a></span>(series, <span class="kw"><a href="../../reference/aes.html">aes</a></span>(time, value, <span class="dt">group =</span> type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../../reference/geom_ribbon.html">geom_area</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../../reference/aes.html">aes</a></span>(<span class="dt">label =</span> type), <span class="dt">position =</span> <span class="kw"><a href="../../reference/position_stack.html">position_stack</a></span>(<span class="dt">vjust =</span> <span class="fl">0.5</span>))</a></code></pre></div>
 <p><img src="ggplot2-2.2.0_files/figure-html/stack-5-1.png" width="75%"></p>
-</div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
         <div id="tocnav">
-      <h2>Contents</h2>
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#subtitles-and-captions">Subtitles and captions</a></li>
       <li><a href="#facets">Facets</a></li>
@@ -280,20 +283,20 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script><script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script></footer>
 </div>
+
+  
 
   </body>
 </html>

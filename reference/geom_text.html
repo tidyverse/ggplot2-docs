@@ -109,20 +109,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Text</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/geom-label.R'><code>R/geom-label.R</code></a>, <a href='https://github.com/tidyverse/ggplot2/blob/master/R/geom-text.r'><code>R/geom-text.r</code></a></small>
+    <div class="hidden name"><code>geom_text.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p><code>geom_text</code> adds text directly to the plot. <code>geom_label</code> draws
 a rectangle behind the text, making it easier to read.</p>
     
+    </div>
 
-    <pre><span class='fu'>geom_label</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"identity"</span>,
+    <pre class="usage"><span class='fu'>geom_label</span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"identity"</span>,
   <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='no'>...</span>, <span class='kw'>parse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>nudge_x</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>nudge_y</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>label.padding</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>0.25</span>, <span class='st'>"lines"</span>), <span class='kw'>label.r</span> <span class='kw'>=</span> <span class='fu'><a href='reexports.html'>unit</a></span>(<span class='fl'>0.15</span>, <span class='st'>"lines"</span>),
+  <span class='kw'>label.padding</span> <span class='kw'>=</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></span>(<span class='fl'>0.25</span>, <span class='st'>"lines"</span>), <span class='kw'>label.r</span> <span class='kw'>=</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></span>(<span class='fl'>0.15</span>, <span class='st'>"lines"</span>),
   <span class='kw'>label.size</span> <span class='kw'>=</span> <span class='fl'>0.25</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
@@ -131,28 +135,28 @@ a rectangle behind the text, making it easier to read.</p>
   <span class='kw'>check_overlap</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>mapping</th>
-      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes</a></code> or
-<code><a href='aes_.html'>aes_</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
+      <td><p>Set of aesthetic mappings created by <code><a href='aes.html'>aes()</a></code> or
+<code><a href='aes_.html'>aes_()</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
 plot. You must supply <code>mapping</code> if there is no plot mapping.</p></td>
     </tr>
     <tr>
       <th>data</th>
       <td><p>The data to be displayed in this layer. There are three
-   options:</p>
+options:</p>
 <p>If <code>NULL</code>, the default, the data is inherited from the plot
-   data as specified in the call to <code><a href='ggplot.html'>ggplot</a></code>.</p>
+data as specified in the call to <code><a href='ggplot.html'>ggplot()</a></code>.</p>
 <p>A <code>data.frame</code>, or other object, will override the plot
-   data. All objects will be fortified to produce a data frame. See
-   <code><a href='fortify.html'>fortify</a></code> for which variables will be created.</p>
+data. All objects will be fortified to produce a data frame. See
+<code><a href='fortify.html'>fortify()</a></code> for which variables will be created.</p>
 <p>A <code>function</code> will be called with a single argument,
-   the plot data. The return value must be a <code>data.frame.</code>, and
-   will be used as the layer data.</p></td>
+the plot data. The return value must be a <code>data.frame.</code>, and
+will be used as the layer data.</p></td>
     </tr>
     <tr>
       <th>stat</th>
@@ -166,14 +170,14 @@ a call to a position adjustment function.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>other arguments passed on to <code><a href='layer.html'>layer</a></code>. These are
+      <td><p>Other arguments passed on to <code><a href='layer.html'>layer()</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 <code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
 to the paired geom/stat.</p></td>
     </tr>
     <tr>
       <th>parse</th>
-      <td><p>If TRUE, the labels will be parsed into expressions and
+      <td><p>If <code>TRUE</code>, the labels will be parsed into expressions and
 displayed as described in ?plotmath</p></td>
     </tr>
     <tr>
@@ -202,14 +206,16 @@ a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
       <th>show.legend</th>
       <td><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
-<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p></td>
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.
+It can also be a named logical vector to finely select the aesthetics to
+display.</p></td>
     </tr>
     <tr>
       <th>inherit.aes</th>
       <td><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. <code><a href='borders.html'>borders</a></code>.</p></td>
+the default plot specification, e.g. <code><a href='borders.html'>borders()</a></code>.</p></td>
     </tr>
     <tr>
       <th>check_overlap</th>
@@ -220,20 +226,25 @@ same layer will not be plotted.</p></td>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Note the the "width" and "height" of a text element are 0, so stacking
+    <p>Note that the "width" and "height" of a text element are 0, so stacking
 and dodging text will not work by default, and axis limits are not
 automatically expanded to include all text. Obviously, labels do have
 height and width, but they are physical units, not data units. The amount of
-space they occupy on that plot is not constant in data units: when you
+space they occupy on the plot is not constant in data units: when you
 resize a plot, labels stay the same size, but the size of the axes changes.</p>
+<p><code>geom_text</code> and <code>geom_label</code> both add a label for each row in the
+data, even if coordinates x, y are set to single values in the call
+to <code>geom_label</code> or <code>geom_text</code>.
+To add labels at specified points use <code><a href='annotate.html'>annotate()</a></code> with
+<code><a href='annotate.html'>annotate(geom = "text", ...)</a></code> or <code><a href='annotate.html'>annotate(geom = "label", ...)</a></code></p>
     
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
-    <p><code>geom_text</code> understands the following aesthetics (required aesthetics are in bold):
-    <ul>
-<li><p><code><strong>x</strong></code></p></li>
-<li><p><code><strong>y</strong></code></p></li>
-<li><p><code><strong>label</strong></code></p></li>
+    
+    <p><code>geom_text</code> understands the following aesthetics (required aesthetics are in bold):</p><ul>
+<li><p><strong><code>x</code></strong></p></li>
+<li><p><strong><code>y</code></strong></p></li>
+<li><p><strong><code>label</code></strong></p></li>
 <li><p><code>alpha</code></p></li>
 <li><p><code>angle</code></p></li>
 <li><p><code>colour</code></p></li>
@@ -244,9 +255,9 @@ resize a plot, labels stay the same size, but the size of the axes changes.</p>
 <li><p><code>lineheight</code></p></li>
 <li><p><code>size</code></p></li>
 <li><p><code>vjust</code></p></li>
-</ul></p>
+</ul><p>Learn more about setting these aesthetics in <code><a href='../articles/ggplot2-specs.html'>vignette("ggplot2-specs")</a></code></p>
     
-    <h2 class="hasAnchor" id="-code-geom-label-code-"><a class="anchor" href="#-code-geom-label-code-"></a>&lt;code&gt;geom_label&lt;/code&gt;</h2>
+    <h2 class="hasAnchor" id="geom-label"><a class="anchor" href="#geom-label"></a><code>geom_label</code></h2>
 
     
     <p>Currently <code>geom_label</code> does not support the <code>rot</code> parameter and
@@ -258,41 +269,39 @@ controls the background colour of the label.</p>
     
     <p>You can modify text alignment with the <code>vjust</code> and <code>hjust</code>
 aesthetics. These can either be a number between 0 (right/bottom) and
-1 (top/left) or a character ("left", "middle", "right", "bottom", "center",
-"top"). There are two special alignments: "inward" and "outward".
-Inward always aligns text towards the center, and outward aligns
-it away from the center</p>
+1 (top/left) or a character (<code>"left"</code>, <code>"middle"</code>, <code>"right"</code>, <code>"bottom"</code>,
+<code>"center"</code>, <code>"top"</code>). There are two special alignments: <code>"inward"</code> and
+<code>"outward"</code>. Inward always aligns text towards the center, and outward
+aligns it away from the center</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='fu'>rownames</span>(<span class='no'>mtcars</span>)))
 
-<span class='no'>p</span> + <span class='fu'>geom_text</span>()</div><img src='geom_label-2.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Avoid overlaps</span>
-<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='kw'>check_overlap</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><img src='geom_label-4.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Labels with background</span>
-<span class='no'>p</span> + <span class='fu'>geom_label</span>()</div><img src='geom_label-6.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Change size of the label</span>
-<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><img src='geom_label-8.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_text</span>()</div><div class='img'><img src='geom_text-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Avoid overlaps</span>
+<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='kw'>check_overlap</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='geom_text-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Labels with background</span>
+<span class='no'>p</span> + <span class='fu'>geom_label</span>()</div><div class='img'><img src='geom_text-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Change size of the label</span>
+<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='img'><img src='geom_text-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Set aesthetics to fixed value</span>
-<span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_text</span>(<span class='kw'>hjust</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>nudge_x</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)</div><img src='geom_label-10.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_text</span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>nudge_y</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</div><img src='geom_label-12.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_text</span>(<span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>45</span>)</div><img src='geom_label-14.png' alt='' width='540' height='400' /><div class='input'><span class='co'>## Not run: ------------------------------------</span>
-<span class='co'># # Doesn't work on all systems</span>
-<span class='co'># p + geom_text(family = "Times New Roman")</span>
-<span class='co'>## ---------------------------------------------</span>
-
+<span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_text</span>(<span class='kw'>hjust</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>nudge_x</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)</div><div class='img'><img src='geom_text-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_text</span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>nudge_y</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</div><div class='img'><img src='geom_text-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'>geom_text</span>(<span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>45</span>)</div><div class='img'><img src='geom_text-7.png' alt='' width='700' height='433' /></div><span class='co'># NOT RUN {</span>
+<span class='co'># Doesn't work on all systems</span>
+<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"Times New Roman"</span>)
+<span class='co'># }</span><div class='input'>
 <span class='co'># Add aesthetic mappings</span>
-<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><img src='geom_label-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
-  <span class='fu'><a href='scale_hue.html'>scale_colour_discrete</a></span>(<span class='kw'>l</span> <span class='kw'>=</span> <span class='fl'>40</span>)</div><img src='geom_label-18.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>geom_label</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>fontface</span> <span class='kw'>=</span> <span class='st'>"bold"</span>)</div><img src='geom_label-20.png' alt='' width='540' height='400' /><div class='input'>
-<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>wt</span>))</div><img src='geom_label-22.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Scale height of text, rather than sqrt(height)</span>
-<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>wt</span>)) + <span class='fu'><a href='scale_size.html'>scale_radius</a></span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>3</span>,<span class='fl'>6</span>))</div><img src='geom_label-24.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)))</div><div class='img'><img src='geom_text-8.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
+  <span class='fu'><a href='scale_hue.html'>scale_colour_discrete</a></span>(<span class='kw'>l</span> <span class='kw'>=</span> <span class='fl'>40</span>)</div><div class='img'><img src='geom_text-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>geom_label</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>)), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>fontface</span> <span class='kw'>=</span> <span class='st'>"bold"</span>)</div><div class='img'><img src='geom_text-10.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>wt</span>))</div><div class='img'><img src='geom_text-11.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Scale height of text, rather than sqrt(height)</span>
+<span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>wt</span>)) + <span class='fu'><a href='scale_size.html'>scale_radius</a></span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>3</span>,<span class='fl'>6</span>))</div><div class='img'><img src='geom_text-12.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># You can display expressions by setting parse = TRUE.  The</span>
 <span class='co'># details of the display are described in ?plotmath, but note that</span>
 <span class='co'># geom_text uses strings, not expressions.</span>
 <span class='no'>p</span> + <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='fu'>paste</span>(<span class='no'>wt</span>, <span class='st'>"^("</span>, <span class='no'>cyl</span>, <span class='st'>")"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>""</span>)),
-  <span class='kw'>parse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><img src='geom_label-26.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='kw'>parse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='geom_text-13.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Add a text annotation</span>
 <span class='no'>p</span> +
   <span class='fu'>geom_text</span>() +
-  <span class='fu'><a href='annotate.html'>annotate</a></span>(<span class='st'>"text"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"plot mpg vs. wt"</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>15</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><img src='geom_label-28.png' alt='' width='540' height='400' /><div class='input'>
-
-<span class='co'># Aligning labels and bars --------------------------------------------------</span>
+  <span class='fu'><a href='annotate.html'>annotate</a></span>(<span class='st'>"text"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"plot mpg vs. wt"</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>15</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><div class='img'><img src='geom_text-14.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='input'><span class='co'># Aligning labels and bars --------------------------------------------------</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
   <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>)),
   <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>1</span>),
@@ -303,22 +312,22 @@ it away from the center</p>
 <span class='co'># as the bars:</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
   <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>) +
-  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Width not defined. Set with `position_dodge(width = ?)`</span></div><img src='geom_label-31.png' alt='' width='540' height='400' /><div class='input'><span class='co'># So tell it:</span>
+  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Width not defined. Set with `position_dodge(width = ?)`</span></div><div class='img'><img src='geom_text-15.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># So tell it:</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
   <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>) +
-  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='position_dodge.html'>position_dodge</a></span>(<span class='fl'>0.9</span>))</div><img src='geom_label-33.png' alt='' width='540' height='400' /><div class='input'><span class='co'># Use you can't nudge and dodge text, so instead adjust the y postion</span>
+  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='position_dodge.html'>position_dodge</a></span>(<span class='fl'>0.9</span>))</div><div class='img'><img src='geom_text-16.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Use you can't nudge and dodge text, so instead adjust the y postion</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
   <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge"</span>) +
   <span class='fu'>geom_text</span>(
     <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span> + <span class='fl'>0.05</span>),
     <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='position_dodge.html'>position_dodge</a></span>(<span class='fl'>0.9</span>),
     <span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0</span>
-  )</div><img src='geom_label-35.png' alt='' width='540' height='400' /><div class='input'>
+  )</div><div class='img'><img src='geom_text-17.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># To place text in the middle of each bar in a stacked barplot, you</span>
 <span class='co'># need to set the vjust parameter of position_stack()</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
  <span class='fu'><a href='geom_bar.html'>geom_col</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>grp</span>)) +
- <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='position_stack.html'>position_stack</a></span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>))</div><img src='geom_label-37.png' alt='' width='540' height='400' /><div class='input'>
+ <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>y</span>), <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='position_stack.html'>position_stack</a></span>(<span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>))</div><div class='img'><img src='geom_text-18.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Justification -------------------------------------------------------------</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(
   <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1.5</span>),
@@ -326,9 +335,8 @@ it away from the center</p>
   <span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"bottom-left"</span>, <span class='st'>"bottom-right"</span>, <span class='st'>"top-left"</span>, <span class='st'>"top-right"</span>, <span class='st'>"center"</span>)
 )
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
-  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>text</span>))</div><img src='geom_label-39.png' alt='' width='540' height='400' /><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
-  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>text</span>), <span class='kw'>vjust</span> <span class='kw'>=</span> <span class='st'>"inward"</span>, <span class='kw'>hjust</span> <span class='kw'>=</span> <span class='st'>"inward"</span>)</div><img src='geom_label-41.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>text</span>))</div><div class='img'><img src='geom_text-19.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) +
+  <span class='fu'>geom_text</span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>text</span>), <span class='kw'>vjust</span> <span class='kw'>=</span> <span class='st'>"inward"</span>, <span class='kw'>hjust</span> <span class='kw'>=</span> <span class='st'>"inward"</span>)</div><div class='img'><img src='geom_text-20.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -339,7 +347,7 @@ it away from the center</p>
 
       <li><a href="#aesthetics">Aesthetics</a></li>
 
-      <li><a href="#-code-geom-label-code-">&lt;code&gt;geom_label&lt;/code&gt;</a></li>
+      <li><a href="#geom-label"><code>geom_label</code></a></li>
 
       <li><a href="#alignment">Alignment</a></li>
       
@@ -355,21 +363,23 @@ it away from the center</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

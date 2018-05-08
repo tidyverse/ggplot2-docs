@@ -109,23 +109,27 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Summarise built plot objects</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/summarise-plot.R'><code>R/summarise-plot.R</code></a></small>
+    <div class="hidden name"><code>summarise_plot.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>These functions provide summarised information about built ggplot objects.</p>
     
+    </div>
 
-    <pre><span class='fu'>summarise_layout</span>(<span class='no'>p</span>)
+    <pre class="usage"><span class='fu'>summarise_layout</span>(<span class='no'>p</span>)
 
 <span class='fu'>summarise_coord</span>(<span class='no'>p</span>)
 
 <span class='fu'>summarise_layers</span>(<span class='no'>p</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -139,17 +143,16 @@
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>class</span>)
 <span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot_build.html'>ggplot_build</a></span>(<span class='no'>p</span>)
 
-<span class='fu'>summarise_layout</span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; # A tibble: 7 × 10
-#&gt;    panel   row   col       vars  xmin  xmax  ymin  ymax
-#&gt;   &lt;fctr&gt; &lt;int&gt; &lt;int&gt;     &lt;list&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt; 1      1     1     1 &lt;list [1]&gt;  1.33  7.27  10.4  45.6
-#&gt; 2      2     1     2 &lt;list [1]&gt;  1.33  7.27  10.4  45.6
-#&gt; 3      3     1     3 &lt;list [1]&gt;  1.33  7.27  10.4  45.6
-#&gt; 4      4     2     1 &lt;list [1]&gt;  1.33  7.27  10.4  45.6
-#&gt; 5      5     2     2 &lt;list [1]&gt;  1.33  7.27  10.4  45.6
-#&gt; 6      6     2     3 &lt;list [1]&gt;  1.33  7.27  10.4  45.6
-#&gt; 7      7     3     1 &lt;list [1]&gt;  1.33  7.27  10.4  45.6
-#&gt; # ... with 2 more variables: xscale &lt;list&gt;, yscale &lt;list&gt;</div><div class='input'><span class='fu'>summarise_coord</span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; $xlog
+<span class='fu'>summarise_layout</span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; # A tibble: 7 x 10
+#&gt;   panel   row   col vars        xmin  xmax  ymin  ymax xscale       yscale     
+#&gt;   &lt;fct&gt; &lt;int&gt; &lt;int&gt; &lt;list&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;       &lt;list&gt;     
+#&gt; 1 1         1     1 &lt;list [1]&gt;  1.33  7.27  10.4  45.6 &lt;S3: ScaleC… &lt;S3: Scale…
+#&gt; 2 2         1     2 &lt;list [1]&gt;  1.33  7.27  10.4  45.6 &lt;S3: ScaleC… &lt;S3: Scale…
+#&gt; 3 3         1     3 &lt;list [1]&gt;  1.33  7.27  10.4  45.6 &lt;S3: ScaleC… &lt;S3: Scale…
+#&gt; 4 4         2     1 &lt;list [1]&gt;  1.33  7.27  10.4  45.6 &lt;S3: ScaleC… &lt;S3: Scale…
+#&gt; 5 5         2     2 &lt;list [1]&gt;  1.33  7.27  10.4  45.6 &lt;S3: ScaleC… &lt;S3: Scale…
+#&gt; 6 6         2     3 &lt;list [1]&gt;  1.33  7.27  10.4  45.6 &lt;S3: ScaleC… &lt;S3: Scale…
+#&gt; 7 7         3     1 &lt;list [1]&gt;  1.33  7.27  10.4  45.6 &lt;S3: ScaleC… &lt;S3: Scale…</div><div class='input'><span class='fu'>summarise_coord</span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; $xlog
 #&gt; [1] NA
 #&gt; 
 #&gt; $ylog
@@ -157,9 +160,9 @@
 #&gt; 
 #&gt; $flip
 #&gt; [1] FALSE
-#&gt; </div><div class='input'><span class='fu'>summarise_layers</span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; # A tibble: 1 × 1
-#&gt;      mapping
-#&gt;       &lt;list&gt;
+#&gt; </div><div class='input'><span class='fu'>summarise_layers</span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 1
+#&gt;   mapping   
+#&gt;   &lt;list&gt;    
 #&gt; 1 &lt;list [2]&gt;</div><div class='input'>
 </div></pre>
   </div>
@@ -180,21 +183,23 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

@@ -109,54 +109,52 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Lay out panels in a grid</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/facet-grid-.r'><code>R/facet-grid-.r</code></a></small>
+    <div class="hidden name"><code>facet_grid.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p><code>facet_grid</code> forms a matrix of panels defined by row and column
-facetting variables. It is most useful when you have two discrete
+faceting variables. It is most useful when you have two discrete
 variables, and all combinations of the variables exist in the data.</p>
     
+    </div>
 
-    <pre><span class='fu'>facet_grid</span>(<span class='no'>facets</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>,
+    <pre class="usage"><span class='fu'>facet_grid</span>(<span class='kw'>rows</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>,
   <span class='kw'>shrink</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='st'>"label_value"</span>, <span class='kw'>as.table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>switch</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>drop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+  <span class='kw'>switch</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>drop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>facets</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>facets</th>
-      <td><p>a formula with the rows (of the tabular display) on the LHS
-and the columns (of the tabular display) on the RHS; the dot in the
-formula is used to indicate there should be no faceting on this dimension
-(either row or column). The formula can also be provided as a string
-instead of a classical formula object</p></td>
-    </tr>
-    <tr>
-      <th>margins</th>
-      <td><p>either a logical value or a character
-vector. Margins are additional facets which contain all the data
-for each of the possible values of the faceting variables. If
-<code>FALSE</code>, no additional facets are included (the
-default). If <code>TRUE</code>, margins are included for all faceting
-variables. If specified as a character vector, it is the names of
-variables for which margins are to be created.</p></td>
+      <th>rows, cols</th>
+      <td><p>A set of variables or expressions quoted by
+<code><a href='vars.html'>vars()</a></code> and defining faceting groups on the rows or columns
+dimension. The variables can be named (the names are passed to
+<code>labeller</code>).</p>
+<p>For compatibility with the classic interface, <code>rows</code> can also be
+a formula with the rows (of the tabular display) on the LHS and
+the columns (of the tabular display) on the RHS; the dot in the
+formula is used to indicate there should be no faceting on this
+dimension (either row or column).</p></td>
     </tr>
     <tr>
       <th>scales</th>
       <td><p>Are scales shared across all facets (the default,
 <code>"fixed"</code>), or do they vary across rows (<code>"free_x"</code>),
-columns (<code>"free_y"</code>), or both rows and columns (<code>"free"</code>)</p></td>
+columns (<code>"free_y"</code>), or both rows and columns (<code>"free"</code>)?</p></td>
     </tr>
     <tr>
       <th>space</th>
       <td><p>If <code>"fixed"</code>, the default, all panels have the same size.
- If <code>"free_y"</code> their height will be proportional to the length of the
- y scale; if <code>"free_x"</code> their width will be proportional to the
+If <code>"free_y"</code> their height will be proportional to the length of the
+y scale; if <code>"free_x"</code> their width will be proportional to the
 length of the x scale; or if <code>"free"</code> both height and width will
 vary.  This setting has no effect unless the appropriate scales also vary.</p></td>
     </tr>
@@ -174,8 +172,8 @@ column corresponds to one factor. Thus there will be more than
 one with formulae of the type <code>~cyl + am</code>. Each output
 column gets displayed as one separate line in the strip
 label. This function should inherit from the "labeller" S3 class
-for compatibility with <code><a href='labeller.html'>labeller</a>()</code>. See
-<code><a href='labellers.html'>label_value</a></code> for more details and pointers to other
+for compatibility with <code><a href='labeller.html'>labeller()</a></code>. See
+<code><a href='labellers.html'>label_value()</a></code> for more details and pointers to other
 options.</p></td>
     </tr>
     <tr>
@@ -198,23 +196,41 @@ labels will be displayed to the left. Can also be set to
 data will automatically be dropped. If <code>FALSE</code>, all factor levels
 will be shown, regardless of whether or not they appear in the data.</p></td>
     </tr>
+    <tr>
+      <th>margins</th>
+      <td><p>Either a logical value or a character
+vector. Margins are additional facets which contain all the data
+for each of the possible values of the faceting variables. If
+<code>FALSE</code>, no additional facets are included (the
+default). If <code>TRUE</code>, margins are included for all faceting
+variables. If specified as a character vector, it is the names of
+variables for which margins are to be created.</p></td>
+    </tr>
+    <tr>
+      <th>facets</th>
+      <td><p>This argument is soft-deprecated, please us <code>rows</code>
+and <code>cols</code> instead.</p></td>
+    </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>displ</span>, <span class='no'>cty</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 
-<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>)</div><img src='facet_grid-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>drv</span> ~ <span class='no'>.</span>)</div><img src='facet_grid-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>drv</span> ~ <span class='no'>cyl</span>)</div><img src='facet_grid-6.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># Use vars() to supply variables from the dataset:</span>
+<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='fu'><a href='vars.html'>vars</a></span>(<span class='no'>drv</span>))</div><div class='img'><img src='facet_grid-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'><a href='vars.html'>vars</a></span>(<span class='no'>cyl</span>))</div><div class='img'><img src='facet_grid-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='fu'><a href='vars.html'>vars</a></span>(<span class='no'>drv</span>), <span class='fu'><a href='vars.html'>vars</a></span>(<span class='no'>cyl</span>))</div><div class='img'><img src='facet_grid-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># The historical formula interface is also available:</span>
+<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>)</div><div class='img'><img src='facet_grid-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>drv</span> ~ <span class='no'>.</span>)</div><div class='img'><img src='facet_grid-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>drv</span> ~ <span class='no'>cyl</span>)</div><div class='img'><img src='facet_grid-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># To change plot order of facet grid,</span>
 <span class='co'># change the order of variable levels with factor()</span>
 
 <span class='co'># If you combine a facetted dataset with a dataset that lacks those</span>
-<span class='co'># facetting variables, the data will be repeated across the missing</span>
+<span class='co'># faceting variables, the data will be repeated across the missing</span>
 <span class='co'># combinations:</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>displ</span> <span class='kw'>=</span> <span class='fu'>mean</span>(<span class='no'>mpg</span>$<span class='no'>displ</span>), <span class='kw'>cty</span> <span class='kw'>=</span> <span class='fu'>mean</span>(<span class='no'>mpg</span>$<span class='no'>cty</span>))
 <span class='no'>p</span> +
-  <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><img src='facet_grid-8.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>facet_grid</span>(<span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'><a href='vars.html'>vars</a></span>(<span class='no'>cyl</span>)) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='facet_grid-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Free scales -------------------------------------------------------</span>
 <span class='co'># You can also choose whether the scales should be constant</span>
 <span class='co'># across all panels (the default), or whether they should be allowed</span>
@@ -222,45 +238,45 @@ will be shown, regardless of whether or not they appear in the data.</p></td>
 <span class='no'>mt</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 
-<span class='no'>mt</span> + <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>)</div><img src='facet_grid-10.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>mt</span> + <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>)</div><div class='img'><img src='facet_grid-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># If scales and space are free, then the mapping between position</span>
 <span class='co'># and values in the data will be the same across all panels. This</span>
 <span class='co'># is particularly useful for categorical axes</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>drv</span>, <span class='no'>model</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'>facet_grid</span>(<span class='no'>manufacturer</span> ~ <span class='no'>.</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='st'>"free"</span>) +
-  <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>strip.text.y</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>0</span>))</div><img src='facet_grid-12.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>strip.text.y</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>0</span>))</div><div class='img'><img src='facet_grid-9.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Facet labels ------------------------------------------------------</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
-<span class='no'>p</span></div><img src='facet_grid-14.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span></div><div class='img'><img src='facet_grid-10.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># label_both() displays both variable name and value</span>
-<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> ~ <span class='no'>cyl</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_both</span>)</div><img src='facet_grid-16.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='fu'><a href='vars.html'>vars</a></span>(<span class='no'>vs</span>), <span class='fu'><a href='vars.html'>vars</a></span>(<span class='no'>cyl</span>), <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_both</span>)</div><div class='img'><img src='facet_grid-11.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># With vars() it is easy to pass custom names for the faceting groups:</span>
+<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='fu'><a href='vars.html'>vars</a></span>(<span class='kw'>`V/S`</span> <span class='kw'>=</span> <span class='no'>vs</span>), <span class='fu'><a href='vars.html'>vars</a></span>(<span class='kw'>cylinder</span> <span class='kw'>=</span> <span class='no'>cyl</span>), <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_both</span>)</div><div class='img'><img src='facet_grid-12.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># label_parsed() parses text into mathematical expressions, see ?plotmath</span>
 <span class='no'>mtcars</span>$<span class='no'>cyl2</span> <span class='kw'>&lt;-</span> <span class='fu'>factor</span>(<span class='no'>mtcars</span>$<span class='no'>cyl</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"alpha"</span>, <span class='st'>"beta"</span>, <span class='st'>"sqrt(x, y)"</span>))
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>cyl2</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_parsed</span>)</div><img src='facet_grid-18.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>cyl2</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='no'>label_parsed</span>)</div><div class='img'><img src='facet_grid-13.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># label_bquote() makes it easy to construct math expressions</span>
-<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>vs</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'><a href='label_bquote.html'>label_bquote</a></span>(<span class='kw'>cols</span> <span class='kw'>=</span> <span class='no'>alpha</span> ^ <span class='fu'>.</span>(<span class='no'>vs</span>)))</div><img src='facet_grid-20.png' alt='' width='540' height='400' /><div class='input'>
+<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>.</span> ~ <span class='no'>vs</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'><a href='label_bquote.html'>label_bquote</a></span>(<span class='kw'>cols</span> <span class='kw'>=</span> <span class='no'>alpha</span> ^ <span class='fu'>.</span>(<span class='no'>vs</span>)))</div><div class='img'><img src='facet_grid-14.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># The facet strips can be displayed near the axes with switch</span>
 <span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>transform</span>(<span class='no'>mtcars</span>,
   <span class='kw'>am</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>am</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>1</span>, <span class='fu'>c</span>(<span class='st'>"Automatic"</span>, <span class='st'>"Manual"</span>)),
   <span class='kw'>gear</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>gear</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>:<span class='fl'>5</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Three"</span>, <span class='st'>"Four"</span>, <span class='st'>"Five"</span>))
 )
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>data</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>disp</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
-<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>switch</span> <span class='kw'>=</span> <span class='st'>"both"</span>)</div><img src='facet_grid-22.png' alt='' width='540' height='400' /><div class='input'><span class='co'># It looks better without boxes around the strips</span>
+<span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>switch</span> <span class='kw'>=</span> <span class='st'>"both"</span>)</div><div class='img'><img src='facet_grid-15.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># It looks better without boxes around the strips</span>
 <span class='no'>p</span> + <span class='fu'>facet_grid</span>(<span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>switch</span> <span class='kw'>=</span> <span class='st'>"both"</span>) +
-  <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>strip.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())</div><img src='facet_grid-24.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># Margins ----------------------------------------------------------</span>
-
-<span class='co'># Margins can be specified by logically (all yes or all no) or by specific</span>
+  <span class='fu'><a href='theme.html'>theme</a></span>(<span class='kw'>strip.background</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_blank</a></span>())</div><div class='img'><img src='facet_grid-16.png' alt='' width='700' height='433' /></div><div class='input'>
+# Margins ----------------------------------------------------------
+</div><div class='input'><span class='co'># Margins can be specified by logically (all yes or all no) or by specific</span>
 <span class='co'># variables as (character) variable names</span>
 <span class='no'>mg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
-<span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>)</div><img src='facet_grid-26.png' alt='' width='540' height='400' /><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><img src='facet_grid-28.png' alt='' width='540' height='400' /><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='st'>"am"</span>)</div><img src='facet_grid-30.png' alt='' width='540' height='400' /><div class='input'><span class='co'># when margins are made over "vs", since the facets for "am" vary</span>
+<span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>)</div><div class='img'><img src='facet_grid-17.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='facet_grid-18.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='st'>"am"</span>)</div><div class='img'><img src='facet_grid-19.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># when margins are made over "vs", since the facets for "am" vary</span>
 <span class='co'># within the values of "vs", the marginal facet for "vs" is also</span>
 <span class='co'># a margin over "am".</span>
-<span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='st'>"vs"</span>)</div><img src='facet_grid-32.png' alt='' width='540' height='400' /><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='st'>"gear"</span>)</div><img src='facet_grid-34.png' alt='' width='540' height='400' /><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"gear"</span>, <span class='st'>"am"</span>))</div><img src='facet_grid-36.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+<span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='st'>"vs"</span>)</div><div class='img'><img src='facet_grid-20.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='st'>"gear"</span>)</div><div class='img'><img src='facet_grid-21.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>mg</span> + <span class='fu'>facet_grid</span>(<span class='no'>vs</span> + <span class='no'>am</span> ~ <span class='no'>gear</span>, <span class='kw'>margins</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"gear"</span>, <span class='st'>"am"</span>))</div><div class='img'><img src='facet_grid-22.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -279,21 +295,23 @@ will be shown, regardless of whether or not they appear in the data.</p></td>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

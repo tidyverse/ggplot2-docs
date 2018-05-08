@@ -109,22 +109,26 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Transformed Cartesian coordinate system</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/coord-transform.r'><code>R/coord-transform.r</code></a></small>
+    <div class="hidden name"><code>coord_trans.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p><code>coord_trans</code> is different to scale transformations in that it occurs after
 statistical transformation and will affect the visual appearance of geoms - there is
 no guarantee that straight lines will continue to be straight.</p>
     
+    </div>
 
-    <pre><span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='kw'>limx</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>limy</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>xtrans</span>, <span class='no'>ytrans</span>)</pre>
+    <pre class="usage"><span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"identity"</span>, <span class='kw'>limx</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>limy</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>clip</span> <span class='kw'>=</span> <span class='st'>"on"</span>, <span class='no'>xtrans</span>, <span class='no'>ytrans</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -137,6 +141,12 @@ no guarantee that straight lines will continue to be straight.</p>
 compatibility)</p></td>
     </tr>
     <tr>
+      <th>clip</th>
+      <td><p>Should drawing be clipped to the extent of the plot panel? A
+setting of <code>"on"</code> (the default) means yes, and a setting of <code>"off"</code>
+means no. For details, please see <code><a href='coord_cartesian.html'>coord_cartesian()</a></code>.</p></td>
+    </tr>
+    <tr>
       <th>xtrans, ytrans</th>
       <td><p>Deprecated; use <code>x</code> and <code>y</code> instead.</p></td>
     </tr>
@@ -145,25 +155,24 @@ compatibility)</p></td>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Transformations only work with continuous values: see
-<code><a href='http://www.rdocumentation.org/packages/scales/topics/trans_new'>trans_new</a></code> for list of transformations, and instructions
+<code><a href='http://www.rdocumentation.org/packages/scales/topics/trans_new'>scales::trans_new()</a></code> for list of transformations, and instructions
 on how to create your own.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># See ?geom_boxplot for other examples</span>
+    <pre class="examples"><div class='input'><span class='co'># See ?geom_boxplot for other examples</span>
 
 <span class='co'># Three ways of doing transformation in ggplot:</span>
 <span class='co'>#  * by transforming the data</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'>log10</span>(<span class='no'>carat</span>), <span class='fu'>log10</span>(<span class='no'>price</span>))) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><img src='coord_trans-2.png' alt='' width='540' height='400' /><div class='input'><span class='co'>#  * by transforming the scales</span>
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><div class='img'><img src='coord_trans-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>#  * by transforming the scales</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='scale_continuous.html'>scale_x_log10</a></span>() +
-  <span class='fu'><a href='scale_continuous.html'>scale_y_log10</a></span>()</div><img src='coord_trans-4.png' alt='' width='540' height='400' /><div class='input'><span class='co'>#  * by transforming the coordinate system:</span>
+  <span class='fu'><a href='scale_continuous.html'>scale_y_log10</a></span>()</div><div class='img'><img src='coord_trans-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>#  * by transforming the coordinate system:</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"log10"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"log10"</span>)</div><img src='coord_trans-6.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"log10"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"log10"</span>)</div><div class='img'><img src='coord_trans-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># The difference between transforming the scales and</span>
 <span class='co'># transforming the coordinate system is that scale</span>
 <span class='co'># transformation occurs BEFORE statistics, and coordinate</span>
@@ -176,11 +185,11 @@ on how to create your own.</p>
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>) +
   <span class='fu'><a href='scale_continuous.html'>scale_x_log10</a></span>() +
-  <span class='fu'><a href='scale_continuous.html'>scale_y_log10</a></span>()</div><img src='coord_trans-8.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='scale_continuous.html'>scale_y_log10</a></span>()</div><div class='img'><img src='coord_trans-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>d</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
   <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>) +
-  <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"log10"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"log10"</span>)</div><img src='coord_trans-10.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"log10"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"log10"</span>)</div><div class='img'><img src='coord_trans-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Here I used a subset of diamonds so that the smoothed line didn't</span>
 <span class='co'># drop below zero, which obviously causes problems on the log-transformed</span>
 <span class='co'># scale</span>
@@ -192,17 +201,16 @@ on how to create your own.</p>
   <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>) +
   <span class='fu'><a href='scale_continuous.html'>scale_x_log10</a></span>() +
   <span class='fu'><a href='scale_continuous.html'>scale_y_log10</a></span>() +
-  <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='fu'>exp_trans</span>(<span class='fl'>10</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>scales</span><span class='kw'>::</span><span class='fu'>exp_trans</span>(<span class='fl'>10</span>))</div><img src='coord_trans-12.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='kw pkg'>scales</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/scales/topics/exp_trans'>exp_trans</a></span>(<span class='fl'>10</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw pkg'>scales</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/scales/topics/exp_trans'>exp_trans</a></span>(<span class='fl'>10</span>))</div><div class='img'><img src='coord_trans-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># cf.</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='no'>price</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>)</div><img src='coord_trans-14.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"lm"</span>)</div><div class='img'><img src='coord_trans-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Also works with discrete scales</span>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fu'>abs</span>(<span class='fu'>rnorm</span>(<span class='fl'>26</span>)),<span class='no'>letters</span>)
 <span class='no'>plot</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>,<span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>a</span>,<span class='no'>letters</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
 
-<span class='no'>plot</span> + <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"log10"</span>)</div><img src='coord_trans-16.png' alt='' width='540' height='400' /><div class='input'><span class='no'>plot</span> + <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"sqrt"</span>)</div><img src='coord_trans-18.png' alt='' width='540' height='400' /><div class='input'>
-</div></pre>
+<span class='no'>plot</span> + <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"log10"</span>)</div><div class='img'><img src='coord_trans-8.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>plot</span> + <span class='fu'>coord_trans</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"sqrt"</span>)</div><div class='img'><img src='coord_trans-9.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -223,21 +231,23 @@ on how to create your own.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

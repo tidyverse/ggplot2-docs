@@ -109,21 +109,25 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Label with mathematical expressions</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/labeller.r'><code>R/labeller.r</code></a></small>
+    <div class="hidden name"><code>label_bquote.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p><code>label_bquote()</code> offers a flexible way of labelling
 facet rows or columns with plotmath expressions. Backquoted
 variables will be replaced with their value in the facet.</p>
     
+    </div>
 
-    <pre><span class='fu'>label_bquote</span>(<span class='kw'>rows</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>default</span> <span class='kw'>=</span> <span class='no'>label_value</span>)</pre>
+    <pre class="usage"><span class='fu'>label_bquote</span>(<span class='kw'>rows</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>default</span> <span class='kw'>=</span> <span class='no'>label_value</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -143,14 +147,14 @@ columns when no plotmath expression is provided.</p></td>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><a href='labellers.html'>labellers</a>, <code><a href='labeller.html'>labeller</a>()</code>,</p>
+    <div class='dont-index'><p><a href='labellers.html'>labellers</a>, <code><a href='labeller.html'>labeller()</a></code>,</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># The variables mentioned in the plotmath expression must be</span>
 <span class='co'># backquoted and referred to by their names.</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()
-<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>vs</span> ~ <span class='no'>.</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>label_bquote</span>(<span class='no'>alpha</span> ^ <span class='fu'>.</span>(<span class='no'>vs</span>)))</div><img src='label_bquote-2.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>vs</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>label_bquote</span>(<span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'>.</span>(<span class='no'>vs</span>) ^ <span class='fu'>.</span>(<span class='no'>vs</span>)))</div><img src='label_bquote-4.png' alt='' width='540' height='400' /><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>vs</span> + <span class='no'>am</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>label_bquote</span>(<span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'>.</span>(<span class='no'>am</span>) ^ <span class='fu'>.</span>(<span class='no'>vs</span>)))</div><img src='label_bquote-6.png' alt='' width='540' height='400' /></pre>
+<span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>vs</span> ~ <span class='no'>.</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>label_bquote</span>(<span class='no'>alpha</span> ^ <span class='fu'>.</span>(<span class='no'>vs</span>)))</div><div class='img'><img src='label_bquote-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>vs</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>label_bquote</span>(<span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'>.</span>(<span class='no'>vs</span>) ^ <span class='fu'>.</span>(<span class='no'>vs</span>)))</div><div class='img'><img src='label_bquote-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>vs</span> + <span class='no'>am</span>, <span class='kw'>labeller</span> <span class='kw'>=</span> <span class='fu'>label_bquote</span>(<span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'>.</span>(<span class='no'>am</span>) ^ <span class='fu'>.</span>(<span class='no'>vs</span>)))</div><div class='img'><img src='label_bquote-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -171,21 +175,23 @@ columns when no plotmath expression is provided.</p></td>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

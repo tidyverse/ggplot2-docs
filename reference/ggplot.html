@@ -109,28 +109,32 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a new ggplot</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/plot.r'><code>R/plot.r</code></a></small>
+    <div class="hidden name"><code>ggplot.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p><code>ggplot()</code> initializes a ggplot object. It can be used to
 declare the input data frame for a graphic and to specify the
 set of plot aesthetics intended to be common throughout all
 subsequent layers unless specifically overridden.</p>
     
+    </div>
 
-    <pre><span class='fu'>ggplot</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(), <span class='no'>...</span>, <span class='kw'>environment</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())</pre>
+    <pre class="usage"><span class='fu'>ggplot</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='aes.html'>aes</a></span>(), <span class='no'>...</span>, <span class='kw'>environment</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data</th>
       <td><p>Default dataset to use for plot. If not already a data.frame,
-will be converted to one by <code><a href='fortify.html'>fortify</a></code>. If not specified,
+will be converted to one by <code><a href='fortify.html'>fortify()</a></code>. If not specified,
 must be supplied in each layer added to the plot.</p></td>
     </tr>
     <tr>
@@ -144,9 +148,7 @@ If not specified, must be supplied in each layer added to the plot.</p></td>
     </tr>
     <tr>
       <th>environment</th>
-      <td><p>If a variable defined in the aesthetic mapping is not
-found in the data, ggplot will look for it in this environment. It defaults
-to using the environment in which <code>ggplot()</code> is called.</p></td>
+      <td><p>DEPRECATED. Used prior to tidy evaluation.</p></td>
     </tr>
     </table>
     
@@ -154,11 +156,11 @@ to using the environment in which <code>ggplot()</code> is called.</p></td>
 
     <p><code>ggplot()</code> is used to construct the initial plot object,
 and is almost always followed by <code>+</code> to add component to the
-plot. There are three common ways to invoke <code>ggplot</code>:</p><ol>
-<li><p><code>ggplot(df, aes(x, y, &lt;other aesthetics&gt;))</code></p></li>
+plot. There are three common ways to invoke <code>ggplot</code>:</p><ul>
+<li><p><code>ggplot(df, aes(x, y, other aesthetics))</code></p></li>
 <li><p><code>ggplot(df)</code></p></li>
 <li><p><code>ggplot()</code></p></li>
-</ol>
+</ul>
     <p>The first method is recommended if all layers use the same
 data and the same set of aesthetics, although this method
 can also be used to add a layer using data from another
@@ -180,20 +182,20 @@ is often the case in complex graphics.</p>
   <span class='kw'>gp</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='fu'>rep</span>(<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='kw'>each</span> <span class='kw'>=</span> <span class='fl'>10</span>)),
   <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>30</span>)
 )
-<span class='no'>ds</span> <span class='kw'>&lt;-</span> <span class='kw'>plyr</span><span class='kw'>::</span><span class='fu'>ddply</span>(<span class='no'>df</span>, <span class='st'>"gp"</span>, <span class='kw'>plyr</span><span class='kw'>::</span><span class='no'>summarise</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fu'>mean</span>(<span class='no'>y</span>), <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fu'>sd</span>(<span class='no'>y</span>))
+<span class='no'>ds</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>plyr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/plyr/topics/ddply'>ddply</a></span>(<span class='no'>df</span>, <span class='st'>"gp"</span>, <span class='kw pkg'>plyr</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/plyr/topics/summarise'>summarise</a></span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fu'>mean</span>(<span class='no'>y</span>), <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fu'>sd</span>(<span class='no'>y</span>))
 
 <span class='co'># The summary data frame ds is used to plot larger red points on top</span>
 <span class='co'># of the raw data. Note that we don't need to supply `data` or `mapping`</span>
 <span class='co'># in each layer because the defaults from ggplot() are used.</span>
 <span class='fu'>ggplot</span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>gp</span>, <span class='no'>y</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>() +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mean</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>'red'</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><img src='ggplot-2.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mean</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>'red'</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='img'><img src='ggplot-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Same plot as above, declaring only the data frame in ggplot().</span>
 <span class='co'># Note how the x and y aesthetics must now be declared in</span>
 <span class='co'># each geom_point() layer.</span>
 <span class='fu'>ggplot</span>(<span class='no'>df</span>) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>gp</span>, <span class='no'>y</span>)) +
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>gp</span>, <span class='no'>mean</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>'red'</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><img src='ggplot-4.png' alt='' width='540' height='400' /><div class='input'>
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>gp</span>, <span class='no'>mean</span>), <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>'red'</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='img'><img src='ggplot-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Alternatively we can fully specify the plot in each layer. This</span>
 <span class='co'># is not useful here, but can be more clear when working with complex</span>
 <span class='co'># mult-dataset graphics</span>
@@ -205,7 +207,7 @@ is often the case in complex graphics.</p>
     <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>gp</span>, <span class='no'>mean</span>, <span class='kw'>ymin</span> <span class='kw'>=</span> <span class='no'>mean</span> - <span class='no'>sd</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='no'>mean</span> + <span class='no'>sd</span>),
     <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>'red'</span>,
     <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.4</span>
-  )</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown aesthetics: y</span></div><img src='ggplot-7.png' alt='' width='540' height='400' /></pre>
+  )</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown aesthetics: y</span></div><div class='img'><img src='ggplot-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -226,21 +228,23 @@ is often the case in complex graphics.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
