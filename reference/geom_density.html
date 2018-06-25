@@ -278,10 +278,10 @@ See <code><a href='geom_violin.html'>geom_violin()</a></code> for a compact dens
 <span class='co'># Loses marginal densities</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
   <span class='fu'>geom_density</span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><div class='img'><img src='geom_density-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Preserves marginal densities</span>
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='fu'><a href='calc.html'>calc</a></span>(<span class='no'>count</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='fu'><a href='stat.html'>stat</a></span>(<span class='no'>count</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
   <span class='fu'>geom_density</span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>)</div><div class='img'><img src='geom_density-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># You can use position="fill" to produce a conditional density estimate</span>
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='fu'><a href='calc.html'>calc</a></span>(<span class='no'>count</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>carat</span>, <span class='fu'><a href='stat.html'>stat</a></span>(<span class='no'>count</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
   <span class='fu'>geom_density</span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"fill"</span>)</div><div class='img'><img src='geom_density-8.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -307,7 +307,7 @@ See <code><a href='geom_violin.html'>geom_violin()</a></code> for a compact dens
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

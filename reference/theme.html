@@ -143,10 +143,10 @@ you want modify the active theme, to affect all subsequent plots.</p>
   <span class='no'>panel.spacing.y</span>, <span class='no'>panel.grid</span>, <span class='no'>panel.grid.major</span>, <span class='no'>panel.grid.minor</span>,
   <span class='no'>panel.grid.major.x</span>, <span class='no'>panel.grid.major.y</span>, <span class='no'>panel.grid.minor.x</span>,
   <span class='no'>panel.grid.minor.y</span>, <span class='no'>panel.ontop</span>, <span class='no'>plot.background</span>, <span class='no'>plot.title</span>, <span class='no'>plot.subtitle</span>,
-  <span class='no'>plot.caption</span>, <span class='no'>plot.margin</span>, <span class='no'>strip.background</span>, <span class='no'>strip.background.x</span>,
-  <span class='no'>strip.background.y</span>, <span class='no'>strip.placement</span>, <span class='no'>strip.text</span>, <span class='no'>strip.text.x</span>, <span class='no'>strip.text.y</span>,
-  <span class='no'>strip.switch.pad.grid</span>, <span class='no'>strip.switch.pad.wrap</span>, <span class='no'>...</span>, <span class='kw'>complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>validate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+  <span class='no'>plot.caption</span>, <span class='no'>plot.tag</span>, <span class='no'>plot.tag.position</span>, <span class='no'>plot.margin</span>, <span class='no'>strip.background</span>,
+  <span class='no'>strip.background.x</span>, <span class='no'>strip.background.y</span>, <span class='no'>strip.placement</span>, <span class='no'>strip.text</span>,
+  <span class='no'>strip.text.x</span>, <span class='no'>strip.text.y</span>, <span class='no'>strip.switch.pad.grid</span>, <span class='no'>strip.switch.pad.wrap</span>, <span class='no'>...</span>,
+  <span class='kw'>complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>validate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -507,6 +507,18 @@ inherits from <code>title</code>) left-aligned by default</p></td>
 (<code>element_text</code>; inherits from <code>title</code>) right-aligned by default</p></td>
     </tr>
     <tr>
+      <th>plot.tag</th>
+      <td><p>upper-left label to identify a plot (text appearance)
+(<code>element_text</code>; inherits from <code>title</code>) left-aligned by default</p></td>
+    </tr>
+    <tr>
+      <th>plot.tag.position</th>
+      <td><p>The position of the tag as a string ("topleft",
+"top", "topright", "left", "right", "bottomleft", "bottom", "bottomright)
+or a coordinate. If a string, extra space will be added to accomodate the
+tag.</p></td>
+    </tr>
+    <tr>
       <th>plot.margin</th>
       <td><p>margin around entire plot (<code>unit</code> with the sizes of
 the top, right, bottom, and left margins)</p></td>
@@ -674,7 +686,7 @@ details of the specific theme elements.</p></div>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

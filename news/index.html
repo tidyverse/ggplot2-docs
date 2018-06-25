@@ -116,45 +116,132 @@
       <small>Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="ggplot2-2-2-1-9000" class="section level1">
+    <div id="ggplot2-3-0-0" class="section level1">
 <h1 class="page-header">
-<a href="#ggplot2-2-2-1-9000" class="anchor"></a>ggplot2 2.2.1.9000<small> Unreleased </small>
+<a href="#ggplot2-3-0-0" class="anchor"></a>ggplot2 3.0.0<small> Unreleased </small>
 </h1>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<ul>
+<li>
+<p>ggplot2 now supports/uses tidy evaluation (as described below). This is a major change and breaks a number of packages; we made this breaking change because it is important to make ggplot2 more programmable, and to be more consistent with the rest of the tidyverse. The best general (and detailed) introduction to tidy evaluation can be found in the meta programming chapters in <a href="https://adv-r.hadley.nz">Advanced R</a>.</p>
+<p>The primary developer facing change is that <code><a href="../reference/aes.html">aes()</a></code> now contains quosures (expression + environment pairs) rather than symbols, and you’ll need to take a different approach to extracting the information you need. A common symptom of this change are errors “undefined columns selected” or “invalid ‘type’ (list) of argument” (<a href='https://github.com/tidyverse/ggplot2/issues/2610'>#2610</a>). As in the previous version, constants (like <code><a href="../reference/aes.html">aes(x = 1)</a></code> or <code><a href="../reference/aes.html">aes(colour = "smoothed")</a></code>) are stored as is.</p>
+<p>In this version of ggplot2, if you need to describe a mapping in a string, use <code><a href="../reference/tidyeval.html">quo_name()</a></code> (to generate single-line strings; longer expressions may be abbreviated) or <code>quo_text()</code> (to generate non-abbreviated strings that may span multiple lines). If you do need to extract the value of a variable instead use <code><a href="http://www.rdocumentation.org/packages/rlang/topics/eval_tidy">rlang::eval_tidy()</a></code>. You may want to condition on <code>(packageVersion("ggplot2") &lt;= "2.2.1")</code> so that your code can work with both released and development versions of ggplot2.</p>
+<p>We recognise that this is a big change and if you’re not already familiar with rlang, there’s a lot to learn. If you are stuck, or need any help, please reach out on <a href="https://community.rstudio.com" class="uri">https://community.rstudio.com</a>.</p>
+</li>
+<li>
+<p>Error: Column <code>y</code> must be a 1d atomic vector or a list</p>
+<p>Internally, ggplot2 now uses <code>as.data.frame(tibble::as_tibble(x))</code> to convert a list into a data frame. This improves ggplot2’s support for list-columns (needed for sf support), at a small cost: you can no longer use matrix-columns. Note that unlike tibble we still allow column vectors such as returned by <code><a href="http://www.rdocumentation.org/packages/base/topics/scale">base::scale()</a></code> because of their widespread use.</p>
+</li>
+<li>
+<p>Error: More than one expression parsed</p>
+<p>Previously <code><a href="../reference/aes_.html">aes_string(x = c("a", "b", "c"))</a></code> silently returned <code><a href="../reference/aes.html">aes(x = a)</a></code>. Now this is a clear error.</p>
+</li>
+<li>
+<p>Error: <code>data</code> must be uniquely named but has duplicate columns</p>
+<p>If layer data contains columns with identical names an error will be thrown. In earlier versions the first occuring column was chosen silently, potentially masking that the wrong data was chosen.</p>
+</li>
+<li>
+<p>Error: Aesthetics must be either length 1 or the same as the data</p>
+<p>Layers are stricter about the columns they will combine into a single data frame. Each aesthetic now must be either the same length as the data frame or a single value. This makes silent recycling errors much less likely.</p>
+</li>
+<li>
+<p>Error: <code>coord_*</code> doesn’t support free scales</p>
+<p>Free scales only work with selected coordinate systems; previously you’d get an incorrect plot.</p>
+</li>
+<li>
+<p>Error in f(…) : unused argument (range = c(0, 1))</p>
+<p>This is because the <code>oob</code> argument to scale has been set to a function that only takes a single argument; it needs to take two arguments (<code>x</code>, and <code>range</code>).</p>
+</li>
+<li>
+<p>Error: unused argument (output)</p>
+<p>The function <code><a href="../reference/guide-exts.html">guide_train()</a></code> now has an optional parameter <code>aesthetic</code> that allows you to override the <code>aesthetic</code> setting in the scale. To make your code work with the both released and development versions of ggplot2 appropriate, add <code>aesthetic = NULL</code> to the <code><a href="../reference/guide-exts.html">guide_train()</a></code> method signature.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># old</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">guide_train.legend &lt;-<span class="st"> </span><span class="cf">function</span>(guide, scale) {...}</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># new </span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">guide_train.legend &lt;-<span class="st"> </span><span class="cf">function</span>(guide, scale, <span class="dt">aesthetic =</span> <span class="ot">NULL</span>) {...}</a></code></pre></div>
+<p>Then, inside the function, replace <code>scale$aesthetics[1]</code>, <code>aesthetic %||% scale$aesthetics[1]</code>. (The %||% operator is defined in the rlang package).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># old</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">setNames</span>(<span class="kw">list</span>(scale<span class="op">$</span><span class="kw">map</span>(breaks)), scale<span class="op">$</span>aesthetics[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co"># new</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">setNames</span>(<span class="kw">list</span>(scale<span class="op">$</span><span class="kw">map</span>(breaks)), aesthetic <span class="op">%||%</span><span class="st"> </span>scale<span class="op">$</span>aesthetics[<span class="dv">1</span>])</a></code></pre></div>
+</li>
+<li><p>The long-deprecated <code>subset</code> argument to <code><a href="../reference/layer.html">layer()</a></code> has been removed.</p></li>
+</ul>
+</div>
+<div id="tidy-evaluation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#tidy-evaluation" class="anchor"></a>Tidy evaluation</h2>
+<ul>
+<li><p><code><a href="../reference/aes.html">aes()</a></code> now supports quasiquotation so that you can use <code>!!</code>, <code>!!!</code>, and <code>:=</code>. This replaces <code><a href="../reference/aes_.html">aes_()</a></code> and <code><a href="../reference/aes_.html">aes_string()</a></code> which are now soft-deprecated (but will remain around for a long time).</p></li>
+<li>
+<p><code><a href="../reference/facet_wrap.html">facet_wrap()</a></code> and <code><a href="../reference/facet_grid.html">facet_grid()</a></code> now support <code><a href="../reference/vars.html">vars()</a></code> inputs. Like <code><a href="http://dplyr.tidyverse.org/reference/vars.html">dplyr::vars()</a></code>, this helper quotes its inputs and supports quasiquotation. For instance, you can now supply faceting variables like this: <code><a href="../reference/facet_wrap.html">facet_wrap(vars(am, cyl))</a></code> instead of <code><a href="../reference/facet_wrap.html">facet_wrap(~am + cyl)</a></code>. Note that the formula interface is not going away and will not be deprecated. <code><a href="../reference/vars.html">vars()</a></code> is simply meant to make it easier to create functions around <code><a href="../reference/facet_wrap.html">facet_wrap()</a></code> and <code><a href="../reference/facet_grid.html">facet_grid()</a></code>.</p>
+<p>The first two arguments of <code><a href="../reference/facet_grid.html">facet_grid()</a></code> become <code>rows</code> and <code>cols</code> and now support <code><a href="../reference/vars.html">vars()</a></code> inputs. Note however that we took special care to ensure complete backward compatibility. With this change <code><a href="../reference/facet_grid.html">facet_grid(vars(cyl), vars(am, vs))</a></code> is equivalent to <code><a href="../reference/facet_grid.html">facet_grid(cyl ~ am + vs)</a></code>, and <code><a href="../reference/facet_grid.html">facet_grid(cols = vars(am, vs))</a></code> is equivalent to <code><a href="../reference/facet_grid.html">facet_grid(. ~ am + vs)</a></code>.</p>
+<p>One nice aspect of the new interface is that you can now easily supply names: <code><a href="../reference/facet_grid.html">facet_grid(vars(Cylinder = cyl), labeller = label_both)</a></code> will give nice label titles to the facets. Of course, those names can be unquoted with the usual tidy eval syntax.</p>
+</li>
+</ul>
+<div id="sf" class="section level3">
+<h3 class="hasAnchor">
+<a href="#sf" class="anchor"></a>sf</h3>
+<ul>
+<li>
+<p>ggplot2 now has full support for sf with <code><a href="../reference/ggsf.html">geom_sf()</a></code> and <code><a href="../reference/ggsf.html">coord_sf()</a></code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">nc &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/st_read">st_read</a></span>(<span class="kw">system.file</span>(<span class="st">"shape/nc.shp"</span>, <span class="dt">package =</span> <span class="st">"sf"</span>), <span class="dt">quiet =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(nc) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> AREA))</a></code></pre></div>
+<p>It supports all simple features, automatically aligns CRS across layers, sets up the correct aspect ratio, and draws a graticule.</p>
+</li>
+</ul>
+</div>
+</div>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New features</h2>
 <ul>
-<li><p><code><a href="../reference/aes.html">aes()</a></code> now supports quasiquotation so that you can use <code>!!</code>, <code>!!!</code>, and <code>:=</code>. This replaces <code><a href="../reference/aes_.html">aes_()</a></code> and <code><a href="../reference/aes_.html">aes_string()</a></code> which are now soft-deprecated (but will remain around for a long time).</p></li>
-<li>
-<p><code><a href="../reference/facet_wrap.html">facet_wrap()</a></code> and <code><a href="../reference/facet_grid.html">facet_grid()</a></code> now support <code><a href="../reference/vars.html">vars()</a></code> inputs. Like <code><a href="http://dplyr.tidyverse.org/reference/vars.html">dplyr::vars()</a></code>, this helper quotes its inputs and supports quasiquotation. For instance you can now supply facetting variables like this: <code><a href="../reference/facet_wrap.html">facet_wrap(vars(am, cyl))</a></code> instead of <code><a href="../reference/facet_wrap.html">facet_wrap(~am + cyl)</a></code>. Note that the formula interface is not going away and will not be deprecated. <code><a href="../reference/vars.html">vars()</a></code> is simply meant to make it easier to create functions around <code><a href="../reference/facet_wrap.html">facet_wrap()</a></code> and <code><a href="../reference/facet_grid.html">facet_grid()</a></code>.</p>
-<p>The first two arguments of <code><a href="../reference/facet_grid.html">facet_grid()</a></code> become <code>rows</code> and <code>cols</code> and now support <code><a href="../reference/vars.html">vars()</a></code> inputs. Note however that we took special care to ensure complete backward compatibility. With this change <code><a href="../reference/facet_grid.html">facet_grid(vars(cyl), vars(am, vs))</a></code> is equivalent to <code><a href="../reference/facet_grid.html">facet_grid(cyl ~ am + vs)</a></code> and <code><a href="../reference/facet_grid.html">facet_grid(cols = vars(am, vs))</a></code> is equivalent to <code><a href="../reference/facet_grid.html">facet_grid(. ~ am + vs)</a></code>.</p>
-<p>One nice aspect of the new interface is that you can now easily supply names: <code><a href="../reference/facet_grid.html">facet_grid(vars(Cylinder = cyl), labeller = label_both)</a></code> will give nice label titles to the facets. Of course those names can be unquoted with the usual tidy eval syntax.</p>
-</li>
 <li><p>ggplot2 now works on R 3.1 onwards, and uses the <a href="https://github.com/lionel-/vdiffr">vdiffr</a> package for visual testing.</p></li>
-<li><p>Alternative syntax for calculated aesthetics. Instead of using <code><a href="../reference/aes.html">aes(y = ..count..)</a></code> you can (and should!) now use <code><a href="../reference/aes.html">aes(y = calc(count))</a></code>. <code><a href="../reference/calc.html">calc()</a></code> is a real function with documentation which hopefully will make this part of ggplot2 less confusing. It’s particularly nice if for more complex calculation because you only need to specify once: <code><a href="../reference/aes.html">aes(y = calc(count / max(count)))</a></code> (<a href='https://github.com/tidyverse/ggplot2/issues/2059'>#2059</a>)</p></li>
-<li><p>Boxplot position is now controlled by <code><a href="../reference/position_dodge.html">position_dodge2()</a></code>, which can also be used for bars and rectangles. <code><a href="../reference/position_dodge.html">position_dodge2()</a></code> compares the <code>xmin</code> and <code>xmax</code> values of each element to determine which ones overlap, and dodges them accordingly. This makes it possible to dodge box plots created with <code><a href="../reference/geom_boxplot.html">geom_boxplot(varwidth = TRUE)</a></code>. The <code>padding</code> parameter adds a small amount of padding between elements (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2143'>#2143</a>). A <code>reverse</code> parameter allows you to reverse the placement order of bars and boxes (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2171'>#2171</a>).</p></li>
-<li><p>The <code><a href="../reference/geom_segment.html">geom_segment()</a></code> and <code><a href="../reference/geom_segment.html">geom_curve()</a></code> geoms both have a new <code>arrow.fill</code> parameter which enables specifying a separate fill colour for closed arrowheads. (<a href='http://github.com/hrbrmstr'>@hrbrmstr</a> and <a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2375'>#2375</a>).</p></li>
+<li><p>In most cases, accidentally using <code>%&gt;%</code> instead of <code>+</code> will generate an informative error (<a href='https://github.com/tidyverse/ggplot2/issues/2400'>#2400</a>).</p></li>
 <li>
-<p>The <code>expand</code> argument for <code>scale_*_continuous()</code> and <code>scale_*_discrete()</code> now accepts separate expansion values for the lower and upper range limits. The expansion limits can be specified using the convenience function <code><a href="../reference/expand_scale.html">expand_scale()</a></code>.</p>
-<p>Separate expansion limits may be useful for bar charts, e.g. if one wants to have the bottom of the bars being flush with the x axis but still leave some (automatically calculated amount of) space above them:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(mtcars) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="st">    </span><span class="kw"><a href="../reference/geom_bar.html">geom_bar</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">x =</span> <span class="kw">factor</span>(cyl))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="../reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">expand =</span> <span class="kw"><a href="../reference/expand_scale.html">expand_scale</a></span>(<span class="dt">mult =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.1</span>)))</a></code></pre></div>
-<p>It can also be useful for line charts, e.g. for counts over time, where one wants to have a ’hard’ lower limit of y = 0 but leave the upper limit unspecified (and perhaps differing between panels), but with some extra space above the highest point on the line. (With symmetrical limits, the extra space above the highest point could in some cases cause the lower limit to be negative.)</p>
-<p>The old syntax for the <code>expand</code> argument will of course continue to work. (<a href='http://github.com/huftis'>@huftis</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1669'>#1669</a>)</p>
+<p>New syntax for calculated aesthetics. Instead of using <code><a href="../reference/aes.html">aes(y = ..count..)</a></code> you can (and should!) use <code><a href="../reference/aes.html">aes(y = stat(count))</a></code>. <code><a href="../reference/stat.html">stat()</a></code> is a real function with documentation which hopefully will make this part of ggplot2 less confusing (<a href='https://github.com/tidyverse/ggplot2/issues/2059'>#2059</a>).</p>
+<p><code><a href="../reference/stat.html">stat()</a></code> is particularly nice for more complex calculations because you only need to specify it once: <code><a href="../reference/aes.html">aes(y = stat(count / max(count)))</a></code>, rather than <code><a href="../reference/aes.html">aes(y = ..count.. / max(..count..))</a></code></p>
 </li>
-<li><p>Added <code><a href="../reference/geom_qq.html">stat_qq_line()</a></code> to make it easy to add a simple line to a Q-Q plot. This line makes it easier to judge the fit of the theoretical distribution (<a href='http://github.com/nicksolomon'>@nicksolomon</a>).</p></li>
+<li><p>New <code>tag</code> label for adding identification tags to plots, typically used for labelling a subplot with a letter. Add a tag with <code><a href="../reference/labs.html">labs(tag = "A")</a></code>, style it with the <code>plot.tag</code> theme element, and control position with the <code>plot.tag.position</code> theme setting (<a href='http://github.com/thomasp85'>@thomasp85</a>).</p></li>
 </ul>
-<div id="scales" class="section level3">
+<div id="layers-geoms-stats-and-position-adjustments" class="section level3">
 <h3 class="hasAnchor">
-<a href="#scales" class="anchor"></a>Scales</h3>
+<a href="#layers-geoms-stats-and-position-adjustments" class="anchor"></a>Layers: geoms, stats, and position adjustments</h3>
 <ul>
-<li><p>New <code><a href="../reference/scale_viridis.html">scale_colour_viridis_c()</a></code>/<code><a href="../reference/scale_viridis.html">scale_fill_viridis_c()</a></code> (continuous) and <code><a href="../reference/scale_viridis.html">scale_colour_viridis_d()</a></code>/<code><a href="../reference/scale_viridis.html">scale_fill_viridis_d()</a></code> (discrete) make it easy to use Viridis colour scales. (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1526'>#1526</a>).</p></li>
-<li><p>Default colour maps for continuous data are now controlled by global options <code>ggplot2.continuous.colour</code> and <code>ggplot2.continuous.fill</code>. These can be set to <code>"gradient"</code> (the default) or <code>"viridis"</code> (<a href='http://github.com/karawoo'>@karawoo</a>).</p></li>
+<li><p><code><a href="../reference/geom_segment.html">geom_segment()</a></code> and <code><a href="../reference/geom_segment.html">geom_curve()</a></code> have a new <code>arrow.fill</code> parameter which allows you to specify a separate fill colour for closed arrowheads (<a href='http://github.com/hrbrmstr'>@hrbrmstr</a> and <a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2375'>#2375</a>).</p></li>
+<li><p><code><a href="../reference/geom_point.html">geom_point()</a></code> and friends can now take shapes as strings instead of integers, e.g. <code><a href="../reference/geom_point.html">geom_point(shape = "diamond")</a></code> (<a href='http://github.com/daniel'>@daniel</a>-barnett, <a href='https://github.com/tidyverse/ggplot2/issues/2075'>#2075</a>).</p></li>
+<li><p><code><a href="../reference/position_dodge.html">position_dodge()</a></code> gains a <code>preserve</code> argument that allows you to control whether the <code>total</code> width at each <code>x</code> value is preserved (the current default), or ensure that the width of a <code>single</code> element is preserved (what many people want) (<a href='https://github.com/tidyverse/ggplot2/issues/1935'>#1935</a>).</p></li>
+<li>
+<p>New <code><a href="../reference/position_dodge.html">position_dodge2()</a></code> provides enhanced dodging for boxplots. Compared to <code><a href="../reference/position_dodge.html">position_dodge()</a></code>, <code><a href="../reference/position_dodge.html">position_dodge2()</a></code> compares <code>xmin</code> and <code>xmax</code> values<br>
+to determine which elements overlap, and spreads overlapping elements evenly within the region of overlap. <code><a href="../reference/position_dodge.html">position_dodge2()</a></code> is now the default position adjustment for <code><a href="../reference/geom_boxplot.html">geom_boxplot()</a></code>, because it handles <code>varwidth = TRUE</code>, and will be considered for other geoms in the future.</p>
+<p>The <code>padding</code> parameter adds a small amount of padding between elements (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2143'>#2143</a>) and a <code>reverse</code> parameter allows you to reverse the order of placement (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2171'>#2171</a>).</p>
+</li>
+<li><p>New <code><a href="../reference/geom_qq.html">stat_qq_line()</a></code> makes it easy to add a simple line to a Q-Q plot, which makes it easier to judge the fit of the theoretical distribution (<a href='http://github.com/nicksolomon'>@nicksolomon</a>).</p></li>
+</ul>
+</div>
+<div id="scales-and-guides" class="section level3">
+<h3 class="hasAnchor">
+<a href="#scales-and-guides" class="anchor"></a>Scales and guides</h3>
+<ul>
 <li><p>Improved support for mapping date/time variables to <code>alpha</code>, <code>size</code>, <code>colour</code>, and <code>fill</code> aesthetics, including <code>date_breaks</code> and <code>date_labels</code> arguments (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1526'>#1526</a>), and new <code><a href="../reference/scale_alpha.html">scale_alpha()</a></code> variants (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1526'>#1526</a>).</p></li>
-<li><p>Improved support for ordered factors. Ordered factors throw a warning when mapped to shape (unordered factors do not). Ordered factors do not throw warnings when mapped to size or alpha (unordered factors do). Viridis used as default colour and fill scale for ordered factors (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1526'>#1526</a>).</p></li>
-<li><p>Fix bug in <code>scale_*_gradient2()</code> where points outside limits can sometimes reappear due to rescaling. Now, any rescaling is performed after the limits are enforced (<a href='http://github.com/foo'>@foo</a>-bar-baz-qux, <a href='https://github.com/tidyverse/ggplot2/issues/2230'>#2230</a>).</p></li>
-<li><p>Guides generated by <code><a href="../reference/geom_text.html">geom_text()</a></code> (e.g. colour) now accept custom labels using <code><a href="../reference/guide_legend.html">guide_legend(override.aes = list(label = "foo"))</a></code> (<a href='http://github.com/brianwdavis'>@brianwdavis</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2458'>#2458</a>).</p></li>
+<li><p>Improved support for ordered factors. Ordered factors throw a warning when mapped to shape (unordered factors do not), and do not throw warnings when mapped to size or alpha (unordered factors do). Viridis is used as the default colour and fill scale for ordered factors (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1526'>#1526</a>).</p></li>
+<li>
+<p>The <code>expand</code> argument of <code>scale_*_continuous()</code> and <code>scale_*_discrete()</code> now accepts separate expansion values for the lower and upper range limits. The expansion limits can be specified using the convenience function <code><a href="../reference/expand_scale.html">expand_scale()</a></code>.</p>
+<p>Separate expansion limits may be useful for bar charts, e.g. if one wants the bottom of the bars to be flush with the x axis but still leave some (automatically calculated amount of) space above them:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(mtcars) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">    </span><span class="kw"><a href="../reference/geom_bar.html">geom_bar</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">x =</span> <span class="kw">factor</span>(cyl))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="../reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">expand =</span> <span class="kw"><a href="../reference/expand_scale.html">expand_scale</a></span>(<span class="dt">mult =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.1</span>)))</a></code></pre></div>
+<p>It can also be useful for line charts, e.g. for counts over time, where one wants to have a ’hard’ lower limit of y = 0 but leave the upper limit unspecified (and perhaps differing between panels), with some extra space above the highest point on the line (with symmetrical limits, the extra space above the highest point could in some cases cause the lower limit to be negative).</p>
+<p>The old syntax for the <code>expand</code> argument will, of course, continue to work (<a href='http://github.com/huftis'>@huftis</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1669'>#1669</a>).</p>
+</li>
+<li><p><code><a href="../reference/scale_colour_continuous.html">scale_colour_continuous()</a></code> and <code><a href="../reference/scale_gradient.html">scale_colour_gradient()</a></code> are now controlled by global options <code>ggplot2.continuous.colour</code> and <code>ggplot2.continuous.fill</code>. These can be set to <code>"gradient"</code> (the default) or <code>"viridis"</code> (<a href='http://github.com/karawoo'>@karawoo</a>).</p></li>
+<li><p>New <code><a href="../reference/scale_viridis.html">scale_colour_viridis_c()</a></code>/<code><a href="../reference/scale_viridis.html">scale_fill_viridis_c()</a></code> (continuous) and <code><a href="../reference/scale_viridis.html">scale_colour_viridis_d()</a></code>/<code><a href="../reference/scale_viridis.html">scale_fill_viridis_d()</a></code> (discrete) make it easy to use Viridis colour scales (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1526'>#1526</a>).</p></li>
+<li><p>Guides for <code><a href="../reference/geom_text.html">geom_text()</a></code> now accept custom labels with <code><a href="../reference/guide_legend.html">guide_legend(override.aes = list(label = "foo"))</a></code> (<a href='http://github.com/brianwdavis'>@brianwdavis</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2458'>#2458</a>).</p></li>
 </ul>
 </div>
 <div id="margins" class="section level3">
@@ -163,18 +250,9 @@
 <ul>
 <li><p>Strips gain margins on all sides by default. This means that to fully justify text to the edge of a strip, you will need to also set the margins to 0 (<a href='http://github.com/karawoo'>@karawoo</a>).</p></li>
 <li><p>Rotated strip labels now correctly understand <code>hjust</code> and <code>vjust</code> parameters at all angles (<a href='http://github.com/karawoo'>@karawoo</a>).</p></li>
-<li><p>Strip labels now understand justification relative to the direction of the text, meaning that in y facets the strip text can be placed at either end of the strip using <code>hjust</code> (<a href='http://github.com/karawoo'>@karawoo</a>).</p></li>
-<li><p>Legend titles and labels get a little extra space around them. Legend titles will no longer overlap the legend at large font sizes (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1881'>#1881</a>).</p></li>
+<li><p>Strip labels now understand justification relative to the direction of the text, meaning that in y facets, the strip text can be placed at either end of the strip using <code>hjust</code> (<a href='http://github.com/karawoo'>@karawoo</a>).</p></li>
+<li><p>Legend titles and labels get a little extra space around them, which prevents legend titles from overlapping the legend at large font sizes (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1881'>#1881</a>).</p></li>
 </ul>
-</div>
-<div id="sf" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sf" class="anchor"></a>sf</h3>
-<p>ggplot2 now has full support for sf with <code><a href="../reference/ggsf.html">geom_sf()</a></code> and <code><a href="../reference/ggsf.html">coord_sf()</a></code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">nc &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/st_read">st_read</a></span>(<span class="kw">system.file</span>(<span class="st">"shape/nc.shp"</span>, <span class="dt">package =</span> <span class="st">"sf"</span>), <span class="dt">quiet =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(nc) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">fill =</span> AREA))</a></code></pre></div>
-<p>It supports all simple features, automatically aligns CRS across layer, sets up correct aspect ratio, and draws a graticule.</p>
 </div>
 </div>
 <div id="extension-points" class="section level2">
@@ -183,82 +261,75 @@
 <ul>
 <li><p>New <code><a href="../reference/autolayer.html">autolayer()</a></code> S3 generic (<a href='http://github.com/mitchelloharawild'>@mitchelloharawild</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1974'>#1974</a>). This is similar to <code><a href="../reference/autoplot.html">autoplot()</a></code> but produces layers rather than complete plots.</p></li>
 <li><p>Custom objects can now be added using <code>+</code> if a <code>ggplot_add</code> method has been defined for the class of the object (<a href='http://github.com/thomasp85'>@thomasp85</a>).</p></li>
-<li><p><code><a href="../reference/scale_type.html">scale_type()</a></code> generic is now exported and documented. Use this if you want to extend ggplot2 to work with a new type of vector.</p></li>
-<li><p>Theme elements can now be subclassed. Add a <code>merge_element</code> method to control how properties are inherited from parent element. Add <code>element_grob</code> method to define how elements are rendered into grobs (<a href='http://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1981'>#1981</a>).</p></li>
+<li><p>Theme elements can now be subclassed. Add a <code>merge_element</code> method to control how properties are inherited from the parent element. Add an <code>element_grob</code> method to define how elements are rendered into grobs (<a href='http://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1981'>#1981</a>).</p></li>
 <li>
 <p>Coords have gained new extension mechanisms.</p>
-<p>If you have an existing coord extension you will need to revise the specification of the <code>train()</code> method. It is now called <code>setup_panel_params()</code> (better reflecting what it actually does) and now has arguments <code>scale_x</code>, and <code>scale_y</code> (the x and y scales respectively) and <code>param</code>, a list of plot specific parameters generated by <code>setup_params()</code>.</p>
+<p>If you have an existing coord extension, you will need to revise the specification of the <code>train()</code> method. It is now called <code>setup_panel_params()</code> (better reflecting what it actually does) and now has arguments <code>scale_x</code>, and <code>scale_y</code> (the x and y scales respectively) and <code>param</code>, a list of plot specific parameters generated by <code>setup_params()</code>.</p>
+<p>What was formerly called <code>scale_details</code> (in coords), <code>panel_ranges</code> (in layout) and <code>panel_scales</code> (in geoms) are now consistently called <code>panel_params</code> (<a href='https://github.com/tidyverse/ggplot2/issues/1311'>#1311</a>). These are parameters of the coord that vary from panel to panel.</p>
 </li>
-<li><p>What was formerly called <code>scale_details</code> (in coords), <code>panel_ranges</code> (in layout) and <code>panel_scales</code> (in geoms) are now consistently called <code>panel_params</code> (<a href='https://github.com/tidyverse/ggplot2/issues/1311'>#1311</a>). These are parameters of the Coord that vary from panel to panel.</p></li>
-<li><p><code>ggplot_build</code> and <code>ggplot_gtable</code> are now generics so ggplot-subclasses can define additional behavior during the build stage.</p></li>
+<li><p><code><a href="../reference/ggplot_build.html">ggplot_build()</a></code> and <code><a href="../reference/ggplot_gtable.html">ggplot_gtable()</a></code> are now generics, so ggplot-subclasses can define additional behavior during the build stage.</p></li>
 <li><p><code><a href="../reference/guide-exts.html">guide_train()</a></code>, <code><a href="../reference/guide-exts.html">guide_merge()</a></code>, <code><a href="../reference/guide-exts.html">guide_geom()</a></code>, and <code><a href="../reference/guide-exts.html">guide_gengrob()</a></code> are now exported as they are needed if you want to design your own guide. They are not currently documented; use at your own risk (<a href='https://github.com/tidyverse/ggplot2/issues/2528'>#2528</a>).</p></li>
-</ul>
-</div>
-<div id="breaking-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
-<ul>
-<li><p>The long-deprecated <code>subset</code> argument to <code><a href="../reference/layer.html">layer()</a></code> has been removed.</p></li>
-<li><p>Internally, ggplot2 now uses <code>as.data.frame(tibble::as_tibble(x))</code> to convert a list into a data frame. This improves ggplot2’s support for list-columns (needed for sf support), at a small cost: you can no longer use matrix-columns. These are rarely used but are produced by <code>scale()</code>; to continue use <code>scale()</code> you’ll need to wrap it with <code>as.numeric()</code>, e.g. <code>as.numeric(scale(x))</code>.</p></li>
+<li><p><code><a href="../reference/scale_type.html">scale_type()</a></code> generic is now exported and documented. Use this if you want to extend ggplot2 to work with a new type of vector.</p></li>
 </ul>
 </div>
 <div id="minor-bug-fixes-and-improvements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-bug-fixes-and-improvements" class="anchor"></a>Minor bug fixes and improvements</h2>
-<div id="facetting" class="section level3">
+<div id="faceting" class="section level3">
 <h3 class="hasAnchor">
-<a href="#facetting" class="anchor"></a>Facetting</h3>
+<a href="#faceting" class="anchor"></a>Faceting</h3>
 <ul>
-<li><p><code><a href="../reference/facet_grid.html">facet_grid()</a></code> gives a more informative error message if you try to use a variable in both rows and cols (<a href='https://github.com/tidyverse/ggplot2/issues/1928'>#1928</a>)</p></li>
-<li><p><code><a href="../reference/facet_wrap.html">facet_wrap()</a></code> and <code><a href="../reference/facet_grid.html">facet_grid()</a></code> both give better error messages if you attempt to use an unsupported coord with free scales (<a href='https://github.com/tidyverse/ggplot2/issues/2049'>#2049</a>)</p></li>
-<li><p><code><a href="../reference/labellers.html">label_parsed()</a></code> works once again (<a href='https://github.com/tidyverse/ggplot2/issues/2279'>#2279</a>)</p></li>
+<li><p><code><a href="../reference/facet_grid.html">facet_grid()</a></code> gives a more informative error message if you try to use a variable in both rows and cols (<a href='https://github.com/tidyverse/ggplot2/issues/1928'>#1928</a>).</p></li>
+<li><p><code><a href="../reference/facet_grid.html">facet_grid()</a></code> and <code><a href="../reference/facet_wrap.html">facet_wrap()</a></code> both give better error messages if you attempt to use an unsupported coord with free scales (<a href='https://github.com/tidyverse/ggplot2/issues/2049'>#2049</a>).</p></li>
+<li><p><code><a href="../reference/labellers.html">label_parsed()</a></code> works once again (<a href='https://github.com/tidyverse/ggplot2/issues/2279'>#2279</a>).</p></li>
 <li><p>You can now style the background of horizontal and vertical strips independently with <code>strip.background.x</code> and <code>strip.background.y</code> theme settings (<a href='https://github.com/tidyverse/ggplot2/issues/2249'>#2249</a>).</p></li>
 </ul>
 </div>
-<div id="scales-1" class="section level3">
+<div id="scales" class="section level3">
 <h3 class="hasAnchor">
-<a href="#scales-1" class="anchor"></a>Scales</h3>
+<a href="#scales" class="anchor"></a>Scales</h3>
 <ul>
-<li><p><code><a href="../reference/discrete_scale.html">discrete_scale()</a></code> documentation updated to match <code><a href="../reference/continuous_scale.html">continuous_scale()</a></code> (<a href='http://github.com/alistaire47'>@alistaire47</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2052'>#2052</a>).</p></li>
-<li><p><code><a href="../reference/guide_colourbar.html">guide_colorbar()</a></code> shows all colours of the scale (<a href='http://github.com/has2k1'>@has2k1</a>, 2343).</p></li>
+<li><p><code><a href="../reference/discrete_scale.html">discrete_scale()</a></code> documentation now inherits shared definitions from <code><a href="../reference/continuous_scale.html">continuous_scale()</a></code> (<a href='http://github.com/alistaire47'>@alistaire47</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2052'>#2052</a>).</p></li>
+<li><p><code><a href="../reference/guide_colourbar.html">guide_colorbar()</a></code> shows all colours of the scale (<a href='http://github.com/has2k1'>@has2k1</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2343'>#2343</a>).</p></li>
 <li><p><code>scale_identity()</code> once again produces legends by default (<a href='https://github.com/tidyverse/ggplot2/issues/2112'>#2112</a>).</p></li>
-<li><p>Fix bug in secondary axis that would lead to incorrectly placed ticks with strong transforms (<a href='http://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1992'>#1992</a>).</p></li>
+<li><p>Tick marks for secondary axes with strong transformations are more accurately placed (<a href='http://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1992'>#1992</a>).</p></li>
 <li><p>Missing line types now reliably generate missing lines (with standard warning) (<a href='https://github.com/tidyverse/ggplot2/issues/2206'>#2206</a>).</p></li>
-<li><p>Legends no longer try and use set aesthetics that are not length one (<a href='https://github.com/tidyverse/ggplot2/issues/1932'>#1932</a>).</p></li>
+<li><p>Legends now ignore set aesthetics that are not length one (<a href='https://github.com/tidyverse/ggplot2/issues/1932'>#1932</a>).</p></li>
+<li><p>All colour and fill scales now have an <code>aesthetics</code> argument that can be used to set the aesthetic(s) the scale works with. This makes it possible to apply a colour scale to both colour and fill aesthetics at the same time, via <code>aesthetics = c("colour", "fill")</code> (<a href='http://github.com/clauswilke'>@clauswilke</a>).</p></li>
+<li><p>Three new generic scales work with any aesthetic or set of aesthetics: <code><a href="../reference/scale_identity.html">scale_continuous_identity()</a></code>, <code><a href="../reference/scale_identity.html">scale_discrete_identity()</a></code>, and <code><a href="../reference/scale_manual.html">scale_discrete_manual()</a></code> (<a href='http://github.com/clauswilke'>@clauswilke</a>).</p></li>
+<li><p><code>scale_*_gradient2()</code> now consistently omits points outside limits by rescaling after the limits are enforced (<a href='http://github.com/foo'>@foo</a>-bar-baz-qux, <a href='https://github.com/tidyverse/ggplot2/issues/2230'>#2230</a>).</p></li>
 </ul>
 </div>
 <div id="layers" class="section level3">
 <h3 class="hasAnchor">
 <a href="#layers" class="anchor"></a>Layers</h3>
 <ul>
-<li><p><code>geom_label</code> no longer produces an undesired border around labels when <code>label.size</code> is 0, even when saving to PDF (<a href='http://github.com/bfgray3'>@bfgray3</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2407'>#2407</a>).</p></li>
-<li><p>In <code>stat-smooth.r</code>, the <code>s</code> in <code>y ~ s(x, bs = "cs")</code> is now <code><a href="http://www.rdocumentation.org/packages/mgcv/topics/s">mgcv::s</a></code>, which eliminates naming conflicts (<a href='http://github.com/bfgray3'>@bfgray3</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2535'>#2535</a>).</p></li>
-<li><p>In most cases, using <code>%&gt;%</code> instead of <code>+</code> should generate an informative error (<a href='https://github.com/tidyverse/ggplot2/issues/2400'>#2400</a>).</p></li>
+<li><p><code><a href="../reference/geom_text.html">geom_label()</a></code> now correctly produces unbordered labels when <code>label.size</code> is 0, even when saving to PDF (<a href='http://github.com/bfgray3'>@bfgray3</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2407'>#2407</a>).</p></li>
 <li><p><code><a href="../reference/layer.html">layer()</a></code> gives considerably better error messages for incorrectly specified <code>geom</code>, <code>stat</code>, or <code>position</code> (<a href='https://github.com/tidyverse/ggplot2/issues/2401'>#2401</a>).</p></li>
 <li><p>In all layers that use it, <code>linemitre</code> now defaults to 10 (instead of 1) to better match base R.</p></li>
-<li><p><code><a href="../reference/geom_boxplot.html">geom_boxplot()</a></code> now supplies default value if no <code>x</code> aesthetic present (<a href='http://github.com/foo'>@foo</a>-bar-baz-qux, <a href='https://github.com/tidyverse/ggplot2/issues/2110'>#2110</a>).</p></li>
-<li><p><code><a href="../reference/geom_density.html">geom_density()</a></code> drops groups with fewer than two data points and throws a warning. For groups with two data points, the density values are now calculated with <code><a href="http://www.rdocumentation.org/packages/stats/topics/density">stats::density</a></code> (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2127'>#2127</a>).</p></li>
+<li><p><code><a href="../reference/geom_boxplot.html">geom_boxplot()</a></code> now supplies a default value if no <code>x</code> aesthetic is present (<a href='http://github.com/foo'>@foo</a>-bar-baz-qux, <a href='https://github.com/tidyverse/ggplot2/issues/2110'>#2110</a>).</p></li>
+<li><p><code><a href="../reference/geom_density.html">geom_density()</a></code> drops groups with fewer than two data points and throws a warning. For groups with two data points, density values are now calculated with <code><a href="http://www.rdocumentation.org/packages/stats/topics/density">stats::density</a></code> (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2127'>#2127</a>).</p></li>
 <li><p><code><a href="../reference/geom_segment.html">geom_segment()</a></code> now also takes a <code>linejoin</code> parameter. This allows more control over the appearance of the segments, which is especially useful for plotting thick arrows (<a href='http://github.com/Ax3man'>@Ax3man</a>, <a href='https://github.com/tidyverse/ggplot2/issues/774'>#774</a>).</p></li>
-<li><p><code><a href="../reference/geom_smooth.html">geom_smooth()</a></code> now reports the formula used when <code>method = "auto"</code> (<a href='http://github.com/davharris'>@davharris</a> <a href='https://github.com/tidyverse/ggplot2/issues/1951'>#1951</a>). It also orders by the <code>x</code> aesthetic, making it easier to pass pre-computed values without manual ordering (<a href='http://github.com/izahn'>@izahn</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2028'>#2028</a>). It also now knows it has <code>ymin</code> and <code>ymax</code> aesthetics (<a href='https://github.com/tidyverse/ggplot2/issues/1939'>#1939</a>).</p></li>
-<li><p><code><a href="../reference/geom_tile.html">geom_tile()</a></code> now once again interprets <code>width</code> and <code>height</code> correctly (<a href='http://github.com/malcolmbarrett'>@malcolmbarrett</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2510'>#2510</a>)</p></li>
-<li><p><code><a href="../reference/position_dodge.html">position_dodge()</a></code> gains an <code>preserve</code> argument that allows you to control whether the <code>total</code> width at each <code>x</code> value is preserved (the current default), or ensure that the width of a <code>single</code> element is preserved (what many people want) (<a href='https://github.com/tidyverse/ggplot2/issues/1935'>#1935</a>).</p></li>
-<li><p><code><a href="../reference/position_jitter.html">position_jitter()</a></code> and <code><a href="../reference/position_jitterdodge.html">position_jitterdodge()</a></code> gain a <code>seed</code> argument that allows specifying a random seed for reproducible jittering (<a href='http://github.com/krlmlr'>@krlmlr</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1996'>#1996</a> and <a href='http://github.com/slowkow'>@slowkow</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2445'>#2445</a>).</p></li>
+<li><p><code><a href="../reference/geom_smooth.html">geom_smooth()</a></code> now reports the formula used when <code>method = "auto"</code> (<a href='http://github.com/davharris'>@davharris</a> <a href='https://github.com/tidyverse/ggplot2/issues/1951'>#1951</a>). <code><a href="../reference/geom_smooth.html">geom_smooth()</a></code> now orders by the <code>x</code> aesthetic, making it easier to pass pre-computed values without manual ordering (<a href='http://github.com/izahn'>@izahn</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2028'>#2028</a>). It also now knows it has <code>ymin</code> and <code>ymax</code> aesthetics (<a href='https://github.com/tidyverse/ggplot2/issues/1939'>#1939</a>). The legend correctly reflects the status of the <code>se</code> argument when used with stats other than the default (<a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1546'>#1546</a>).</p></li>
+<li><p><code><a href="../reference/geom_tile.html">geom_tile()</a></code> now once again interprets <code>width</code> and <code>height</code> correctly (<a href='http://github.com/malcolmbarrett'>@malcolmbarrett</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2510'>#2510</a>).</p></li>
+<li><p><code><a href="../reference/position_jitter.html">position_jitter()</a></code> and <code><a href="../reference/position_jitterdodge.html">position_jitterdodge()</a></code> gain a <code>seed</code> argument that allows the specification of a random seed for reproducible jittering (<a href='http://github.com/krlmlr'>@krlmlr</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1996'>#1996</a> and <a href='http://github.com/slowkow'>@slowkow</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2445'>#2445</a>).</p></li>
 <li><p><code><a href="../reference/geom_density.html">stat_density()</a></code> has better behaviour if all groups are dropped because they are too small (<a href='https://github.com/tidyverse/ggplot2/issues/2282'>#2282</a>).</p></li>
-<li><p><code><a href="../reference/stat_summary.html">stat_summary_bin()</a></code> now understands the <code>breaks</code> parameter (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2214'>#2214</a>)</p></li>
+<li><p><code><a href="../reference/stat_summary.html">stat_summary_bin()</a></code> now understands the <code>breaks</code> parameter (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2214'>#2214</a>).</p></li>
 <li><p><code><a href="../reference/geom_histogram.html">stat_bin()</a></code> now accepts functions for <code>binwidth</code>. This allows better binning when faceting along variables with different ranges (<a href='http://github.com/botanize'>@botanize</a>).</p></li>
-<li><p><code><a href="../reference/geom_histogram.html">stat_bin()</a></code> / <code><a href="../reference/geom_histogram.html">geom_histogram()</a></code> no longer incorrectly when using the <code>weight</code> aesthetic with (<a href='http://github.com/jiho'>@jiho</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1921'>#1921</a>).</p></li>
-<li><p><code><a href="../reference/update_defaults.html">update_geom_defaults()</a></code> and <code><a href="../reference/update_defaults.html">update_stat_defaults()</a></code> to allow American spelling of aesthetic parameters (<a href='http://github.com/foo'>@foo</a>-bar-baz-qux, <a href='https://github.com/tidyverse/ggplot2/issues/2299'>#2299</a>).</p></li>
-<li><p>The <code>show.legend</code> parameter now accepts a named logical vector to hide/show only some aesthetics in the legend (<a href='http://github.com/tutuchan'>@tutuchan</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1798'>#1798</a>)</p></li>
-<li><p>Layers no longer warn about unknown aesthetics with value <code>NULL</code> (<a href='https://github.com/tidyverse/ggplot2/issues/1909'>#1909</a>).</p></li>
-<li><p>Restored correct scaling for computed variable <code>ndensity</code> when binning (<a href='http://github.com/timgoodman'>@timgoodman</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2324'>#2324</a>)</p></li>
+<li><p><code><a href="../reference/geom_histogram.html">stat_bin()</a></code> and <code><a href="../reference/geom_histogram.html">geom_histogram()</a></code> now sum correctly when using the <code>weight</code> aesthetic (<a href='http://github.com/jiho'>@jiho</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1921'>#1921</a>).</p></li>
+<li><p><code><a href="../reference/geom_histogram.html">stat_bin()</a></code> again uses correct scaling for the computed variable <code>ndensity</code> (<a href='http://github.com/timgoodman'>@timgoodman</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2324'>#2324</a>).</p></li>
 <li><p><code><a href="../reference/geom_histogram.html">stat_bin()</a></code> and <code><a href="../reference/geom_bin2d.html">stat_bin_2d()</a></code> now properly handle the <code>breaks</code> parameter when the scales are transformed (<a href='http://github.com/has2k1'>@has2k1</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2366'>#2366</a>).</p></li>
+<li><p><code><a href="../reference/update_defaults.html">update_geom_defaults()</a></code> and <code><a href="../reference/update_defaults.html">update_stat_defaults()</a></code> allow American spelling of aesthetic parameters (<a href='http://github.com/foo'>@foo</a>-bar-baz-qux, <a href='https://github.com/tidyverse/ggplot2/issues/2299'>#2299</a>).</p></li>
+<li><p>The <code>show.legend</code> parameter now accepts a named logical vector to hide/show only some aesthetics in the legend (<a href='http://github.com/tutuchan'>@tutuchan</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1798'>#1798</a>).</p></li>
+<li><p>Layers now silently ignore unknown aesthetics with value <code>NULL</code> (<a href='https://github.com/tidyverse/ggplot2/issues/1909'>#1909</a>).</p></li>
 </ul>
 </div>
 <div id="coords" class="section level3">
 <h3 class="hasAnchor">
 <a href="#coords" class="anchor"></a>Coords</h3>
 <ul>
-<li><p>Like scales, coordinate systems now give you a message when you’re replacing any existing coordiante system (<a href='https://github.com/tidyverse/ggplot2/issues/2264'>#2264</a>)</p></li>
+<li><p>Clipping to the plot panel is now configurable, through a <code>clip</code> argument to coordinate systems, e.g. <code><a href="../reference/coord_cartesian.html">coord_cartesian(clip = "off")</a></code> (<a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2536'>#2536</a>).</p></li>
+<li><p>Like scales, coordinate systems now give you a message when you’re replacing an existing coordinate system (<a href='https://github.com/tidyverse/ggplot2/issues/2264'>#2264</a>).</p></li>
 <li><p><code><a href="../reference/coord_polar.html">coord_polar()</a></code> now draws secondary axis ticks and labels (<a href='http://github.com/dylan'>@dylan</a>-stark, <a href='https://github.com/tidyverse/ggplot2/issues/2072'>#2072</a>), and can draw the radius axis on the right (<a href='http://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2005'>#2005</a>).</p></li>
 <li><p><code><a href="../reference/coord_trans.html">coord_trans()</a></code> now generates a warning when a transformation generates non-finite values (<a href='http://github.com/foo'>@foo</a>-bar-baz-qux, <a href='https://github.com/tidyverse/ggplot2/issues/2147'>#2147</a>).</p></li>
 </ul>
@@ -267,43 +338,38 @@
 <h3 class="hasAnchor">
 <a href="#themes" class="anchor"></a>Themes</h3>
 <ul>
-<li><p>Complete themes now always override all elements of the default theme (<a href='http://github.com/has2k1'>@has2k1</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2058'>#2058</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2079'>#2079</a>)</p></li>
-<li><p>Themes now set default grid colour in <code>panel.grid</code> rather than individually in <code>panel.grid.major</code> and <code>panel.grid.minor</code> individually. This makes it slightly easier to customise the grid (<a href='https://github.com/tidyverse/ggplot2/issues/2352'>#2352</a>).</p></li>
+<li><p>Complete themes now always override all elements of the default theme (<a href='http://github.com/has2k1'>@has2k1</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2058'>#2058</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2079'>#2079</a>).</p></li>
+<li><p>Themes now set default grid colour in <code>panel.grid</code> rather than individually in <code>panel.grid.major</code> and <code>panel.grid.minor</code> individually. This makes it slightly easier to customise the theme (<a href='https://github.com/tidyverse/ggplot2/issues/2352'>#2352</a>).</p></li>
 <li><p>Fixed bug when setting strips to <code><a href="../reference/element.html">element_blank()</a></code> (<a href='http://github.com/thomasp85'>@thomasp85</a>).</p></li>
-<li><p>Axes positioned on the top and to the right can now customize their ticks and lines separately (<a href='http://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1899'>#1899</a>)</p></li>
-<li><p>Themes gain parameters <code>base_line_size</code> and <code>base_rect_size</code> which control the default sizes of line and rectangle elements (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2176'>#2176</a>).</p></li>
+<li><p>Axes positioned on the top and to the right can now customize their ticks and lines separately (<a href='http://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1899'>#1899</a>).</p></li>
+<li><p>Built-in themes gain parameters <code>base_line_size</code> and <code>base_rect_size</code> which control the default sizes of line and rectangle elements (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2176'>#2176</a>).</p></li>
 <li><p>Default themes use <code><a href="../reference/element.html">rel()</a></code> to set line widths (<a href='http://github.com/baptiste'>@baptiste</a>).</p></li>
-<li><p>Themes were tweaked for visual consistency and more graceful behavior when changing the base font size. All absolute heights or widths were replaced with heights or widths that are proportional to the base font size. One relative font size was eliminated. (<a href='http://github.com/clauswilke'>@clauswilke</a>)</p></li>
+<li><p>Themes were tweaked for visual consistency and more graceful behavior when changing the base font size. All absolute heights or widths were replaced with heights or widths that are proportional to the base font size. One relative font size was eliminated (<a href='http://github.com/clauswilke'>@clauswilke</a>).</p></li>
+<li><p>The height of descenders is now calculated solely on font metrics and doesn’t change with the specific letters in the string. This fixes minor alignment issues with plot titles, subtitles, and legend titles (<a href='https://github.com/tidyverse/ggplot2/issues/2288'>#2288</a>, <a href='http://github.com/clauswilke'>@clauswilke</a>).</p></li>
 </ul>
 </div>
 <div id="guides" class="section level3">
 <h3 class="hasAnchor">
 <a href="#guides" class="anchor"></a>Guides</h3>
 <ul>
-<li>Make <code><a href="../reference/guide_colourbar.html">guide_colorbar()</a></code> more configurable: enable styling of tick marks and drawing of frame around the color bar via new arguments <code>ticks.colour</code>, <code>ticks.linewidth</code>, <code>frame.colour</code>, <code>frame.linewidth</code>, and <code>frame.linetype</code>.
-<p>(<a href='http://github.com/clauswilke'>@clauswilke</a>)</p>
-</li>
-<li><p><code><a href="../reference/guide_colourbar.html">guide_colorbar()</a></code> now uses <code>legend.spacing.x</code> and <code>legend.spacing.y</code> correctly, and it can handle multi-line titles. Minor tweaks were made to <code><a href="../reference/guide_legend.html">guide_legend()</a></code> to make sure the two legend functions behave as similarly as possible. (<a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2397'>#2397</a> and <a href='https://github.com/tidyverse/ggplot2/issues/2398'>#2398</a>)</p></li>
-<li><p>The theme elements <code>legend.title</code> and <code>legend.text</code> now respect the settings of <code>margin</code>, <code>hjust</code>, and <code>vjust</code>. (<a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2465'>#2465</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1502'>#1502</a>)</p></li>
-<li><p>Non-angle parameters of <code>label.theme</code> or <code>title.theme</code> can now be set in <code><a href="../reference/guide_legend.html">guide_legend()</a></code> and <code><a href="../reference/guide_colourbar.html">guide_colorbar()</a></code>. (<a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2544'>#2544</a>)</p></li>
+<li><p><code><a href="../reference/guide_colourbar.html">guide_colorbar()</a></code> is more configurable: tick marks and color bar frame can now by styled with arguments <code>ticks.colour</code>, <code>ticks.linewidth</code>, <code>frame.colour</code>, <code>frame.linewidth</code>, and <code>frame.linetype</code> (<a href='http://github.com/clauswilke'>@clauswilke</a>).</p></li>
+<li><p><code><a href="../reference/guide_colourbar.html">guide_colorbar()</a></code> now uses <code>legend.spacing.x</code> and <code>legend.spacing.y</code> correctly, and it can handle multi-line titles. Minor tweaks were made to <code><a href="../reference/guide_legend.html">guide_legend()</a></code> to make sure the two legend functions behave as similarly as possible (<a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2397'>#2397</a> and <a href='https://github.com/tidyverse/ggplot2/issues/2398'>#2398</a>).</p></li>
+<li><p>The theme elements <code>legend.title</code> and <code>legend.text</code> now respect the settings of <code>margin</code>, <code>hjust</code>, and <code>vjust</code> (<a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2465'>#2465</a>, <a href='https://github.com/tidyverse/ggplot2/issues/1502'>#1502</a>).</p></li>
+<li><p>Non-angle parameters of <code>label.theme</code> or <code>title.theme</code> can now be set in <code><a href="../reference/guide_legend.html">guide_legend()</a></code> and <code><a href="../reference/guide_colourbar.html">guide_colorbar()</a></code> (<a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2544'>#2544</a>).</p></li>
 </ul>
 </div>
 <div id="other" class="section level3">
 <h3 class="hasAnchor">
 <a href="#other" class="anchor"></a>Other</h3>
 <ul>
-<li><p>Clipping to the plot panel is now configurable, through a <code>clip</code> argument to coordinate systems, e.g. <code><a href="../reference/coord_cartesian.html">coord_cartesian(clip = "off")</a></code>. (<a href='http://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2536'>#2536</a>)</p></li>
-<li><p><code><a href="../reference/fortify.html">fortify()</a></code> gains a method for tbls (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2218'>#2218</a>)</p></li>
-<li><p><code>ggplot</code> gains a method for <code>grouped_df</code>s that adds a <code>.group</code> variable, which computes a unique value for each group, and automatically sets the group aesthetic to use that variable (<a href='https://github.com/tidyverse/ggplot2/issues/2351'>#2351</a>).</p></li>
+<li><p><code><a href="../reference/fortify.html">fortify()</a></code> gains a method for tbls (<a href='http://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2218'>#2218</a>).</p></li>
+<li><p><code>ggplot</code> gains a method for <code>grouped_df</code>s that adds a <code>.group</code> variable, which computes a unique value for each group. Use it with <code><a href="../reference/aes.html">aes(group = .group)</a></code> (<a href='https://github.com/tidyverse/ggplot2/issues/2351'>#2351</a>).</p></li>
 <li><p><code><a href="../reference/ggproto.html">ggproto()</a></code> produces objects with class <code>c("ggproto", "gg")</code>, allowing for a more informative error message when adding layers, scales, or other ggproto objects (<a href='http://github.com/jrnold'>@jrnold</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2056'>#2056</a>).</p></li>
-<li><p><code><a href="../reference/ggsave.html">ggsave()</a></code>’s DPI argument now supports 3 string options: “retina” (320 DPI), “print” (300 DPI), and “screen” (72 DPI) (<a href='http://github.com/foo'>@foo</a>-bar-baz-qux, <a href='https://github.com/tidyverse/ggplot2/issues/2156'>#2156</a>).</p></li>
-<li><p>Fixed partial argument matches in <code><a href="../reference/ggsave.html">ggsave()</a></code>. (<a href='https://github.com/tidyverse/ggplot2/issues/2355'>#2355</a>)</p></li>
-<li><p><code><a href="../reference/ggsave.html">ggsave()</a></code> now correctly restores the previous graphics device when several graphics devices are open. (<a href='https://github.com/tidyverse/ggplot2/issues/2363'>#2363</a>)</p></li>
-<li><p><code><a href="../reference/print.ggplot.html">print.ggplot()</a></code> now returns the original ggplot object, instead of the output from <code><a href="../reference/ggplot_build.html">ggplot_build()</a></code>. Also, the object returned from <code><a href="../reference/ggplot_build.html">ggplot_build()</a></code> now has the class <code>"ggplot_built"</code>. (<a href='https://github.com/tidyverse/ggplot2/issues/2034'>#2034</a>)</p></li>
-<li><p><code><a href="../reference/map_data.html">map_data()</a></code> now works when purrr is loaded (tidyverse<a href='https://github.com/tidyverse/ggplot2/issues/66'>#66</a>)</p></li>
-<li><p>New functions <code><a href="../reference/summarise_plot.html">summarise_layout()</a></code>, <code><a href="../reference/summarise_plot.html">summarise_coord()</a></code>, and <code><a href="../reference/summarise_plot.html">summarise_layers()</a></code> summarise the layout, coordinate systems, and layers, of a built ggplot object (<a href='https://github.com/tidyverse/ggplot2/issues/2034'>#2034</a>, <a href='http://github.com/wch'>@wch</a>). This provides a tested API that (e.g.) shiny can depend on.</p></li>
-<li><p>The height of descenders is now calculated solely on font metrics and doesn’t change with the specific letters in the string. This fixes minor alignment issues with plot titles, subtitles, and legend titles. (<a href='https://github.com/tidyverse/ggplot2/issues/2288'>#2288</a>, <a href='http://github.com/clauswilke'>@clauswilke</a>)</p></li>
-<li><p>Update startup messages to reflect new resources. (<a href='https://github.com/tidyverse/ggplot2/issues/2410'>#2410</a>, <a href='http://github.com/mine'>@mine</a>-cetinkaya-rundel)</p></li>
+<li><p><code><a href="../reference/ggsave.html">ggsave()</a></code>’s DPI argument now supports 3 string options: “retina” (320 DPI), “print” (300 DPI), and “screen” (72 DPI) (<a href='http://github.com/foo'>@foo</a>-bar-baz-qux, <a href='https://github.com/tidyverse/ggplot2/issues/2156'>#2156</a>). <code><a href="../reference/ggsave.html">ggsave()</a></code> now uses full argument names to avoid partial match warnings (<a href='https://github.com/tidyverse/ggplot2/issues/2355'>#2355</a>), and correctly restores the previous graphics device when several graphics devices are open (<a href='https://github.com/tidyverse/ggplot2/issues/2363'>#2363</a>).</p></li>
+<li><p><code><a href="../reference/print.ggplot.html">print.ggplot()</a></code> now returns the original ggplot object, instead of the output from <code><a href="../reference/ggplot_build.html">ggplot_build()</a></code>. Also, the object returned from <code><a href="../reference/ggplot_build.html">ggplot_build()</a></code> now has the class <code>"ggplot_built"</code> (<a href='https://github.com/tidyverse/ggplot2/issues/2034'>#2034</a>).</p></li>
+<li><p><code><a href="../reference/map_data.html">map_data()</a></code> now works even when purrr is loaded (tidyverse<a href='https://github.com/tidyverse/ggplot2/issues/66'>#66</a>).</p></li>
+<li><p>New functions <code><a href="../reference/summarise_plot.html">summarise_layout()</a></code>, <code><a href="../reference/summarise_plot.html">summarise_coord()</a></code>, and <code><a href="../reference/summarise_plot.html">summarise_layers()</a></code> summarise the layout, coordinate systems, and layers of a built ggplot object (<a href='https://github.com/tidyverse/ggplot2/issues/2034'>#2034</a>, <a href='http://github.com/wch'>@wch</a>). This provides a tested API that (e.g.) shiny can depend on.</p></li>
+<li><p>Updated startup messages reflect new resources (<a href='https://github.com/tidyverse/ggplot2/issues/2410'>#2410</a>, <a href='http://github.com/mine'>@mine</a>-cetinkaya-rundel).</p></li>
 </ul>
 </div>
 </div>
@@ -341,9 +407,9 @@
 <p><code><a href="../reference/geom_bar.html">geom_col()</a></code> was added to complement <code><a href="../reference/geom_bar.html">geom_bar()</a></code> (<a href='http://github.com/hrbrmstr'>@hrbrmstr</a>). It uses <code>stat="identity"</code> by default, making the <code>y</code> aesthetic mandatory. It does not support any other <code>stat_()</code> and does not provide fallback support for the <code>binwidth</code> parameter. Examples and references in other functions were updated to demonstrate <code><a href="../reference/geom_bar.html">geom_col()</a></code> usage.</p>
 <p>When creating a layer, ggplot2 will warn if you use an unknown aesthetic or an unknown parameter. Compared to the previous version, this is stricter for aesthetics (previously there was no message), and less strict for parameters (previously this threw an error) (<a href='https://github.com/tidyverse/ggplot2/issues/1585'>#1585</a>).</p>
 </div>
-<div id="facetting-1" class="section level3">
+<div id="facetting" class="section level3">
 <h3 class="hasAnchor">
-<a href="#facetting-1" class="anchor"></a>Facetting</h3>
+<a href="#facetting" class="anchor"></a>Facetting</h3>
 <p>The facet system, as well as the internal panel class, has been rewritten in ggproto. Facets are now extendable in the same manner as geoms and stats, as described in <code><a href="../articles/extending-ggplot2.html">vignette("extending-ggplot2")</a></code>.</p>
 <p>We have also added the following new fatures.</p>
 <ul>
@@ -360,9 +426,9 @@
 <p>Unfortunately there was a major oversight in the construction of ggproto which lead to extensions capturing the super object at package build time, instead of at package run time (<a href='https://github.com/tidyverse/ggplot2/issues/1826'>#1826</a>). This problem has been fixed, but requires re-installation of all extension packages.</p>
 </div>
 </div>
-<div id="scales-2" class="section level2">
+<div id="scales-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#scales-2" class="anchor"></a>Scales</h2>
+<a href="#scales-1" class="anchor"></a>Scales</h2>
 <ul>
 <li>The position of x and y axes can now be changed using the <code>position</code> argument in <code>scale_x_*</code>and <code>scale_y_*</code> which can take <code>top</code> and <code>bottom</code>, and <code>left</code> and <code>right</code> respectively. The themes of top and right axes can be modified using the <code>.top</code> and <code>.right</code> modifiers to <code>axis.text.*</code> and <code>axis.title.*</code>.</li>
 </ul>
@@ -615,11 +681,11 @@
 <li><p>Sizes in ggplot2 are measured in mm. Previously they were converted to pts (for use in grid) by multiplying by 72 / 25.4. However, grid uses printer’s points, not Adobe (big pts), so sizes are now correctly multiplied by 72.27 / 25.4. This is unlikely to noticeably affect display, but it’s technically correct (<a href="https://youtu.be/hou0lU8WMgo" class="uri">https://youtu.be/hou0lU8WMgo</a>).</p></li>
 <li>
 <p>The default legend will now allocate multiple rows (if vertical) or columns (if horizontal) in order to make a legend that is more likely to fit on the screen. You can override with the <code>nrow</code>/<code>ncol</code> arguments to <code><a href="../reference/guide_legend.html">guide_legend()</a></code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../reference/aes.html">aes</a></span>(displ,hwy, <span class="dt">colour =</span> model)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="../reference/geom_point.html">geom_point</a></span>()</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">p</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="../reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># Previous behaviour</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="../reference/guides.html">guides</a></span>(<span class="dt">colour =</span> <span class="kw"><a href="../reference/guide_legend.html">guide_legend</a></span>(<span class="dt">ncol =</span> <span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(mpg, <span class="kw"><a href="../reference/aes.html">aes</a></span>(displ,hwy, <span class="dt">colour =</span> model)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="../reference/geom_point.html">geom_point</a></span>()</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">p</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="../reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># Previous behaviour</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="../reference/guides.html">guides</a></span>(<span class="dt">colour =</span> <span class="kw"><a href="../reference/guide_legend.html">guide_legend</a></span>(<span class="dt">ncol =</span> <span class="dv">1</span>))</a></code></pre></div>
 </li>
 </ul>
 </div>
@@ -759,7 +825,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#ggplot2-2-2-1-9000">2.2.1.9000</a></li>
+        <li><a href="#ggplot2-3-0-0">3.0.0</a></li>
         <li><a href="#ggplot2-2-2-1">2.2.1</a></li>
         <li><a href="#ggplot2-2-2-0">2.2.0</a></li>
         <li><a href="#ggplot2-2-1-0">2.1.0</a></li>
@@ -776,7 +842,7 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

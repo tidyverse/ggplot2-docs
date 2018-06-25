@@ -223,7 +223,7 @@
 <div id="sec:shape-spec" class="section level3">
 <h3 class="hasAnchor">
 <a href="#sec:shape-spec" class="anchor"></a>Shape</h3>
-<p>Shapes take four types of values:</p>
+<p>Shapes take five types of values:</p>
 <ul>
 <li>
 <p>An <strong>integer</strong> in <span class="math inline">\([0, 25]\)</span>:</p>
@@ -241,6 +241,31 @@
 <a class="sourceLine" id="cb6-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="../reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="ot">NULL</span>, <span class="dt">breaks =</span> <span class="ot">NULL</span>)</a></code></pre></div>
 <p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </li>
+<li><p>The <strong>name</strong> of the shape:</p></li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">shape_names &lt;-<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="st">"circle"</span>, <span class="kw">paste</span>(<span class="st">"circle"</span>, <span class="kw">c</span>(<span class="st">"open"</span>, <span class="st">"filled"</span>, <span class="st">"cross"</span>, <span class="st">"plus"</span>, <span class="st">"small"</span>)), <span class="st">"bullet"</span>,</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="st">"square"</span>, <span class="kw">paste</span>(<span class="st">"square"</span>, <span class="kw">c</span>(<span class="st">"open"</span>, <span class="st">"filled"</span>, <span class="st">"cross"</span>, <span class="st">"plus"</span>, <span class="st">"triangle"</span>)),</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="st">"diamond"</span>, <span class="kw">paste</span>(<span class="st">"diamond"</span>, <span class="kw">c</span>(<span class="st">"open"</span>, <span class="st">"filled"</span>, <span class="st">"plus"</span>)),</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="st">"triangle"</span>, <span class="kw">paste</span>(<span class="st">"triangle"</span>, <span class="kw">c</span>(<span class="st">"open"</span>, <span class="st">"filled"</span>, <span class="st">"square"</span>)),</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">  <span class="kw">paste</span>(<span class="st">"triangle down"</span>, <span class="kw">c</span>(<span class="st">"open"</span>, <span class="st">"filled"</span>)),</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">  <span class="st">"plus"</span>, <span class="st">"cross"</span>, <span class="st">"asterisk"</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">shapes &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">  <span class="dt">shape_names =</span> shape_names,</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">  <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">  <span class="dt">y =</span> <span class="op">-</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">)</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(shapes, <span class="kw"><a href="../reference/aes.html">aes</a></span>(x, y)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="st">  </span><span class="kw"><a href="../reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">shape =</span> shape_names), <span class="dt">fill =</span> <span class="st">"red"</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="st">  </span><span class="kw"><a href="../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">label =</span> shape_names), <span class="dt">nudge_y =</span> <span class="fl">-0.3</span>, <span class="dt">size =</span> <span class="fl">3.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="st">  </span><span class="kw"><a href="../reference/scale_identity.html">scale_shape_identity</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="st">  </span><span class="kw"><a href="../reference/scale_continuous.html">scale_x_continuous</a></span>(<span class="ot">NULL</span>, <span class="dt">breaks =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-21" data-line-number="21"><span class="st">  </span><span class="kw"><a href="../reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="ot">NULL</span>, <span class="dt">breaks =</span> <span class="ot">NULL</span>)</a></code></pre></div>
+<p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-8-1.png" width="90%"></p>
+<ul>
 <li><p>A <strong>single character</strong>, to use that character as a plotting symbol.</p></li>
 <li><p>A <code>.</code> to draw the smallest rectangle that is visible, usualy 1 pixel.</p></li>
 <li><p>An <code>NA</code>, to draw nothing.</p></li>
@@ -250,12 +275,12 @@
 <h3 class="hasAnchor">
 <a href="#colour-and-fill-1" class="anchor"></a>Colour and fill</h3>
 <p>Note that shapes 21-24 have both stroke <code>colour</code> and a <code>fill</code>. The size of the filled part is controlled by <code>size</code>, the size of the stroke is controlled by <code>stroke</code>. Each is measured in mm, and the total size of the point is the sum of the two. Note that the size is constant along the diagonal in the following figure.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">sizes &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">size =</span> (<span class="dv">0</span><span class="op">:</span><span class="dv">3</span>) <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dt">stroke =</span> (<span class="dv">0</span><span class="op">:</span><span class="dv">3</span>) <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(sizes, <span class="kw"><a href="../reference/aes.html">aes</a></span>(size, stroke, <span class="dt">size =</span> size, <span class="dt">stroke =</span> stroke)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/geom_abline.html">geom_abline</a></span>(<span class="dt">slope =</span> <span class="dv">-1</span>, <span class="dt">intercept =</span> <span class="dv">6</span>, <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">6</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/geom_point.html">geom_point</a></span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">"red"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/scale_identity.html">scale_size_identity</a></span>()</a></code></pre></div>
-<p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">sizes &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">size =</span> (<span class="dv">0</span><span class="op">:</span><span class="dv">3</span>) <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dt">stroke =</span> (<span class="dv">0</span><span class="op">:</span><span class="dv">3</span>) <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(sizes, <span class="kw"><a href="../reference/aes.html">aes</a></span>(size, stroke, <span class="dt">size =</span> size, <span class="dt">stroke =</span> stroke)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/geom_abline.html">geom_abline</a></span>(<span class="dt">slope =</span> <span class="dv">-1</span>, <span class="dt">intercept =</span> <span class="dv">6</span>, <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">6</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/geom_point.html">geom_point</a></span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">"red"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/scale_identity.html">scale_size_identity</a></span>()</a></code></pre></div>
+<p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 </div>
 </div>
 <div id="text" class="section level2">
@@ -265,10 +290,10 @@
 <h3 class="hasAnchor">
 <a href="#font-face" class="anchor"></a>Font face</h3>
 <p>There are only three fonts that are guaranteed to work everywhere: “sans” (the default), “serif”, or “mono”:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">family =</span> <span class="kw">c</span>(<span class="st">"sans"</span>, <span class="st">"serif"</span>, <span class="st">"mono"</span>))</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(df, <span class="kw"><a href="../reference/aes.html">aes</a></span>(x, y)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">label =</span> family, <span class="dt">family =</span> family))</a></code></pre></div>
-<p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">family =</span> <span class="kw">c</span>(<span class="st">"sans"</span>, <span class="st">"serif"</span>, <span class="st">"mono"</span>))</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(df, <span class="kw"><a href="../reference/aes.html">aes</a></span>(x, y)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">label =</span> family, <span class="dt">family =</span> family))</a></code></pre></div>
+<p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 <p>It’s trickier to include a system font on a plot because text drawing is done differently by each graphics device (GD). There are five GDs in common use (<code>png()</code>, <code>pdf()</code>, on screen devices for Windows, Mac and Linux), so to have a font work everywhere you need to configure five devices in five different ways. Two packages simplify the quandary a bit:</p>
 <ul>
 <li><p><code>showtext</code> makes GD-independent plots by rendering all text as polygons.</p></li>
@@ -279,10 +304,10 @@
 <div id="font-face-1" class="section level3">
 <h3 class="hasAnchor">
 <a href="#font-face-1" class="anchor"></a>Font face</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">fontface =</span> <span class="kw">c</span>(<span class="st">"plain"</span>, <span class="st">"bold"</span>, <span class="st">"italic"</span>, <span class="st">"bold.italic"</span>))</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(df, <span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dv">1</span>, x)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">label =</span> fontface, <span class="dt">fontface =</span> fontface))</a></code></pre></div>
-<p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">fontface =</span> <span class="kw">c</span>(<span class="st">"plain"</span>, <span class="st">"bold"</span>, <span class="st">"italic"</span>, <span class="st">"bold.italic"</span>))</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(df, <span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dv">1</span>, x)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">label =</span> fontface, <span class="dt">fontface =</span> fontface))</a></code></pre></div>
+<p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 </div>
 <div id="justification" class="section level3">
 <h3 class="hasAnchor">
@@ -292,13 +317,13 @@
 <li>top = 1, middle = 0.5, bottom = 0</li>
 <li>left = 0, center = 0.5, right = 1</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">just &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">hjust =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), <span class="dt">vjust =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">just<span class="op">$</span>label &lt;-<span class="st"> </span><span class="kw">paste0</span>(just<span class="op">$</span>hjust, <span class="st">", "</span>, just<span class="op">$</span>vjust)</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(just, <span class="kw"><a href="../reference/aes.html">aes</a></span>(hjust, vjust)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/geom_point.html">geom_point</a></span>(<span class="dt">colour =</span> <span class="st">"grey70"</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">label =</span> label, <span class="dt">hjust =</span> hjust, <span class="dt">vjust =</span> vjust))</a></code></pre></div>
-<p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">just &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">hjust =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), <span class="dt">vjust =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">just<span class="op">$</span>label &lt;-<span class="st"> </span><span class="kw">paste0</span>(just<span class="op">$</span>hjust, <span class="st">", "</span>, just<span class="op">$</span>vjust)</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw"><a href="../reference/ggplot.html">ggplot</a></span>(just, <span class="kw"><a href="../reference/aes.html">aes</a></span>(hjust, vjust)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/geom_point.html">geom_point</a></span>(<span class="dt">colour =</span> <span class="st">"grey70"</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/geom_text.html">geom_text</a></span>(<span class="kw"><a href="../reference/aes.html">aes</a></span>(<span class="dt">label =</span> label, <span class="dt">hjust =</span> hjust, <span class="dt">vjust =</span> vjust))</a></code></pre></div>
+<p><img src="ggplot2-specs_files/figure-html/unnamed-chunk-12-1.png" width="700"></p>
 <p>Note that you can use numbers outside the range (0, 1), but it’s not recommended.</p>
 </div>
 </div>
@@ -326,7 +351,7 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

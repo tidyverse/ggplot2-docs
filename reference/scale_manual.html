@@ -119,14 +119,14 @@
 
     <div class="ref-description">
     
-    <p>This allows you to specify you own set of mappings from levels in the
+    <p>These functions allow you to specify your own set of mappings from levels in the
 data to aesthetic values.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>scale_colour_manual</span>(<span class='no'>...</span>, <span class='no'>values</span>)
+    <pre class="usage"><span class='fu'>scale_colour_manual</span>(<span class='no'>...</span>, <span class='no'>values</span>, <span class='kw'>aesthetics</span> <span class='kw'>=</span> <span class='st'>"colour"</span>)
 
-<span class='fu'>scale_fill_manual</span>(<span class='no'>...</span>, <span class='no'>values</span>)
+<span class='fu'>scale_fill_manual</span>(<span class='no'>...</span>, <span class='no'>values</span>, <span class='kw'>aesthetics</span> <span class='kw'>=</span> <span class='st'>"fill"</span>)
 
 <span class='fu'>scale_size_manual</span>(<span class='no'>...</span>, <span class='no'>values</span>)
 
@@ -134,7 +134,9 @@ data to aesthetic values.</p>
 
 <span class='fu'>scale_linetype_manual</span>(<span class='no'>...</span>, <span class='no'>values</span>)
 
-<span class='fu'>scale_alpha_manual</span>(<span class='no'>...</span>, <span class='no'>values</span>)</pre>
+<span class='fu'>scale_alpha_manual</span>(<span class='no'>...</span>, <span class='no'>values</span>)
+
+<span class='fu'>scale_discrete_manual</span>(<span class='no'>aesthetics</span>, <span class='no'>...</span>, <span class='no'>values</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,7 +164,6 @@ from a discrete scale, specify <code>na.translate = FALSE</code>.</p></dd>
   <dt>na.value</dt><dd><p>If <code>na.translate = TRUE</code>, what value aesthetic
 value should missing be displayed as? Does not apply to position scales
 where <code>NA</code> is always placed at the far right.</p></dd>
-  <dt>aesthetics</dt><dd><p>The names of the aesthetics that this scale works with</p></dd>
   <dt>scale_name</dt><dd><p>The name of the scale</p></dd>
   <dt>palette</dt><dd><p>A palette function that when called with a single integer
 argument (the number of levels in the scale) returns the values that
@@ -193,7 +194,24 @@ If unnamed, values will be matched in order (usually alphabetical) with
 the limits of the scale. Any data values that don't match will be
 given <code>na.value</code>.</p></td>
     </tr>
+    <tr>
+      <th>aesthetics</th>
+      <td><p>Character string or vector of character strings listing the
+name(s) of the aesthetic(s) that this scale works with. This can be useful, for
+example, to apply colour settings to the <code>colour</code> and <code>fill</code> aesthetics at the
+same time, via <code>aesthetics = c("colour", "fill")</code>.</p></td>
+    </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The functions <code>scale_colour_manual()</code>, <code>scale_fill_manual()</code>, <code>scale_size_manual()</code>,
+etc. work on the aesthetics specified in the scale name: <code>colour</code>, <code>fill</code>, <code>size</code>,
+etc. However, the functions <code>scale_colour_manual()</code> and <code>scale_fill_manual()</code> also
+have an optional <code>aesthetics</code> argument that can be used to define both <code>colour</code> and
+<code>fill</code> aesthetic mappings via a single function call (see examples). The function
+<code>scale_discrete_manual()</code> is a generic scale that can work with any aesthetic or set
+of aesthetics provided via the <code>aesthetics</code> argument.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -203,21 +221,33 @@ given <code>na.value</code>.</p></td>
 <span class='co'># It's recommended to use a named vector</span>
 <span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"8"</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='st'>"4"</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='st'>"6"</span> <span class='kw'>=</span> <span class='st'>"darkgreen"</span>, <span class='st'>"10"</span> <span class='kw'>=</span> <span class='st'>"orange"</span>)
 <span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>)</div><div class='img'><img src='scale_manual-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># You can set color and fill aesthetics at the same time</span>
+<span class='fu'><a href='ggplot.html'>ggplot</a></span>(
+  <span class='no'>mtcars</span>,
+  <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'>factor</span>(<span class='no'>cyl</span>))
+) +
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='kw'>shape</span> <span class='kw'>=</span> <span class='fl'>21</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>) +
+  <span class='fu'>scale_colour_manual</span>(
+    <span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>,
+    <span class='kw'>aesthetics</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"colour"</span>, <span class='st'>"fill"</span>)
+  )</div><div class='img'><img src='scale_manual-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># As with other scales you can use breaks to control the appearance</span>
 <span class='co'># of the legend.</span>
-<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>)</div><div class='img'><img src='scale_manual-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(
+<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>)</div><div class='img'><img src='scale_manual-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(
   <span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>,
   <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>),
   <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"four"</span>, <span class='st'>"six"</span>, <span class='st'>"eight"</span>)
-)</div><div class='img'><img src='scale_manual-4.png' alt='' width='700' height='433' /></div><div class='input'>
+)</div><div class='img'><img src='scale_manual-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># And limits to control the possible values of the scale</span>
-<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"8"</span>))</div><div class='img'><img src='scale_manual-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>, <span class='st'>"10"</span>))</div><div class='img'><img src='scale_manual-6.png' alt='' width='700' height='433' /></div></pre>
+<span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"8"</span>))</div><div class='img'><img src='scale_manual-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>scale_colour_manual</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>, <span class='st'>"10"</span>))</div><div class='img'><img src='scale_manual-7.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
@@ -230,7 +260,7 @@ given <code>na.value</code>.</p></td>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

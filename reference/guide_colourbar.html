@@ -134,7 +134,8 @@ For more information, see the inspiration for this function:
   <span class='kw'>frame.linewidth</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>frame.linetype</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>ticks</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>ticks.colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>ticks.linewidth</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>draw.ulim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>draw.llim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>default.unit</span> <span class='kw'>=</span> <span class='st'>"line"</span>,
-  <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='no'>...</span>)
+  <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>available_aes</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"colour"</span>, <span class='st'>"color"</span>,
+  <span class='st'>"fill"</span>), <span class='no'>...</span>)
 
 <span class='fu'>guide_colorbar</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span>(), <span class='kw'>title.position</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>title.theme</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>title.hjust</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>title.vjust</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -144,7 +145,8 @@ For more information, see the inspiration for this function:
   <span class='kw'>frame.linewidth</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>frame.linetype</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>ticks</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>ticks.colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>ticks.linewidth</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>draw.ulim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>draw.llim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>default.unit</span> <span class='kw'>=</span> <span class='st'>"line"</span>,
-  <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>available_aes</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"colour"</span>, <span class='st'>"color"</span>,
+  <span class='st'>"fill"</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -290,6 +292,11 @@ multiple guides are displayed, not the contents of the guide itself.
 If 0 (default), the order is determined by a secret algorithm.</p></td>
     </tr>
     <tr>
+      <th>available_aes</th>
+      <td><p>A vector of charater strings listing the aesthetics
+for which a colorbar can be drawn.</p></td>
+    </tr>
+    <tr>
       <th>...</th>
       <td><p>ignored.</p></td>
     </tr>
@@ -371,7 +378,7 @@ see <code><a href='guides.html'>guides()</a></code>.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

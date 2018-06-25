@@ -138,6 +138,11 @@ they are so common; all other aesthetics must be named.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list with class <code>uneval</code>. Components of the list are either
+quosures or constants.</p>
+    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function also standardises aesthetic names by performing partial
@@ -171,29 +176,34 @@ faceting specifications.</p></div>
 <span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>mpg</span> ^ <span class='fl'>2</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>wt</span> / <span class='no'>cyl</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `x` -&gt; `mpg^2`
 #&gt; * `y` -&gt; `wt/cyl`</div><div class='input'>
+<span class='co'># Or to constants</span>
+<span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"smooth"</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `x`      -&gt; 1
+#&gt; * `colour` -&gt; "smooth"</div><div class='input'>
 <span class='co'># Aesthetic names are automatically standardised</span>
 <span class='fu'>aes</span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `colour` -&gt; `x`</div><div class='input'><span class='fu'>aes</span>(<span class='kw'>fg</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `colour` -&gt; `x`</div><div class='input'><span class='fu'>aes</span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `colour` -&gt; `x`</div><div class='input'><span class='fu'>aes</span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `colour` -&gt; `x`</div><div class='input'>
-<span class='co'># aes is almost always used with ggplot() or a layer</span>
+<span class='co'># aes() is passed to either ggplot() or specific layer. Aesthetics supplied</span>
+<span class='co'># to ggplot() are used as defaults for every layer.</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>, <span class='fu'>aes</span>(<span class='no'>displ</span>, <span class='no'>hwy</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>()</div><div class='img'><img src='aes-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mpg</span>) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'>aes</span>(<span class='no'>displ</span>, <span class='no'>hwy</span>))</div><div class='img'><img src='aes-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Aesthetics supplied to ggplot() are used as defaults for every layer</span>
-<span class='co'># you can override them, or supply different aesthetics for each layer</span>
-
-
-<span class='co'># aes() is a quoting function, so you need to use tidy evaluation</span>
-<span class='co'># techniques to create wrappers around ggplot2 pipelines. The</span>
+<span class='co'># Tidy evaluation ----------------------------------------------------</span>
+<span class='co'># aes() automatically quotes all its arguments, so you need to use tidy</span>
+<span class='co'># evaluation to create wrappers around ggplot2 pipelines. The</span>
 <span class='co'># simplest case occurs when your wrapper takes dots:</span>
 <span class='no'>scatter_by</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>data</span>, <span class='no'>...</span>) {
   <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>data</span>) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'>aes</span>(<span class='no'>...</span>))
 }
 <span class='fu'>scatter_by</span>(<span class='no'>mtcars</span>, <span class='no'>disp</span>, <span class='no'>drat</span>)</div><div class='img'><img src='aes-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># If your wrapper has a more specific interface with named arguments,</span>
-<span class='co'># you need to use the "enquote and unquote" technique:</span>
+<span class='co'># you need "enquote and unquote":</span>
 <span class='no'>scatter_by</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>data</span>, <span class='no'>x</span>, <span class='no'>y</span>) {
-  <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>data</span>) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'>aes</span>(!!<span class='fu'><a href='tidyeval.html'>enquo</a></span>(<span class='no'>x</span>), !!<span class='fu'><a href='tidyeval.html'>enquo</a></span>(<span class='no'>y</span>)))
+  <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tidyeval.html'>enquo</a></span>(<span class='no'>x</span>)
+  <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tidyeval.html'>enquo</a></span>(<span class='no'>y</span>)
+
+  <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>data</span>) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'>aes</span>(!!<span class='no'>x</span>, !!<span class='no'>y</span>))
 }
 <span class='fu'>scatter_by</span>(<span class='no'>mtcars</span>, <span class='no'>disp</span>, <span class='no'>drat</span>)</div><div class='img'><img src='aes-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Note that users of your wrapper can use their own functions in the</span>
@@ -206,6 +216,8 @@ faceting specifications.</p></div>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#details">Details</a></li>
 
       <li><a href="#quasiquotation">Quasiquotation</a></li>
@@ -224,7 +236,7 @@ faceting specifications.</p></div>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

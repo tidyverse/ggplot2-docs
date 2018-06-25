@@ -124,9 +124,11 @@ of <code><a href='scale_gradient.html'>scale_colour_gradient()</a></code>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>scale_colour_grey</span>(<span class='no'>...</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>end</span> <span class='kw'>=</span> <span class='fl'>0.8</span>, <span class='kw'>na.value</span> <span class='kw'>=</span> <span class='st'>"red"</span>)
+    <pre class="usage"><span class='fu'>scale_colour_grey</span>(<span class='no'>...</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>end</span> <span class='kw'>=</span> <span class='fl'>0.8</span>, <span class='kw'>na.value</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
+  <span class='kw'>aesthetics</span> <span class='kw'>=</span> <span class='st'>"colour"</span>)
 
-<span class='fu'>scale_fill_grey</span>(<span class='no'>...</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>end</span> <span class='kw'>=</span> <span class='fl'>0.8</span>, <span class='kw'>na.value</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</pre>
+<span class='fu'>scale_fill_grey</span>(<span class='no'>...</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>end</span> <span class='kw'>=</span> <span class='fl'>0.8</span>, <span class='kw'>na.value</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
+  <span class='kw'>aesthetics</span> <span class='kw'>=</span> <span class='st'>"fill"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -197,6 +199,13 @@ scales, "top" or "bottom" for horizontal scales</p></dd>
       <th>na.value</th>
       <td><p>Colour to use for missing values</p></td>
     </tr>
+    <tr>
+      <th>aesthetics</th>
+      <td><p>Character string or vector of character strings listing the
+name(s) of the aesthetic(s) that this scale works with. This can be useful, for
+example, to apply colour settings to the <code>colour</code> and <code>fill</code> aesthetics at the
+same time, via <code>aesthetics = c("colour", "fill")</code>.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -240,7 +249,7 @@ scales, "top" or "bottom" for horizontal scales</p></dd>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

@@ -140,16 +140,16 @@ Broken down into construct, build, render and draw times.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>())</div><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.006    0.000   0.011
-#&gt; 2     build     0.028    0.001   0.038
-#&gt; 3    render     0.113    0.008   0.150
-#&gt; 4      draw     0.177    0.014   0.239
-#&gt; 5     TOTAL     0.324    0.023   0.438</div><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>))</div><div class='img'><img src='benchplot-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.523    0.038   0.693
-#&gt; 2     build     0.054    0.000   0.060
-#&gt; 3    render     0.264    0.015   0.332
-#&gt; 4      draw     0.261    0.020   0.338
-#&gt; 5     TOTAL     1.102    0.073   1.423</div></pre>
+#&gt; 1 construct     0.003    0.000   0.003
+#&gt; 2     build     0.015    0.000   0.015
+#&gt; 3    render     0.041    0.001   0.042
+#&gt; 4      draw     0.035    0.000   0.035
+#&gt; 5     TOTAL     0.094    0.001   0.095</div><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>))</div><div class='img'><img src='benchplot-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt;        step user.self sys.self elapsed
+#&gt; 1 construct     0.004    0.000   0.003
+#&gt; 2     build     0.027    0.000   0.028
+#&gt; 3    render     0.088    0.001   0.089
+#&gt; 4      draw     0.058    0.000   0.058
+#&gt; 5     TOTAL     0.177    0.001   0.178</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -168,7 +168,7 @@ Broken down into construct, build, render and draw times.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

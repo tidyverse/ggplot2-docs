@@ -123,7 +123,7 @@
 audience. Ensure the axis and legend labels display the full variable name.
 Use the plot <code>title</code> and <code>subtitle</code> to explain the main findings.
 It's common to use the <code>caption</code> to provide information about the
-data source.</p>
+data source. <code>tag</code> can be used for adding identification tags.</p>
     
     </div>
 
@@ -141,7 +141,7 @@ data source.</p>
     <tr>
       <th>...</th>
       <td><p>A list of new name-value pairs. The name should either be
-an aesthetic, or one of "title", "subtitle", or "caption".</p></td>
+an aesthetic, or one of "title", "subtitle", "caption", or "tag".</p></td>
     </tr>
     <tr>
       <th>label</th>
@@ -157,7 +157,7 @@ displayed below the title. Leave <code>NULL</code> for no subtitle.</p></td>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>You can also set axis and legend labels in the individual scales (using
-the first argument, the <code>name</code>. I recommend doing that if you're
+the first argument, the <code>name</code>). I recommend doing that if you're
 changing other scale options.</p>
     
 
@@ -169,7 +169,10 @@ changing other scale options.</p>
 <span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"New plot title"</span>)</div><div class='img'><img src='labs-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"New plot title"</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"A subtitle"</span>)</div><div class='img'><img src='labs-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># The caption appears in the bottom-right, and is often used for</span>
 <span class='co'># sources, notes or copyright</span>
-<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"(based on data from ...)"</span>)</div><div class='img'><img src='labs-5.png' alt='' width='700' height='433' /></div></pre>
+<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"(based on data from ...)"</span>)</div><div class='img'><img src='labs-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># The plot tag appears at the top-left, and is typically used</span>
+<span class='co'># for labelling a subplot with a letter.</span>
+<span class='no'>p</span> + <span class='fu'>labs</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"title"</span>, <span class='kw'>tag</span> <span class='kw'>=</span> <span class='st'>"A"</span>)</div><div class='img'><img src='labs-6.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -190,7 +193,7 @@ changing other scale options.</p>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 

@@ -170,27 +170,27 @@ idioms instead (see the quasiquotation section in
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Three ways of generating the same aesthetics</span>
 <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>cyl</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
-#&gt; * `x     ` -&gt; `mpg`
-#&gt; * `y     ` -&gt; `wt`
+#&gt; * `x`      -&gt; `mpg`
+#&gt; * `y`      -&gt; `wt`
 #&gt; * `colour` -&gt; `cyl`</div><div class='input'><span class='fu'>aes_</span>(<span class='fu'>quote</span>(<span class='no'>mpg</span>), <span class='fu'>quote</span>(<span class='no'>wt</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>quote</span>(<span class='no'>cyl</span>))</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `colour` -&gt; `cyl`
-#&gt; * `x     ` -&gt; `mpg`
-#&gt; * `y     ` -&gt; `wt`</div><div class='input'><span class='fu'>aes_</span>(~<span class='no'>mpg</span>, ~<span class='no'>wt</span>, <span class='kw'>col</span> <span class='kw'>=</span> ~<span class='no'>cyl</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `x`      -&gt; `mpg`
+#&gt; * `y`      -&gt; `wt`</div><div class='input'><span class='fu'>aes_</span>(~<span class='no'>mpg</span>, ~<span class='no'>wt</span>, <span class='kw'>col</span> <span class='kw'>=</span> ~<span class='no'>cyl</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `colour` -&gt; `cyl`
-#&gt; * `x     ` -&gt; `mpg`
-#&gt; * `y     ` -&gt; `wt`</div><div class='input'><span class='fu'>aes_string</span>(<span class='st'>"mpg"</span>, <span class='st'>"wt"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"cyl"</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
+#&gt; * `x`      -&gt; `mpg`
+#&gt; * `y`      -&gt; `wt`</div><div class='input'><span class='fu'>aes_string</span>(<span class='st'>"mpg"</span>, <span class='st'>"wt"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"cyl"</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `colour` -&gt; `cyl`
-#&gt; * `x     ` -&gt; `mpg`
-#&gt; * `y     ` -&gt; `wt`</div><div class='input'>
+#&gt; * `x`      -&gt; `mpg`
+#&gt; * `y`      -&gt; `wt`</div><div class='input'>
 <span class='co'># You can't easily mimic these calls with aes_string</span>
 <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>`$100`</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"smooth"</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
-#&gt; * `x     ` -&gt; `$100`
+#&gt; * `x`      -&gt; `$100`
 #&gt; * `colour` -&gt; "smooth"</div><div class='input'><span class='fu'>aes_</span>(~ <span class='no'>`$100`</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"smooth"</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `colour` -&gt; "smooth"
-#&gt; * `x     ` -&gt; `$100`</div><div class='input'><span class='co'># Ok, you can, but it requires a _lot_ of quotes</span>
+#&gt; * `x`      -&gt; `$100`</div><div class='input'><span class='co'># Ok, you can, but it requires a _lot_ of quotes</span>
 <span class='fu'>aes_string</span>(<span class='st'>"`$100`"</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>'"smooth"'</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
 #&gt; * `colour` -&gt; "smooth"
-#&gt; * `x     ` -&gt; `$100`</div><div class='input'>
+#&gt; * `x`      -&gt; `$100`</div><div class='input'>
 <span class='co'># Convert strings to names with as.name</span>
 <span class='no'>var</span> <span class='kw'>&lt;-</span> <span class='st'>"cyl"</span>
 <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>x</span>)</div><div class='output co'>#&gt; Aesthetic mapping: 
@@ -220,7 +220,7 @@ idioms instead (see the quasiquotation section in
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Kara Woo, Thomas Lin Pedersen, Claus Wilke, Kohske Takahashi.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
